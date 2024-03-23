@@ -1,4 +1,4 @@
-import Hello from "./templates/Hello";
+import Hello from "@/templates/Hello";
 
 export default function Page() {
   return (
