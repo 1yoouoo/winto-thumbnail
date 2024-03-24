@@ -24,6 +24,8 @@ type TemplateCondition = {
   condition: (gameInfo: GameInfoDto) => number;
 };
 
+const whichTemplate = process.env.DEVELOPMENT_MODE_SELECT_TEMPLATE;
+
 export const templateConditions: TemplateCondition[] = [
   {
     name: "HighKDA",
@@ -116,8 +118,8 @@ export function selectTemplate(gameInfo: GameInfoDto) {
   });
   console.log("****************선택된 템플릿********************");
   console.log(`  ╔═════════════════════════════════╗`);
-  console.log(`  ║  ${scoredTemplates[0].name}     ║`);
+  console.log(`  ║  ${scoredTemplates[1].name}     ║`);
   console.log(`  ╚═════════════════════════════════╝`);
 
-  return scoredTemplates[0].component;
+  return scoredTemplates[1].component;
 }

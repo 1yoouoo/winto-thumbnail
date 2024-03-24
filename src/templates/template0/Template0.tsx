@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { fonts } from "@/style/fonts";
 import { Ddragon } from "@/constant/constant";
 
-const Container = styled.div`
+export const Container = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ const Container = styled.div`
   }
 `;
 
-const CropedSplashImage = styled.div`
+export const CropedSplashImage = styled.div`
   position: absolute;
   width: 1280px;
   height: 720px;
@@ -33,7 +33,7 @@ const CropedSplashImage = styled.div`
   }
 `;
 
-const GameInfoWrapper = styled.div`
+export const GameInfoWrapper = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -45,23 +45,25 @@ const GameInfoWrapper = styled.div`
   padding: 50px;
   margin-left: 50px;
   gap: 60px;
+  z-index: 2;
 `;
 
-const GameInfoName = styled.div`
+export const GameInfoName = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
   font-size: 140px;
   color: white;
+  z-index: 2;
 `;
 
-const GameInfoTeamName = styled.span`
+export const GameInfoTeamName = styled.span`
   font-size: 140px;
 `;
 
-const GameInfoPlayerName = styled.span``;
+export const GameInfoPlayerName = styled.span``;
 
-const GameInfoChampion = styled.div`
+export const GameInfoChampion = styled.div`
   display: flex;
   font-size: 130px;
   color: white;
@@ -69,10 +71,19 @@ const GameInfoChampion = styled.div`
   gap: 40px;
 `;
 
-const GameInfoChampionName = styled.span``;
+export const GameInfoChampionName = styled.span``;
 
-const GameInfoChampionPosition = styled.span`
+export const GameInfoChampionPosition = styled.span`
   margin-left: 20px;
+`;
+
+export const WaterMark = styled.div`
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  font-size: 40px;
+  color: white;
+  z-index: 100;
 `;
 
 const GameInfoItems = styled.div`
@@ -94,14 +105,12 @@ const GameInfoItem = styled.div`
 
 import Image from "next/image";
 import { textShadowStyles } from "@/style/decoration";
-import GameInfoDto, { Item } from "@/types/GameInfoDto";
+import GameInfoDto from "@/types/GameInfoDto";
 
 const Template0: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
   const fullName = `${gameInfo.teamName} ${gameInfo.playerName}`;
 
   const champion = `${gameInfo.championName} ${gameInfo.teamPosition}`;
-
-  // console.log(gameInfo.items.map((item) => item.id));
 
   // item 골드 순으로 정렬
   const sorteditems = gameInfo.items.sort((a, b) => b.totalGold - a.totalGold);
@@ -159,6 +168,7 @@ const Template0: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
           ))}
         </GameInfoItems>
       </GameInfoWrapper>
+      <WaterMark>Template0</WaterMark>
     </Container>
   );
 };

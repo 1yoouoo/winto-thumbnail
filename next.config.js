@@ -13,6 +13,9 @@ module.exports = {
   },
 
   images: {
-    domains: ["ddragon.leagueoflegends.com"], // 여기에 이미지 호스트 도메인 추가
+    domains: [
+      "ddragon.leagueoflegends.com",
+      "wooto-lol-replays.s3.ap-northeast-2.amazonaws.com",
+    ], // 여기에 이미지 호스트 도메인 추가
   },
 };
