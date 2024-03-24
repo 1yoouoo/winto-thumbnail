@@ -4,9 +4,14 @@ import { fonts } from "@/style/fonts";
 import { Ddragon } from "@/constant/constant";
 
 const Container = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1280px;
+  height: 720px;
+
+  background-color: black;
 
   @font-face {
     font-family: ${fonts.GROBOLD.fontFamily};
@@ -16,8 +21,9 @@ const Container = styled.div`
 
 const CropedSplashImage = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 1280px;
+  height: 720px;
+
   overflow: hidden;
 
   img {
@@ -36,8 +42,8 @@ const GameInfoWrapper = styled.div`
   background-color: transparent;
   font-family: ${fonts.GROBOLD.fontFamily};
   text-shadow: ${textShadowStyles.thickStyle};
-  padding: 30px;
-  margin-left: 30px;
+  padding: 50px;
+  margin-left: 50px;
   gap: 60px;
 `;
 
@@ -57,9 +63,10 @@ const GameInfoPlayerName = styled.span``;
 
 const GameInfoChampion = styled.div`
   display: flex;
-  font-size: 120px;
+  font-size: 130px;
   color: white;
   color: #fcdc2a;
+  gap: 40px;
 `;
 
 const GameInfoChampionName = styled.span``;
@@ -70,39 +77,37 @@ const GameInfoChampionPosition = styled.span`
 
 const GameInfoItems = styled.div`
   display: flex;
-  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
 `;
 
 const GameInfoItem = styled.div`
   img {
-    width: 100px;
-    height: 100px;
+    width: 230px;
+    height: 230px;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
   }
 `;
 
 import Image from "next/image";
 import { textShadowStyles } from "@/style/decoration";
-import GameInfoDto from "@/types/GameInfoDto";
+import GameInfoDto, { Item } from "@/types/GameInfoDto";
 
 const Template0: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
   const fullName = `${gameInfo.teamName} ${gameInfo.playerName}`;
 
   const champion = `${gameInfo.championName} ${gameInfo.teamPosition}`;
 
-  const items = [
-    gameInfo.item0,
-    gameInfo.item1,
-    gameInfo.item2,
-    gameInfo.item3,
-    gameInfo.item4,
-    gameInfo.item5,
-    gameInfo.item6,
-  ];
+  // console.log(gameInfo.items.map((item) => item.id));
 
   // item 골드 순으로 정렬
-  items.sort((a, b) => a.totalGold - b.totalGold);
+  const sorteditems = gameInfo.items.sort((a, b) => b.totalGold - a.totalGold);
+  // 앞에서 3개만 자르기
+  const getTop3Items = sorteditems.slice(0, 3);
 
-  console.log(items.map((item) => item.id));
   return (
     <Container>
       <CropedSplashImage>
@@ -142,19 +147,16 @@ const Template0: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
         </GameInfoChampion>
 
         <GameInfoItems>
-          {items.map(
-            (item, index) =>
-              item && (
-                <GameInfoItem key={index}>
-                  <Image
-                    src={`${Ddragon}/${gameInfo.gameVersion}/img/item/${item.id}.png`}
-                    alt="item"
-                    width={50}
-                    height={50}
-                  />
-                </GameInfoItem>
-              )
-          )}
+          {getTop3Items.map((item, index) => (
+            <GameInfoItem key={index}>
+              <Image
+                src={`${Ddragon}/${gameInfo.gameVersion}/img/item/${item.id}.png`}
+                alt="item"
+                width={50}
+                height={50}
+              />
+            </GameInfoItem>
+          ))}
         </GameInfoItems>
       </GameInfoWrapper>
     </Container>
