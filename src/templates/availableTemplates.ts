@@ -39,93 +39,45 @@ export const templateConditions: TemplateCondition[] = [
   },
   {
     name: "ExpensiveItems1",
-    condition: (gameInfo: GameInfoDto) => {
-      const expensiveItemsCount = [
-        gameInfo.item0,
-        gameInfo.item1,
-        gameInfo.item2,
-        gameInfo.item3,
-        gameInfo.item4,
-        gameInfo.item5,
-        gameInfo.item6,
-      ].filter((item) => item && item.totalGold >= 2400).length;
-      return expensiveItemsCount === 1 ? 10 : 0;
-    },
+    condition: (gameInfo: GameInfoDto) =>
+      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 1
+        ? 10
+        : 0,
   },
   {
     name: "ExpensiveItems2",
-    condition: (gameInfo: GameInfoDto) => {
-      const expensiveItemsCount = [
-        gameInfo.item0,
-        gameInfo.item1,
-        gameInfo.item2,
-        gameInfo.item3,
-        gameInfo.item4,
-        gameInfo.item5,
-        gameInfo.item6,
-      ].filter((item) => item && item.totalGold >= 2400).length;
-      return expensiveItemsCount === 2 ? 10 : 0;
-    },
+    condition: (gameInfo: GameInfoDto) =>
+      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 2
+        ? 10
+        : 0,
   },
   {
     name: "ExpensiveItems3",
-    condition: (gameInfo: GameInfoDto) => {
-      const expensiveItemsCount = [
-        gameInfo.item0,
-        gameInfo.item1,
-        gameInfo.item2,
-        gameInfo.item3,
-        gameInfo.item4,
-        gameInfo.item5,
-        gameInfo.item6,
-      ].filter((item) => item && item.totalGold >= 2400).length;
-      return expensiveItemsCount === 3 ? 10 : 0;
-    },
+    condition: (gameInfo: GameInfoDto) =>
+      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 3
+        ? 10
+        : 0,
   },
   {
     name: "ExpensiveItems4",
-    condition: (gameInfo: GameInfoDto) => {
-      const expensiveItemsCount = [
-        gameInfo.item0,
-        gameInfo.item1,
-        gameInfo.item2,
-        gameInfo.item3,
-        gameInfo.item4,
-        gameInfo.item5,
-        gameInfo.item6,
-      ].filter((item) => item && item.totalGold >= 2400).length;
-      return expensiveItemsCount === 4 ? 10 : 0;
-    },
+    condition: (gameInfo: GameInfoDto) =>
+      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 4
+        ? 10
+        : 0,
   },
   {
     name: "ExpensiveItems5",
-    condition: (gameInfo: GameInfoDto) => {
-      const expensiveItemsCount = [
-        gameInfo.item0,
-        gameInfo.item1,
-        gameInfo.item2,
-        gameInfo.item3,
-        gameInfo.item4,
-        gameInfo.item5,
-        gameInfo.item6,
-      ].filter((item) => item && item.totalGold >= 2400).length;
-      return expensiveItemsCount === 5 ? 10 : 0;
-    },
+    condition: (gameInfo: GameInfoDto) =>
+      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 5
+        ? 10
+        : 0,
   },
   {
     name: "ExpensiveItems6",
-    condition: (gameInfo: GameInfoDto) => {
-      const expensiveItemsCount = [
-        gameInfo.item0,
-        gameInfo.item1,
-        gameInfo.item2,
-        gameInfo.item3,
-        gameInfo.item4,
-        gameInfo.item5,
-        gameInfo.item6,
-      ].filter((item) => item && item.totalGold >= 2400).length;
-      return expensiveItemsCount === 6 ? 10 : 0;
-    },
+    condition: (gameInfo: GameInfoDto) =>
+      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 6
+        ? 10
+        : 0,
   },
 ];
 
@@ -138,7 +90,7 @@ export const templates: Template[] = [
   {
     component: Template1,
     name: "Template1",
-    conditions: ["SpecialSkin", "ExpensiveItems2"],
+    conditions: ["SpecialSkin", "ExpensiveItems3"],
   },
 ];
 
@@ -155,7 +107,17 @@ export function selectTemplate(gameInfo: GameInfoDto) {
 
   scoredTemplates.sort((a, b) => b.score - a.score);
 
-  console.log("scoredTemplates", scoredTemplates);
+  console.log("****************템플릿 이름, 점수********************");
+  scoredTemplates.forEach((template) => {
+    console.log(`  ╔═════════════════════════════════╗`);
+    console.log(`  ║  name: '${template.name}'       ║`);
+    console.log(`  ║  score: ${template.score}       ║`);
+    console.log(`  ╚═════════════════════════════════╝`);
+  });
+  console.log("****************선택된 템플릿********************");
+  console.log(`  ╔═════════════════════════════════╗`);
+  console.log(`  ║  ${scoredTemplates[0].name}     ║`);
+  console.log(`  ╚═════════════════════════════════╝`);
 
   return scoredTemplates[0].component;
 }

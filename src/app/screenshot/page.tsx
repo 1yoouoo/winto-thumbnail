@@ -1,15 +1,14 @@
 "use client";
 import { selectTemplate } from "@/templates/availableTemplates";
 import GameInfoDto from "@/types/GameInfoDto";
-import { queryStringToJson } from "../../../utils/formatJson";
+import { parseItems } from "../../../utils/formatJson";
 
-export default function Page({ searchParams }: { searchParams: string }) {
-  console.log("searchParams", searchParams);
-  const gameInfo = queryStringToJson(searchParams);
+export default function Page({ searchParams }: any) {
+  const gameInfo = searchParams;
 
-  console.log("gameInfo", gameInfo);
+  gameInfo.items = parseItems(gameInfo.items);
 
-  // const SelectedTemplate = selectTemplate(gameInfo);
+  const SelectedTemplate = selectTemplate(gameInfo);
 
-  // return <SelectedTemplate gameInfo={gameInfo} />;
+  return <SelectedTemplate gameInfo={gameInfo} />;
 }

@@ -5,7 +5,7 @@ import path from "path";
 import fs from "fs";
 import { transformGameInfo } from "../../../utils/transformToModel";
 import GameInfoDto from "@/types/GameInfoDto";
-import { jsonToQueryString } from "../../../utils/formatJson";
+import { convertJsonToQueryString } from "../../../utils/formatJson";
 
 type ResponseData = {
   message: string;
@@ -16,8 +16,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  console.log("handler", __dirname);
-
   const isDevelopmentMode = process.env.DEVELOPMENT_MODE === "true";
 
   if (req.method === "POST") {
@@ -25,9 +23,7 @@ export default async function handler(
 
     const transformedGameInfo = transformGameInfo(gameInfo);
 
-    const queryString = jsonToQueryString(transformedGameInfo);
-
-    console.log("queryString >>>>>>>>>>> ", queryString);
+    const queryString = convertJsonToQueryString(transformedGameInfo);
 
     const browser = await puppeteer.launch({
       headless: !isDevelopmentMode, // 개발 모드에서는 headless 모드 비활성화
@@ -41,7 +37,7 @@ export default async function handler(
       waitUntil: "networkidle0",
     });
 
-    console.log("screenshotUrl >>>>>>>>>>> ", screenshotUrl);
+    // console.log("screenshotUrl >>>>>>>>>>> ", screenshotUrl);
 
     const screenshotDir = path.resolve(__dirname, "./screenshot");
 
@@ -56,12 +52,13 @@ export default async function handler(
     );
 
     // 스크린샷 저장
-    console.log("screenshotPath", screenshotPath);
+    // console.log("screenshotPath", screenshotPath);
     await page.screenshot({
       path: screenshotPath,
       type: "jpeg",
       quality: 100,
-      fullPage: true,
+      omitBackground: true,
+      clip: { x: 0, y: 0, width: 1280, height: 720 },
     });
 
     if (isDevelopmentMode) {

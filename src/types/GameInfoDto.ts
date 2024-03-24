@@ -5,7 +5,7 @@ type GameInfoDto = {
   kills: number;
   deaths: number;
   assists: number;
-  items: Item[]; // id: number, totalGold: gold.total
+  items: Item[]; // id: number, totalGold:
   skinID: number;
   teamPosition: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
   gameVersion: string;
@@ -19,7 +19,7 @@ type GameInfoDto = {
   pentaKills: number; // 펜타킬 수
 };
 
-type Item = {
+export type Item = {
   id: number;
   totalGold: number;
 };
