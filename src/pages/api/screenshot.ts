@@ -3,13 +3,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer";
 import path from "path";
 import fs from "fs";
-import { data } from "@/app/shared";
-
-function jsonToQueryString(json: Record<string, string>) {
-  return Object.keys(json)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(json[key]))
-    .join("&");
-}
+import { transformGameInfo } from "../../../utils/transformToModel";
+import GameInfoDto from "@/types/GameInfoDto";
+import { jsonToQueryString } from "../../../utils/formatJson";
 
 type ResponseData = {
   message: string;
@@ -21,16 +17,25 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   console.log("handler", __dirname);
+
+  const isDevelopmentMode = process.env.DEVELOPMENT_MODE === "true";
+
   if (req.method === "POST") {
-    const gameInfo = req.body;
+    const gameInfo = req.body as GameInfoDto;
 
-    const queryString = jsonToQueryString(gameInfo);
+    const transformedGameInfo = transformGameInfo(gameInfo);
 
-    const browser = await puppeteer.launch();
+    const queryString = jsonToQueryString(transformedGameInfo);
+
+    console.log("queryString >>>>>>>>>>> ", queryString);
+
+    const browser = await puppeteer.launch({
+      headless: !isDevelopmentMode, // 개발 모드에서는 headless 모드 비활성화
+    });
     const page = await browser.newPage();
-    await data.createData({ gameInfo });
 
     const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
+    await page.setViewport({ width: 1280, height: 720 });
 
     await page.goto(screenshotUrl, {
       waitUntil: "networkidle0",
@@ -58,7 +63,16 @@ export default async function handler(
       quality: 100,
       fullPage: true,
     });
-    await browser.close();
+
+    if (isDevelopmentMode) {
+      await new Promise((resolve) => {
+        console.log(
+          "Server is running in development mode. Press Ctrl+C to stop."
+        );
+      });
+    } else {
+      await browser.close();
+    }
 
     // 응답
     res.status(200).json({

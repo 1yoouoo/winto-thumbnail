@@ -1,7 +1,7 @@
 "use client";
 
-import styled from "styled-components";
-import StyledComponentsRegistry from "../lib/registry";
+import { GlobalStyle } from "@/style/GlobalStyle";
+import StyledComponentsRegistry from "./lib/registry";
 
 export default function RootLayout({
   children,
@@ -10,9 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-      </body>
+      <StyledComponentsRegistry>
+        <GlobalStyle />
+        <body>{children}</body>
+      </StyledComponentsRegistry>
     </html>
   );
 }

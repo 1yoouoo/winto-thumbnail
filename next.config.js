@@ -11,4 +11,8 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+
+  images: {
+    domains: ["ddragon.leagueoflegends.com"], // 여기에 이미지 호스트 도메인 추가
+  },
 };
