@@ -121,5 +121,6 @@ export function selectTemplate(gameInfo: GameInfoDto) {
   console.log(`  ║  ${scoredTemplates[1].name}     ║`);
   console.log(`  ╚═════════════════════════════════╝`);
 
-  return scoredTemplates[1].component;
+  // return scoredTemplates[1].component;
+  return Template0;
 }
