@@ -26,8 +26,13 @@ export default async function handler(
     const queryString = convertJsonToQueryString(transformedGameInfo);
 
     const browser = await puppeteer.launch({
-      headless: !isDevelopmentMode, // 개발 모드에서는 headless 모드 비활성화
+      executablePath:
+        process.env.NODE_ENV === "production"
+          ? "/usr/bin/chromium-browser"
+          : undefined,
+      headless: process.env.NODE_ENV !== "development",
     });
+
     const page = await browser.newPage();
 
     const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
