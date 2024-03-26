@@ -29,7 +29,6 @@ export default async function handler(
     Bucket: bucketName,
     Key: `thumbnail/${Date.now()}_test.jpeg`,
     Body: fileContent,
-    ACL: "public-read",
   };
 
   try {
