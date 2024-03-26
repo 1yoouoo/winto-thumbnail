@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer";
-import path from "path";
-import fs from "fs";
 import { transformGameInfo } from "../../../utils/transformToModel";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import GameInfoDto from "@/types/GameInfoDto";
@@ -15,90 +13,67 @@ const s3Client = new S3Client({
   },
 });
 
+const deleteS3Prefix = process.env.DELETE_S3_PREFIX!;
 const bucketName = process.env.AWS_BUCKET_NAME!;
-const IS_DEVELOPMENT_MODE = process.env.IS_DEVELOPMENT_MODE === "true";
 
 type ResponseData = {
   message: string;
-  screenshotPath: string;
+  screenshotUrl?: string;
+  error?: string;
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  if (req.method === "POST") {
-    const gameInfo = req.body as GameInfoDto;
+  // POST 메소드 검사
+  if (req.method !== "POST") {
+    return res.status(405).json({
+      error: "Method Not Allowed",
+      message: "please use POST method",
+    });
+  }
 
+  try {
+    const gameInfo: GameInfoDto = req.body;
     const transformedGameInfo = transformGameInfo(gameInfo);
-
     const queryString = convertJsonToQueryString(transformedGameInfo);
-
     const browser = await puppeteer.launch({
-      executablePath:
-        process.env.NODE_ENV === "production"
-          ? "/usr/bin/chromium-browser"
-          : undefined,
-      headless: process.env.NODE_ENV !== "development",
+      headless: true,
     });
 
     const page = await browser.newPage();
-
-    const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
     await page.setViewport({ width: 1280, height: 720 });
+    const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
+    await page.goto(screenshotUrl, { waitUntil: "networkidle0" });
 
-    await page.goto(screenshotUrl, {
-      waitUntil: "networkidle0",
-    });
-
-    const assetsDir = path.resolve("assets");
-
-    const deletePrefix = process.env.DELETE_S3_PREFIX;
-
-    if (!fs.existsSync(assetsDir)) {
-      fs.mkdirSync(assetsDir, { recursive: true });
-    }
-
-    const screenshotPath = path.join(
-      assetsDir,
-      `${deletePrefix}-screenshot-${Date.now()}.png`
-    );
-
-    await page.screenshot({
-      path: screenshotPath,
+    // Buffer로 스크린샷 생성
+    const screenshotBuffer = await page.screenshot({
       type: "jpeg",
       quality: 100,
-      omitBackground: true,
-      clip: { x: 0, y: 0, width: 1280, height: 720 },
     });
+    await browser.close();
 
-    if (IS_DEVELOPMENT_MODE) {
-      await new Promise((resolve) => {
-        console.log(
-          "Server is running in development mode. Press Ctrl+C to stop."
-        );
-      });
-    } else {
-      await browser.close();
-    }
+    // S3에 스크린샷 업로드
+    const screenshotKey = `thumbnail/${deleteS3Prefix}_${Date.now()}_screenshot.jpeg`;
+    await s3Client.send(
+      new PutObjectCommand({
+        Bucket: bucketName,
+        Key: screenshotKey,
+        Body: screenshotBuffer,
+      })
+    );
 
-    const fileStream = fs.createReadStream(screenshotPath);
-
-    const uploadParams = {
-      Bucket: bucketName,
-      Key: screenshotPath,
-      Body: fileStream,
-    };
-
-    const command = new PutObjectCommand(uploadParams);
-    const data = await s3Client.send(command);
-    console.log(`File uploaded successfully. ${data.$metadata.httpStatusCode}`);
-
+    const url = `https://${bucketName}.s3.amazonaws.com/${screenshotKey}`;
     res.status(200).json({
-      message: "Screenshot taken successfully!",
-      screenshotPath: `https://${bucketName}.s3.amazonaws.com/${uploadParams.Key}`,
+      message: "Screenshot taken and uploaded successfully",
+      screenshotUrl: url,
     });
-  } else {
-    throw new Error(`Error`);
+  } catch (error) {
+    console.error("Error taking or uploading screenshot:", error);
+    res.status(500).json({
+      error: "Failed to process request",
+      message: "Failed to process request",
+    });
   }
 }
