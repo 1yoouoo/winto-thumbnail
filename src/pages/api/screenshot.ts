@@ -1,4 +1,3 @@
-// lol-replays/thumbnail/src/pages/api/screenshot.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer";
 import path from "path";
@@ -22,7 +21,7 @@ export default async function handler(
     const gameInfo = req.body as GameInfoDto;
 
     const transformedGameInfo = transformGameInfo(gameInfo);
-    ``;
+
     const queryString = convertJsonToQueryString(transformedGameInfo);
 
     const browser = await puppeteer.launch({
@@ -42,22 +41,19 @@ export default async function handler(
       waitUntil: "networkidle0",
     });
 
-    // console.log("screenshotUrl >>>>>>>>>>> ", screenshotUrl);
+    const assetsDir = path.resolve("assets");
 
-    const screenshotDir = path.resolve(__dirname, "./screenshot");
+    const deletePrefix = process.env.DELETE_S3_PREFIX;
 
-    // 디렉토리가 없다면 생성
-    if (!fs.existsSync(screenshotDir)) {
-      fs.mkdirSync(screenshotDir, { recursive: true });
+    if (!fs.existsSync(assetsDir)) {
+      fs.mkdirSync(assetsDir, { recursive: true });
     }
 
     const screenshotPath = path.join(
-      screenshotDir,
-      `screenshot-${Date.now()}.png`
+      assetsDir,
+      `${deletePrefix}-screenshot-${Date.now()}.png`
     );
 
-    // 스크린샷 저장
-    // console.log("screenshotPath", screenshotPath);
     await page.screenshot({
       path: screenshotPath,
       type: "jpeg",
@@ -76,7 +72,6 @@ export default async function handler(
       await browser.close();
     }
 
-    // 응답
     res.status(200).json({
       message: "Screenshot taken successfully!",
       screenshotPath: screenshotPath,
