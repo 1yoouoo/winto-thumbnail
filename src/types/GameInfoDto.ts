@@ -5,8 +5,13 @@ type GameInfoDto = {
   kills: number;
   deaths: number;
   assists: number;
-  items: Item[]; // id: number, totalGold:
-  skinID: number;
+  item0: number;
+  item1: number;
+  item2: number;
+  item3: number;
+  item4: number;
+  item5: number;
+  item6: number;
   teamPosition: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
   gameVersion: string;
   primaryStyle: number; // perks/styles: 주 룬
@@ -17,11 +22,6 @@ type GameInfoDto = {
   tripleKills: number; // 트리플킬 수
   quadraKills: number; // 쿼드라킬 수
   pentaKills: number; // 펜타킬 수
-};
-
-export type Item = {
-  id: number;
-  totalGold: number;
 };
 
 export default GameInfoDto;

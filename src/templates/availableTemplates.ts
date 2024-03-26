@@ -44,50 +44,94 @@ export const templateConditions: TemplateCondition[] = [
     },
   },
   {
-    name: "SpecialSkin",
-    condition: (gameInfo: GameInfoDto) => (gameInfo.skinID !== 0 ? 10 : 0),
-  },
-  {
     name: "ExpensiveItems1",
-    condition: (gameInfo: GameInfoDto) =>
-      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 1
-        ? 10
-        : 0,
+    condition: (gameInfo: GameInfoDto) => {
+      const items = [
+        gameInfo.item0,
+        gameInfo.item1,
+        gameInfo.item2,
+        gameInfo.item3,
+        gameInfo.item4,
+        gameInfo.item5,
+        gameInfo.item6,
+      ];
+      return items.filter((item) => item >= 2400).length >= 1 ? 10 : 0;
+    },
   },
   {
     name: "ExpensiveItems2",
-    condition: (gameInfo: GameInfoDto) =>
-      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 2
-        ? 10
-        : 0,
+    condition: (gameInfo: GameInfoDto) => {
+      const items = [
+        gameInfo.item0,
+        gameInfo.item1,
+        gameInfo.item2,
+        gameInfo.item3,
+        gameInfo.item4,
+        gameInfo.item5,
+        gameInfo.item6,
+      ];
+      return items.filter((item) => item >= 2400).length >= 2 ? 10 : 0;
+    },
   },
   {
     name: "ExpensiveItems3",
-    condition: (gameInfo: GameInfoDto) =>
-      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 3
-        ? 10
-        : 0,
+    condition: (gameInfo: GameInfoDto) => {
+      const items = [
+        gameInfo.item0,
+        gameInfo.item1,
+        gameInfo.item2,
+        gameInfo.item3,
+        gameInfo.item4,
+        gameInfo.item5,
+        gameInfo.item6,
+      ];
+      return items.filter((item) => item >= 2400).length >= 3 ? 10 : 0;
+    },
   },
   {
     name: "ExpensiveItems4",
-    condition: (gameInfo: GameInfoDto) =>
-      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 4
-        ? 10
-        : 0,
+    condition: (gameInfo: GameInfoDto) => {
+      const items = [
+        gameInfo.item0,
+        gameInfo.item1,
+        gameInfo.item2,
+        gameInfo.item3,
+        gameInfo.item4,
+        gameInfo.item5,
+        gameInfo.item6,
+      ];
+      return items.filter((item) => item >= 2400).length >= 4 ? 10 : 0;
+    },
   },
   {
     name: "ExpensiveItems5",
-    condition: (gameInfo: GameInfoDto) =>
-      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 5
-        ? 10
-        : 0,
+    condition: (gameInfo: GameInfoDto) => {
+      const items = [
+        gameInfo.item0,
+        gameInfo.item1,
+        gameInfo.item2,
+        gameInfo.item3,
+        gameInfo.item4,
+        gameInfo.item5,
+        gameInfo.item6,
+      ];
+      return items.filter((item) => item >= 2400).length >= 5 ? 10 : 0;
+    },
   },
   {
     name: "ExpensiveItems6",
-    condition: (gameInfo: GameInfoDto) =>
-      gameInfo.items.filter((item) => item.totalGold >= 2400).length >= 6
-        ? 10
-        : 0,
+    condition: (gameInfo: GameInfoDto) => {
+      const items = [
+        gameInfo.item0,
+        gameInfo.item1,
+        gameInfo.item2,
+        gameInfo.item3,
+        gameInfo.item4,
+        gameInfo.item5,
+        gameInfo.item6,
+      ];
+      return items.filter((item) => item >= 2400).length >= 6 ? 10 : 0;
+    },
   },
 ];
 
