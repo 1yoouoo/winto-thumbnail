@@ -3,8 +3,19 @@ import puppeteer from "puppeteer";
 import path from "path";
 import fs from "fs";
 import { transformGameInfo } from "../../../utils/transformToModel";
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import GameInfoDto from "@/types/GameInfoDto";
 import { convertJsonToQueryString } from "../../../utils/formatJson";
+
+const s3Client = new S3Client({
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+  },
+});
+
+const bucketName = process.env.AWS_BUCKET_NAME!;
 
 type ResponseData = {
   message: string;
@@ -72,9 +83,21 @@ export default async function handler(
       await browser.close();
     }
 
+    const fileStream = fs.createReadStream(screenshotPath);
+
+    const uploadParams = {
+      Bucket: bucketName,
+      Key: screenshotPath,
+      Body: fileStream,
+    };
+
+    const command = new PutObjectCommand(uploadParams);
+    const data = await s3Client.send(command);
+    console.log(`File uploaded successfully. ${data.$metadata.httpStatusCode}`);
+
     res.status(200).json({
       message: "Screenshot taken successfully!",
-      screenshotPath: screenshotPath,
+      screenshotPath: `https://${bucketName}.s3.amazonaws.com/${uploadParams.Key}`,
     });
   } else {
     throw new Error(`Error`);
