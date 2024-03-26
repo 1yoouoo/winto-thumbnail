@@ -1,7 +1,8 @@
 import React from "react";
-import Template0 from "@/templates/template0/Template0";
-import Template1 from "./template1/Template1";
 import GameInfoDto from "@/types/GameInfoDto";
+import { printTemplates } from "../../utils/printTemplate";
+import Template1 from "./template1/Template1";
+import Template0 from "./template0/Template0";
 
 type Conditions =
   | "HighKDA"
@@ -24,7 +25,14 @@ type TemplateCondition = {
   condition: (gameInfo: GameInfoDto) => number;
 };
 
-const whichTemplate = process.env.DEVELOPMENT_MODE_SELECT_TEMPLATE;
+function printTemplate(template: any) {
+  const nameString = `name: '${template.name}'`.padEnd(35, " ");
+  const scoreString = `score: ${template.score}`.padEnd(35, " ");
+  console.log(`  ╔═════════════════════════════════════╗`);
+  console.log(`  ║  ${nameString}║`);
+  console.log(`  ║  ${scoreString}║`);
+  console.log(`  ╚═════════════════════════════════════╝`);
+}
 
 export const templateConditions: TemplateCondition[] = [
   {
@@ -109,18 +117,9 @@ export function selectTemplate(gameInfo: GameInfoDto) {
 
   scoredTemplates.sort((a, b) => b.score - a.score);
 
-  console.log("****************템플릿 이름, 점수********************");
-  scoredTemplates.forEach((template) => {
-    console.log(`  ╔═════════════════════════════════╗`);
-    console.log(`  ║  name: '${template.name}'       ║`);
-    console.log(`  ║  score: ${template.score}       ║`);
-    console.log(`  ╚═════════════════════════════════╝`);
-  });
-  console.log("****************선택된 템플릿********************");
-  console.log(`  ╔═════════════════════════════════╗`);
-  console.log(`  ║  ${scoredTemplates[1].name}     ║`);
-  console.log(`  ╚═════════════════════════════════╝`);
+  const selectedTemplate = scoredTemplates[0];
 
-  // return scoredTemplates[1].component;
-  return Template0;
+  printTemplates(scoredTemplates);
+
+  return selectedTemplate;
 }
