@@ -39,6 +39,10 @@ export default async function handler(
     const transformedGameInfo = transformGameInfo(gameInfo);
     const queryString = convertJsonToQueryString(transformedGameInfo);
     const browser = await puppeteer.launch({
+      executablePath:
+        process.env.NODE_ENV === "production"
+          ? process.env.CHROMIUM_PATH
+          : undefined,
       headless: true,
     });
 
