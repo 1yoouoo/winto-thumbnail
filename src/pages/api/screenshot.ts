@@ -16,13 +16,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const isDevelopmentMode = process.env.DEVELOPMENT_MODE === "true";
+  const IS_DEVELOPMENT_MODE = process.env.IS_DEVELOPMENT_MODE === "true";
 
   if (req.method === "POST") {
     const gameInfo = req.body as GameInfoDto;
 
     const transformedGameInfo = transformGameInfo(gameInfo);
-
+    ``;
     const queryString = convertJsonToQueryString(transformedGameInfo);
 
     const browser = await puppeteer.launch({
@@ -66,7 +66,7 @@ export default async function handler(
       clip: { x: 0, y: 0, width: 1280, height: 720 },
     });
 
-    if (isDevelopmentMode) {
+    if (IS_DEVELOPMENT_MODE) {
       await new Promise((resolve) => {
         console.log(
           "Server is running in development mode. Press Ctrl+C to stop."

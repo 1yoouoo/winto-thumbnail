@@ -10,6 +10,7 @@
     "test": "echo \"hi\""
   },
   "dependencies": {
+    "aws-sdk": "^2.1585.0",
     "babel-plugin-styled-components": "^2.1.4",
     "next": "14.1.4",
     "pupeteer": "^0.0.1",
