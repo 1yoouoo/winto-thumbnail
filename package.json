@@ -8,13 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "test": "echo \"hi\"",
-    "ssh": "ssh -i winto-thumbnail.pem ubuntu@ec2-43-200-174-7.ap-northeast-2.compute.amazonaws.com"
+    "ssh": "ssh -i winto-thumbnail.pem ubuntu@ec2-43-203-155-19.ap-northeast-2.compute.amazonaws.com"
   },
   "dependencies": {
     "aws-sdk": "^2.1585.0",
     "babel-plugin-styled-components": "^2.1.4",
     "next": "14.1.4",
-    "pupeteer": "^0.0.1",
     "puppeteer": "^22.6.0",
     "react": "^18",
     "react-dom": "^18",
