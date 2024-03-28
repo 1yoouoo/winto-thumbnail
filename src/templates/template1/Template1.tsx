@@ -1,7 +1,7 @@
 import React from "react";
 import { Ddragon, S3_BUCKET } from "@/constant/constant";
 import Image from "next/image";
-import GameInfoDto from "@/types/GameInfoDto";
+import GameInfoDto from "@/types/model";
 import {
   Container,
   CropedSplashImage,

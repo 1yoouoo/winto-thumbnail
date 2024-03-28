@@ -1,18 +1,9 @@
 "use client";
 
-import { selectTemplate } from "@/templates/availableTemplates";
-import { parseItems } from "../../../utils/formatJson";
+import TemplateDataProcessor from "@/components/TemplateDataProcessor";
 
 export default function Page({ searchParams }: any) {
-  const gameInfo = searchParams;
-
-  gameInfo.items = parseItems(gameInfo.items);
-
-  const SelectedTemplate = selectTemplate(gameInfo);
-
-  const SelectedTemplateComponent = SelectedTemplate.component;
-
-  return <SelectedTemplateComponent gameInfo={gameInfo} />;
+  return <TemplateDataProcessor searchParams={searchParams} />;
 }
 
 // GameInfoDto에서 optional로 바꿀 수 있는 거 바꾸기

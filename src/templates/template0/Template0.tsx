@@ -105,9 +105,9 @@ const GameInfoItem = styled.div`
 
 import Image from "next/image";
 import { textShadowStyles } from "@/style/decoration";
-import GameInfoDto from "@/types/GameInfoDto";
+import { GameInfoModel } from "@/types/model";
 
-const Template0: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
+const Template0: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
   const fullName = `${gameInfo.teamName} ${gameInfo.playerName}`;
 
   const champion = `${gameInfo.championName} ${gameInfo.teamPosition}`;
@@ -121,7 +121,7 @@ const Template0: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
     <Container>
       <CropedSplashImage>
         <Image
-          src={`${Ddragon}/img/champion/centered/${gameInfo.championName}_${gameInfo.skinID}.jpg`}
+          src={`${Ddragon}/img/champion/centered/${gameInfo.championName}_${gameInfo.skinId}.jpg`}
           alt="champion"
           width={1280}
           height={720}

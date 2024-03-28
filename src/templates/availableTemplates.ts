@@ -1,5 +1,5 @@
 import React from "react";
-import GameInfoDto from "@/types/GameInfoDto";
+import GameInfoDto from "@/types/model";
 import { printTemplates } from "../../utils/printTemplate";
 import Template1 from "./template1/Template1";
 import Template0 from "./template0/Template0";
@@ -24,15 +24,6 @@ type TemplateCondition = {
   name: Conditions;
   condition: (gameInfo: GameInfoDto) => number;
 };
-
-function printTemplate(template: any) {
-  const nameString = `name: '${template.name}'`.padEnd(35, " ");
-  const scoreString = `score: ${template.score}`.padEnd(35, " ");
-  console.log(`  ╔═════════════════════════════════════╗`);
-  console.log(`  ║  ${nameString}║`);
-  console.log(`  ║  ${scoreString}║`);
-  console.log(`  ╚═════════════════════════════════════╝`);
-}
 
 export const templateConditions: TemplateCondition[] = [
   {

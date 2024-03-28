@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer";
 import { transformGameInfo } from "../../../utils/transformToModel";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import GameInfoDto from "@/types/GameInfoDto";
+import GameInfoDto from "@/types/model";
 import { convertJsonToQueryString } from "../../../utils/formatJson";
 
 const s3Client = new S3Client({
