@@ -121,7 +121,7 @@ const Template0: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
     <Container>
       <CropedSplashImage>
         <Image
-          src={`${Ddragon}/img/champion/centered/${gameInfo.championName}_${gameInfo.skinId}.jpg`}
+          src={`${Ddragon}/img/champion/centered/${gameInfo.championName}_0.jpg`}
           alt="champion"
           width={1280}
           height={720}

@@ -3,7 +3,7 @@ import { Ddragon } from "@/constant/constant";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { GameInfoDto, GameInfoModel, Item } from "@/types/model";
-import Template0 from "@/templates/template0/Template0";
+
 const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
   searchParams,
 }) => {
@@ -57,11 +57,10 @@ const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
         };
       });
 
-      // searchParams의 다른 정보를 포함하여 gameInfo 상태 업데이트
       setGameInfo({
         ...searchParams,
         items,
-        skinId: 1, // Add the missing skinId property
+        skinId: 0, //? 나중에 skinId 추가
       });
     }
 

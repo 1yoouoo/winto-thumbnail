@@ -2,8 +2,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer";
 import { transformGameInfo } from "../../../utils/transformToModel";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import GameInfoDto from "@/types/model";
 import { convertJsonToQueryString } from "../../../utils/formatJson";
+import { GameInfoDto } from "@/types/model";
 
 const s3Client = new S3Client({
   region: process.env.AWS_REGION,
@@ -26,7 +26,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  // POST 메소드 검사
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method Not Allowed",

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "echo \"hi\"",
-    "ssh": "ssh -i winto-thumbnail.pem ubuntu@ec2-43-203-155-19.ap-northeast-2.compute.amazonaws.com"
+    "ssh": "ssh -i winto-thumbnail.pem ubuntu@ec2-54-180-98-149.ap-northeast-2.compute.amazonaws.com"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.540.0",
