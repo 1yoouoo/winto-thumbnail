@@ -1,4 +1,4 @@
-import GameInfoDto from "@/types/model";
+import { GameInfoDto } from "@/types/model";
 
 export function convertJsonToQueryString(
   gameInfo: Record<string, string | string[]>
