@@ -3,6 +3,8 @@ import { Ddragon } from "@/constant/constant";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { GameInfoDto, GameInfoModel, Item } from "@/types/model";
+import Template2 from "@/templates/template2/Template2";
+import Template0 from "@/templates/template0/Template0";
 
 const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
   searchParams,
@@ -49,13 +51,17 @@ const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
         searchParams.item4Id,
         searchParams.item5Id,
         searchParams.item6Id,
-      ].map((itemId) => {
+      ].reduce<Item[]>((acc, itemId) => {
         const item = itemInfo.data[String(itemId)];
-        return {
-          id: itemId,
-          totalGold: item?.gold?.total || 0,
-        };
-      });
+        const totalGold = item?.gold?.total || 0;
+        if (totalGold >= 2400) {
+          acc.push({
+            id: itemId,
+            totalGold,
+          });
+        }
+        return acc;
+      }, []);
 
       setGameInfo({
         ...searchParams,
@@ -69,8 +75,8 @@ const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
 
   const SelectedTemplate = selectTemplate(gameInfo);
 
-  const SelectedTemplateComponent = SelectedTemplate.component;
-  //   const SelectedTemplateComponent = Template0;
+  // const SelectedTemplateComponent = SelectedTemplate;
+  const SelectedTemplateComponent = Template0;
 
   return <SelectedTemplateComponent gameInfo={gameInfo} />;
 };

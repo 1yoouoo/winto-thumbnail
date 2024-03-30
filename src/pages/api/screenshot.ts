@@ -4,17 +4,23 @@ import { transformGameInfo } from "../../../utils/transformToModel";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { convertJsonToQueryString } from "../../../utils/formatJson";
 import { GameInfoDto } from "@/types/model";
+import {
+  spaceAccessKeyId,
+  spaceRegion,
+  spaceSecretAccessKey,
+  spaceName,
+  spacesEndpoint,
+} from "@/constant/constant";
 
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION,
+  endpoint: spacesEndpoint!,
+  forcePathStyle: false,
+  region: spaceRegion!,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    accessKeyId: spaceAccessKeyId!,
+    secretAccessKey: spaceSecretAccessKey!,
   },
 });
-
-const deleteS3Prefix = process.env.DELETE_S3_PREFIX!;
-const bucketName = process.env.AWS_BUCKET_NAME!;
 
 type ResponseData = {
   message: string;
@@ -44,12 +50,10 @@ export default async function handler(
           : undefined,
       headless: true,
     });
-
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
     const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
     await page.goto(screenshotUrl, { waitUntil: "networkidle0" });
-
     // Buffer로 스크린샷 생성
     const screenshotBuffer = await page.screenshot({
       type: "jpeg",
@@ -58,16 +62,16 @@ export default async function handler(
     await browser.close();
 
     // S3에 스크린샷 업로드
-    const screenshotKey = `thumbnail/${deleteS3Prefix}_${Date.now()}_screenshot.jpeg`;
+    const screenshotKey = `${spaceName}_${Date.now()}_screenshot.jpeg`;
     await s3Client.send(
       new PutObjectCommand({
-        Bucket: bucketName,
+        Bucket: spaceName,
         Key: screenshotKey,
         Body: screenshotBuffer,
+        ACL: "public-read",
       })
     );
-
-    const url = `https://${bucketName}.s3.amazonaws.com/${screenshotKey}`;
+    const url = `${spacesEndpoint}/${spaceName}/${screenshotKey}`;
     res.status(200).json({
       message: "Screenshot taken and uploaded successfully",
       screenshotUrl: url,

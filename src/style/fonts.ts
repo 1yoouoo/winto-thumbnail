@@ -1,10 +1,21 @@
-import { S3_BUCKET } from "@/constant/constant";
+import { spacesEndpoint } from "@/constant/constant";
 
 // fonts.js
 export const fonts = {
   GROBOLD: {
     fontFamily: "GROBOLD",
-    fontUrl: `${S3_BUCKET}/fonts/GROBOLD.ttf`,
+    fontUrl: `${spacesEndpoint}/fonts/GROBOLD.ttf`,
   },
+
+  KOMIKAX: {
+    fontFamily: "KOMIKAX",
+    fontUrl: `${spacesEndpoint}/fonts/KOMIKAX.ttf`,
+  },
+
+  LuckiestGuy: {
+    fontFamily: "LuckiestGuy",
+    fontUrl: `${spacesEndpoint}/fonts/LuckiestGuy.ttf`,
+  },
+
   // 추가 폰트 정보는 여기에...
 };

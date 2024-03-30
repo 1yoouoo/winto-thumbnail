@@ -16,7 +16,7 @@ export type GameInfoDto = {
   gameVersion: string;
   primaryStyle: number; // perks/styles: 주 룬
   subStyle: number; // perks/styles: 부 룬
-  spells: number[] | string[]; // 사용된 스펠 (예: ["2201"]) | 사용된 스펠 (예: ["SummonerFlash"]) 확실하지않음
+  spells: string[]; // 사용된 스펠 (예: ["SummonerFlash"]) https://ddragon.leagueoflegends.com/cdn/10.3.1/img/spell/SummonerFlash.png
   firstBloodKill: boolean; // 첫 킬 여부
   doubleKills: number; // 더블킬 수
   tripleKills: number; // 트리플킬 수
@@ -37,7 +37,7 @@ export interface GameInfoModel {
   gameVersion: string;
   primaryStyle: number;
   subStyle: number;
-  spells: number[] | string[];
+  spells: string[];
   firstBloodKill: boolean;
   doubleKills: number;
   tripleKills: number;

@@ -1,10 +1,11 @@
-import GameInfoDto from "@/types/model";
+import { GameInfoDto } from "@/types/model";
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 
 export function transformGameInfo(
   gameInfo: GameInfoDto
 ): Record<string, string | string[]> {
   return {
-    championName: gameInfo.championName,
+    championName: capitalizeFirstLetter(gameInfo.championName),
     teamName: gameInfo.teamName,
     playerName: gameInfo.playerName,
     kills: gameInfo.kills.toString(),

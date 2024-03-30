@@ -1,5 +1,5 @@
 import React from "react";
-import { Ddragon, S3_BUCKET } from "@/constant/constant";
+import { Ddragon, spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import GameInfoDto from "@/types/model";
 import {
@@ -79,7 +79,6 @@ const Template1: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
   const sorteditems = gameInfo.items.sort((a, b) => b.totalGold - a.totalGold);
   // 앞에서 2개만 자르기
   const getTop2Items = sorteditems.slice(0, 2);
-
   return (
     <Container>
       <CropedSplashImage>
@@ -134,7 +133,7 @@ const Template1: React.FC<{ gameInfo: GameInfoDto }> = ({ gameInfo }) => {
       </GameInfoWrapper>
       <OverlayBrush1>
         <Image
-          src={`${S3_BUCKET}/text-overlay-brush-1.png`}
+          src={`${spacesEndpoint}/text-overlay-brush-1.png`}
           alt="overlay"
           width={800}
           height={600}

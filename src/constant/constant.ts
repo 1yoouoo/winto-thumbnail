@@ -1,3 +1,6 @@
-export const S3_BUCKET =
-  "https://wooto-lol-replays.s3.ap-northeast-2.amazonaws.com";
-export const Ddragon = "https://ddragon.leagueoflegends.com/cdn";
+export const Ddragon = process.env.NEXT_PUBLIC_DDRAGON;
+export const spacesEndpoint = process.env.SPACES_ENDPOINT;
+export const spaceName = process.env.SPACES_NAME;
+export const spaceRegion = process.env.SPACES_REGION;
+export const spaceAccessKeyId = process.env.SPACES_ACCESS_KEY_ID;
+export const spaceSecretAccessKey = process.env.SPACES_SECRET_ACCESS_KEY;
