@@ -1,29 +1,55 @@
-export function printTemplate(
-  weightedTemplates: any[],
-  selectedTemplateComponent: any
-) {
-  console.log("🌠🌠🌠🌠🌠 가중된 템플릿과 확률 🌠🌠🌠🌠🌠");
+import {
+  PreferredConditions,
+  templatePreferredConditions,
+} from "@/components/templatePreferredConditions";
+import { Requirements } from "@/components/templateRequirement";
+import { GameInfoModel } from "@/types/model";
 
-  weightedTemplates.forEach((template) => {
-    const nameString = `이름: '${template.name}'`.padEnd(53, " ");
-    const scoreString = `점수: ${template.score}`.padEnd(53, " ");
-    const probabilityString = `확률: ${(template.probability * 100).toFixed(
-      2
-    )}%`.padEnd(53, " ");
+export interface PrintTemplateProps {
+  weightedTemplates: any[];
+  selectedTemplate: {
+    probability: number;
+    score: number;
+    component: React.FC<{ gameInfo: GameInfoModel }>;
+    name: string;
+    preferredConditions?: PreferredConditions[] | undefined;
+    requirements?: Requirements[] | undefined;
+    select?: boolean | undefined;
+  } | null;
+  gameInfo: GameInfoModel;
+}
 
-    console.log(`  ╔════════════════════════════════════════════════════════╗`);
-    console.log(`  ║  ${nameString}║`);
-    console.log(`  ║  ${scoreString}║`);
-    console.log(`  ║  ${probabilityString}║`);
-    console.log(`  ╚════════════════════════════════════════════════════════╝`);
+export function printTemplate({
+  weightedTemplates,
+  selectedTemplate,
+  gameInfo,
+}: PrintTemplateProps) {
+  // 가중된 템플릿과 확률 정보를 담은 배열 준비
+  const tableData = weightedTemplates.map((template) => {
+    // 선택된 템플릿 여부 확인
+    const isSelected = template === selectedTemplate;
+
+    // template.preferredConditions에 기반한 조건들이 만족하는지 확인하여 이유를 구성
+    const satisfiedConditions =
+      template.preferredConditions
+        ?.map((conditionName: string) => {
+          const condition = templatePreferredConditions.find(
+            (c) => c.name === conditionName
+          );
+          return condition && condition.check(gameInfo) ? conditionName : null;
+        })
+        .filter(Boolean) || [];
+
+    let 이유 = satisfiedConditions.join(", ");
+
+    return {
+      여부: isSelected ? "🏅" : "", // 선택된 템플릿에는 🏅 표시
+      이름: template.name,
+      점수: template.score,
+      확률: `${(template.probability * 100).toFixed(2)}%`,
+      이유,
+    };
   });
 
-  console.log("\n🌟🌟🌟🌟🌟    선택된 템플릿    🌟🌟🌟🌟🌟");
-
-  const selectedNameString = `선택된 템플릿 이름: '${
-    selectedTemplateComponent?.name || "기본 템플릿 사용"
-  }'`.padEnd(48, " ");
-  console.log(`  ╔══════════════════════════════════════════════════════╗`);
-  console.log(`  ║  ${selectedNameString}║`);
-  console.log(`  ╚══════════════════════════════════════════════════════╝`);
+  console.table(tableData);
 }

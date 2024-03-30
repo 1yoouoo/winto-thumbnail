@@ -1,6 +1,6 @@
 import { GameInfoModel } from "@/types/model";
 
-export type Requirements = "Over3Items";
+export type Requirements = "Over1Items" | "Over2Items" | "Over3Items";
 
 type TemplateRequirement = {
   name: Requirements;
@@ -9,6 +9,14 @@ type TemplateRequirement = {
 };
 
 export const templateRequirements: TemplateRequirement[] = [
+  {
+    name: "Over1Items",
+    check: (gameInfo) => gameInfo.items.length >= 1,
+  },
+  {
+    name: "Over2Items",
+    check: (gameInfo) => gameInfo.items.length >= 2,
+  },
   {
     name: "Over3Items",
     check: (gameInfo) => gameInfo.items.length >= 3,

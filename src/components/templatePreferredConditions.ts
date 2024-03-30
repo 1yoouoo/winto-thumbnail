@@ -11,8 +11,9 @@ type TemplatePreferredCondition = {
 export const templatePreferredConditions: TemplatePreferredCondition[] = [
   {
     name: "NoDeath",
-    check: (gameInfo) => gameInfo.deaths === 0,
+    check: (gameInfo) => Number(gameInfo.deaths) === 0,
   },
+
   {
     name: "HighKDA",
     check: (gameInfo) => {

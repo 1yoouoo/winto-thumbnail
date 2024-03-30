@@ -1,10 +1,8 @@
-import { selectTemplate } from "@/templates/availableTemplates";
+import { selectTemplate } from "@/components/availableTemplates";
 import { Ddragon } from "@/constant/constant";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { GameInfoDto, GameInfoModel, Item } from "@/types/model";
-import Template2 from "@/templates/template2/Template2";
-import Template0 from "@/templates/template0/Template0";
 
 const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
   searchParams,
@@ -75,8 +73,7 @@ const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
 
   const SelectedTemplate = selectTemplate(gameInfo);
 
-  // const SelectedTemplateComponent = SelectedTemplate;
-  const SelectedTemplateComponent = Template0;
+  const SelectedTemplateComponent = SelectedTemplate;
 
   return <SelectedTemplateComponent gameInfo={gameInfo} />;
 };
