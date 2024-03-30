@@ -23,7 +23,6 @@ export const templates: Template[] = [
   {
     component: Template0,
     name: "Template0",
-    select: true,
   },
   {
     component: Template1,
@@ -68,14 +67,17 @@ export function selectTemplate(
     )
   );
 
-  // Step 2: preferredConditions에 해당하는 조건을 만족할 때마다 가중점수 부여
+  // Step 2: preferredConditions에 해당하는 조건을 만족할 때마다 가중치를 반영하여 점수 부여
   const scoredTemplates = filteredTemplates.map((template) => {
-    const score = (template.preferredConditions ?? []).reduce(
+    let score = 1; // 기본 점수 1점 부여
+    score += (template.preferredConditions ?? []).reduce(
       (acc, prefCondition) => {
         const condition = templatePreferredConditions.find(
-          (cond) => cond.name === prefCondition
+          (c) => c.name === prefCondition
         );
-        return acc + (condition && condition.check(gameInfo) ? 1 : 0); // 조건을 만족하면 점수를 1씩 추가
+        return (
+          acc + (condition && condition.check(gameInfo) ? condition.weight : 0)
+        );
       },
       0
     );
@@ -106,9 +108,8 @@ export function selectTemplate(
   }
 
   // 선택된 템플릿과 weightedTemplates 배열을 출력합니다.
-  // 개발모드에서만 실행
   if (process.env.NODE_ENV === "development") {
-    printTemplate({ weightedTemplates, selectedTemplate, gameInfo });
+    printTemplate({ weightedTemplates, gameInfo });
   }
 
   // 선택된 템플릿의 컴포넌트 반환 또는 기본값 반환

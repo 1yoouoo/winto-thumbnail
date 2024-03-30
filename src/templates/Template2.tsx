@@ -5,7 +5,6 @@ import Image from "next/image";
 import { GameInfoModel } from "@/types/model";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
-import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { championDto } from "@/types/championDto";
 import { WaterMark } from "@/style/common";
@@ -61,10 +60,11 @@ const GameInfoWrapper = styled.div`
 
 const Items = styled.span`
   margin-top: 15px;
+  margin-left: 40px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 80px;
 `;
 
 const Item = styled.div`
@@ -73,6 +73,14 @@ const Item = styled.div`
   border: 5px solid white;
   border-radius: 5px;
   box-shadow: ${shadows.ItemBoxShadow};
+
+  &:nth-child(1) {
+    transform: rotate(-5deg);
+  }
+
+  &:nth-child(2) {
+    transform: rotate(5deg);
+  }
 `;
 
 const PlusWrapper = styled.div`
@@ -107,18 +115,14 @@ const GradientPlus = styled.span<any>`
   }
 
   &:nth-child(1) {
-    left: 205px;
-  }
-
-  &:nth-child(2) {
-    left: 330px;
+    left: 235px;
   }
 `;
 
 const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, items } = gameInfo;
   const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
-  const getTop3Items = sorteditems.slice(0, 3);
+  const getTop2Items = sorteditems.slice(0, 2);
   const champion = championDto[championName] || {
     name: championName,
     color: {
@@ -149,38 +153,27 @@ const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
             $secondarycolor={secondary}
             $capitalize={true}
           />
-          <ShadowText text="INSANE" $capitalize={true} />
           <Items>
-            {getTop3Items.map((item, index) => (
-              <React.Fragment key={index}>
-                <Item>
-                  <Image
-                    src={`${Ddragon}/${gameVersion}/img/item/${item.id}.png`}
-                    alt="item"
-                    width={230}
-                    height={230}
-                  />
-                </Item>
-                <PlusWrapper>
-                  <GradientPlus
-                    data-text="+"
-                    primarycolor={primary}
-                    secondarycolor={secondary}
-                    fontSize="200px"
-                  >
-                    +
-                  </GradientPlus>
-                  <GradientPlus
-                    data-text="+"
-                    primarycolor={primary}
-                    secondarycolor={secondary}
-                    fontSize="200px"
-                  >
-                    +
-                  </GradientPlus>
-                </PlusWrapper>
-              </React.Fragment>
+            {getTop2Items.map((item, index) => (
+              <Item key={index}>
+                <Image
+                  src={`${Ddragon}/${gameVersion}/img/item/${item.id}.png`}
+                  alt="item"
+                  width={230}
+                  height={230}
+                />
+              </Item>
             ))}
+            <PlusWrapper>
+              <GradientPlus
+                data-text="+"
+                primarycolor={primary}
+                secondarycolor={secondary}
+                fontSize="200px"
+              >
+                +
+              </GradientPlus>
+            </PlusWrapper>
           </Items>
         </GameInfoWrapper>
         {isDevelopment && <WaterMark>Template2</WaterMark>}

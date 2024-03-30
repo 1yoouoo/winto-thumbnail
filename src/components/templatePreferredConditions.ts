@@ -4,6 +4,7 @@ export type PreferredConditions = "NoDeath" | "HighKDA" | "SpecialSkin";
 
 type TemplatePreferredCondition = {
   name: PreferredConditions;
+  weight: number;
   // eslint-disable-next-line no-unused-vars
   check: (gameInfo: GameInfoModel) => boolean;
 };
@@ -11,14 +12,16 @@ type TemplatePreferredCondition = {
 export const templatePreferredConditions: TemplatePreferredCondition[] = [
   {
     name: "NoDeath",
+    weight: 5,
     check: (gameInfo) => Number(gameInfo.deaths) === 0,
   },
-
   {
     name: "HighKDA",
+    weight: 3,
     check: (gameInfo) => {
       const kda =
-        (gameInfo.kills + gameInfo.assists) / Math.max(1, gameInfo.deaths);
+        (Number(gameInfo.kills) + Number(gameInfo.assists)) /
+        Math.max(1, Number(gameInfo.deaths));
       return kda > 5;
     },
   },
