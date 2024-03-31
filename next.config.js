@@ -24,6 +24,10 @@ module.exports = {
     styledComponents: true,
   },
 
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+
   images: {
     domains: [
       "ddragon.leagueoflegends.com",
