@@ -49,6 +49,7 @@ export default async function handler(
           ? process.env.CHROMIUM_PATH
           : undefined,
       headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
@@ -57,6 +58,7 @@ export default async function handler(
       waitUntil: "networkidle0",
       timeout: 30000,
     });
+    page.on("console", (msg) => console.log("PAGE LOG:", msg.text()));
 
     // Buffer로 스크린샷 생성
     const screenshotBuffer = await page.screenshot({
