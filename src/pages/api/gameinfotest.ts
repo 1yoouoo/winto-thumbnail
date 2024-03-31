@@ -14,15 +14,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  // 로컬 환경에서만 동작
-
-  if (process.env.NODE_ENV !== "development") {
-    return res.status(405).json({
-      error: "Method Not Allowed",
-      message: "please use development environment",
-    });
-  }
-
   if (req.method !== "GET") {
     return res.status(405).json({
       error: "Method Not Allowed",

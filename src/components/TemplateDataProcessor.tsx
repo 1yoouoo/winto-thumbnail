@@ -2,11 +2,12 @@ import { selectTemplate } from "@/components/availableTemplates";
 import { Ddragon } from "@/constant/constant";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { GameInfoDto, GameInfoModel, Item } from "@/types/model";
+import { GameInfoModel, Item } from "@/types/model";
 
-const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
-  searchParams,
-}) => {
+const TemplateDataProcessor: React.FC<{
+  parsedQueryString: any; //? any 대신 GameInfoDto로 타입 정의
+}> = ({ parsedQueryString }) => {
+  console.log("parsedQueryString", parsedQueryString);
   const [gameInfo, setGameInfo] = useState<GameInfoModel>({
     championName: "",
     teamName: "",
@@ -33,22 +34,24 @@ const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
     pentaKills: 0,
   });
 
+  console.log("gameInfo", gameInfo);
+
   useEffect(() => {
     async function fetchItemInfo() {
-      const allItemInfoUrl = `${Ddragon}/${searchParams.gameVersion}/data/ko_KR/item.json`;
+      const allItemInfoUrl = `${Ddragon}/${parsedQueryString.gameVersion}/data/ko_KR/item.json`;
       const response = await axios.get(allItemInfoUrl);
       return response.data;
     }
 
     async function createItemsArray(itemInfo: { data: { [x: string]: any } }) {
       const items = [
-        searchParams.item0Id,
-        searchParams.item1Id,
-        searchParams.item2Id,
-        searchParams.item3Id,
-        searchParams.item4Id,
-        searchParams.item5Id,
-        searchParams.item6Id,
+        parsedQueryString.item0Id,
+        parsedQueryString.item1Id,
+        parsedQueryString.item2Id,
+        parsedQueryString.item3Id,
+        parsedQueryString.item4Id,
+        parsedQueryString.item5Id,
+        parsedQueryString.item6Id,
       ].reduce<Item[]>((acc, itemId) => {
         const item = itemInfo.data[String(itemId)];
         const totalGold = item?.gold?.total || 0;
@@ -62,14 +65,18 @@ const TemplateDataProcessor: React.FC<{ searchParams: GameInfoDto }> = ({
       }, []);
 
       setGameInfo({
-        ...searchParams,
+        ...parsedQueryString,
         items,
         skinId: 0, //? 나중에 skinId 추가
       });
     }
 
-    fetchItemInfo().then(createItemsArray);
-  }, [searchParams]);
+    fetchItemInfo()
+      .then(createItemsArray)
+      .catch((error) => {
+        console.error("Item 정보를 가져오는 데 실패했습니다:", error);
+      });
+  }, [parsedQueryString]);
 
   const SelectedTemplate = selectTemplate(gameInfo);
 

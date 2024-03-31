@@ -20,9 +20,23 @@ export function convertJsonToQueryString(
   return parts.join("&");
 }
 
-export const parseItems = (items: string[]) => {
-  return items.map((item) => {
-    const [id, totalGold] = item.toString().split("-").map(Number);
-    return { id, totalGold };
-  });
-};
+export function parseQueryString(queryString: string): {
+  [key: string]: string | string[];
+} {
+  const params = new URLSearchParams(queryString);
+  const result: { [key: string]: string | string[] } = {};
+
+  for (const [key, value] of params) {
+    if (result.hasOwnProperty(key)) {
+      if (Array.isArray(result[key])) {
+        (result[key] as string[]).push(value);
+      } else {
+        result[key] = [result[key] as string, value];
+      }
+    } else {
+      result[key] = value;
+    }
+  }
+
+  return result;
+}

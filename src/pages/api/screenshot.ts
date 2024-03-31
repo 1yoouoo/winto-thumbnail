@@ -49,12 +49,15 @@ export default async function handler(
           ? process.env.CHROMIUM_PATH
           : undefined,
       headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
     const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
-    await page.goto(screenshotUrl, { waitUntil: "networkidle0" });
+    await page.goto(screenshotUrl, {
+      waitUntil: "networkidle0",
+      timeout: 30000,
+    });
+
     // Buffer로 스크린샷 생성
     const screenshotBuffer = await page.screenshot({
       type: "jpeg",
