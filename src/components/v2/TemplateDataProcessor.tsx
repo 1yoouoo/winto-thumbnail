@@ -63,7 +63,7 @@ const TemplateDataProcessor: React.FC<{
     if (query.playerName) fields.playerName = query.playerName;
     if (query.kills) fields.kills = parseInt(query.kills, 10);
     if (query.deaths) fields.deaths = parseInt(query.deaths, 10);
-    if (query.assists) fields.assists;
+    if (query.assists) fields.assists = parseInt(query.assists, 10);
     if (query.teamPosition) fields.teamPosition = query.teamPosition as any;
     if (query.primaryPerk) fields.primaryPerk = parseInt(query.primaryPerk, 10);
     if (query.subPerk) fields.subPerk = parseInt(query.subPerk, 10);

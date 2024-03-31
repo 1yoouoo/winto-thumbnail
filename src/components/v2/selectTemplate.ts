@@ -1,12 +1,14 @@
 import { GameInfoModel } from "@/types/v2/model";
-import { PreferredConditions } from "../templatePreferredConditions";
 import { Requirements } from "../templateRequirement";
 import Template0 from "@/templates/v2/Template0";
 import Template1 from "@/templates/v2/Template1";
 import Template2 from "@/templates/v2/Template2";
 import Template3 from "@/templates/v2/Template3";
 import { templateRequirements } from "./templateRequirement";
-import { templatePreferredConditions } from "./templatePreferredConditions";
+import {
+  PreferredConditions,
+  templatePreferredConditions,
+} from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
 
 type Template = {
@@ -25,19 +27,17 @@ export const templates: Template[] = [
   {
     component: Template1,
     name: "Template1",
-    preferredConditions: ["NoDeath"],
     requirements: ["Over2Items"],
   },
   {
     component: Template2,
     name: "Template2",
+    preferredConditions: ["NoDeath", "HighKDA"],
     requirements: ["Over2Items"],
-    select: true,
   },
   {
     component: Template3,
     name: "Template3",
-    preferredConditions: ["NoDeath", "HighKDA"],
     requirements: ["Over3Items"],
   },
   // 기타 템플릿 추가...
@@ -46,12 +46,11 @@ export const templates: Template[] = [
 export function selectTemplate(
   gameInfo: GameInfoModel
 ): React.FC<{ gameInfo: GameInfoModel }> {
-  console.log("gameInfo", gameInfo);
   // Step 0: 개발 모드용 선택 로직 추가
   const developmentTemplate = templates.find(
     (template) => template.select === true
   );
-  if (developmentTemplate) {
+  if (developmentTemplate && process.env.NODE_ENV === "development") {
     console.log(
       `🌠🌠🌠🌠🌠 ${developmentTemplate.name}이 선택되었습니다. 개발 모드에서만 사용됩니다. 🌠🌠🌠🌠🌠`
     );

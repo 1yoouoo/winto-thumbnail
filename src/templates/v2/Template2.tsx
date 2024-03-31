@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { fonts } from "@/style/fonts";
-import { Ddragon } from "@/constant/constant";
+import { Ddragon, spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
@@ -8,6 +8,7 @@ import React from "react";
 import { championDto } from "@/types/championDto";
 import { WaterMark } from "@/style/common";
 import { GameInfoModel } from "@/types/v2/model";
+import ShadowText from "@/components/styles/ShadowText";
 
 const Container = styled.div<{ $primary: string }>`
   position: relative;
@@ -119,8 +120,25 @@ const GradientPlus = styled.span<any>`
   }
 `;
 
+const KDAWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+
+  img {
+    transform: rotate(275deg) rotateY(180deg) translate(-50px, -50px);
+    filter: contrast(0.8) brightness(0.8) saturate(1.2);
+    z-index: 3;
+  }
+
+  span {
+    font-size: 170px;
+    margin-top: 30px;
+    margin-left: -60px;
+  }
+`;
+
 const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
-  const { championName, gameVersion, items } = gameInfo;
+  const { championName, gameVersion, items, kills, deaths, assists } = gameInfo;
   const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
   const champion = championDto[championName] || {
@@ -175,6 +193,18 @@ const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
               </GradientPlus>
             </PlusWrapper>
           </Items>
+          <KDAWrapper>
+            <Image
+              src={`${spacesEndpoint}/arrow/red-arrow.png`}
+              alt="arrow"
+              width={180}
+              height={180}
+            />
+            <ShadowText
+              text={`${kills}/${deaths}/${assists}`}
+              $capitalize={true}
+            />
+          </KDAWrapper>
         </GameInfoWrapper>
         {isDevelopment && <WaterMark>Template2</WaterMark>}
       </Wrapper>

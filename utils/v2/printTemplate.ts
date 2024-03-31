@@ -5,7 +5,6 @@ export interface PrintTemplateProps {
   weightedTemplates: any[];
   gameInfo: GameInfoModel;
 }
-
 export function printTemplate({
   weightedTemplates,
   gameInfo,
