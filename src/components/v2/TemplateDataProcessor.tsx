@@ -4,7 +4,7 @@ import { Ddragon } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/normalizeItemIds";
 import { GameInfoModel, ParsedQueryString, Spell } from "@/types/v2/model";
 import { Item } from "@/types/model";
-import { selectTemplate } from "./availableTemplates";
+import { selectTemplate } from "./selectTemplate";
 
 const TemplateDataProcessor: React.FC<{
   parsedQueryString: ParsedQueryString;
@@ -38,7 +38,6 @@ const TemplateDataProcessor: React.FC<{
     try {
       const response = await axios.get(url);
       const spellsData = response.data.data;
-      console.log(spellsData);
 
       const spells: Spell[] =
         spellIds?.map((id) => {

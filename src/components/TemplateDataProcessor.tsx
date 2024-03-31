@@ -7,7 +7,6 @@ import { GameInfoModel, Item } from "@/types/model";
 const TemplateDataProcessor: React.FC<{
   parsedQueryString: any; //? any 대신 GameInfoDto로 타입 정의
 }> = ({ parsedQueryString }) => {
-  console.log("parsedQueryString", parsedQueryString);
   const [gameInfo, setGameInfo] = useState<GameInfoModel>({
     championName: "",
     teamName: "",
@@ -33,8 +32,6 @@ const TemplateDataProcessor: React.FC<{
     quadraKills: 0,
     pentaKills: 0,
   });
-
-  console.log("gameInfo", gameInfo);
 
   useEffect(() => {
     async function fetchItemInfo() {

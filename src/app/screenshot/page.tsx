@@ -3,13 +3,10 @@
 import TemplateDataProcessor from "@/components/TemplateDataProcessor";
 import { useSearchParams } from "next/navigation";
 import { parseQueryString } from "../../../utils/formatJson";
-import { ParsedQueryString } from "@/types/model";
 
 export default function Page() {
   const queryString = useSearchParams();
-  const parsedQueryString = parseQueryString(
-    `${queryString}`
-  ) as ParsedQueryString;
+  const parsedQueryString = parseQueryString(`${queryString}`);
 
   return <TemplateDataProcessor parsedQueryString={parsedQueryString} />;
 }

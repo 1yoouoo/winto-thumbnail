@@ -32,6 +32,7 @@ export const templates: Template[] = [
     component: Template2,
     name: "Template2",
     requirements: ["Over2Items"],
+    select: true,
   },
   {
     component: Template3,
@@ -45,6 +46,7 @@ export const templates: Template[] = [
 export function selectTemplate(
   gameInfo: GameInfoModel
 ): React.FC<{ gameInfo: GameInfoModel }> {
+  console.log("gameInfo", gameInfo);
   // Step 0: 개발 모드용 선택 로직 추가
   const developmentTemplate = templates.find(
     (template) => template.select === true

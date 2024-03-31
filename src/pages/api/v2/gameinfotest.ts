@@ -30,7 +30,7 @@ export default async function handler(
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
-    const screenshotUrl = `http://localhost:3000/screenshot?${queryString}`;
+    const screenshotUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
     await page.goto(screenshotUrl, { waitUntil: "networkidle0" });
 
     res.status(200).json({
