@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Ddragon } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/normalizeItemIds";
-import { GameInfoModel, ParsedQueryString, Spell } from "@/types/v2/model";
-import { Item } from "@/types/model";
+import {
+  GameInfoModel,
+  Item,
+  ParsedQueryString,
+  Spell,
+} from "@/types/v2/model";
 import { selectTemplate } from "./selectTemplate";
 
 const TemplateDataProcessor: React.FC<{
@@ -15,14 +19,16 @@ const TemplateDataProcessor: React.FC<{
     gameVersion: string,
     itemIds?: string | string[]
   ): Promise<Item[]> {
-    const url = `${Ddragon}/${gameVersion}/data/ko_KR/item.json`;
+    const url = `${Ddragon}/${gameVersion}/data/en_US/item.json`;
     try {
       const response = await axios.get(url);
       const itemData = response.data.data;
       const normalizedItemIds = normalizeItemIds(itemIds || []);
+
       return normalizedItemIds.map((id) => ({
         id: parseInt(id, 10),
         totalGold: itemData[id]?.gold?.total ?? 0,
+        name: itemData[id]?.name ?? "Unknown",
       }));
     } catch (error) {
       console.error("아이템 정보를 가져오는 데 실패했습니다:", error);
@@ -34,7 +40,7 @@ const TemplateDataProcessor: React.FC<{
     gameVersion: string,
     spellIds?: number[]
   ): Promise<Spell[]> {
-    const url = `${Ddragon}/${gameVersion}/data/ko_KR/summoner.json`;
+    const url = `${Ddragon}/${gameVersion}/data/en_US/summoner.json`;
     try {
       const response = await axios.get(url);
       const spellsData = response.data.data;
@@ -64,7 +70,7 @@ const TemplateDataProcessor: React.FC<{
     if (query.kills) fields.kills = parseInt(query.kills, 10);
     if (query.deaths) fields.deaths = parseInt(query.deaths, 10);
     if (query.assists) fields.assists = parseInt(query.assists, 10);
-    if (query.teamPosition) fields.teamPosition = query.teamPosition as any;
+    if (query.teamPosition) fields.teamPosition = query.teamPosition;
     if (query.primaryPerk) fields.primaryPerk = parseInt(query.primaryPerk, 10);
     if (query.subPerk) fields.subPerk = parseInt(query.subPerk, 10);
     if (query.firstBloodKill)

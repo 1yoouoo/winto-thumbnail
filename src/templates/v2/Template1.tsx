@@ -9,6 +9,7 @@ import React from "react";
 import { championDto } from "@/types/championDto";
 import { WaterMark } from "@/style/common";
 import { GameInfoModel } from "@/types/v2/model";
+import ItemImage from "@/components/styles/ItemImage";
 
 const Container = styled.div<{ $primary: string }>`
   position: relative;
@@ -68,19 +69,13 @@ const Items = styled.span`
   gap: 80px;
 `;
 
-const Item = styled.div`
-  z-index: -1;
-  height: 230px;
-  border: 5px solid white;
-  border-radius: 5px;
-  box-shadow: ${shadows.ItemBoxShadow};
-
+const ItemWrapper = styled.span`
   &:nth-child(1) {
-    transform: rotate(-5deg);
+    transform: rotate(5deg);
   }
 
   &:nth-child(2) {
-    transform: rotate(5deg);
+    transform: rotate(-5deg);
   }
 `;
 
@@ -158,14 +153,14 @@ const Template1: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
           <ShadowText text="INSANE" $capitalize={true} />
           <Items>
             {getTop2Items.map((item, index) => (
-              <Item key={index}>
-                <Image
-                  src={`${Ddragon}/${gameVersion}/img/item/${item.id}.png`}
-                  alt="item"
+              <ItemWrapper key={index}>
+                <ItemImage
+                  gameVersion={gameVersion}
+                  item={item}
                   width={230}
                   height={230}
                 />
-              </Item>
+              </ItemWrapper>
             ))}
             <PlusWrapper>
               <GradientPlus

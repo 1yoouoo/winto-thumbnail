@@ -29,7 +29,7 @@ export type ParsedQueryString = {
   deaths: string;
   assists: string;
   itemIds: string[];
-  teamPosition: string;
+  teamPosition: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
   primaryPerk: string;
   subPerk: string;
   spells: string[];
@@ -63,6 +63,7 @@ export interface GameInfoModel {
 export interface Item {
   id: number;
   totalGold: number;
+  name: string;
 }
 
 export interface Spell {

@@ -9,6 +9,7 @@ import React from "react";
 import { championDto } from "@/types/championDto";
 import { WaterMark } from "@/style/common";
 import { GameInfoModel } from "@/types/v2/model";
+import ItemImage from "@/components/styles/ItemImage";
 
 const Container = styled.div<{ $primary: string }>`
   position: relative;
@@ -67,12 +68,8 @@ const Items = styled.span`
   gap: 20px;
 `;
 
-const Item = styled.div`
+const ItemWrapper = styled.span`
   z-index: -1;
-  height: 230px;
-  border: 5px solid white;
-  border-radius: 5px;
-  box-shadow: ${shadows.ItemBoxShadow};
 `;
 
 const PlusWrapper = styled.div`
@@ -152,35 +149,33 @@ const Template3: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
           <ShadowText text="INSANE" $capitalize={true} />
           <Items>
             {getTop3Items.map((item, index) => (
-              <React.Fragment key={index}>
-                <Item>
-                  <Image
-                    src={`${Ddragon}/${gameVersion}/img/item/${item.id}.png`}
-                    alt="item"
-                    width={230}
-                    height={230}
-                  />
-                </Item>
-                <PlusWrapper>
-                  <GradientPlus
-                    data-text="+"
-                    primarycolor={primary}
-                    secondarycolor={secondary}
-                    fontSize="200px"
-                  >
-                    +
-                  </GradientPlus>
-                  <GradientPlus
-                    data-text="+"
-                    primarycolor={primary}
-                    secondarycolor={secondary}
-                    fontSize="200px"
-                  >
-                    +
-                  </GradientPlus>
-                </PlusWrapper>
-              </React.Fragment>
+              <ItemWrapper key={index}>
+                <ItemImage
+                  gameVersion={gameVersion}
+                  item={item}
+                  width={230}
+                  height={230}
+                />
+              </ItemWrapper>
             ))}
+            <PlusWrapper>
+              <GradientPlus
+                data-text="+"
+                primarycolor={primary}
+                secondarycolor={secondary}
+                fontSize="200px"
+              >
+                +
+              </GradientPlus>
+              <GradientPlus
+                data-text="+"
+                primarycolor={primary}
+                secondarycolor={secondary}
+                fontSize="200px"
+              >
+                +
+              </GradientPlus>
+            </PlusWrapper>
           </Items>
         </GameInfoWrapper>
         {isDevelopment && <WaterMark>Template3</WaterMark>}
