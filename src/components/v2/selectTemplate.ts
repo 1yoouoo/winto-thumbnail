@@ -10,6 +10,7 @@ import {
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
 import Template4 from "@/templates/v2/Template4";
+import Template5 from "@/templates/v2/Template5";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoModel }>;
@@ -45,8 +46,13 @@ export const templates: Template[] = [
     name: "Template4",
     preferredConditions: ["NoDeath", "HighKDA", "playerName"],
     requirements: ["Over1Items", "playerName", "KDA"],
-    // select: true,
   },
+  // {
+  //   component: Template5,
+  //   name: "Template5",
+  //   preferredConditions: ["NoDeath", "HighKDA"],
+  //   requirements: ["Over3Items", "KDA"],
+  // },
   // 기타 템플릿 추가...
 ];
 
