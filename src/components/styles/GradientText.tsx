@@ -33,6 +33,7 @@ interface GradientTextProps {
   $primarycolor: string;
   $secondarycolor: string;
   $capitalize?: boolean;
+  $fontSize?: string;
 }
 
 const GradientText = ({
@@ -40,13 +41,18 @@ const GradientText = ({
   $primarycolor: primarycolor,
   $secondarycolor: secondarycolor,
   $capitalize,
+  $fontSize,
 }: GradientTextProps) => {
   const [fontSize, setFontSize] = useState("0px");
 
   useEffect(() => {
-    const newSize = `${Math.min(Math.max(150, 1200 / text.length), 280)}px`;
-    setFontSize(newSize);
-  }, [text]);
+    if (!$fontSize) {
+      const newSize = `${Math.min(Math.max(150, 1200 / text.length), 280)}px`;
+      setFontSize(newSize);
+    } else {
+      setFontSize($fontSize);
+    }
+  }, [text, $fontSize]);
 
   return (
     <Container
@@ -55,6 +61,7 @@ const GradientText = ({
       secondarycolor={secondarycolor}
       $capitalize={$capitalize}
       fontSize={fontSize}
+      className="gradient-text"
     >
       {text}
     </Container>

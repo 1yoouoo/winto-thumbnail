@@ -6,7 +6,6 @@ import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { WaterMark } from "@/style/common";
 import { GameInfoModel } from "@/types/v2/model";
 import ShadowText from "@/components/styles/ShadowText";
 import ItemImage from "@/components/styles/ItemImage";
@@ -147,8 +146,6 @@ const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
 
   const { primary, secondary } = champion.color;
 
-  const isDevelopment = process.env.NODE_ENV === "development";
-
   return (
     <Container $primary={primary}>
       <Wrapper $primary={primary}>
@@ -202,7 +199,6 @@ const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
             />
           </KDAWrapper>
         </GameInfoWrapper>
-        {isDevelopment && <WaterMark>Template2</WaterMark>}
       </Wrapper>
     </Container>
   );

@@ -7,7 +7,6 @@ import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { WaterMark } from "@/style/common";
 import { GameInfoModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 
@@ -130,8 +129,6 @@ const Template1: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
 
   const { primary, secondary } = champion.color;
 
-  const isDevelopment = process.env.NODE_ENV === "development";
-
   return (
     <Container $primary={primary}>
       <Wrapper $primary={primary}>
@@ -174,7 +171,6 @@ const Template1: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
             </PlusWrapper>
           </Items>
         </GameInfoWrapper>
-        {isDevelopment && <WaterMark>Template1</WaterMark>}
       </Wrapper>
     </Container>
   );

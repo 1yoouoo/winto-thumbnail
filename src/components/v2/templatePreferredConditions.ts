@@ -1,6 +1,6 @@
 import { GameInfoModel } from "@/types/v2/model";
 
-export type PreferredConditions = "NoDeath" | "HighKDA" | "SpecialSkin";
+export type PreferredConditions = "NoDeath" | "HighKDA" | "playerName";
 
 type TemplatePreferredCondition = {
   name: PreferredConditions;
@@ -25,5 +25,11 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
       return kda > 5;
     },
   },
+  {
+    name: "playerName",
+    weight: 4,
+    check: (gameInfo) => gameInfo.playerName !== undefined,
+  },
+
   // 기타 조건 추가...
 ];

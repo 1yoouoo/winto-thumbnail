@@ -6,7 +6,6 @@ import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { WaterMark } from "@/style/common";
 import { GameInfoModel } from "@/types/v2/model";
 
 const Container = styled.div<{ $primary: string }>`
@@ -70,8 +69,6 @@ const Template0: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
 
   const { primary, secondary } = champion.color;
 
-  const isDevelopment = process.env.NODE_ENV === "development";
-
   return (
     <Container $primary={primary}>
       <Wrapper $primary={primary}>
@@ -93,7 +90,6 @@ const Template0: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
           <ShadowText text="INSANE" $capitalize={true} />
           <ShadowText text="PLAY" $capitalize={true} />
         </GameInfoWrapper>
-        {isDevelopment && <WaterMark>Template0</WaterMark>}
       </Wrapper>
     </Container>
   );

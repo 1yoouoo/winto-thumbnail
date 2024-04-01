@@ -14,15 +14,20 @@ const Container = styled.span<any>`
 interface ShadowTextProps {
   text: string;
   $capitalize?: boolean;
+  $fontSize?: string;
 }
 
-const ShadowText = ({ text, $capitalize }: ShadowTextProps) => {
+const ShadowText = ({ text, $capitalize, $fontSize }: ShadowTextProps) => {
   const [fontSize, setFontSize] = useState("0px");
 
   useEffect(() => {
-    const newSize = `${Math.min(Math.max(150, 1200 / text.length), 280)}px`;
-    setFontSize(newSize);
-  }, [text]);
+    if (!$fontSize) {
+      const newSize = `${Math.min(Math.max(150, 1200 / text.length), 280)}px`;
+      setFontSize(newSize);
+    } else {
+      setFontSize($fontSize);
+    }
+  }, [text, $fontSize]);
 
   return (
     <Container $capitalize={$capitalize} fontSize={fontSize}>
