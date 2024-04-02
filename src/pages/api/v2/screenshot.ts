@@ -39,6 +39,8 @@ export default async function handler(
     });
   }
 
+  console.log("req.body : ", req.body);
+
   try {
     const gameInfo: GameInfoDto = req.body;
     const transformedGameInfo = transformGameInfo(gameInfo);

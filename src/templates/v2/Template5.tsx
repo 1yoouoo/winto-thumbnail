@@ -64,7 +64,7 @@ const Template5: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
       <Wrapper $primary={primary}>
         <SplashImage>
           <Image
-            src={`https://winto-thumbnail.sgp1.digitaloceanspaces.com/champion/Screenshot%202024-04-01%20at%2010.50.59%E2%80%AFPM.png`}
+            src={`https://winto-thumbnail.sgp1.digitaloceanspaces.com/champion/2024-04/crop/Ahri/Ahri_ArcanaSkin_Unused2_HD.jpg`}
             alt="champion"
             width={1280}
             height={720}

@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { fonts } from "@/style/fonts";
-import { Ddragon } from "@/constant/constant";
-import Image from "next/image";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
