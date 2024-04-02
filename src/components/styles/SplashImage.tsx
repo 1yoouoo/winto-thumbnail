@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Ddragon } from "@/constant/constant";
+import { Ddragon, spacesEndpoint } from "@/constant/constant";
 import styled from "styled-components";
 import { Skin } from "@/types/v2/model";
+import { championDto } from "@/types/championDto";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -18,13 +19,18 @@ interface IProps {
 }
 
 const SplashImage = ({ championName, skins, ...props }: IProps) => {
+  const randomSkinIndex = Math.floor(
+    Math.random() * championDto[championName].skinNumber
+  );
+
   const randomSkin =
     (skins && skins[Math.floor(Math.random() * skins.length)].num) ?? 0;
 
-  //TODO: 고화질 이미지 DB 연결 후 수정
-  const highQualitySrc = `${Ddragon}/img/champion/centered/${championName}_${randomSkin}.jpg`;
+  const highQualitySrc = `${spacesEndpoint}/champion/2024-04/right/${championName}/${championName}_${randomSkinIndex}.jpg`;
   const lowQualitySrc = `${Ddragon}/img/champion/centered/${championName}_${randomSkin}.jpg`;
+
   console.log(highQualitySrc);
+
   const [imgSrc, setImgSrc] = useState(highQualitySrc);
 
   // 이미지 로딩 실패 시 실행될 함수

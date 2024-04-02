@@ -88,12 +88,12 @@ const ChampionNameWrapper = styled.span`
 
 const ItemKdaWrapper = styled.span`
   position: absolute;
-  right: 100px;
+  right: 80px;
   bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   transform: rotate(1deg);
 `;
 
@@ -210,11 +210,11 @@ const Template4: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
               <ItemImage
                 gameVersion={gameVersion}
                 item={getFirstItem}
-                width={150}
-                height={150}
+                width={120}
+                height={120}
               />
               <QuestionMark>
-                <ShadowText text="?" $fontSize="80px" />
+                <ShadowText text="?" $fontSize="60px" />
               </QuestionMark>
             </ItemWrapper>
 

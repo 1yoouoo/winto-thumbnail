@@ -2,6 +2,7 @@ export type ChampionDto = {
   [key: string]: {
     name: string;
     color: { primary: string; secondary: string };
+    skinNumber: number;
   };
 };
 
@@ -13,6 +14,7 @@ export const championDto: ChampionDto = {
       primary: "#C62300",
       secondary: "#920000",
     },
+    skinNumber: 9,
   },
   //? personal color
   Ahri: {
@@ -21,6 +23,7 @@ export const championDto: ChampionDto = {
       primary: "#EE82EE",
       secondary: "#FFC0CB",
     },
+    skinNumber: 20,
   },
   //? personal color
   Akali: {
@@ -29,6 +32,7 @@ export const championDto: ChampionDto = {
       primary: "#2ECC71",
       secondary: "#27AE60",
     },
+    skinNumber: 13,
   },
   //? personal color
   Akshan: {
@@ -37,6 +41,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#2E86C1",
     },
+    skinNumber: 6,
   },
   //? personal color
   Alistar: {
@@ -45,6 +50,7 @@ export const championDto: ChampionDto = {
       primary: "#B7950B",
       secondary: "#7D6608",
     },
+    skinNumber: 4,
   },
   //? personal color
   Amumu: {
@@ -53,6 +59,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    skinNumber: 1,
   },
   //? personal color
   Anivia: {
@@ -61,6 +68,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    skinNumber: 4,
   },
   //? personal color
   Annie: {
@@ -69,6 +77,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    skinNumber: 11,
   },
   //? personal color
   Aphelios: {
@@ -77,6 +86,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 4,
   },
   //? personal color
   Ashe: {
@@ -85,6 +95,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#3498DB",
     },
+    skinNumber: 13,
   },
   //? personal color
   AurelionSol: {
@@ -93,6 +104,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    skinNumber: 2,
   },
   //? personal color
   Azir: {
@@ -101,6 +113,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F1C40F",
     },
+    skinNumber: 4,
   },
   //? personal color
   Bard: {
@@ -109,6 +122,7 @@ export const championDto: ChampionDto = {
       primary: "#D35400",
       secondary: "#E67E22",
     },
+    skinNumber: 2,
   },
   //? personal color
   Belveth: {
@@ -117,6 +131,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#A93226",
     },
+    skinNumber: 2,
   },
   //? personal color
   Blitzcrank: {
@@ -125,6 +140,7 @@ export const championDto: ChampionDto = {
       primary: "#F1C40F",
       secondary: "#F39C12",
     },
+    skinNumber: 1,
   },
   //? personal color
   Brand: {
@@ -133,6 +149,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 3,
   },
   //? personal color
   Braum: {
@@ -141,6 +158,7 @@ export const championDto: ChampionDto = {
       primary: "#5D6D7E",
       secondary: "#34495E",
     },
+    skinNumber: 1,
   },
   //? personal color
   Briar: {
@@ -149,6 +167,7 @@ export const championDto: ChampionDto = {
       primary: "#117A65",
       secondary: "#0E6655",
     },
+    skinNumber: 2,
   },
   //? personal color
   Caitlyn: {
@@ -157,6 +176,7 @@ export const championDto: ChampionDto = {
       primary: "#7FB3D5",
       secondary: "#5499C7",
     },
+    skinNumber: 7,
   },
   //? personal color
   Camille: {
@@ -165,6 +185,7 @@ export const championDto: ChampionDto = {
       primary: "#48C9B0",
       secondary: "#1ABC9C",
     },
+    skinNumber: 6,
   },
   //? personal color
   Cassiopeia: {
@@ -173,6 +194,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#2ECC71",
     },
+    skinNumber: 4,
   },
   //? personal color
   Chogath: {
@@ -181,6 +203,7 @@ export const championDto: ChampionDto = {
       primary: "#839192",
       secondary: "#707B7C",
     },
+    skinNumber: 1,
   },
   //? personal color
   Corki: {
@@ -189,6 +212,7 @@ export const championDto: ChampionDto = {
       primary: "#DC7633",
       secondary: "#BA4A00",
     },
+    skinNumber: 2,
   },
   //? personal color
   Darius: {
@@ -197,6 +221,7 @@ export const championDto: ChampionDto = {
       primary: "#641E16",
       secondary: "#7B241C",
     },
+    skinNumber: 6,
   },
   //? personal color
   Diana: {
@@ -205,6 +230,7 @@ export const championDto: ChampionDto = {
       primary: "#ABB2B9",
       secondary: "#808B96",
     },
+    skinNumber: 8,
   },
   //? personal color
   DrMundo: {
@@ -213,6 +239,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#28B463",
     },
+    skinNumber: 5,
   },
   //? personal color
   Draven: {
@@ -221,6 +248,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    skinNumber: 9,
   },
   //? personal color
   Ekko: {
@@ -229,6 +257,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 3,
   },
   //? personal color
   Elise: {
@@ -237,6 +266,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    skinNumber: 4,
   },
   //? personal color
   Evelynn: {
@@ -245,6 +275,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    skinNumber: 6,
   },
   //? personal color
   Ezreal: {
@@ -253,6 +284,7 @@ export const championDto: ChampionDto = {
       primary: "#F4D03F",
       secondary: "#F7DC6F",
     },
+    skinNumber: 6,
   },
   //? personal color
   Fiddlesticks: {
@@ -261,6 +293,7 @@ export const championDto: ChampionDto = {
       primary: "#6C3483",
       secondary: "#5B2C6F",
     },
+    skinNumber: 2,
   },
   //? personal color
   Fiora: {
@@ -269,6 +302,7 @@ export const championDto: ChampionDto = {
       primary: "#CB4335",
       secondary: "#922B21",
     },
+    skinNumber: 6,
   },
   //? personal color
   Fizz: {
@@ -277,6 +311,7 @@ export const championDto: ChampionDto = {
       primary: "#48C9B0",
       secondary: "#1ABC9C",
     },
+    skinNumber: 1,
   },
   //? personal color
   Galio: {
@@ -285,6 +320,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 2,
   },
   //? personal color
   Gangplank: {
@@ -293,6 +329,7 @@ export const championDto: ChampionDto = {
       primary: "#D35400",
       secondary: "#E67E22",
     },
+    skinNumber: 2,
   },
   //? personal color
   Garen: {
@@ -301,6 +338,7 @@ export const championDto: ChampionDto = {
       primary: "#239B56",
       secondary: "#1D8348",
     },
+    skinNumber: 5,
   },
   //? personal color
   Gnar: {
@@ -309,6 +347,7 @@ export const championDto: ChampionDto = {
       primary: "#A569BD",
       secondary: "#8E44AD",
     },
+    skinNumber: 3,
   },
   //? personal color
   Gragas: {
@@ -317,6 +356,7 @@ export const championDto: ChampionDto = {
       primary: "#7F8C8D",
       secondary: "#707B7C",
     },
+    skinNumber: 2,
   },
   //? personal color
   Graves: {
@@ -325,6 +365,7 @@ export const championDto: ChampionDto = {
       primary: "#616A6B",
       secondary: "#424949",
     },
+    skinNumber: 3,
   },
   //? personal color
   Gwen: {
@@ -333,6 +374,7 @@ export const championDto: ChampionDto = {
       primary: "#AED6F1",
       secondary: "#85C1E9",
     },
+    skinNumber: 6,
   },
   //? personal color
   Hecarim: {
@@ -341,6 +383,7 @@ export const championDto: ChampionDto = {
       primary: "#2E86C1",
       secondary: "#1B4F72",
     },
+    skinNumber: 5,
   },
   //? personal color
   Heimerdinger: {
@@ -349,6 +392,7 @@ export const championDto: ChampionDto = {
       primary: "#F4D03F",
       secondary: "#F5B041",
     },
+    skinNumber: 1,
   },
   //? personal color
   Hwei: {
@@ -357,6 +401,7 @@ export const championDto: ChampionDto = {
       primary: "#8E44AD",
       secondary: "#9B59B6",
     },
+    skinNumber: 2,
   },
   //? personal color
   Illaoi: {
@@ -365,6 +410,7 @@ export const championDto: ChampionDto = {
       primary: "#117864",
       secondary: "#0E6251",
     },
+    skinNumber: 2,
   },
   //? personal color
   Irelia: {
@@ -373,6 +419,7 @@ export const championDto: ChampionDto = {
       primary: "#2980B9",
       secondary: "#3498DB",
     },
+    skinNumber: 10,
   },
   //? personal color
   Ivern: {
@@ -381,6 +428,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#2ECC71",
     },
+    skinNumber: 1,
   },
   //? personal color
   Janna: {
@@ -389,6 +437,7 @@ export const championDto: ChampionDto = {
       primary: "#AED6F1",
       secondary: "#85C1E9",
     },
+    skinNumber: 6,
   },
   //? personal color
   JarvanIV: {
@@ -397,6 +446,7 @@ export const championDto: ChampionDto = {
       primary: "#B03A2E",
       secondary: "#78281F",
     },
+    skinNumber: 5,
   },
   //? personal color
   Jax: {
@@ -405,6 +455,7 @@ export const championDto: ChampionDto = {
       primary: "#784212",
       secondary: "#6E2C00",
     },
+    skinNumber: 5,
   },
   //? personal color
   Jayce: {
@@ -413,6 +464,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 5,
   },
   //? personal color
   Jhin: {
@@ -421,6 +473,7 @@ export const championDto: ChampionDto = {
       primary: "#641E16",
       secondary: "#7B241C",
     },
+    skinNumber: 4,
   },
   //? personal color
   Jinx: {
@@ -429,6 +482,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 10,
   },
   //? personal color
   KSante: {
@@ -437,6 +491,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    skinNumber: 2,
   },
   //? personal color
   Kaisa: {
@@ -445,6 +500,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#4A235A",
     },
+    skinNumber: 10,
   },
   //? personal color
   Kalista: {
@@ -453,6 +509,7 @@ export const championDto: ChampionDto = {
       primary: "#117A65",
       secondary: "#0E6655",
     },
+    skinNumber: 5,
   },
   //? personal color
   Karma: {
@@ -461,6 +518,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#FAD7A0",
     },
+    skinNumber: 3,
   },
   //? personal color
   Karthus: {
@@ -469,6 +527,7 @@ export const championDto: ChampionDto = {
       primary: "#5B2C6F",
       secondary: "#7D3C98",
     },
+    skinNumber: 2,
   },
   //? personal color
   Kassadin: {
@@ -477,6 +536,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#5DADE2",
     },
+    skinNumber: 2,
   },
   //? personal color
   Katarina: {
@@ -485,6 +545,7 @@ export const championDto: ChampionDto = {
       primary: "#CB4335",
       secondary: "#922B21",
     },
+    skinNumber: 11,
   },
   //? personal color
   Kayle: {
@@ -493,6 +554,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    skinNumber: 4,
   },
   //? personal color
   Kayn: {
@@ -501,6 +563,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2E4053",
     },
+    skinNumber: 4,
   },
   //? personal color
   Kennen: {
@@ -509,6 +572,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    skinNumber: 2,
   },
   //? personal color
   Khazix: {
@@ -517,6 +581,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    skinNumber: 3,
   },
   //? personal color
   Kindred: {
@@ -525,6 +590,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    skinNumber: 5,
   },
   //? personal color
   Kled: {
@@ -533,6 +599,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 2,
   },
   //? personal color
   KogMaw: {
@@ -541,6 +608,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    skinNumber: 5,
   },
   //? personal color
   Leblanc: {
@@ -549,6 +617,7 @@ export const championDto: ChampionDto = {
       primary: "#76448A",
       secondary: "#633974",
     },
+    skinNumber: 7,
   },
   //? personal color
   LeeSin: {
@@ -557,6 +626,7 @@ export const championDto: ChampionDto = {
       primary: "#B03A2E",
       secondary: "#78281F",
     },
+    skinNumber: 11,
   },
   //? personal color
   Leona: {
@@ -565,6 +635,7 @@ export const championDto: ChampionDto = {
       primary: "#F1C40F",
       secondary: "#F39C12",
     },
+    skinNumber: 2,
   },
   //? personal color
   Lillia: {
@@ -573,6 +644,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    skinNumber: 4,
   },
   //? personal color
   Lissandra: {
@@ -581,6 +653,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    skinNumber: 5,
   },
   //? personal color
   Lucian: {
@@ -589,6 +662,7 @@ export const championDto: ChampionDto = {
       primary: "#17202A",
       secondary: "#212F3C",
     },
+    skinNumber: 8,
   },
   //? personal color
   Lulu: {
@@ -597,6 +671,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    skinNumber: 2,
   },
   //? personal color
   Lux: {
@@ -605,6 +680,7 @@ export const championDto: ChampionDto = {
       primary: "#FAD7A0",
       secondary: "#FDEBD0",
     },
+    skinNumber: 16,
   },
   //? personal color
   Malphite: {
@@ -613,6 +689,7 @@ export const championDto: ChampionDto = {
       primary: "#626567",
       secondary: "#515A5A",
     },
+    skinNumber: 4,
   },
   //? personal color
   Malzahar: {
@@ -621,6 +698,7 @@ export const championDto: ChampionDto = {
       primary: "#8E44AD",
       secondary: "#7D3C98",
     },
+    skinNumber: 4,
   },
   //? personal color
   Maokai: {
@@ -629,6 +707,7 @@ export const championDto: ChampionDto = {
       primary: "#145A32",
       secondary: "#196F3D",
     },
+    skinNumber: 3,
   },
   //? personal color
   MasterYi: {
@@ -637,6 +716,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#2980B9",
     },
+    skinNumber: 9,
   },
   //? personal color
   Milio: {
@@ -645,6 +725,7 @@ export const championDto: ChampionDto = {
       primary: "#F4D03F",
       secondary: "#F7DC6F",
     },
+    skinNumber: 2,
   },
   //? personal color
   MissFortune: {
@@ -653,6 +734,7 @@ export const championDto: ChampionDto = {
       primary: "#E74C3C",
       secondary: "#CB4335",
     },
+    skinNumber: 10,
   },
   //? personal color
   Mordekaiser: {
@@ -661,6 +743,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 6,
   },
   //? personal color
   Morgana: {
@@ -669,6 +752,7 @@ export const championDto: ChampionDto = {
       primary: "#797D7F",
       secondary: "#626567",
     },
+    skinNumber: 2,
   },
   //? personal color
   Naafiri: {
@@ -677,6 +761,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    skinNumber: 9,
   },
   //? personal color
   Nami: {
@@ -685,6 +770,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    skinNumber: 2,
   },
   //? personal color
   Nasus: {
@@ -693,6 +779,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#D68910",
     },
+    skinNumber: 4,
   },
   //? personal color
   Nautilus: {
@@ -701,6 +788,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 5,
   },
   //? personal color
   Neeko: {
@@ -709,6 +797,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#2ECC71",
     },
+    skinNumber: 3,
   },
   //? personal color
   Nidalee: {
@@ -717,6 +806,7 @@ export const championDto: ChampionDto = {
       primary: "#229954",
       secondary: "#27AE60",
     },
+    skinNumber: 3,
   },
   //? personal color
   Nilah: {
@@ -725,6 +815,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#5DADE2",
     },
+    skinNumber: 8,
   },
   //? personal color
   Nocturne: {
@@ -733,6 +824,7 @@ export const championDto: ChampionDto = {
       primary: "#212F3D",
       secondary: "#273746",
     },
+    skinNumber: 3,
   },
   //! personal color
   Nunu: {
@@ -741,6 +833,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 3,
   },
   //? personal color
   Olaf: {
@@ -749,6 +842,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 1,
   },
   //? personal color
   Orianna: {
@@ -757,6 +851,7 @@ export const championDto: ChampionDto = {
       primary: "#85929E",
       secondary: "#5D6D7E",
     },
+    skinNumber: 4,
   },
   //? personal color
   Ornn: {
@@ -765,6 +860,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    skinNumber: 6,
   },
   //? personal color
   Pantheon: {
@@ -773,6 +869,7 @@ export const championDto: ChampionDto = {
       primary: "#7B241C",
       secondary: "#922B21",
     },
+    skinNumber: 2,
   },
   //? personal color
   Poppy: {
@@ -781,6 +878,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    skinNumber: 6,
   },
   //? personal color
   Pyke: {
@@ -789,6 +887,7 @@ export const championDto: ChampionDto = {
       primary: "#1B4F72",
       secondary: "#154360",
     },
+    skinNumber: 7,
   },
   //? personal color
   Qiyana: {
@@ -797,6 +896,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#229954",
     },
+    skinNumber: 5,
   },
   //? personal color
   Quinn: {
@@ -805,6 +905,7 @@ export const championDto: ChampionDto = {
       primary: "#7E5109",
       secondary: "#6E2C00",
     },
+    skinNumber: 6,
   },
   //? personal color
   Rakan: {
@@ -813,6 +914,7 @@ export const championDto: ChampionDto = {
       primary: "#F1948A",
       secondary: "#EC7063",
     },
+    skinNumber: 4,
   },
   //? personal color
   Rammus: {
@@ -821,6 +923,7 @@ export const championDto: ChampionDto = {
       primary: "#9C640C",
       secondary: "#7E5109",
     },
+    skinNumber: 2,
   },
   //? personal color
   RekSai: {
@@ -829,6 +932,7 @@ export const championDto: ChampionDto = {
       primary: "#633974",
       secondary: "#512E5F",
     },
+    skinNumber: 3,
   },
   //? personal color
   Rell: {
@@ -837,6 +941,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#7B241C",
     },
+    skinNumber: 2,
   },
   //? personal color
   Renata: {
@@ -845,6 +950,7 @@ export const championDto: ChampionDto = {
       primary: "#D5D8DC",
       secondary: "#ABB2B9",
     },
+    skinNumber: 1,
   },
   //? personal color
   Renekton: {
@@ -853,6 +959,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#7B241C",
     },
+    skinNumber: 0,
   },
   //? personal color
   Rengar: {
@@ -861,6 +968,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#229954",
     },
+    skinNumber: 1,
   },
   //? personal color
   Riven: {
@@ -869,6 +977,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#6C3483",
     },
+    skinNumber: 3,
   },
   //? personal color
   Rumble: {
@@ -877,6 +986,7 @@ export const championDto: ChampionDto = {
       primary: "#E67E22",
       secondary: "#D35400",
     },
+    skinNumber: 10,
   },
   //? personal color
   Ryze: {
@@ -885,6 +995,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    skinNumber: 0,
   },
   //? personal color
   Samira: {
@@ -893,6 +1004,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    skinNumber: 6,
   },
   //? personal color
   Sejuani: {
@@ -901,6 +1013,7 @@ export const championDto: ChampionDto = {
       primary: "#AED6F1",
       secondary: "#85C1E9",
     },
+    skinNumber: 6,
   },
   //? personal color
   Senna: {
@@ -909,6 +1022,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 4,
   },
   //? personal color
   Seraphine: {
@@ -917,6 +1031,7 @@ export const championDto: ChampionDto = {
       primary: "#F5B7B1",
       secondary: "#F1948A",
     },
+    skinNumber: 6,
   },
   //? personal color
   Sett: {
@@ -925,6 +1040,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 5,
   },
   //? personal color
   Shaco: {
@@ -933,6 +1049,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    skinNumber: 4,
   },
   //? personal color
   Shen: {
@@ -941,6 +1058,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#2980B9",
     },
+    skinNumber: 3,
   },
   //? personal color
   Shyvana: {
@@ -949,6 +1067,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    skinNumber: 3,
   },
   //? personal color
   Singed: {
@@ -957,6 +1076,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#229954",
     },
+    skinNumber: 4,
   },
   //? personal color
   Sion: {
@@ -965,6 +1085,7 @@ export const championDto: ChampionDto = {
       primary: "#7B241C",
       secondary: "#641E16",
     },
+    skinNumber: 2,
   },
   //? personal color
   Sivir: {
@@ -973,6 +1094,7 @@ export const championDto: ChampionDto = {
       primary: "#D4AC0D",
       secondary: "#B7950B",
     },
+    skinNumber: 4,
   },
   //? personal color
   Skarner: {
@@ -981,6 +1103,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    skinNumber: 6,
   },
   //? personal color
   Smolder: {
@@ -989,6 +1112,7 @@ export const championDto: ChampionDto = {
       primary: "#E74C3C",
       secondary: "#CB4335",
     },
+    skinNumber: 2,
   },
   //? personal color
   Sona: {
@@ -997,6 +1121,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 2,
   },
   //? personal color
   Soraka: {
@@ -1005,6 +1130,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    skinNumber: 3,
   },
   //? personal color
   Swain: {
@@ -1013,6 +1139,7 @@ export const championDto: ChampionDto = {
       primary: "#641E16",
       secondary: "#7B241C",
     },
+    skinNumber: 2,
   },
   //? personal color
   Sylas: {
@@ -1021,6 +1148,7 @@ export const championDto: ChampionDto = {
       primary: "#5D6D7E",
       secondary: "#34495E",
     },
+    skinNumber: 2,
   },
   //? personal color
   Syndra: {
@@ -1029,6 +1157,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#6C3483",
     },
+    skinNumber: 3,
   },
   //? personal color
   TahmKench: {
@@ -1037,6 +1166,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 3,
   },
   //? personal color
   Taliyah: {
@@ -1045,6 +1175,7 @@ export const championDto: ChampionDto = {
       primary: "#117A65",
       secondary: "#0E6655",
     },
+    skinNumber: 1,
   },
   //? personal color
   Talon: {
@@ -1053,6 +1184,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 3,
   },
   //? personal color
   Taric: {
@@ -1061,6 +1193,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    skinNumber: 4,
   },
   //? personal color
   Teemo: {
@@ -1069,6 +1202,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    skinNumber: 1,
   },
   //? personal color
   Thresh: {
@@ -1077,6 +1211,7 @@ export const championDto: ChampionDto = {
       primary: "#16A085",
       secondary: "#1ABC9C",
     },
+    skinNumber: 3,
   },
   //? personal color
   Tristana: {
@@ -1085,6 +1220,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#5DADE2",
     },
+    skinNumber: 2,
   },
   //? personal color
   Trundle: {
@@ -1093,6 +1229,7 @@ export const championDto: ChampionDto = {
       primary: "#1B4F72",
       secondary: "#154360",
     },
+    skinNumber: 7,
   },
   //? personal color
   Tryndamere: {
@@ -1101,6 +1238,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    skinNumber: 2,
   },
   //? personal color
   TwistedFate: {
@@ -1109,6 +1247,7 @@ export const championDto: ChampionDto = {
       primary: "#5D6D7E",
       secondary: "#34495E",
     },
+    skinNumber: 3,
   },
   //? personal color
   Twitch: {
@@ -1117,6 +1256,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#6C3483",
     },
+    skinNumber: 7,
   },
   //? personal color
   Udyr: {
@@ -1125,6 +1265,7 @@ export const championDto: ChampionDto = {
       primary: "#D35400",
       secondary: "#E67E22",
     },
+    skinNumber: 4,
   },
   //? personal color
   Urgot: {
@@ -1133,6 +1274,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 6,
   },
   //? personal color
   Varus: {
@@ -1141,6 +1283,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    skinNumber: 3,
   },
   //? personal color
   Vayne: {
@@ -1149,6 +1292,7 @@ export const championDto: ChampionDto = {
       primary: "#7B241C",
       secondary: "#641E16",
     },
+    skinNumber: 6,
   },
   //? personal color
   Veigar: {
@@ -1157,6 +1301,7 @@ export const championDto: ChampionDto = {
       primary: "#8E44AD",
       secondary: "#9B59B6",
     },
+    skinNumber: 8,
   },
   //? personal color
   Velkoz: {
@@ -1165,6 +1310,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    skinNumber: 3,
   },
   //? personal color
   Vex: {
@@ -1173,6 +1319,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 2,
   },
   //? personal color
   Vi: {
@@ -1181,6 +1328,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 5,
   },
   //? personal color
   Viego: {
@@ -1189,6 +1337,7 @@ export const championDto: ChampionDto = {
       primary: "#626567",
       secondary: "#515A5A",
     },
+    skinNumber: 7,
   },
   //? personal color
   Viktor: {
@@ -1197,6 +1346,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 3,
   },
   //? personal color
   Vladimir: {
@@ -1205,6 +1355,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    skinNumber: 2,
   },
   //? personal color
   Volibear: {
@@ -1213,6 +1364,7 @@ export const championDto: ChampionDto = {
       primary: "#1B4F72",
       secondary: "#154360",
     },
+    skinNumber: 7,
   },
   //? personal color
   Warwick: {
@@ -1221,6 +1373,7 @@ export const championDto: ChampionDto = {
       primary: "#7E5109",
       secondary: "#6E2C00",
     },
+    skinNumber: 3,
   },
   //? personal color
   MonkeyKing: {
@@ -1229,6 +1382,7 @@ export const championDto: ChampionDto = {
       primary: "#D4AC0D",
       secondary: "#B7950B",
     },
+    skinNumber: 4,
   },
   //? personal color
   Xayah: {
@@ -1237,6 +1391,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    skinNumber: 2,
   },
   //? personal color
   Xerath: {
@@ -1245,6 +1400,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    skinNumber: 1,
   },
   //? personal color
   XinZhao: {
@@ -1253,6 +1409,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    skinNumber: 6,
   },
   //? personal color
   Yasuo: {
@@ -1261,6 +1418,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    skinNumber: 11,
   },
   //? personal color
   Yone: {
@@ -1269,6 +1427,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    skinNumber: 8,
   },
   //? personal color
   Yorick: {
@@ -1277,6 +1436,7 @@ export const championDto: ChampionDto = {
       primary: "#6C3483",
       secondary: "#5B2C6F",
     },
+    skinNumber: 3,
   },
   //? personal color
   Yuumi: {
@@ -1285,6 +1445,7 @@ export const championDto: ChampionDto = {
       primary: "#A569BD",
       secondary: "#8E44AD",
     },
+    skinNumber: 3,
   },
   //? personal color
   Zac: {
@@ -1293,6 +1454,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#2ECC71",
     },
+    skinNumber: 2,
   },
   //? personal color
   Zed: {
@@ -1301,6 +1463,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    skinNumber: 6,
   },
   //? personal color
   Zeri: {
@@ -1309,6 +1472,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#2ECC71",
     },
+    skinNumber: 5,
   },
   //? personal color
   Ziggs: {
@@ -1317,6 +1481,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    skinNumber: 4,
   },
   //? personal color
   Zilean: {
@@ -1325,6 +1490,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    skinNumber: 2,
   },
   //? personal color
   Zoe: {
@@ -1333,6 +1499,7 @@ export const championDto: ChampionDto = {
       primary: "#F1948A",
       secondary: "#EC7063",
     },
+    skinNumber: 5,
   },
   //? personal color
   Zyra: {
@@ -1341,5 +1508,6 @@ export const championDto: ChampionDto = {
       primary: "#229954",
       secondary: "#27AE60",
     },
+    skinNumber: 9,
   },
 };

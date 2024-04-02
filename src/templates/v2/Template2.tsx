@@ -33,20 +33,6 @@ const Wrapper = styled.div<{ $primary: string }>`
   overflow: hidden;
 `;
 
-const SplashImageWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
-  img {
-    width: 200%;
-    height: 200%;
-    margin: -40px 0 0 -180px;
-  }
-`;
-
 const GameInfoWrapper = styled.div`
   position: relative;
   display: flex;
@@ -151,9 +137,8 @@ const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
   return (
     <Container $primary={primary}>
       <Wrapper $primary={primary}>
-        <SplashImageWrapper>
-          <SplashImage championName={championName} skins={skins!} />
-        </SplashImageWrapper>
+        <SplashImage championName={championName} skins={skins!} />
+
         <GameInfoWrapper>
           <GradientText
             text={championName}
