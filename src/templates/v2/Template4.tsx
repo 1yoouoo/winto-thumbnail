@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { fonts } from "@/style/fonts";
-import { Ddragon, spacesEndpoint } from "@/constant/constant";
+import { spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
@@ -8,6 +8,7 @@ import React from "react";
 import { championDto } from "@/types/championDto";
 import { GameInfoModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
+import SplashImage from "@/components/styles/SplashImage";
 
 const Container = styled.div<{ $primary: string }>`
   position: relative;
@@ -29,20 +30,6 @@ const Wrapper = styled.div<{ $primary: string }>`
   border: 5px solid ${(props) => props.$primary};
   background-color: white;
   overflow: hidden;
-`;
-
-const SplashImage = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-
-  img {
-    width: 120%;
-    height: 120%;
-    margin-right: 20%;
-  }
 `;
 
 const BackgroundHighlight = styled.div`
@@ -173,23 +160,12 @@ const Template4: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
     },
   };
 
-  // skins 배열안에 num을 랜덤으로 픽해서 하나 고르기
-  const randomSkin =
-    (skins && skins[Math.floor(Math.random() * skins.length)].num) ?? 0;
-
   const { primary } = champion.color;
 
   return (
     <Container $primary={primary}>
       <Wrapper $primary={primary}>
-        <SplashImage>
-          <Image
-            src={`${Ddragon}/img/champion/centered/${championName}_${randomSkin}.jpg`}
-            alt="champion"
-            width={1280}
-            height={720}
-          />
-        </SplashImage>
+        <SplashImage championName={championName} skins={skins!} />
 
         <BackgroundHighlight>
           <Image

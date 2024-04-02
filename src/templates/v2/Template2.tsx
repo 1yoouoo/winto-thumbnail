@@ -9,6 +9,7 @@ import { championDto } from "@/types/championDto";
 import { GameInfoModel } from "@/types/v2/model";
 import ShadowText from "@/components/styles/ShadowText";
 import ItemImage from "@/components/styles/ItemImage";
+import SplashImage from "@/components/styles/SplashImage";
 
 const Container = styled.div<{ $primary: string }>`
   position: relative;
@@ -32,7 +33,7 @@ const Wrapper = styled.div<{ $primary: string }>`
   overflow: hidden;
 `;
 
-const CropedSplashImage = styled.div`
+const SplashImageWrapper = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -133,7 +134,8 @@ const KDAWrapper = styled.div`
 `;
 
 const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
-  const { championName, gameVersion, items, kills, deaths, assists } = gameInfo;
+  const { championName, gameVersion, items, kills, deaths, assists, skins } =
+    gameInfo;
   const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
   const champion = championDto[championName] || {
@@ -149,14 +151,9 @@ const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
   return (
     <Container $primary={primary}>
       <Wrapper $primary={primary}>
-        <CropedSplashImage>
-          <Image
-            src={`${Ddragon}/img/champion/centered/${championName}_0.jpg`}
-            alt="champion"
-            width={1280}
-            height={720}
-          />
-        </CropedSplashImage>
+        <SplashImageWrapper>
+          <SplashImage championName={championName} skins={skins!} />
+        </SplashImageWrapper>
         <GameInfoWrapper>
           <GradientText
             text={championName}

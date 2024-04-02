@@ -10,7 +10,7 @@ import {
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
 import Template4 from "@/templates/v2/Template4";
-import Template5 from "@/templates/v2/Template5";
+// import Template5 from "@/templates/v2/Template5";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoModel }>;
