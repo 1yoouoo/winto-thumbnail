@@ -16,7 +16,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: transparent;
-  padding: 20px;
+  padding: 10px;
   margin-left: 50px;
   z-index: 2;
   gap: 5px;
@@ -140,6 +140,7 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
         </PlusWrapper>
       </Items>
       <KDAWrapper>
+        {/* TODO: 화살표 눈에 띄는걸로 개선 */}
         <Image
           src={`${spacesEndpoint}/arrow/red-arrow.png`}
           alt="arrow"

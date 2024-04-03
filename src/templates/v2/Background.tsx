@@ -30,8 +30,8 @@ const Wrapper = styled.div<{ $primary: string }>`
   align-items: center;
   width: 1280px;
   height: 720px;
-  border-radius: 10px;
-  border: 5px solid ${(props) => props.$primary};
+  border-radius: 30px;
+  border: 12px solid ${(props) => props.$primary};
   background-color: white;
   overflow: hidden;
 `;
@@ -60,7 +60,7 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
         <SplashImage championName={props.championName} skins={props.skins!} />
         <BackgroundHighlight>
           <Image
-            src={`${spacesEndpoint}/background/background-hightlight-1.png`}
+            src={`${spacesEndpoint}/background/background-highlight-1.png`}
             alt="background-highlight"
             width={1280}
             height={720}

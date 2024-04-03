@@ -14,7 +14,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: transparent;
-  padding: 20px;
+  padding: 10px;
   margin-left: 50px;
   z-index: 2;
   gap: 5px;
@@ -116,7 +116,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     deaths,
     assists,
   } = gameInfo;
-  const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
+  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getFirstItem = sorteditems[0];
 
   return (
