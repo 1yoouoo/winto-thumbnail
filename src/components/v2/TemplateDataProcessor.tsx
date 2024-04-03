@@ -11,6 +11,7 @@ import {
 } from "@/types/v2/model";
 import { selectTemplate } from "./selectTemplate";
 import { WaterMark } from "@/style/common";
+import Background from "@/templates/v2/Background";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
@@ -156,12 +157,12 @@ const TemplateDataProcessor: React.FC<{
 
   const SelectedTemplateComponent = selectTemplate(gameInfo);
   return (
-    <>
+    <Background championName={gameInfo.championName} skins={gameInfo.skins!}>
       <SelectedTemplateComponent gameInfo={gameInfo} />
       {isDevelopment && (
         <WaterMark>{`${SelectedTemplateComponent.name}`}</WaterMark>
       )}
-    </>
+    </Background>
   );
 };
 

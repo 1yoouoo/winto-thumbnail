@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { fonts } from "@/style/fonts";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
@@ -7,31 +6,8 @@ import React from "react";
 import { championDto } from "@/types/championDto";
 import { GameInfoModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
-import SplashImage from "@/components/styles/SplashImage";
 
-const Container = styled.div<{ $primary: string }>`
-  position: relative;
-  background-color: ${(props) => props.$primary};
-  width: 1280px;
-  height: 720px;
-  font-family: ${fonts.LuckiestGuy.fontFamily};
-`;
-
-const Wrapper = styled.div<{ $primary: string }>`
-  box-sizing: border-box;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1280px;
-  height: 720px;
-  border-radius: 10px;
-  border: 5px solid ${(props) => props.$primary};
-  background-color: white;
-  overflow: hidden;
-`;
-
-const GameInfoWrapper = styled.div`
+const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -97,7 +73,7 @@ const GradientPlus = styled.span<any>`
 `;
 
 const Template3: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
-  const { championName, gameVersion, items, skins } = gameInfo;
+  const { championName, gameVersion, items } = gameInfo;
   const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);
   const champion = championDto[championName] || {
@@ -111,50 +87,44 @@ const Template3: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
   const { primary, secondary } = champion.color;
 
   return (
-    <Container $primary={primary}>
-      <Wrapper $primary={primary}>
-        <SplashImage championName={championName} skins={skins!} />
-
-        <GameInfoWrapper>
-          <GradientText
-            text={championName}
-            $primarycolor={primary}
-            $secondarycolor={secondary}
-            $capitalize={true}
-          />
-          <ShadowText text="INSANE" $capitalize={true} />
-          <Items>
-            {getTop3Items.map((item, index) => (
-              <ItemWrapper key={index}>
-                <ItemImage
-                  gameVersion={gameVersion}
-                  item={item}
-                  width={230}
-                  height={230}
-                />
-              </ItemWrapper>
-            ))}
-            <PlusWrapper>
-              <GradientPlus
-                data-text="+"
-                primarycolor={primary}
-                secondarycolor={secondary}
-                fontSize="200px"
-              >
-                +
-              </GradientPlus>
-              <GradientPlus
-                data-text="+"
-                primarycolor={primary}
-                secondarycolor={secondary}
-                fontSize="200px"
-              >
-                +
-              </GradientPlus>
-            </PlusWrapper>
-          </Items>
-        </GameInfoWrapper>
-      </Wrapper>
+    <Container>
+      <GradientText
+        text={championName}
+        $primarycolor={primary}
+        $secondarycolor={secondary}
+        $capitalize={true}
+      />
+      <ShadowText text="INSANE" $capitalize={true} />
+      <Items>
+        {getTop3Items.map((item, index) => (
+          <ItemWrapper key={index}>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={item}
+              width={230}
+              height={230}
+            />
+          </ItemWrapper>
+        ))}
+        <PlusWrapper>
+          <GradientPlus
+            data-text="+"
+            primarycolor={primary}
+            secondarycolor={secondary}
+            fontSize="200px"
+          >
+            +
+          </GradientPlus>
+          <GradientPlus
+            data-text="+"
+            primarycolor={primary}
+            secondarycolor={secondary}
+            fontSize="200px"
+          >
+            +
+          </GradientPlus>
+        </PlusWrapper>
+      </Items>
     </Container>
   );
 };

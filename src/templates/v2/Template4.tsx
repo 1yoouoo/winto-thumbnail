@@ -1,46 +1,13 @@
 import styled from "styled-components";
-import { fonts } from "@/style/fonts";
 import { spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
-import { championDto } from "@/types/championDto";
 import { GameInfoModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
-import SplashImage from "@/components/styles/SplashImage";
 
-const Container = styled.div<{ $primary: string }>`
-  position: relative;
-  background-color: ${(props) => props.$primary};
-  width: 1280px;
-  height: 720px;
-  font-family: ${fonts.LuckiestGuy.fontFamily};
-`;
-
-const Wrapper = styled.div<{ $primary: string }>`
-  box-sizing: border-box;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1280px;
-  height: 720px;
-  border-radius: 10px;
-  border: 5px solid ${(props) => props.$primary};
-  background-color: white;
-  overflow: hidden;
-`;
-
-const BackgroundHighlight = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.3;
-`;
-
-const GameInfoWrapper = styled.div`
+const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -145,89 +112,64 @@ const Template4: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
     playerName,
     gameVersion,
     items,
-    skins,
     kills,
     deaths,
     assists,
   } = gameInfo;
   const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getFirstItem = sorteditems[0];
-  const champion = championDto[championName] || {
-    name: championName,
-    color: {
-      primary: "#FFFFFF",
-      secondary: "#FFFFFF",
-    },
-  };
-
-  const { primary } = champion.color;
 
   return (
-    <Container $primary={primary}>
-      <Wrapper $primary={primary}>
-        <SplashImage championName={championName} skins={skins!} />
+    <Container>
+      <Description>
+        <GradientText
+          text={`${playerName}'s`}
+          $secondarycolor="#fff267"
+          $primarycolor="#ffdc14"
+          $fontSize="100px"
+        />
+        <GradientText
+          text="SECRET"
+          $secondarycolor="#fff267"
+          $primarycolor="#ffdc14"
+          $fontSize="180px"
+        />
+        <ItemDescription>
+          <ShadowText text="ITEM" $fontSize="160px" />
+        </ItemDescription>
 
-        <BackgroundHighlight>
+        <ChampionNameWrapper>
+          <ShadowText text={championName.toUpperCase()} $fontSize="80px" />
           <Image
-            src={`${spacesEndpoint}/background/background-hightlight-1.png`}
+            src={`${spacesEndpoint}/text-background/white-paint.png`}
             alt=""
-            width={1280}
-            height={720}
+            width={400}
+            height={400}
           />
-        </BackgroundHighlight>
+        </ChampionNameWrapper>
+      </Description>
 
-        <GameInfoWrapper>
-          <Description>
-            <GradientText
-              text={`${playerName}'s`}
-              $secondarycolor="#fff267"
-              $primarycolor="#ffdc14"
-              $fontSize="100px"
-            />
-            <GradientText
-              text="SECRET"
-              $secondarycolor="#fff267"
-              $primarycolor="#ffdc14"
-              $fontSize="180px"
-            />
-            <ItemDescription>
-              <ShadowText text="ITEM" $fontSize="160px" />
-            </ItemDescription>
+      <ItemKdaWrapper>
+        <ItemWrapper>
+          <ItemImage
+            gameVersion={gameVersion}
+            item={getFirstItem}
+            width={120}
+            height={120}
+          />
+          <QuestionMark>
+            <ShadowText text="?" $fontSize="60px" />
+          </QuestionMark>
+        </ItemWrapper>
 
-            <ChampionNameWrapper>
-              <ShadowText text={championName.toUpperCase()} $fontSize="80px" />
-              <Image
-                src={`${spacesEndpoint}/text-background/white-paint.png`}
-                alt=""
-                width={400}
-                height={400}
-              />
-            </ChampionNameWrapper>
-          </Description>
-
-          <ItemKdaWrapper>
-            <ItemWrapper>
-              <ItemImage
-                gameVersion={gameVersion}
-                item={getFirstItem}
-                width={120}
-                height={120}
-              />
-              <QuestionMark>
-                <ShadowText text="?" $fontSize="60px" />
-              </QuestionMark>
-            </ItemWrapper>
-
-            <KDAWrapper>
-              <ShadowText
-                text={`${kills}/${deaths}/${assists}`}
-                $fontSize="120px"
-              />
-              <BoxShadow />
-            </KDAWrapper>
-          </ItemKdaWrapper>
-        </GameInfoWrapper>
-      </Wrapper>
+        <KDAWrapper>
+          <ShadowText
+            text={`${kills}/${deaths}/${assists}`}
+            $fontSize="120px"
+          />
+          <BoxShadow />
+        </KDAWrapper>
+      </ItemKdaWrapper>
     </Container>
   );
 };
