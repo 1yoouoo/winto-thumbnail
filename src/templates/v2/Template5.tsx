@@ -4,7 +4,7 @@ import { Ddragon, spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 
 const Container = styled.div<{ $primary: string }>`
   position: relative;
@@ -43,7 +43,7 @@ const BackgroundHighlight = styled.div`
   opacity: 0.3;
 `;
 
-const Template5: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
+const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, skins } = gameInfo;
   const champion = championDto[championName] || {
     name: championName,

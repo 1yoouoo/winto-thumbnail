@@ -32,7 +32,7 @@ export type ParsedQueryString = {
   teamPosition: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
   primaryPerk: string;
   subPerk: string;
-  spells: string[];
+  spellIds: string[];
   firstBloodKill: string;
   doubleKills: string;
   tripleKills: string;
@@ -43,12 +43,32 @@ export type ParsedQueryString = {
 export interface GameInfoModel {
   championName: string;
   gameVersion: string;
-  items: Item[];
+  teamName?: string;
+  playerName?: string;
+  kills?: string;
+  deaths?: string;
+  assists?: string;
+  itemIds?: string[];
+  teamPosition?: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
+  primaryPerk?: string;
+  subPerk?: string;
+  spellIds?: string[];
+  firstBloodKill?: string;
+  doubleKills?: string;
+  tripleKills?: string;
+  quadraKills?: string;
+  pentaKills?: string;
+}
+
+export interface GameInfoViewModel {
+  championName: string;
+  gameVersion: string;
   teamName?: string;
   playerName?: string;
   kills?: number;
   deaths?: number;
   assists?: number;
+  items?: Item[];
   teamPosition?: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
   primaryPerk?: number;
   subPerk?: number;
@@ -73,7 +93,7 @@ export interface Spell {
 }
 
 export interface Skin {
-  id: number;
+  id: string;
   num: number;
   name: string;
   chromas: boolean;

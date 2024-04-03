@@ -4,7 +4,7 @@ import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 
 const Container = styled.div`
@@ -72,7 +72,7 @@ const GradientPlus = styled.span<any>`
   }
 `;
 
-const Template3: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
+const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, items } = gameInfo;
   const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);

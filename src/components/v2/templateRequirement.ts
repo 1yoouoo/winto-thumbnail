@@ -1,4 +1,4 @@
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 
 export type Requirements =
   | "Over1Items"
@@ -13,7 +13,7 @@ export type Requirements =
 type TemplateRequirement = {
   name: Requirements;
   // eslint-disable-next-line no-unused-vars
-  check: (gameInfo: GameInfoModel) => boolean;
+  check: (gameInfo: GameInfoViewModel) => boolean;
 };
 
 export const templateRequirements: TemplateRequirement[] = [

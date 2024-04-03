@@ -1,4 +1,4 @@
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 import Template0 from "@/templates/v2/Template0";
 import Template1 from "@/templates/v2/Template1";
 import Template2 from "@/templates/v2/Template2";
@@ -13,7 +13,7 @@ import Template4 from "@/templates/v2/Template4";
 // import Template5 from "@/templates/v2/Template5";
 
 type Template = {
-  component: React.FC<{ gameInfo: GameInfoModel }>;
+  component: React.FC<{ gameInfo: GameInfoViewModel }>;
   name: string;
   preferredConditions?: PreferredConditions[];
   requirements?: Requirements[];
@@ -34,7 +34,7 @@ export const templates: Template[] = [
     component: Template2,
     name: "Template2",
     preferredConditions: ["NoDeath", "HighKDA"],
-    requirements: ["Over2Items"],
+    requirements: ["Over2Items", "KDA"],
   },
   {
     component: Template3,
@@ -57,9 +57,8 @@ export const templates: Template[] = [
 ];
 
 export function selectTemplate(
-  gameInfo: GameInfoModel
-): React.FC<{ gameInfo: GameInfoModel }> {
-  console.log(gameInfo);
+  gameInfo: GameInfoViewModel
+): React.FC<{ gameInfo: GameInfoViewModel }> {
   // Step 0: 개발 모드용 선택 로직 추가
   const developmentTemplate = templates.find(
     (template) => template.select === true

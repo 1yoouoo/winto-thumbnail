@@ -4,7 +4,7 @@ import Image from "next/image";
 import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 
 const Container = styled.div`
@@ -106,7 +106,7 @@ const BoxShadow = styled.span`
   box-shadow: 0 0 80px 60px white, 0 0 60px 30px rgba(255, 255, 255, 0.1);
 `;
 
-const Template4: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
+const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const {
     championName,
     playerName,

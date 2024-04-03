@@ -1,4 +1,4 @@
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 
 export type PreferredConditions = "NoDeath" | "HighKDA" | "playerName";
 
@@ -6,7 +6,7 @@ type TemplatePreferredCondition = {
   name: PreferredConditions;
   weight: number;
   // eslint-disable-next-line no-unused-vars
-  check: (gameInfo: GameInfoModel) => boolean;
+  check: (gameInfo: GameInfoViewModel) => boolean;
 };
 
 export const templatePreferredConditions: TemplatePreferredCondition[] = [

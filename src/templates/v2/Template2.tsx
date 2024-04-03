@@ -5,7 +5,7 @@ import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 import ShadowText from "@/components/styles/ShadowText";
 import ItemImage from "@/components/styles/ItemImage";
 
@@ -95,9 +95,9 @@ const KDAWrapper = styled.div`
   }
 `;
 
-const Template2: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
+const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, items, kills, deaths, assists } = gameInfo;
-  const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
+  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
   const champion = championDto[championName] || {
     name: championName,

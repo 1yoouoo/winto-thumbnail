@@ -1,9 +1,9 @@
 import { templatePreferredConditions } from "@/components/v2/templatePreferredConditions";
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 
 export interface PrintTemplateProps {
   weightedTemplates: any[];
-  gameInfo: GameInfoModel;
+  gameInfo: GameInfoViewModel;
 }
 export function printTemplate({
   weightedTemplates,

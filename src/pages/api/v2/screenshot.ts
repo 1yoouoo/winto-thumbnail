@@ -8,9 +8,9 @@ import {
   spaceName,
   spacesEndpoint,
 } from "@/constant/constant";
-import { transformGameInfo } from "../../../../utils/v2/transformToModel";
 import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
 import { GameInfoDto } from "@/types/v2/model";
+import { transformToModel } from "../../../../utils/v2/transformToModel";
 
 const s3Client = new S3Client({
   endpoint: spacesEndpoint!,
@@ -43,7 +43,7 @@ export default async function handler(
 
   try {
     const gameInfo: GameInfoDto = req.body;
-    const transformedGameInfo = transformGameInfo(gameInfo);
+    const transformedGameInfo = transformToModel(gameInfo);
     const queryString = convertJsonToQueryString(transformedGameInfo);
     const browser = await puppeteer.launch({
       executablePath:
@@ -58,7 +58,7 @@ export default async function handler(
     const screenshotUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
     await page.goto(screenshotUrl, {
       waitUntil: "networkidle0",
-      timeout: 30000,
+      timeout: 10000,
     });
 
     // Buffer로 스크린샷 생성

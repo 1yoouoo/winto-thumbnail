@@ -29,8 +29,6 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
   const highQualitySrc = `${spacesEndpoint}/champion/2024-04/right/${championName}/${championName}_${randomSkinIndex}.jpg`;
   const lowQualitySrc = `${Ddragon}/img/champion/centered/${championName}_${randomSkin}.jpg`;
 
-  console.log(highQualitySrc);
-
   const [imgSrc, setImgSrc] = useState(highQualitySrc);
 
   // 이미지 로딩 실패 시 실행될 함수

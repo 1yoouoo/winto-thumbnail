@@ -3,7 +3,7 @@ import axios from "axios";
 import { Ddragon } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/normalizeItemIds";
 import {
-  GameInfoModel,
+  GameInfoViewModel,
   Item,
   ParsedQueryString,
   Skin,
@@ -18,7 +18,7 @@ const isDevelopment = process.env.NODE_ENV === "development";
 const TemplateDataProcessor: React.FC<{
   parsedQueryString: ParsedQueryString;
 }> = ({ parsedQueryString }) => {
-  const [gameInfo, setGameInfo] = useState<GameInfoModel | null>(null);
+  const [gameInfo, setGameInfo] = useState<GameInfoViewModel | null>(null);
 
   async function fetchItemInfo(
     gameVersion: string,
@@ -57,7 +57,7 @@ const TemplateDataProcessor: React.FC<{
           );
           const spell = spellsData[spellKey!];
           return {
-            id: id,
+            id: parseInt(spell.key),
             name: spell.id,
           };
         }) || [];
@@ -84,8 +84,10 @@ const TemplateDataProcessor: React.FC<{
     }
   }
 
-  function optionalFields(query: ParsedQueryString): Partial<GameInfoModel> {
-    const fields: Partial<GameInfoModel> = {};
+  function optionalFields(
+    query: ParsedQueryString
+  ): Partial<GameInfoViewModel> {
+    const fields: Partial<GameInfoViewModel> = {};
     if (query.teamName) fields.teamName = query.teamName;
     if (query.playerName) fields.playerName = query.playerName;
     if (query.kills) fields.kills = parseInt(query.kills, 10);
@@ -112,9 +114,9 @@ const TemplateDataProcessor: React.FC<{
           parsedQueryString.itemIds
         );
 
-        const spells = await fetchSummonerSpellInfo(
+        const spellIds = await fetchSummonerSpellInfo(
           parsedQueryString.gameVersion,
-          parsedQueryString.spells?.map((spell) => parseInt(spell, 10))
+          parsedQueryString.spellIds?.map((spellId) => parseInt(spellId, 10))
         );
 
         const skins = await fetchSkinInfo(
@@ -125,7 +127,7 @@ const TemplateDataProcessor: React.FC<{
         const updatedGameInfo = buildGameInfo(
           parsedQueryString,
           items,
-          spells,
+          spellIds,
           skins
         );
         setGameInfo(updatedGameInfo);
@@ -139,7 +141,7 @@ const TemplateDataProcessor: React.FC<{
       items: Item[],
       spells: Spell[],
       skins: Skin[]
-    ): GameInfoModel {
+    ): GameInfoViewModel {
       return {
         championName: query.championName,
         gameVersion: query.gameVersion,
@@ -154,6 +156,8 @@ const TemplateDataProcessor: React.FC<{
   }, [parsedQueryString]);
 
   if (!gameInfo) return null;
+
+  console.log("gameInfo : ", gameInfo);
 
   const SelectedTemplateComponent = selectTemplate(gameInfo);
   return (

@@ -3,7 +3,7 @@ import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { championDto } from "@/types/championDto";
-import { GameInfoModel } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 
 const Container = styled.div`
   position: relative;
@@ -18,7 +18,7 @@ const Container = styled.div`
   gap: 5px;
 `;
 
-const Template0: React.FC<{ gameInfo: GameInfoModel }> = ({ gameInfo }) => {
+const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName } = gameInfo;
   const champion = championDto[championName] || {
     name: championName,
