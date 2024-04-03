@@ -19,27 +19,33 @@ type TemplateRequirement = {
 export const templateRequirements: TemplateRequirement[] = [
   {
     name: "Over1Items",
-    check: (gameInfo) => gameInfo.items.length >= 1,
+    check: (gameInfo) =>
+      gameInfo.items?.length ? gameInfo.items.length >= 1 : false,
   },
   {
     name: "Over2Items",
-    check: (gameInfo) => gameInfo.items.length >= 2,
+    check: (gameInfo) =>
+      gameInfo.items?.length ? gameInfo.items.length >= 2 : false,
   },
   {
     name: "Over3Items",
-    check: (gameInfo) => gameInfo.items.length >= 3,
+    check: (gameInfo) =>
+      gameInfo.items?.length ? gameInfo.items.length >= 3 : false,
   },
   {
     name: "Over4Items",
-    check: (gameInfo) => gameInfo.items.length >= 4,
+    check: (gameInfo) =>
+      gameInfo.items?.length ? gameInfo.items.length >= 4 : false,
   },
   {
     name: "Over5Items",
-    check: (gameInfo) => gameInfo.items.length >= 5,
+    check: (gameInfo) =>
+      gameInfo.items?.length ? gameInfo.items.length >= 5 : false,
   },
   {
     name: "Over6Items",
-    check: (gameInfo) => gameInfo.items.length >= 6,
+    check: (gameInfo) =>
+      gameInfo.items?.length ? gameInfo.items.length >= 6 : false,
   },
   {
     name: "playerName",
