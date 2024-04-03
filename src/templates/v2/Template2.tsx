@@ -54,8 +54,8 @@ const GradientPlus = styled.span<any>`
   display: inline-block;
   background: linear-gradient(
     to bottom,
-    ${(props) => props.primarycolor},
-    ${(props) => props.secondarycolor}
+    ${(props) => props.$primarycolor},
+    ${(props) => props.$secondarycolor}
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -131,8 +131,8 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
         <PlusWrapper>
           <GradientPlus
             data-text="+"
-            primarycolor={primary}
-            secondarycolor={secondary}
+            $primarycolor={primary}
+            $secondarycolor={secondary}
             fontSize="200px"
           >
             +

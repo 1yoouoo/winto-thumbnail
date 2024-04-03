@@ -44,8 +44,8 @@ const GradientPlus = styled.span<any>`
   display: inline-block;
   background: linear-gradient(
     to bottom,
-    ${(props) => props.primarycolor},
-    ${(props) => props.secondarycolor}
+    ${(props) => props.$primarycolor},
+    ${(props) => props.$secondarycolor}
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -74,7 +74,7 @@ const GradientPlus = styled.span<any>`
 
 const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, items } = gameInfo;
-  const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
+  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);
   const champion = championDto[championName] || {
     name: championName,
@@ -109,16 +109,16 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
         <PlusWrapper>
           <GradientPlus
             data-text="+"
-            primarycolor={primary}
-            secondarycolor={secondary}
+            $primarycolor={primary}
+            $secondarycolor={secondary}
             fontSize="200px"
           >
             +
           </GradientPlus>
           <GradientPlus
             data-text="+"
-            primarycolor={primary}
-            secondarycolor={secondary}
+            $primarycolor={primary}
+            $secondarycolor={secondary}
             fontSize="200px"
           >
             +

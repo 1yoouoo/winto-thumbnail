@@ -44,6 +44,7 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
         onError={handleError}
         width={1280}
         height={720}
+        priority
         {...props}
       />
     </Wrapper>

@@ -64,6 +64,7 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
             alt="background-highlight"
             width={1280}
             height={720}
+            priority
           />
         </BackgroundHighlight>
         {children}

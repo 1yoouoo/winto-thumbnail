@@ -7,8 +7,8 @@ const Container = styled.span<any>`
   display: inline-block;
   background: linear-gradient(
     to bottom,
-    ${(props) => props.primarycolor},
-    ${(props) => props.secondarycolor}
+    ${(props) => props.$primarycolor},
+    ${(props) => props.$secondarycolor}
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -57,8 +57,8 @@ const GradientText = ({
   return (
     <Container
       data-text={text}
-      primarycolor={primarycolor}
-      secondarycolor={secondarycolor}
+      $primarycolor={primarycolor}
+      $secondarycolor={secondarycolor}
       $capitalize={$capitalize}
       fontSize={fontSize}
       className="gradient-text"
