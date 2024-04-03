@@ -4,7 +4,7 @@ import Image from "next/image";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
 import React from "react";
-import { championDto } from "@/types/championDto";
+import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ShadowText from "@/components/styles/ShadowText";
 import ItemImage from "@/components/styles/ItemImage";

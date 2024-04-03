@@ -1,6 +1,6 @@
 import { GameInfoDto } from "@/types/v2/model";
-import { capitalizeFirstLetter } from "../capitalizeFirstLetter";
-import { normalizeGameVersion } from "../normalizeGameVersion";
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
+import { normalizeGameVersion } from "./normalizeGameVersion";
 
 export function transformToModel(
   gameInfo: GameInfoDto

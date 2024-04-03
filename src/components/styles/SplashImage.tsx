@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Ddragon, spacesEndpoint } from "@/constant/constant";
 import styled from "styled-components";
 import { Skin } from "@/types/v2/model";
-import { championDto } from "@/types/championDto";
+import { championDto } from "@/types/v2/championDto";
 
 const Wrapper = styled.div`
   position: absolute;

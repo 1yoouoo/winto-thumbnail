@@ -2,7 +2,7 @@ import styled from "styled-components";
 import GradientText from "@/components/styles/GradientText";
 import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
-import { championDto } from "@/types/championDto";
+import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 
 const Container = styled.div`

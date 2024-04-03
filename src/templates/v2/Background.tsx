@@ -2,7 +2,7 @@
 import SplashImage from "@/components/styles/SplashImage";
 import { spacesEndpoint } from "@/constant/constant";
 import { fonts } from "@/style/fonts";
-import { championDto } from "@/types/championDto";
+import { championDto } from "@/types/v2/championDto";
 import { Skin } from "@/types/v2/model";
 import Image from "next/image";
 import React from "react";

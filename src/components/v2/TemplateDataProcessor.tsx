@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Ddragon } from "@/constant/constant";
-import { normalizeItemIds } from "../../../utils/normalizeItemIds";
+import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
 import {
   GameInfoViewModel,
   Item,
