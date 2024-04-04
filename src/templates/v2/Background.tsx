@@ -1,4 +1,3 @@
-// background.tsx
 import SplashImage from "@/components/styles/SplashImage";
 import { spacesEndpoint } from "@/constant/constant";
 import { fonts } from "@/style/fonts";
@@ -30,7 +29,7 @@ const Wrapper = styled.div<{ $primary: string }>`
   align-items: center;
   width: 1280px;
   height: 720px;
-  border-radius: 30px;
+  border-radius: 40px;
   border: 12px solid ${(props) => props.$primary};
   background-color: white;
   overflow: hidden;

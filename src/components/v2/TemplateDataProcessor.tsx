@@ -157,8 +157,6 @@ const TemplateDataProcessor: React.FC<{
 
   if (!gameInfo) return null;
 
-  console.log("gameInfo : ", gameInfo);
-
   const SelectedTemplateComponent = selectTemplate(gameInfo);
   return (
     <Background championName={gameInfo.championName} skins={gameInfo.skins!}>

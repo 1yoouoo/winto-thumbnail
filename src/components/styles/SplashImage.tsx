@@ -24,7 +24,7 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
   );
 
   const randomSkin =
-    (skins && skins[Math.floor(Math.random() * skins.length)].num) ?? 0;
+    (skins && skins[Math.floor(Math.random() * skins.length)]?.num) ?? 0;
 
   const highQualitySrc = `${spacesEndpoint}/champion/2024-04/right/${championName}/${championName}_${randomSkinIndex}.jpg`;
   const lowQualitySrc = `${Ddragon}/img/champion/centered/${championName}_${randomSkin}.jpg`;

@@ -1,15 +1,17 @@
 import { GameInfoDto } from "@/types/v2/model";
 import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
-import { normalizeGameVersion } from "./normalizeGameVersion";
 
 export function transformToModel(
   gameInfo: GameInfoDto
 ): Record<string, string | string[] | undefined> {
   const transformed: Record<string, string | string[] | undefined> = {};
+  console.log("gameInfo: ", gameInfo);
 
   try {
     transformed.championName = capitalizeFirstLetter(gameInfo.championName);
-    transformed.gameVersion = normalizeGameVersion(gameInfo.gameVersion);
+    // transformed.gameVersion = normalizeGameVersion(gameInfo.gameVersion);
+    //FIXME: gameVersion을 하드코딩으로 변경함
+    transformed.gameVersion = "14.6.1";
 
     // 선택적 필드는 존재하는 경우에만 추가
     if (gameInfo.teamName) transformed.teamName = gameInfo.teamName;
