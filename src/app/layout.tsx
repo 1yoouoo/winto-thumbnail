@@ -2,6 +2,7 @@
 
 import { GlobalStyle } from "@/style/GlobalStyle";
 import StyledComponentsRegistry from "./lib/registry";
+import ReactQueryProviders from "./hooks/useReactQuery";
 
 export default function RootLayout({
   children,
@@ -12,7 +13,9 @@ export default function RootLayout({
     <html>
       <StyledComponentsRegistry>
         <GlobalStyle />
-        <body>{children}</body>
+        <body>
+          <ReactQueryProviders>{children}</ReactQueryProviders>
+        </body>
       </StyledComponentsRegistry>
     </html>
   );
