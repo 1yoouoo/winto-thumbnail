@@ -12,12 +12,12 @@ type TemplatePreferredCondition = {
 export const templatePreferredConditions: TemplatePreferredCondition[] = [
   {
     name: "NoDeath",
-    weight: 5,
+    weight: 20,
     check: (gameInfo) => Number(gameInfo.deaths) === 0,
   },
   {
     name: "HighKDA",
-    weight: 3,
+    weight: 15,
     check: (gameInfo) => {
       const kda =
         (Number(gameInfo.kills) + Number(gameInfo.assists)) /
@@ -27,7 +27,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "playerName",
-    weight: 4,
+    weight: 10,
     check: (gameInfo) => gameInfo.playerName !== undefined,
   },
 
