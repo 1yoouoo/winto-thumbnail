@@ -57,7 +57,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
       <Wrapper $primary={primary}>
         <SplashImage>
           <Image
-            src={`${Ddragon}/img/champion/centered/${championName}_${randomSkin}.jpg`}
+            src={`${Ddragon}/cdn/img/champion/centered/${championName}_${randomSkin}.jpg`}
             alt="champion"
             width={1280}
             height={720}

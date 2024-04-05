@@ -20,11 +20,22 @@ const TemplateDataProcessor: React.FC<{
 }> = ({ parsedQueryString }) => {
   const [gameInfo, setGameInfo] = useState<GameInfoViewModel | null>(null);
 
+  async function fetchLatestGameVersion(): Promise<string> {
+    const url = `${Ddragon}/api/versions.json`;
+    try {
+      const response = await axios.get(url);
+      return response.data[0];
+    } catch (error) {
+      console.error("게임 버전을 가져오는 데 실패했습니다:", error);
+      return "14.6.1";
+    }
+  }
+
   async function fetchItemInfo(
     gameVersion: string,
     itemIds?: string | string[]
   ): Promise<Item[]> {
-    const url = `${Ddragon}/${gameVersion}/data/en_US/item.json`;
+    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/item.json`;
     try {
       const response = await axios.get(url);
       const itemData = response.data.data;
@@ -45,7 +56,7 @@ const TemplateDataProcessor: React.FC<{
     gameVersion: string,
     spellIds?: number[]
   ): Promise<Spell[]> {
-    const url = `${Ddragon}/${gameVersion}/data/en_US/summoner.json`;
+    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/summoner.json`;
     try {
       const response = await axios.get(url);
       const spellsData = response.data.data;
@@ -73,7 +84,7 @@ const TemplateDataProcessor: React.FC<{
     gameVersion: string,
     championName: string
   ): Promise<Skin[]> {
-    const url = `${Ddragon}/${gameVersion}/data/en_US/champion/${championName}.json`;
+    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/champion/${championName}.json`;
     try {
       const response = await axios.get(url);
       const skinData = response.data.data[`${championName}`].skins;
@@ -109,27 +120,31 @@ const TemplateDataProcessor: React.FC<{
   useEffect(() => {
     async function fetchAndSetGameInfo() {
       try {
+        const lastestGameVersion = await fetchLatestGameVersion();
+
         const items = await fetchItemInfo(
-          parsedQueryString.gameVersion,
+          lastestGameVersion,
           parsedQueryString.itemIds
         );
 
         const spellIds = await fetchSummonerSpellInfo(
-          parsedQueryString.gameVersion,
+          lastestGameVersion,
           parsedQueryString.spellIds?.map((spellId) => parseInt(spellId, 10))
         );
 
         const skins = await fetchSkinInfo(
-          parsedQueryString.gameVersion,
+          lastestGameVersion,
           parsedQueryString.championName
         );
 
         const updatedGameInfo = buildGameInfo(
           parsedQueryString,
+          lastestGameVersion,
           items,
           spellIds,
           skins
         );
+
         setGameInfo(updatedGameInfo);
       } catch (error) {
         console.error("아이템 정보를 가져오는 중 오류가 발생했습니다:", error);
@@ -138,13 +153,14 @@ const TemplateDataProcessor: React.FC<{
 
     function buildGameInfo(
       query: ParsedQueryString,
+      lastestGameVersion: string,
       items: Item[],
       spells: Spell[],
       skins: Skin[]
     ): GameInfoViewModel {
       return {
         championName: query.championName,
-        gameVersion: query.gameVersion,
+        gameVersion: lastestGameVersion,
         items,
         spells,
         skins,

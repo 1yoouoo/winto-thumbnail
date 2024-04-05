@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { fonts } from "@/style/fonts";
-import { Ddragon, spacesEndpoint } from "@/constant/constant";
+import { spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import React from "react";
 import { championDto } from "@/types/v2/championDto";

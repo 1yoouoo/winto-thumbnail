@@ -1,6 +1,5 @@
 export type GameInfoDto = {
   championName: string; // 필수
-  gameVersion: string; // 필수
 } & Partial<{
   teamName: string;
   playerName: string;
@@ -21,7 +20,6 @@ export type GameInfoDto = {
 
 export type ParsedQueryString = {
   championName: string; // 필수
-  gameVersion: string; // 필수
 } & Partial<{
   teamName: string;
   playerName: string;
