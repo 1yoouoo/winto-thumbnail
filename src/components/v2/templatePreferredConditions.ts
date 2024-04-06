@@ -1,6 +1,6 @@
 import { GameInfoViewModel } from "@/types/v2/model";
 
-export type PreferredConditions = "NoDeath" | "HighKDA" | "playerName";
+export type PreferredConditions = "NoDeath" | "HighKDA" | "PlayerName";
 
 type TemplatePreferredCondition = {
   name: PreferredConditions;
@@ -26,7 +26,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
     },
   },
   {
-    name: "playerName",
+    name: "PlayerName",
     weight: 10,
     check: (gameInfo) => gameInfo.playerName !== undefined,
   },
