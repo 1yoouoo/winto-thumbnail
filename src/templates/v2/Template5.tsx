@@ -1,50 +1,120 @@
 import styled from "styled-components";
-import { fonts } from "@/style/fonts";
 import { spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
-import React from "react";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
+import ItemImage from "@/components/styles/ItemImage";
+import GradientText from "@/components/styles/GradientText";
+import GradientBackground from "@/components/styles/GradientTrapezoid";
 
-const Container = styled.div<{ $primary: string }>`
+const Container = styled.div`
   position: relative;
-  background-color: ${(props) => props.$primary};
-  width: 1280px;
-  height: 720px;
-  font-family: ${fonts.LuckiestGuy.fontFamily};
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 2;
+  gap: 5px;
 `;
 
-const Wrapper = styled.div<{ $primary: string }>`
-  box-sizing: border-box;
+const ProPlayer = styled.span`
   position: absolute;
+  left: -180px;
+`;
+
+const Description = styled.span`
+  position: absolute;
+  top: 70px;
+  left: -40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1280px;
-  height: 720px;
-  border-radius: 10px;
-  border: 5px solid ${(props) => props.$primary};
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+`;
+
+const Items = styled.span`
+  position: absolute;
+  bottom: 30px;
+  left: 120px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px;
+  z-index: 10;
+
+  > :nth-child(1) {
+    order: 2;
+    transform: rotate(0deg) translate(0px, -30px);
+    z-index: 3;
+  }
+
+  > :nth-child(2) {
+    order: 1;
+    transform: rotate(3deg) translate(20px, 7px);
+  }
+
+  > :nth-child(3) {
+    order: 3;
+    transform: rotate(-8deg) translate(-20px, 5px);
+  }
+`;
+
+const ItemWrapper = styled.span``;
+
+const KDAContainer = styled.span`
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transform: rotate(1deg);
+  z-index: 10;
+`;
+
+const KDAWrapper = styled.span`
+  z-index: 2;
+  border-radius: 50px;
+  width: 120%;
+  height: 140%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
+
+const BoxShadow = styled.span`
+  z-index: -1;
+  position: absolute;
   background-color: white;
-  overflow: hidden;
+  width: 40%;
+  height: 0%;
+  box-shadow: 0 0 80px 60px black, 0 0 60px 30px rgba(255, 255, 255, 0.4);
 `;
 
-const SplashImage = styled.div`
+const RedArrowWrapper = styled.span`
   position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
-
-const BackgroundHighlight = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.3;
+  left: -180px;
+  bottom: 100px;
 `;
 
 const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
-  const { championName, gameVersion, skins } = gameInfo;
+  const {
+    championName,
+    playerName,
+    kills,
+    assists,
+    deaths,
+    items,
+    gameVersion,
+  } = gameInfo;
+  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
+  const getTop3Items = sorteditems.slice(0, 3);
   const champion = championDto[championName] || {
     name: championName,
     color: {
@@ -53,33 +123,83 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     },
   };
 
-  // skins 배열안에 num을 랜덤으로 픽해서 하나 고르기
-  const randomSkin =
-    (skins && skins[Math.floor(Math.random() * skins.length)].num) ?? 0;
-
-  const { primary } = champion.color;
+  const { primary, secondary } = champion.color;
 
   return (
-    <Container $primary={primary}>
-      <Wrapper $primary={primary}>
-        <SplashImage>
-          <Image
-            src={`https://winto-thumbnail.sgp1.digitaloceanspaces.com/champion/2024-04/crop/Ahri/Ahri_ArcanaSkin_Unused2_HD.jpg`}
-            alt="champion"
-            width={1280}
-            height={720}
-          />
-        </SplashImage>
+    <Container>
+      <GradientBackground />
 
-        <BackgroundHighlight>
-          <Image
-            src={`${spacesEndpoint}/background/background-highlight-1.png`}
-            alt=""
-            width={1280}
-            height={720}
+      <ProPlayer>
+        <Image
+          src={`${spacesEndpoint}/pro-player/showmaker-1.webp`}
+          alt=""
+          width={720}
+          height={720}
+          quality={100}
+        />
+      </ProPlayer>
+
+      <Description>
+        <GradientText
+          text={playerName!}
+          primarycolor="white"
+          secondarycolor="#acacac"
+          fontSize="Small"
+        />
+        <GradientText
+          text={championName}
+          primarycolor={primary}
+          secondarycolor={secondary}
+          fontSize="Small"
+        />
+      </Description>
+
+      <Items>
+        <ItemWrapper>
+          <ItemImage
+            gameVersion={gameVersion}
+            item={getTop3Items[0]}
+            width={200}
+            height={200}
+            blurred
           />
-        </BackgroundHighlight>
-      </Wrapper>
+        </ItemWrapper>
+        <ItemWrapper>
+          <ItemImage
+            gameVersion={gameVersion}
+            item={getTop3Items[1]}
+            width={200}
+            height={200}
+          />
+        </ItemWrapper>
+
+        <ItemWrapper>
+          <ItemImage
+            gameVersion={gameVersion}
+            item={getTop3Items[2]}
+            width={200}
+            height={200}
+          />
+        </ItemWrapper>
+      </Items>
+
+      <KDAContainer>
+        <KDAWrapper>
+          <GradientText
+            text={`${kills}/${deaths}/${assists}`}
+            fontSize="Small"
+          />
+          <BoxShadow />
+          <RedArrowWrapper>
+            <Image
+              src={`${spacesEndpoint}/arrow/red-arrow-1.png`}
+              alt="arrow"
+              width={220}
+              height={100}
+            />
+          </RedArrowWrapper>
+        </KDAWrapper>
+      </KDAContainer>
     </Container>
   );
 };

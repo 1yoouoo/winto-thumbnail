@@ -6,7 +6,6 @@ import GradientText from "@/components/styles/GradientText";
 import React from "react";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
-import ShadowText from "@/components/styles/ShadowText";
 import ItemImage from "@/components/styles/ItemImage";
 
 const Container = styled.div`
@@ -113,9 +112,9 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     <Container>
       <GradientText
         text={championName}
-        $primarycolor={primary}
-        $secondarycolor={secondary}
-        $capitalize={true}
+        primarycolor={primary}
+        secondarycolor={secondary}
+        capitalize={true}
       />
       <Items>
         {getTop2Items.map((item, index) => (
@@ -147,7 +146,10 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           width={180}
           height={180}
         />
-        <ShadowText text={`${kills}/${deaths}/${assists}`} $capitalize={true} />
+        <GradientText
+          text={`${kills}/${deaths}/${assists}`}
+          capitalize={true}
+        />
       </KDAWrapper>
     </Container>
   );

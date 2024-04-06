@@ -1,23 +1,28 @@
 import shadows from "@/style/shadows";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { StyleSheetManager } from "styled-components";
 
-const Container = styled.span<any>`
+const Container = styled.span<GradientTextStyleProps>`
   position: relative;
   display: inline-block;
-  background: linear-gradient(
-    to bottom,
-    ${(props) => props.$primarycolor},
-    ${(props) => props.$secondarycolor}
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: ${(props) =>
+    props.primarycolor && props.secondarycolor
+      ? `linear-gradient(
+          to bottom,
+          ${props.primarycolor},
+          ${props.secondarycolor}
+        )`
+      : "none"};
+  -webkit-background-clip: ${(props) =>
+    props.primarycolor && props.secondarycolor ? "text" : "initial"};
+  background-clip: ${(props) =>
+    props.primarycolor && props.secondarycolor ? "text" : "initial"};
+  color: ${(props) =>
+    props.primarycolor && props.secondarycolor ? "transparent" : "white"};
   padding: 10px 0;
-  text-transform: ${(props) => (props.$capitalize ? "uppercase" : "none")};
-  font-size: ${(props) => props.fontSize};
+  text-transform: ${(props) => (props.capitalize ? "uppercase" : "none")};
+  font-size: ${(props) => props.calculatedFontSize}px;
   white-space: nowrap;
-  height: calc(${(props) => props.fontSize} * 0.8);
+  height: calc(${(props) => props.calculatedFontSize}px * 0.8);
 
   &::before {
     content: attr(data-text);
@@ -28,43 +33,102 @@ const Container = styled.span<any>`
   }
 `;
 
+interface GradientTextStyleProps {
+  primarycolor?: string;
+  secondarycolor?: string;
+  capitalize?: boolean;
+  fontSize?: string;
+  calculatedFontSize: number;
+}
+
 interface GradientTextProps {
   text: string;
-  $primarycolor: string;
-  $secondarycolor: string;
-  $capitalize?: boolean;
-  $fontSize?: string;
+  primarycolor?: string;
+  secondarycolor?: string;
+  capitalize?: boolean;
+  fontSize?: "Large" | "Medium" | "Small" | "XSmall";
 }
+
+const fontSizeMap = {
+  XSmall: {
+    x1: 4,
+    y1: 90,
+    x2: 10,
+    y2: 70,
+  },
+  Small: {
+    x1: 4, // 4글자일 때
+    y1: 180, // 폰트 크기 160px
+    x2: 10, // 10글자일 때
+    y2: 100, // 폰트 크기 80px
+  },
+  Medium: {
+    x1: 4,
+    y1: 200,
+    x2: 10,
+    y2: 120,
+  },
+  Large: {
+    x1: 4,
+    y1: 220,
+    x2: 10,
+    y2: 140,
+  },
+};
 
 const GradientText = ({
   text,
-  $primarycolor: primarycolor,
-  $secondarycolor: secondarycolor,
-  $capitalize,
-  $fontSize,
+  primarycolor,
+  secondarycolor,
+  capitalize,
+  fontSize = "Medium",
 }: GradientTextProps) => {
-  const [fontSize, setFontSize] = useState("0px");
+  function calculateDynamicFontSize({
+    letterCount,
+    size,
+  }: {
+    letterCount: number;
+    size: "Large" | "Medium" | "Small" | "XSmall";
+  }) {
+    // fontSizeMap에서 현재 fontSize에 맞는 값을 가져옴
+    const { x1, y1, x2, y2 } = fontSizeMap[size];
 
-  useEffect(() => {
-    if (!$fontSize) {
-      const newSize = `${Math.min(Math.max(150, 1200 / text.length), 280)}px`;
-      setFontSize(newSize);
-    } else {
-      setFontSize($fontSize);
-    }
-  }, [text, $fontSize]);
+    // 기울기(m)와 y절편(b) 계산
+    const m = (y2 - y1) / (x2 - x1);
+    const b = y1 - m * x1;
+
+    // 글자 수에 따른 폰트 사이즈 계산
+    const dynamicFontSize = m * letterCount + b;
+    return dynamicFontSize;
+  }
+
+  const calculatedFontSize = calculateDynamicFontSize({
+    letterCount: text.length,
+    size: fontSize,
+  });
 
   return (
-    <Container
-      data-text={text}
-      $primarycolor={primarycolor}
-      $secondarycolor={secondarycolor}
-      $capitalize={$capitalize}
-      fontSize={fontSize}
-      className="gradient-text"
+    <StyleSheetManager
+      shouldForwardProp={(prop) =>
+        ![
+          "fontSize",
+          "capitalize",
+          "primarycolor",
+          "secondarycolor",
+          "calculatedFontSize",
+        ].includes(prop)
+      }
     >
-      {text}
-    </Container>
+      <Container
+        data-text={text}
+        primarycolor={primarycolor}
+        secondarycolor={secondarycolor}
+        capitalize={capitalize}
+        calculatedFontSize={calculatedFontSize}
+      >
+        {text}
+      </Container>
+    </StyleSheetManager>
   );
 };
 

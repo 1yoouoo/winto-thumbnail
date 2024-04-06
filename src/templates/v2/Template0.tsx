@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import GradientText from "@/components/styles/GradientText";
-import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
@@ -34,12 +33,12 @@ const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     <Container>
       <GradientText
         text={championName}
-        $primarycolor={primary}
-        $secondarycolor={secondary}
-        $capitalize={true}
+        primarycolor={primary}
+        secondarycolor={secondary}
+        capitalize={true}
       />
-      <ShadowText text="INSANE" $capitalize={true} />
-      <ShadowText text="PLAY" $capitalize={true} />
+      <GradientText text="INSANE" capitalize={true} />
+      <GradientText text="PLAY" capitalize={true} />
     </Container>
   );
 };

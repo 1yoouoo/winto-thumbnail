@@ -1,12 +1,12 @@
-import { GameInfoViewModel } from "@/types/v2/model";
+import { GameInfoViewModel, Item } from "@/types/v2/model";
 
 export type Requirements =
-  | "Over1Items"
-  | "Over2Items"
-  | "Over3Items"
-  | "Over4Items"
-  | "Over5Items"
-  | "Over6Items"
+  | "Over1ItemsWithGoldOver2000"
+  | "Over2ItemsWithGoldOver2000"
+  | "Over3ItemsWithGoldOver2000"
+  | "Over4ItemsWithGoldOver2000"
+  | "Over5ItemsWithGoldOver2000"
+  | "Over6ItemsWithGoldOver2000"
   | "playerName"
   | "KDA"
   | "PlayerNameIsLessThan7"
@@ -22,34 +22,28 @@ type TemplateRequirement = {
 
 export const templateRequirements: TemplateRequirement[] = [
   {
-    name: "Over1Items",
-    check: (gameInfo) =>
-      gameInfo.items?.length ? gameInfo.items.length >= 1 : false,
+    name: "Over1ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 1,
   },
   {
-    name: "Over2Items",
-    check: (gameInfo) =>
-      gameInfo.items?.length ? gameInfo.items.length >= 2 : false,
+    name: "Over2ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 2,
   },
   {
-    name: "Over3Items",
-    check: (gameInfo) =>
-      gameInfo.items?.length ? gameInfo.items.length >= 3 : false,
+    name: "Over3ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 3,
   },
   {
-    name: "Over4Items",
-    check: (gameInfo) =>
-      gameInfo.items?.length ? gameInfo.items.length >= 4 : false,
+    name: "Over4ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 4,
   },
   {
-    name: "Over5Items",
-    check: (gameInfo) =>
-      gameInfo.items?.length ? gameInfo.items.length >= 5 : false,
+    name: "Over5ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 5,
   },
   {
-    name: "Over6Items",
-    check: (gameInfo) =>
-      gameInfo.items?.length ? gameInfo.items.length >= 6 : false,
+    name: "Over6ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 6,
   },
   {
     name: "playerName",
@@ -95,3 +89,8 @@ export const templateRequirements: TemplateRequirement[] = [
   },
   // 기타 조건 추가...
 ];
+
+const countItemsWithGoldOver2000 = (items: Item[] | undefined): number => {
+  if (!items) return 0;
+  return items.filter((item) => item.totalGold >= 2000).length;
+};

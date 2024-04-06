@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import GradientText from "@/components/styles/GradientText";
-import ShadowText from "@/components/styles/ShadowText";
 import React from "react";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
+import GradientBackground from "@/components/styles/GradientTrapezoid";
 
 const Container = styled.div`
   position: relative;
@@ -23,7 +23,7 @@ const Container = styled.div`
 const Description = styled.span`
   position: absolute;
   left: 40px;
-  bottom: -20px;
+  top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,9 +31,20 @@ const Description = styled.span`
   transform: rotate(-5deg);
 `;
 
-const ItemDescription = styled.span`
-  transform: translateY(-40px);
+const SubDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -2;
+  transform: translateY(-10px);
+
+  :nth-child(2) {
+    transform: translateY(-20px);
+  }
 `;
+
+const ItemDescription = styled.span``;
 
 const ChampionNameWrapper = styled.span`
   position: absolute;
@@ -46,22 +57,22 @@ const ChampionNameWrapper = styled.span`
     position: absolute;
     left: -20%;
     bottom: -30%;
-    z-index: -1;
+    z-index: -2;
     width: 130%;
     height: 180%;
     filter: sepia(80%) saturate(3000%) hue-rotate(-30deg);
   }
 `;
 
-const ItemKdaWrapper = styled.span`
+const ItemKdaArrowWrapper = styled.span`
   position: absolute;
-  right: 80px;
-  bottom: 40px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  transform: rotate(1deg);
+  gap: 20px;
+  right: 80px;
+  bottom: 50px;
+  min-width: 600px;
+  z-index: 5;
+  gap: 60px;
 `;
 
 const ItemWrapper = styled.span`
@@ -84,32 +95,33 @@ const QuestionMark = styled.span`
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 1;
 `;
 
 const KDAWrapper = styled.span`
-  z-index: 2;
-  border-radius: 50px;
-  width: 120%;
-  height: 140%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  z-index: 5;
+  align-self: flex-end;
+  transform: rotate(8deg) translateY(20px);
 `;
 
 const BoxShadow = styled.span`
-  z-index: -1;
+  z-index: -2;
   position: absolute;
   background-color: white;
+  top: 50%;
+  left: 30%;
   width: 40%;
   height: 0%;
   box-shadow: 0 0 80px 60px white, 0 0 60px 30px rgba(255, 255, 255, 0.1);
 `;
 
 const RedArrowWrapper = styled.span`
+  z-index: 5;
   position: absolute;
-  left: -270px;
-  bottom: 80px;
+  right: 230px;
+  bottom: 110px;
+  transform: scaleX(-1) rotate(0deg);
 `;
 
 const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
@@ -124,70 +136,75 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getFirstItem = sorteditems[0];
-  const isPlayerNameOver7 = playerName!.length > 7;
 
   return (
-    <Container>
-      <Description>
-        <GradientText
-          text={`${playerName}'s`}
-          $secondarycolor="#fff267"
-          $primarycolor="#ffdc14"
-          $fontSize={isPlayerNameOver7 ? "100px" : "140px"}
-        />
-        <GradientText
-          text="SECRET"
-          $secondarycolor="#fff267"
-          $primarycolor="#ffdc14"
-          $fontSize="180px"
-        />
-        <ItemDescription>
-          <ShadowText text="ITEM" $fontSize="160px" />
-        </ItemDescription>
+    <>
+      <GradientBackground />
 
-        <ChampionNameWrapper>
-          <ShadowText text={championName.toUpperCase()} $fontSize="80px" />
-          <Image
-            src={`${spacesEndpoint}/text-background/white-paint.png`}
-            alt=""
-            width={400}
-            height={400}
+      <Container>
+        <Description>
+          <GradientText
+            text={`${playerName}'s`}
+            secondarycolor="#fff267"
+            primarycolor="#ffdc14"
           />
-        </ChampionNameWrapper>
-      </Description>
+          <SubDescription>
+            <GradientText
+              text="SECRET"
+              secondarycolor="#fff267"
+              primarycolor="#ffdc14"
+            />
+            <ItemDescription>
+              <GradientText text="ITEM" fontSize="Small" />
+            </ItemDescription>
+          </SubDescription>
 
-      <ItemKdaWrapper>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getFirstItem}
-            width={160}
-            height={160}
-            boxshadow="ItemBoxShadowYellow"
-          />
-          <QuestionMark>
-            <ShadowText text="?" $fontSize="60px" />
-          </QuestionMark>
-        </ItemWrapper>
+          <ChampionNameWrapper>
+            <GradientText text={championName.toUpperCase()} fontSize="XSmall" />
+            <Image
+              src={`${spacesEndpoint}/text-background/white-paint.png`}
+              alt=""
+              width={400}
+              height={400}
+            />
+          </ChampionNameWrapper>
+        </Description>
 
-        <KDAWrapper>
-          <ShadowText
-            text={`${kills}/${deaths}/${assists}`}
-            $fontSize="100px"
-          />
-          <BoxShadow />
-        </KDAWrapper>
+        <ItemKdaArrowWrapper>
+          <KDAWrapper>
+            <GradientText
+              text={`${kills}/${deaths}/${assists}`}
+              primarycolor="white"
+              secondarycolor="#acacac"
+              fontSize="Small"
+            />
+            <BoxShadow />
+          </KDAWrapper>
 
-        <RedArrowWrapper>
-          <Image
-            src={`${spacesEndpoint}/arrow/red-arrow-1.png`}
-            alt="arrow"
-            width={280}
-            height={170}
-          />
-        </RedArrowWrapper>
-      </ItemKdaWrapper>
-    </Container>
+          <RedArrowWrapper>
+            <Image
+              src={`${spacesEndpoint}/arrow/red-arrow-1.png`}
+              alt="arrow"
+              width={250}
+              height={130}
+            />
+          </RedArrowWrapper>
+
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getFirstItem}
+              width={220}
+              height={220}
+              boxshadow="ItemBoxShadowYellow"
+            />
+            <QuestionMark>
+              <GradientText text="?" fontSize="XSmall" />
+            </QuestionMark>
+          </ItemWrapper>
+        </ItemKdaArrowWrapper>
+      </Container>
+    </>
   );
 };
 

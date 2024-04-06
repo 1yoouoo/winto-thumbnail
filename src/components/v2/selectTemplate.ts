@@ -11,7 +11,6 @@ import {
 import { printTemplate } from "../../../utils/v2/printTemplate";
 import Template4 from "@/templates/v2/Template4";
 import Template5 from "@/templates/v2/Template5";
-// import Template5 from "@/templates/v2/Template5";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -29,31 +28,32 @@ export const templates: Template[] = [
   {
     component: Template1,
     name: "Template1",
-    requirements: ["Over2Items"],
+    requirements: ["Over2ItemsWithGoldOver2000"],
   },
   {
     component: Template2,
     name: "Template2",
     preferredConditions: ["NoDeath", "HighKDA"],
-    requirements: ["Over2Items", "KDA"],
+    requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
   },
   {
     component: Template3,
     name: "Template3",
-    requirements: ["Over3Items"],
+    requirements: ["Over3ItemsWithGoldOver2000"],
   },
   {
     component: Template4,
     name: "Template4",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
-    requirements: ["Over1Items", "playerName", "KDA"],
+    requirements: ["Over1ItemsWithGoldOver2000", "playerName", "KDA"],
+    // select: true,
   },
-  {
-    component: Template5,
-    name: "Template5",
-    preferredConditions: ["NoDeath", "HighKDA"],
-    requirements: ["Over3Items", "KDA"],
-  },
+  // {
+  //   component: Template5,
+  //   name: "Template5",
+  //   preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+  //   requirements: ["Over3ItemsWithGoldOver2000", "KDA", "playerName"],
+  // },
 
   // 기타 템플릿 추가...
 ];
@@ -124,6 +124,8 @@ export function selectTemplate(
   // 선택된 템플릿과 weightedTemplates 배열을 출력합니다.
   if (process.env.NODE_ENV === "development") {
     printTemplate({ weightedTemplates, gameInfo });
+  } else {
+    console.log("선택된 템플릿:", selectedTemplate?.name);
   }
 
   // 선택된 템플릿의 컴포넌트 반환 또는 기본값 반환
