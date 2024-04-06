@@ -19,9 +19,8 @@ interface IProps {
 }
 
 const SplashImage = ({ championName, skins, ...props }: IProps) => {
-  const randomSkinIndex = Math.floor(
-    Math.random() * championDto[championName].skinNumber
-  );
+  const randomSkinIndex =
+    Math.floor(Math.random() * championDto[championName].skinNumber) + 1;
 
   const randomSkin =
     (skins && skins[Math.floor(Math.random() * skins.length)]?.num) ?? 0;
