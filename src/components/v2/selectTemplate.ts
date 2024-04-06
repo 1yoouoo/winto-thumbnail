@@ -10,6 +10,7 @@ import {
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
 import Template4 from "@/templates/v2/Template4";
+import Template5 from "@/templates/v2/Template5";
 // import Template5 from "@/templates/v2/Template5";
 
 type Template = {
@@ -44,15 +45,16 @@ export const templates: Template[] = [
   {
     component: Template4,
     name: "Template4",
-    preferredConditions: ["NoDeath", "HighKDA", "playerName"],
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1Items", "playerName", "KDA"],
   },
-  // {
-  //   component: Template5,
-  //   name: "Template5",
-  //   preferredConditions: ["NoDeath", "HighKDA"],
-  //   requirements: ["Over3Items", "KDA"],
-  // },
+  {
+    component: Template5,
+    name: "Template5",
+    preferredConditions: ["NoDeath", "HighKDA"],
+    requirements: ["Over3Items", "KDA"],
+  },
+
   // 기타 템플릿 추가...
 ];
 

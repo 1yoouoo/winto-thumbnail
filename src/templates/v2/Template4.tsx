@@ -38,8 +38,8 @@ const ItemDescription = styled.span`
 const ChampionNameWrapper = styled.span`
   position: absolute;
   left: 30px;
-  top: -60px;
-  transform: rotate(-15deg);
+  top: -80px;
+  transform: rotate(-3deg);
   z-index: -2;
 
   img {
@@ -106,6 +106,12 @@ const BoxShadow = styled.span`
   box-shadow: 0 0 80px 60px white, 0 0 60px 30px rgba(255, 255, 255, 0.1);
 `;
 
+const RedArrowWrapper = styled.span`
+  position: absolute;
+  left: -270px;
+  bottom: 80px;
+`;
+
 const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const {
     championName,
@@ -118,6 +124,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getFirstItem = sorteditems[0];
+  const isPlayerNameOver7 = playerName!.length > 7;
 
   return (
     <Container>
@@ -126,7 +133,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           text={`${playerName}'s`}
           $secondarycolor="#fff267"
           $primarycolor="#ffdc14"
-          $fontSize="100px"
+          $fontSize={isPlayerNameOver7 ? "100px" : "140px"}
         />
         <GradientText
           text="SECRET"
@@ -154,8 +161,9 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           <ItemImage
             gameVersion={gameVersion}
             item={getFirstItem}
-            width={120}
-            height={120}
+            width={160}
+            height={160}
+            boxshadow="ItemBoxShadowYellow"
           />
           <QuestionMark>
             <ShadowText text="?" $fontSize="60px" />
@@ -165,10 +173,19 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
         <KDAWrapper>
           <ShadowText
             text={`${kills}/${deaths}/${assists}`}
-            $fontSize="120px"
+            $fontSize="100px"
           />
           <BoxShadow />
         </KDAWrapper>
+
+        <RedArrowWrapper>
+          <Image
+            src={`${spacesEndpoint}/arrow/red-arrow-1.png`}
+            alt="arrow"
+            width={280}
+            height={170}
+          />
+        </RedArrowWrapper>
       </ItemKdaWrapper>
     </Container>
   );

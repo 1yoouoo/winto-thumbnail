@@ -8,7 +8,11 @@ export type Requirements =
   | "Over5Items"
   | "Over6Items"
   | "playerName"
-  | "KDA";
+  | "KDA"
+  | "PlayerNameIsLessThan7"
+  | "PlayerNameIsOverThan7"
+  | "ChampionNameIsLessThan10"
+  | "ChampionNameIsOverThan10";
 
 type TemplateRequirement = {
   name: Requirements;
@@ -60,6 +64,34 @@ export const templateRequirements: TemplateRequirement[] = [
         gameInfo.assists !== undefined
       );
     },
+  },
+  {
+    name: "PlayerNameIsLessThan7",
+    check: (gameInfo) =>
+      gameInfo.playerName !== undefined
+        ? gameInfo.playerName.length <= 7
+        : false,
+  },
+  {
+    name: "PlayerNameIsOverThan7",
+    check: (gameInfo) =>
+      gameInfo.playerName !== undefined
+        ? gameInfo.playerName.length > 7
+        : false,
+  },
+  {
+    name: "ChampionNameIsLessThan10",
+    check: (gameInfo) =>
+      gameInfo.championName !== undefined
+        ? gameInfo.championName.length <= 10
+        : false,
+  },
+  {
+    name: "ChampionNameIsOverThan10",
+    check: (gameInfo) =>
+      gameInfo.championName !== undefined
+        ? gameInfo.championName.length > 10
+        : false,
   },
   // 기타 조건 추가...
 ];

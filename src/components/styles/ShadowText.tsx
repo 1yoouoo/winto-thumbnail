@@ -25,6 +25,7 @@ const ShadowText = ({ text, $capitalize, $fontSize }: ShadowTextProps) => {
       const newSize = `${Math.min(Math.max(150, 1200 / text.length), 280)}px`;
       setFontSize(newSize);
     } else {
+      console.log("hi");
       setFontSize($fontSize);
     }
   }, [text, $fontSize]);

@@ -1,4 +1,11 @@
-const shadows = {
+export interface Shadows {
+  ThickTextShadow: string;
+  ItemBoxShadowDarken: string;
+  ItemBoxShadowLighten: string;
+  ItemBoxShadowYellow: string;
+}
+
+const shadows: Shadows = {
   ThickTextShadow: `0px -6px 0 black, 0px -6px 0 black, 0px 6px 0 black,
         0px 6px 0 black, -6px 0px 0 black, 6px 0px 0 black, -6px 0px 0 black,
         6px 0px 0 black, -6px -6px 0 black, 6px -6px 0 black,
@@ -9,7 +16,9 @@ const shadows = {
         0 24px 24px rgba(0, 0, 0, 0.2), 0 36px 36px rgba(0, 0, 0, 0.15)`,
   // 필요에 따라 추가 쉐도우 스타일 정의...
 
-  ItemBoxShadow: `rgba(0, 0, 0, 0.9) 0px 10px 20px 15px;`,
+  ItemBoxShadowDarken: `rgba(0, 0, 0, 0.9) 0px 10px 20px 15px;`,
+  ItemBoxShadowLighten: `rgba(255, 255, 255, 0.7) 0px 0px 15px 15px;`,
+  ItemBoxShadowYellow: `#FFC700 0px 0px 15px 15px;`,
 };
 
 export default shadows;
