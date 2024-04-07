@@ -36,7 +36,7 @@ const SplashImage = styled.div`
   overflow: hidden;
 `;
 
-const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
+const TemplateN: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, skins } = gameInfo;
   const champion = championDto[championName] || {
     name: championName,
@@ -68,4 +68,4 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   );
 };
 
-export default Template4;
+export default TemplateN;
