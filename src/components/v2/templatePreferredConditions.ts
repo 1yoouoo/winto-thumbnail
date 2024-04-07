@@ -21,7 +21,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "HighKDA",
-    weight: 15,
+    weight: 5,
     check: (gameInfo) => {
       const kda =
         (Number(gameInfo.kills) + Number(gameInfo.assists)) /
@@ -31,7 +31,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "PlayerName",
-    weight: 10,
+    weight: 1,
     check: (gameInfo) => gameInfo.playerName !== undefined,
   },
 

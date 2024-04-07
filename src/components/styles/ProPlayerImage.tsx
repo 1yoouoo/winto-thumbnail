@@ -15,9 +15,14 @@ const ProPlayerImage = ({
 }) => {
   const anonymousUrl = `${spacesEndpoint}/pro-player/anonymous.png`;
 
-  const [imgSrc, setImgSrc] = useState(anonymousUrl);
+  const [imgSrc, setImgSrc] = useState("");
 
   useEffect(() => {
+    if (!proPlayerImageKeyList || proPlayerImageKeyList.length === 0) {
+      setImgSrc(anonymousUrl);
+      return;
+    }
+
     const randomIndex = Math.floor(
       Math.random() * (proPlayerImageKeyList?.length ?? 0)
     );
@@ -25,7 +30,11 @@ const ProPlayerImage = ({
     const randomSkinKey = proPlayerImageKeyList?.[randomIndex];
     const newImgSrc = `${spacesEndpoint}/${randomSkinKey}`;
     setImgSrc(newImgSrc);
-  }, [proPlayerImageKeyList]);
+  }, [anonymousUrl, proPlayerImageKeyList]);
+
+  if (!imgSrc) {
+    return null;
+  }
 
   return (
     <Container>

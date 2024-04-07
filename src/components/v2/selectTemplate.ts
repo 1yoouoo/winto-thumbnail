@@ -35,7 +35,6 @@ export const templates: Template[] = [
   {
     component: Template2,
     name: "Template2",
-    preferredConditions: ["NoDeath", "HighKDA"],
     requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
   },
   {
@@ -66,7 +65,6 @@ export const templates: Template[] = [
     name: "Template7",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
-    select: true,
   },
 
   // 기타 템플릿 추가...
@@ -75,7 +73,6 @@ export const templates: Template[] = [
 export function selectTemplate(
   gameInfo: GameInfoViewModel
 ): React.FC<{ gameInfo: GameInfoViewModel }> {
-  console.log("gameInfo:", gameInfo);
   // Step 0: 개발 모드용 선택 로직 추가
   const developmentTemplate = templates.find(
     (template) => template.select === true

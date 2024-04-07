@@ -83,8 +83,9 @@ export const fetchProPlayerList = async ({
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
     const data = await response.json();
+    const filteredData = data.filter((path: string) => !path.endsWith("/"));
 
-    return data;
+    return filteredData;
   } catch (error) {
     return [];
   }

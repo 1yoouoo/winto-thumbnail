@@ -31,5 +31,4 @@ export default async function handler(
 
   // 응답을 클라이언트에 보냅니다.
   res.status(200).json(response.Contents?.map((content) => content.Key));
-  console.log(response.Contents?.map((content) => content.Key));
 }

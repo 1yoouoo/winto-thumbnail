@@ -35,7 +35,8 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
           `${app_url}/api/v2/get-file-list?prefix=${prefix}`
         );
         const data = await response.json(); // API로부터 받은 데이터
-        setSkinKeyList(data); // skinKeyList 상태를 업데이트
+        const filteredData = data.filter((path: string) => !path.endsWith("/"));
+        setSkinKeyList(filteredData);
       } catch (error) {
         console.error("파일 목록 가져오기 중 에러 발생:", error);
       }
