@@ -6,12 +6,15 @@ import {
   fetchSkinInfo,
   fetchSummonerSpellInfo,
 } from "../api/gameInfo";
+import { useEffect } from "react";
+import { useSlackNotification } from "./useSlackNotification";
 
 export const useFetchGameInfo = ({
   parsedQueryString,
 }: {
   parsedQueryString: ParsedQueryString;
 }) => {
+  const sendSlackNotification = useSlackNotification();
   const gameVersionQuery = useQuery({
     queryKey: ["gameVersion"],
     queryFn: fetchLatestGameVersion,
@@ -67,6 +70,53 @@ export const useFetchGameInfo = ({
 
     return fields;
   };
+
+  useEffect(() => {
+    if (gameVersionQuery.isError)
+      sendSlackNotification({
+        title: "게임 정보 조회 중 에러 발생",
+        details: gameVersionQuery.error.toString(),
+      });
+    if (itemInfoQuery.isError)
+      sendSlackNotification({
+        title: "아이템 정보 조회 중 에러 발생",
+        details: itemInfoQuery.error.toString(),
+      });
+
+    if (spellInfoQuery.isError)
+      sendSlackNotification({
+        title: "스펠 정보 조회 중 에러 발생",
+        details: spellInfoQuery.error.toString(),
+      });
+
+    if (skinInfoQuery.isError)
+      sendSlackNotification({
+        title: "스킨 정보 조회 중 에러 발생",
+        details: skinInfoQuery.error.toString(),
+      });
+
+    if (
+      gameVersionQuery.error ||
+      itemInfoQuery.error ||
+      spellInfoQuery.error ||
+      skinInfoQuery.error
+    )
+      sendSlackNotification({
+        title: "parsedQueryString",
+        details: JSON.stringify(parsedQueryString, null, 2),
+      });
+  }, [
+    gameVersionQuery.isError,
+    itemInfoQuery.isError,
+    spellInfoQuery.isError,
+    skinInfoQuery.isError,
+    sendSlackNotification,
+    parsedQueryString,
+    gameVersionQuery.error,
+    itemInfoQuery.error,
+    spellInfoQuery.error,
+    skinInfoQuery.error,
+  ]);
 
   return {
     gameVersion: gameVersionQuery.data,
