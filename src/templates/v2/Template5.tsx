@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { spacesEndpoint } from "@/constant/constant";
+import { spacesCdnEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientTrapezoid";
+import ProPlayerImage from "@/components/styles/ProPlayerImage";
 
 const Container = styled.div`
   position: relative;
@@ -18,11 +19,6 @@ const Container = styled.div`
   gap: 5px;
 `;
 
-const ProPlayer = styled.span`
-  position: absolute;
-  left: -180px;
-`;
-
 const Description = styled.span`
   position: absolute;
   top: 70px;
@@ -33,6 +29,7 @@ const Description = styled.span`
   width: 100%;
   height: 100%;
   z-index: 5;
+  transform: rotate(-2deg);
 `;
 
 const Items = styled.span`
@@ -117,6 +114,7 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const getTop3Items = sorteditems.slice(0, 3);
   const champion = championDto[championName] || {
     name: championName,
+    shortenName: "",
     color: {
       primary: "#FFFFFF",
       secondary: "#FFFFFF",
@@ -128,26 +126,17 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   return (
     <Container>
       <GradientBackground />
-
-      <ProPlayer>
-        <Image
-          src={`${spacesEndpoint}/pro-player/showmaker-1.webp`}
-          alt=""
-          width={720}
-          height={720}
-          quality={100}
-        />
-      </ProPlayer>
+      <ProPlayerImage proPlayer="" />
 
       <Description>
         <GradientText
-          text={playerName!}
+          text={playerName ?? "Challenger"}
           primarycolor="white"
           secondarycolor="#acacac"
           fontSize="Small"
         />
         <GradientText
-          text={championName}
+          text={champion.shortenName}
           primarycolor={primary}
           secondarycolor={secondary}
           fontSize="Small"
@@ -192,7 +181,7 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           <BoxShadow />
           <RedArrowWrapper>
             <Image
-              src={`${spacesEndpoint}/arrow/red-arrow-1.png`}
+              src={`${spacesCdnEndpoint}/arrow/red-arrow-1.png`}
               alt="arrow"
               width={220}
               height={100}

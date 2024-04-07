@@ -46,6 +46,7 @@ const QuestionMark = styled.span`
   align-items: center;
   background-color: black;
   box-shadow: 0 0 80px 50px black, 0 0 60px 30px rgba(0, 0, 0, 0.7);
+  z-index: 5;
 `;
 
 interface IProps {

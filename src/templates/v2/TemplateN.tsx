@@ -40,6 +40,7 @@ const TemplateN: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName, gameVersion, skins } = gameInfo;
   const champion = championDto[championName] || {
     name: championName,
+    shortenName: "",
     color: {
       primary: "#FFFFFF",
       secondary: "#FFFFFF",

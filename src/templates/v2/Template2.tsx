@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { spacesEndpoint } from "@/constant/constant";
+import { spacesCdnEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
@@ -100,6 +100,7 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const getTop2Items = sorteditems.slice(0, 2);
   const champion = championDto[championName] || {
     name: championName,
+    shortenName: "",
     color: {
       primary: "#FFFFFF",
       secondary: "#FFFFFF",
@@ -111,7 +112,7 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   return (
     <Container>
       <GradientText
-        text={championName}
+        text={champion.shortenName}
         primarycolor={primary}
         secondarycolor={secondary}
         capitalize={true}
@@ -141,7 +142,7 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
       <KDAWrapper>
         {/* TODO: 화살표 눈에 띄는걸로 개선 */}
         <Image
-          src={`${spacesEndpoint}/arrow/red-arrow.png`}
+          src={`${spacesCdnEndpoint}/arrow/red-arrow.png`}
           alt="arrow"
           width={180}
           height={180}

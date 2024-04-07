@@ -77,6 +77,7 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const getTop3Items = sorteditems.slice(0, 3);
   const champion = championDto[championName] || {
     name: championName,
+    shortenName: "",
     color: {
       primary: "#FFFFFF",
       secondary: "#FFFFFF",
@@ -88,7 +89,7 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   return (
     <Container>
       <GradientText
-        text={championName}
+        text={champion.shortenName}
         primarycolor={primary}
         secondarycolor={secondary}
         capitalize={true}

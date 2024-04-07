@@ -21,6 +21,7 @@ const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const { championName } = gameInfo;
   const champion = championDto[championName] || {
     name: championName,
+    shortenName: "",
     color: {
       primary: "#FFFFFF",
       secondary: "#FFFFFF",
@@ -32,7 +33,7 @@ const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   return (
     <Container>
       <GradientText
-        text={championName}
+        text={champion.shortenName}
         primarycolor={primary}
         secondarycolor={secondary}
         capitalize={true}

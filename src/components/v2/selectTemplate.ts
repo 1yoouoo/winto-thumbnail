@@ -35,7 +35,6 @@ export const templates: Template[] = [
     name: "Template2",
     preferredConditions: ["NoDeath", "HighKDA"],
     requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
-    select: true,
   },
   {
     component: Template3,
@@ -47,14 +46,14 @@ export const templates: Template[] = [
     name: "Template4",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "playerName", "KDA"],
-    // select: true,
   },
-  // {
-  //   component: Template5,
-  //   name: "Template5",
-  //   preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
-  //   requirements: ["Over3ItemsWithGoldOver2000", "KDA", "playerName"],
-  // },
+  {
+    component: Template5,
+    name: "Template5",
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+    requirements: ["Over3ItemsWithGoldOver2000", "KDA"],
+    select: true,
+  },
 
   // 기타 템플릿 추가...
 ];

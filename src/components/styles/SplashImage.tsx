@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Ddragon, spacesEndpoint } from "@/constant/constant";
+import { Ddragon, spacesCdnEndpoint } from "@/constant/constant";
 import styled from "styled-components";
 import { Skin } from "@/types/v2/model";
 import { championDto } from "@/types/v2/championDto";
@@ -25,7 +25,7 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
   const randomSkin =
     (skins && skins[Math.floor(Math.random() * skins.length)]?.num) ?? 0;
 
-  const highQualitySrc = `${spacesEndpoint}/champion/2024-04/right/${championName}/${championName}_${randomSkinIndex}.jpg`;
+  const highQualitySrc = `${spacesCdnEndpoint}/champion/2024-04/right/${championName}/${championName}_${randomSkinIndex}.jpg`;
   const lowQualitySrc = `${Ddragon}/cdn/img/champion/centered/${championName}_${randomSkin}.jpg`;
 
   const [imgSrc, setImgSrc] = useState(highQualitySrc);
