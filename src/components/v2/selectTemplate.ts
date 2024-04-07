@@ -35,6 +35,7 @@ export const templates: Template[] = [
     name: "Template2",
     preferredConditions: ["NoDeath", "HighKDA"],
     requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
+    select: true,
   },
   {
     component: Template3,
