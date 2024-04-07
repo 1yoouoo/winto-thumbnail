@@ -11,6 +11,8 @@ import {
 import { printTemplate } from "../../../utils/v2/printTemplate";
 import Template4 from "@/templates/v2/Template4";
 import Template5 from "@/templates/v2/Template5";
+import Template6 from "@/templates/v2/Template6";
+import Template7 from "@/templates/v2/Template7";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -52,6 +54,18 @@ export const templates: Template[] = [
     name: "Template5",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over3ItemsWithGoldOver2000", "KDA"],
+  },
+  {
+    component: Template6,
+    name: "Template6",
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+    requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
+  },
+  {
+    component: Template7,
+    name: "Template7",
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+    requirements: ["Over1ItemsWithGoldOver2000", "KDA"],
     select: true,
   },
 
