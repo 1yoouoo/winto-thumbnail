@@ -14,6 +14,7 @@ const TemplateDataProcessor: React.FC<{
     items,
     spells,
     skins,
+    proPlayerImageKeyList,
     optionalFields,
     isLoading,
     isError,
@@ -30,8 +31,11 @@ const TemplateDataProcessor: React.FC<{
     items,
     spells,
     skins,
+    proPlayerImageKeyList,
     ...optionalFields,
   };
+
+  if (!gameInfo.proPlayerImageKeyList) return null;
 
   const SelectedTemplateComponent = selectTemplate(gameInfo);
   return (

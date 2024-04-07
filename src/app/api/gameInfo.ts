@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Ddragon } from "@/constant/constant";
+import { Ddragon, app_url } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
 import { Spell } from "@/types/v2/model";
 
@@ -67,4 +67,44 @@ export const fetchSkinInfo = async ({
   const skinData = response.data.data[`${championName}`].skins;
 
   return skinData;
+};
+
+export const fetchProPlayerList = async ({
+  playerName,
+  teamName,
+}: {
+  playerName: string;
+  teamName: string;
+}) => {
+  const playerNameLower = playerName.toLowerCase();
+  const prefix = `pro-player/${teamName}/${playerNameLower}`;
+  try {
+    const response = await fetch(
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+    );
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return [];
+  }
+};
+
+//TODO: 쿼리에 적용 (skins랑 합쳐야함)
+export const fetchSkinList = async ({
+  championName,
+}: {
+  championName: string;
+}) => {
+  const prefix = `champion/2024-04/right/${championName}`;
+  try {
+    const response = await fetch(
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+    );
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("파일 목록 가져오기 중 에러 발생:", error);
+  }
 };

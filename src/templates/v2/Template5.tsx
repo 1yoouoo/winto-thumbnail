@@ -109,6 +109,8 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     deaths,
     items,
     gameVersion,
+    teamName,
+    proPlayerImageKeyList,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);
@@ -126,7 +128,7 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   return (
     <Container>
       <GradientBackground />
-      <ProPlayerImage proPlayer="" />
+      <ProPlayerImage proPlayerImageKeyList={proPlayerImageKeyList!} />
 
       <Description>
         <GradientText

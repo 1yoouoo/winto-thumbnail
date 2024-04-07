@@ -1,6 +1,6 @@
-import { spacesCdnEndpoint } from "@/constant/constant";
+import { spacesCdnEndpoint as spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -9,35 +9,27 @@ const Container = styled.div`
 `;
 
 const ProPlayerImage = ({
-  proPlayer,
-  teamName,
+  proPlayerImageKeyList,
 }: {
-  proPlayer: string;
-  teamName?: string;
+  proPlayerImageKeyList: string[] | undefined;
 }) => {
-  const proPlayerName = proPlayer?.toLowerCase();
-  const anonymous = "anonymous";
+  const anonymousUrl = `${spacesEndpoint}/pro-player/anonymous.png`;
 
-  const proPlayerUrl = `${spacesCdnEndpoint}/pro-player/${proPlayerName}.png`;
-  const anonymousUrl = `${spacesCdnEndpoint}/pro-player/${anonymous}.png`;
+  const [imgSrc, setImgSrc] = useState(anonymousUrl);
 
-  const [imgSrc, setImgSrc] = useState(proPlayerUrl);
+  useEffect(() => {
+    const randomIndex = Math.floor(
+      Math.random() * (proPlayerImageKeyList?.length ?? 0)
+    );
 
-  // 이미지 로딩 실패 시 실행될 함수
-  const handleError = () => {
-    setImgSrc(anonymousUrl); // 익명 사진으로 변경
-  };
+    const randomSkinKey = proPlayerImageKeyList?.[randomIndex];
+    const newImgSrc = `${spacesEndpoint}/${randomSkinKey}`;
+    setImgSrc(newImgSrc);
+  }, [proPlayerImageKeyList]);
 
   return (
     <Container>
-      <Image
-        src={imgSrc}
-        alt=""
-        onError={handleError}
-        width={720}
-        height={720}
-        quality={100}
-      />
+      <Image src={imgSrc} alt="" width={720} height={720} quality={100} />
     </Container>
   );
 };

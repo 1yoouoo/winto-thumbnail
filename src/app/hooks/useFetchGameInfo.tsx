@@ -3,6 +3,7 @@ import { GameInfoViewModel, ParsedQueryString } from "@/types/v2/model";
 import {
   fetchItemInfo,
   fetchLatestGameVersion,
+  fetchProPlayerList,
   fetchSkinInfo,
   fetchSummonerSpellInfo,
 } from "../api/gameInfo";
@@ -51,6 +52,22 @@ export const useFetchGameInfo = ({
     enabled: !!gameVersionQuery.data && !!parsedQueryString.championName,
   });
 
+  const proPlayerImageQuery = useQuery({
+    queryKey: [
+      "proPlayerImageInfo",
+      parsedQueryString.playerName,
+      parsedQueryString.teamName,
+    ],
+    queryFn: ({ queryKey }) => {
+      const [, playerName, teamName] = queryKey;
+
+      if (!playerName || !teamName) return [];
+
+      return fetchProPlayerList({ playerName, teamName });
+    },
+    enabled: !!parsedQueryString.playerName && !!parsedQueryString.teamName,
+  });
+
   const optionalFields = (query: ParsedQueryString) => {
     const fields: Partial<GameInfoViewModel> = {};
     if (query.teamName) fields.teamName = query.teamName;
@@ -95,6 +112,11 @@ export const useFetchGameInfo = ({
         details: skinInfoQuery.error.toString(),
       });
 
+    if (proPlayerImageQuery.isError)
+      sendSlackNotification({
+        title: "프로플레이어 정보 조회 중 에러 발생",
+        details: proPlayerImageQuery.error.toString(),
+      });
     if (
       gameVersionQuery.error ||
       itemInfoQuery.error ||
@@ -116,6 +138,8 @@ export const useFetchGameInfo = ({
     itemInfoQuery.error,
     spellInfoQuery.error,
     skinInfoQuery.error,
+    proPlayerImageQuery.isError,
+    proPlayerImageQuery.error,
   ]);
 
   return {
@@ -123,6 +147,7 @@ export const useFetchGameInfo = ({
     items: itemInfoQuery.data,
     spells: spellInfoQuery.data,
     skins: skinInfoQuery.data,
+    proPlayerImageKeyList: proPlayerImageQuery.data,
     optionalFields: optionalFields(parsedQueryString),
 
     isLoading:

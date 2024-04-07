@@ -1,6 +1,10 @@
 import { GameInfoViewModel } from "@/types/v2/model";
 
-export type PreferredConditions = "NoDeath" | "HighKDA" | "PlayerName";
+export type PreferredConditions =
+  | "NoDeath"
+  | "HighKDA"
+  | "PlayerName"
+  | "HasProPlayerImage";
 
 type TemplatePreferredCondition = {
   name: PreferredConditions;
@@ -29,6 +33,14 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
     name: "PlayerName",
     weight: 10,
     check: (gameInfo) => gameInfo.playerName !== undefined,
+  },
+
+  {
+    name: "HasProPlayerImage",
+    weight: 50,
+    check: (gameInfo: GameInfoViewModel) => {
+      return gameInfo.proPlayerImageKeyList.length > 0;
+    },
   },
 
   // 기타 조건 추가...

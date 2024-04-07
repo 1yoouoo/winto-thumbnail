@@ -12,7 +12,8 @@ export type Requirements =
   | "PlayerNameIsLessThan7"
   | "PlayerNameIsOverThan7"
   | "ChampionNameIsLessThan10"
-  | "ChampionNameIsOverThan10";
+  | "ChampionNameIsOverThan10"
+  | "HasProPlayerImage";
 
 type TemplateRequirement = {
   name: Requirements;
@@ -86,6 +87,12 @@ export const templateRequirements: TemplateRequirement[] = [
       gameInfo.championName !== undefined
         ? gameInfo.championName.length > 10
         : false,
+  },
+  {
+    name: "HasProPlayerImage",
+    check: (gameInfo: GameInfoViewModel) => {
+      return gameInfo.proPlayerImageKeyList.length > 0;
+    },
   },
   // 기타 조건 추가...
 ];
