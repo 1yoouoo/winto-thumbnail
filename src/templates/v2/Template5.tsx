@@ -110,7 +110,6 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     deaths,
     items,
     gameVersion,
-    teamName,
     proPlayerImageKeyList,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);

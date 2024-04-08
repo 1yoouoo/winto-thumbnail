@@ -1,8 +1,5 @@
 import { GameInfoViewModel } from "@/types/v2/model";
 import Template0 from "@/templates/v2/Template0";
-import Template1 from "@/templates/v2/Template1";
-import Template2 from "@/templates/v2/Template2";
-import Template3 from "@/templates/v2/Template3";
 import { Requirements, templateRequirements } from "./templateRequirement";
 import {
   PreferredConditions,
