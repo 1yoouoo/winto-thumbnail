@@ -1,5 +1,5 @@
 import SplashImage from "@/components/styles/SplashImage";
-import { spacesCdnEndpoint } from "@/constant/constant";
+import { spacesCdnFullEndpoint } from "@/constant/constant";
 import { fonts } from "@/style/fonts";
 import { backgroundHighlightLength } from "@/types/v2/assets";
 import { championDto } from "@/types/v2/championDto";
@@ -67,7 +67,7 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
           <SplashImage championName={props.championName} skins={props.skins!} />
           <BackgroundHighlight>
             <Image
-              src={`${spacesCdnEndpoint}/background/background-highlight-${highlightNumber}.png`}
+              src={`${spacesCdnFullEndpoint}/background/background-highlight-${highlightNumber}.png`}
               alt="background-highlight"
               width={1280}
               height={720}

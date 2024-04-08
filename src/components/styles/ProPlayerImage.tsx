@@ -1,4 +1,4 @@
-import { spacesCdnEndpoint as spacesEndpoint } from "@/constant/constant";
+import { spacesCdnFullEndpoint as spacesEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styled from "styled-components";

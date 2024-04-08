@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { spacesCdnEndpoint } from "@/constant/constant";
+import { spacesCdnFullEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import GradientText from "@/components/styles/GradientText";
 import React from "react";
@@ -161,7 +161,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           <ChampionNameWrapper>
             <GradientText text={shortenName.toUpperCase()} fontSize="XSmall" />
             <Image
-              src={`${spacesCdnEndpoint}/text-background/white-paint.png`}
+              src={`${spacesCdnFullEndpoint}/text-background/white-paint.png`}
               alt=""
               width={400}
               height={400}
@@ -182,7 +182,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
 
           <RedArrowWrapper>
             <Image
-              src={`${spacesCdnEndpoint}/arrow/red-arrow-1.png`}
+              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
               alt="arrow"
               width={250}
               height={130}

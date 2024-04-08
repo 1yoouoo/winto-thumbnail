@@ -6,6 +6,7 @@ import {
   spaceRegion,
   spaceSecretAccessKey,
   spaceName,
+  spacesFullEndpoint,
   spacesEndpoint,
 } from "@/constant/constant";
 import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
@@ -70,7 +71,7 @@ export default async function handler(
     await browser.close();
 
     // S3에 스크린샷 업로드
-    const screenshotKey = `${spaceName}_${Date.now()}_screenshot.jpeg`;
+    const screenshotKey = `${spaceName}/${Date.now()}_screenshot.jpeg`;
     await s3Client.send(
       new PutObjectCommand({
         Bucket: spaceName,
@@ -79,7 +80,7 @@ export default async function handler(
         ACL: "public-read",
       })
     );
-    const url = `${spacesEndpoint}/${spaceName}/${screenshotKey}`;
+    const url = `${spacesFullEndpoint}/${screenshotKey}`;
     res.status(200).json({
       message: "Screenshot taken and uploaded successfully",
       screenshotUrl: url,

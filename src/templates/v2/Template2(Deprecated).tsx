@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { spacesCdnEndpoint } from "@/constant/constant";
+import { spacesCdnFullEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import shadows from "@/style/shadows";
 import GradientText from "@/components/styles/GradientText";
@@ -142,7 +142,7 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
       <KDAWrapper>
         {/* TODO: 화살표 눈에 띄는걸로 개선 */}
         <Image
-          src={`${spacesCdnEndpoint}/arrow/red-arrow.png`}
+          src={`${spacesCdnFullEndpoint}/arrow/red-arrow.png`}
           alt="arrow"
           width={180}
           height={180}

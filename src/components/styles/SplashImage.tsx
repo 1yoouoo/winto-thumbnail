@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Ddragon, spacesCdnEndpoint } from "@/constant/constant";
+import { Ddragon, spacesCdnFullEndpoint } from "@/constant/constant";
 import styled from "styled-components";
 import { GameInfoViewModel } from "@/types/v2/model";
 
@@ -36,7 +36,7 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
     const randomIndex = Math.floor(Math.random() * skins.keys.length);
 
     const randomSkinKey = skins.keys[randomIndex];
-    const newImgSrc = `${spacesCdnEndpoint}/${randomSkinKey}`;
+    const newImgSrc = `${spacesCdnFullEndpoint}/${randomSkinKey}`;
     setImgSrc(newImgSrc);
   }, [skins, championName]);
 

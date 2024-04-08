@@ -32,6 +32,7 @@ module.exports = {
     domains: [
       "ddragon.leagueoflegends.com",
       "winto-thumbnail.sgp1.digitaloceanspaces.com",
+      "winto-thumbnail.sgp1.cdn.digitaloceanspaces.com",
       "leagueofitems.com",
     ], // 여기에 이미지 호스트 도메인 추가
   },

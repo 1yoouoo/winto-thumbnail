@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { spacesCdnEndpoint } from "@/constant/constant";
+import { spacesCdnFullEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
@@ -164,7 +164,7 @@ const Template6: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           <BoxShadow />
           <RedArrowWrapper>
             <Image
-              src={`${spacesCdnEndpoint}/arrow/red-arrow-1.png`}
+              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
               alt="arrow"
               width={250}
               height={140}
