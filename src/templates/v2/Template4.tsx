@@ -5,7 +5,7 @@ import GradientText from "@/components/styles/GradientText";
 import React from "react";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
-import GradientBackground from "@/components/styles/GradientTrapezoid";
+import GradientBackground from "@/components/styles/GradientLeftBackground";
 
 const Container = styled.div`
   position: relative;

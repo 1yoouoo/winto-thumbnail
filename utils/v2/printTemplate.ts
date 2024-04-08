@@ -34,5 +34,5 @@ export function printTemplate({
     };
   });
 
-  // console.table(tableData);
+  console.table(tableData);
 }

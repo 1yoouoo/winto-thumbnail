@@ -3,10 +3,10 @@ import { spacesCdnEndpoint } from "@/constant/constant";
 import { fonts } from "@/style/fonts";
 import { backgroundHighlightLength } from "@/types/v2/assets";
 import { championDto } from "@/types/v2/championDto";
-import { GameInfoViewModel, SkinInfo } from "@/types/v2/model";
+import { GameInfoViewModel } from "@/types/v2/model";
 import Image from "next/image";
 import React from "react";
-import styled from "styled-components";
+import styled, { StyleSheetManager } from "styled-components";
 
 interface BackgroundProps {
   children: React.ReactNode;
@@ -14,15 +14,15 @@ interface BackgroundProps {
   skins: GameInfoViewModel["skins"];
 }
 
-const Container = styled.div<{ $primary: string }>`
+const Container = styled.div<{ primary: string }>`
   position: relative;
-  background-color: ${(props) => props.$primary};
+  background-color: ${(props) => props.primary};
   width: 1280px;
   height: 720px;
   font-family: ${fonts.LuckiestGuy.fontFamily};
 `;
 
-const Wrapper = styled.div<{ $primary: string }>`
+const Wrapper = styled.div<{ primary: string }>`
   box-sizing: border-box;
   position: absolute;
   display: flex;
@@ -31,7 +31,7 @@ const Wrapper = styled.div<{ $primary: string }>`
   width: 1280px;
   height: 720px;
   border-radius: 40px;
-  border: 12px solid ${(props) => props.$primary};
+  border: 12px solid ${(props) => props.primary};
   background-color: white;
   overflow: hidden;
 `;
@@ -59,21 +59,25 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
     Math.floor(Math.random() * backgroundHighlightLength) + 1;
 
   return (
-    <Container $primary={primary}>
-      <Wrapper $primary={primary}>
-        <SplashImage championName={props.championName} skins={props.skins!} />
-        <BackgroundHighlight>
-          <Image
-            src={`${spacesCdnEndpoint}/background/background-highlight-${highlightNumber}.png`}
-            alt="background-highlight"
-            width={1280}
-            height={720}
-            priority
-          />
-        </BackgroundHighlight>
-        {children}
-      </Wrapper>
-    </Container>
+    <StyleSheetManager
+      shouldForwardProp={(prop) => !["primary"].includes(prop)}
+    >
+      <Container primary={primary}>
+        <Wrapper primary={primary}>
+          <SplashImage championName={props.championName} skins={props.skins!} />
+          <BackgroundHighlight>
+            <Image
+              src={`${spacesCdnEndpoint}/background/background-highlight-${highlightNumber}.png`}
+              alt="background-highlight"
+              width={1280}
+              height={720}
+              priority
+            />
+          </BackgroundHighlight>
+          {children}
+        </Wrapper>
+      </Container>
+    </StyleSheetManager>
   );
 };
 

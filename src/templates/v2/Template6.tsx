@@ -5,7 +5,7 @@ import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
-import GradientBackground from "@/components/styles/GradientTrapezoid";
+import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerImage from "@/components/styles/ProPlayerImage";
 
 const Container = styled.div`
