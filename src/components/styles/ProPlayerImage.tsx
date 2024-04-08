@@ -6,6 +6,23 @@ import styled from "styled-components";
 const Container = styled.div`
   position: absolute;
   left: -180px;
+  width: 720px;
+  height: 100%;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+
+  img {
+    object-fit: contain;
+    width: auto;
+    height: auto;
+  }
 `;
 
 const ProPlayerImage = ({
@@ -38,7 +55,9 @@ const ProPlayerImage = ({
 
   return (
     <Container>
-      <Image src={imgSrc} alt="" width={720} height={720} quality={100} />
+      <ImageWrapper>
+        <Image src={imgSrc} alt="" width={720} height={720} quality={100} />
+      </ImageWrapper>
     </Container>
   );
 };

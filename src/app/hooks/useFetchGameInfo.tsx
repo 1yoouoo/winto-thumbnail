@@ -84,7 +84,6 @@ export const useFetchGameInfo = ({
 
       return fetchProPlayerList({
         playerName: playerName as string,
-        teamName: teamName as string,
       });
     },
     enabled: !!parsedQueryString.playerName && !!parsedQueryString.teamName,

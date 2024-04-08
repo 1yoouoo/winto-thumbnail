@@ -110,14 +110,12 @@ export const fetchSkinInfo = async ({
 
 export const fetchProPlayerList = async ({
   playerName,
-  teamName,
 }: {
   playerName: string;
-  teamName: string;
 }): Promise<string[]> => {
   try {
     const playerNameLower = playerName.toLowerCase();
-    const prefix = `pro-player/${teamName}/${playerNameLower}`;
+    const prefix = `pro-player/${playerNameLower}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );

@@ -35,7 +35,7 @@ const Description = styled.span`
 const Items = styled.span`
   position: absolute;
   bottom: 40px;
-  left: 160px;
+  left: 260px;
   margin-top: 15px;
   display: flex;
   justify-content: flex-start;
@@ -87,9 +87,9 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -220px;
+  left: -100px;
   bottom: 100px;
-  transform: rotate(-10deg);
+  transform: rotate(-15deg);
 `;
 
 const Template6: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {

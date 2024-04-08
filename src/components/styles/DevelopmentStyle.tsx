@@ -16,7 +16,7 @@ const WaterMark = styled.div`
   width: 100%;
   height: 80px;
   bottom: -100px;
-  right: 20px;
+  right: 40%;
   font-size: 40px;
   color: white;
   z-index: 100;

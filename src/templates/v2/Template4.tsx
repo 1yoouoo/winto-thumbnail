@@ -114,7 +114,7 @@ const BoxShadow = styled.span`
   left: 30%;
   width: 40%;
   height: 0%;
-  box-shadow: 0 0 80px 60px white, 0 0 60px 30px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 80px 60px black, 0 0 60px 30px rgba(0, 0, 0, 1);
 `;
 
 const RedArrowWrapper = styled.span`
