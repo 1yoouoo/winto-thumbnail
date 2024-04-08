@@ -5,10 +5,18 @@ import { Item, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
 import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 
 export const fetchLatestGameVersion = async (): Promise<string> => {
-  const url = `${Ddragon}/api/versions.json`;
-  const response = await axios.get(url);
-
-  return response.data[0];
+  try {
+    const url = `${Ddragon}/api/versions.json`;
+    const response = await axios.get(url);
+    return response.data[0];
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "게임 버전 가져오기 중 에러 발생",
+      details: error.toString(),
+    });
+    console.log("error from gameInfo: ", error);
+    return "14.6.1"; //! default version
+  }
 };
 
 export const fetchItemInfo = async ({
@@ -37,7 +45,6 @@ export const fetchItemInfo = async ({
       title: "아이템 정보 가져오기 중 에러 발생",
       details: error.toString(),
     });
-    console.log("error from gameInfo: ", error);
     console.log("error from gameInfo: ", error);
     return [];
   }

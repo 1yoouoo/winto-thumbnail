@@ -18,15 +18,16 @@ interface IProps {
 }
 
 const SplashImage = ({ championName, skins, ...props }: IProps) => {
-  const randomSkin =
-    (skins && skins.info[Math.floor(Math.random() * skins.info.length)]?.num) ??
-    0;
-
-  const lowQualitySrc = `${Ddragon}/cdn/img/champion/centered/${championName}_${randomSkin}.jpg`;
-
   const [imgSrc, setImgSrc] = useState("");
 
   useEffect(() => {
+    const randomSkin =
+      (skins &&
+        skins.info[Math.floor(Math.random() * skins.info.length)]?.num) ??
+      0;
+
+    const lowQualitySrc = `${Ddragon}/cdn/img/champion/centered/${championName}_${randomSkin}.jpg`;
+
     if (!skins || skins.keys.length === 0) {
       setImgSrc(lowQualitySrc);
       return;
@@ -37,7 +38,7 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
     const randomSkinKey = skins.keys[randomIndex];
     const newImgSrc = `${spacesCdnEndpoint}/${randomSkinKey}`;
     setImgSrc(newImgSrc);
-  }, [skins, lowQualitySrc]);
+  }, [skins, championName]);
 
   if (!imgSrc) {
     return null;
