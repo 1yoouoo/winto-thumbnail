@@ -2,6 +2,7 @@ import axios from "axios";
 import { Ddragon, app_url } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
 import { Item, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
+import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 
 export const fetchLatestGameVersion = async (): Promise<string> => {
   const url = `${Ddragon}/api/versions.json`;
@@ -31,8 +32,13 @@ export const fetchItemInfo = async ({
       })) || [];
 
     return Items;
-  } catch {
-    console.error("아이템 정보 가져오기 중 에러 발생");
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "아이템 정보 가져오기 중 에러 발생",
+      details: error.toString(),
+    });
+    console.log("error from gameInfo: ", error);
+    console.log("error from gameInfo: ", error);
     return [];
   }
 };
@@ -62,8 +68,12 @@ export const fetchSummonerSpellInfo = async ({
       }) || [];
 
     return spells;
-  } catch {
-    console.error("스펠 정보 가져오기 중 에러 발생");
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "스펠 정보 가져오기 중 에러 발생",
+      details: error.toString(),
+    });
+    console.log("error from gameInfo: ", error);
     return [];
   }
 };
@@ -81,8 +91,12 @@ export const fetchSkinInfo = async ({
     const skinData = response.data.data[`${championName}`].skins as SkinInfo[];
 
     return skinData;
-  } catch {
-    console.error("스킨 정보 가져오기 중 에러 발생");
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "스킨 정보 가져오기 중 에러 발생",
+      details: error.toString(),
+    });
+    console.log("error from gameInfo: ", error);
     return [];
   }
 };
@@ -106,8 +120,12 @@ export const fetchProPlayerList = async ({
     ) as string[];
 
     return filteredData;
-  } catch (error) {
-    console.error("파일 목록 가져오기 중 에러 발생:", error);
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "프로플레이어 이미지 가져오기 중 에러 발생",
+      details: error.toString(),
+    });
+    console.log("error from gameInfo: ", error);
     return [];
   }
 };
@@ -128,8 +146,12 @@ export const fetchSkinListFromBucket = async ({
     ) as SkinKey[];
 
     return filteredData;
-  } catch (error) {
-    console.error("파일 목록 가져오기 중 에러 발생:", error);
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "스킨 이미지 가져오기 중 에러 발생",
+      details: error.toString(),
+    });
+    console.log("error from gameInfo: ", error);
     return [];
   }
 };

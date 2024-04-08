@@ -1,5 +1,6 @@
 import { GameInfoDto } from "@/types/v2/model";
 import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
+import { sendSlackNotification } from "./sendSlackNotification";
 
 export function transformToModel(
   gameInfo: GameInfoDto
@@ -42,9 +43,12 @@ export function transformToModel(
     if (gameInfo.spellIds) {
       transformed.spellIds = gameInfo.spellIds.map((id) => id.toString());
     }
-  } catch (error) {
-    // error 발생시 어느 필드가 문제인지 확인하기 위해 추가
-    console.error("gameInfo: ", gameInfo);
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "transfromToModel에서 에러 발생",
+      details: error.toString(),
+    });
+    console.error("transfrom To Model 에서 에러 발생 : ", error);
     throw error;
   }
   // 필수 필드는 바로 추가

@@ -14,14 +14,13 @@ import {
   fetchSummonerSpellInfo,
 } from "../api/gameInfo";
 import { useEffect } from "react";
-import { useSlackNotification } from "./useSlackNotification";
+import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 
 export const useFetchGameInfo = ({
   parsedQueryString,
 }: {
   parsedQueryString: ParsedQueryString;
 }) => {
-  const sendSlackNotification = useSlackNotification();
   const gameVersionQuery = useQuery({
     queryKey: ["gameVersion"],
     queryFn: fetchLatestGameVersion,
@@ -152,7 +151,6 @@ export const useFetchGameInfo = ({
       });
   }, [
     parsedQueryString,
-    sendSlackNotification,
     gameVersionQuery.isError,
     itemInfoQuery.isError,
     spellInfoQuery.isError,

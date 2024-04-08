@@ -11,6 +11,7 @@ import {
 import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
 import { GameInfoDto } from "@/types/v2/model";
 import { transformToModel } from "../../../../utils/v2/transformToModel";
+import { sendSlackNotification } from "../../../../utils/v2/sendSlackNotification";
 
 const s3Client = new S3Client({
   endpoint: spacesEndpoint!,
@@ -83,7 +84,12 @@ export default async function handler(
       message: "Screenshot taken and uploaded successfully",
       screenshotUrl: url,
     });
-  } catch (error) {
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "screenshot에서 에러 발생",
+      details: error.toString(),
+    });
+
     console.error("Error taking or uploading screenshot:", error);
     res.status(500).json({
       error: "Failed to process request",

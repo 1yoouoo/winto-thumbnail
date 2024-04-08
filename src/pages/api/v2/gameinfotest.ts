@@ -39,7 +39,7 @@ export default async function handler(
     });
 
     await browser.close();
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    console.error("error from game-info-test: ", error);
   }
 }
