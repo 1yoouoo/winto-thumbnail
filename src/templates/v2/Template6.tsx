@@ -55,8 +55,8 @@ const ItemWrapper = styled.span``;
 
 const KDAContainer = styled.span`
   position: absolute;
-  right: 50px;
-  bottom: 100px;
+  right: 30px;
+  bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,9 +87,9 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -200px;
+  left: -220px;
   bottom: 100px;
-  transform: rotate(-15deg);
+  transform: rotate(-10deg);
 `;
 
 const Template6: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {

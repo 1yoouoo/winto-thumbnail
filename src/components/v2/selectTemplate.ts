@@ -27,21 +27,21 @@ export const templates: Template[] = [
     component: Template0,
     name: "Template0",
   },
-  {
-    component: Template1,
-    name: "Template1",
-    requirements: ["Over2ItemsWithGoldOver2000"],
-  },
-  {
-    component: Template2,
-    name: "Template2",
-    requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
-  },
-  {
-    component: Template3,
-    name: "Template3",
-    requirements: ["Over3ItemsWithGoldOver2000"],
-  },
+  // {
+  //   component: Template1,
+  //   name: "Template1",
+  //   requirements: ["Over2ItemsWithGoldOver2000"],
+  // },
+  // {
+  //   component: Template2,
+  //   name: "Template2",
+  //   requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
+  // },
+  // {
+  //   component: Template3,
+  //   name: "Template3",
+  //   requirements: ["Over3ItemsWithGoldOver2000"],
+  // },
   {
     component: Template4,
     name: "Template4",
@@ -53,7 +53,6 @@ export const templates: Template[] = [
     name: "Template5",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over3ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
-    select: true,
   },
   {
     component: Template6,
@@ -66,6 +65,7 @@ export const templates: Template[] = [
     name: "Template7",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    select: true,
   },
 
   // 기타 템플릿 추가...

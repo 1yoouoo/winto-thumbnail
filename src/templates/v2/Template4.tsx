@@ -120,7 +120,7 @@ const RedArrowWrapper = styled.span`
   z-index: 5;
   position: absolute;
   right: 230px;
-  bottom: 110px;
+  bottom: 120px;
   transform: scaleX(-1) rotate(0deg);
 `;
 

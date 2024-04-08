@@ -85,9 +85,9 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -200px;
-  bottom: 100px;
-  transform: rotate(-15deg);
+  left: -215px;
+  bottom: 110px;
+  transform: rotate(-10deg);
 `;
 
 const Template7: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
