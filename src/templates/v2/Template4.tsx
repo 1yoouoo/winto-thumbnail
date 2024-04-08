@@ -41,11 +41,9 @@ const SubDescription = styled.div`
   transform: translateY(-10px);
 
   :nth-child(2) {
-    transform: translateY(-20px);
+    transform: translateY(-40px);
   }
 `;
-
-const ItemDescription = styled.span``;
 
 const ChampionNameWrapper = styled.span`
   position: absolute;
@@ -157,9 +155,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
               secondarycolor="#fff267"
               primarycolor="#ffdc14"
             />
-            <ItemDescription>
-              <GradientText text="ITEM" fontSize="Small" />
-            </ItemDescription>
+            <GradientText text="ITEM" fontSize="Small" />
           </SubDescription>
 
           <ChampionNameWrapper>
