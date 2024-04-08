@@ -5,6 +5,7 @@ import {
   fetchLatestGameVersion,
   fetchProPlayerList,
   fetchSkinInfo,
+  fetchSkinListFromBucket,
   fetchSummonerSpellInfo,
 } from "../api/gameInfo";
 import { useEffect } from "react";
@@ -39,15 +40,23 @@ export const useFetchGameInfo = ({
     enabled: !!gameVersionQuery.data && !!parsedQueryString.spellIds,
   });
 
-  const skinInfoQuery = useQuery({
+  const skinInfoQuery = useQuery<GameInfoViewModel["skins"]>({
     queryKey: [
       "skinInfo",
       gameVersionQuery.data,
       parsedQueryString.championName,
     ],
-    queryFn: ({ queryKey }) => {
+    queryFn: async ({ queryKey }) => {
       const [, gameVersion, championName] = queryKey;
-      return fetchSkinInfo({ gameVersion, championName });
+      const info = await fetchSkinInfo({
+        gameVersion: gameVersion as string,
+        championName: championName as string,
+      });
+      const keys = await fetchSkinListFromBucket({
+        championName: championName as string,
+      });
+
+      return { info, keys };
     },
     enabled: !!gameVersionQuery.data && !!parsedQueryString.championName,
   });

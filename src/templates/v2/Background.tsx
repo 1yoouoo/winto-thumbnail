@@ -3,7 +3,7 @@ import { spacesCdnEndpoint } from "@/constant/constant";
 import { fonts } from "@/style/fonts";
 import { backgroundHighlightLength } from "@/types/v2/assets";
 import { championDto } from "@/types/v2/championDto";
-import { Skin } from "@/types/v2/model";
+import { GameInfoViewModel, SkinInfo } from "@/types/v2/model";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ import styled from "styled-components";
 interface BackgroundProps {
   children: React.ReactNode;
   championName: string;
-  skins: Skin[];
+  skins: GameInfoViewModel["skins"];
 }
 
 const Container = styled.div<{ $primary: string }>`

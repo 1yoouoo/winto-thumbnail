@@ -71,7 +71,10 @@ export interface GameInfoViewModel {
   primaryPerk?: number;
   subPerk?: number;
   spells?: Spell[];
-  skins?: Skin[];
+  skins?: {
+    info: SkinInfo[];
+    keys: SkinKey[];
+  };
   firstBloodKill?: boolean;
   doubleKills?: number;
   tripleKills?: number;
@@ -91,9 +94,14 @@ export interface Spell {
   name: string;
 }
 
-export interface Skin {
+export interface SkinInfo {
   id: string;
   num: number;
   name: string;
   chromas: boolean;
+}
+
+export interface SkinKey {
+  id: string;
+  key: string;
 }
