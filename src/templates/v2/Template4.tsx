@@ -6,6 +6,7 @@ import React from "react";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
+import { championDto } from "@/types/v2/championDto";
 
 const Container = styled.div`
   position: relative;
@@ -137,6 +138,8 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getFirstItem = sorteditems[0];
 
+  const { shortenName } = championDto[championName];
+
   return (
     <>
       <GradientBackground />
@@ -160,7 +163,7 @@ const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           </SubDescription>
 
           <ChampionNameWrapper>
-            <GradientText text={championName.toUpperCase()} fontSize="XSmall" />
+            <GradientText text={shortenName.toUpperCase()} fontSize="XSmall" />
             <Image
               src={`${spacesCdnEndpoint}/text-background/white-paint.png`}
               alt=""
