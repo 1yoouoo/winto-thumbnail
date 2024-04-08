@@ -11,7 +11,7 @@ const Container = styled.div`
 const ProPlayerImage = ({
   proPlayerImageKeyList,
 }: {
-  proPlayerImageKeyList: string[] | undefined;
+  proPlayerImageKeyList: string[];
 }) => {
   const anonymousUrl = `${spacesEndpoint}/pro-player/anonymous.png`;
 

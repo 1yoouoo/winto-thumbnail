@@ -80,7 +80,7 @@ export interface GameInfoViewModel {
   tripleKills?: number;
   quadraKills?: number;
   pentaKills?: number;
-  proPlayerImageKeyList: string[];
+  proPlayerImageKeyList?: string[];
 }
 
 export interface Item {

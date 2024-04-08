@@ -62,8 +62,8 @@ interface IProps {
 }
 
 const ItemImage = ({ gameVersion, item, blurred, ...props }: IProps) => {
-  const highQualitySrc = `${leagueOfItems}/${item.id}.webp`;
-  const lowQualitySrc = `${Ddragon}/cdn/${gameVersion}/img/item/${item.id}.png`;
+  const highQualitySrc = `${leagueOfItems}/${item?.id}.webp`;
+  const lowQualitySrc = `${Ddragon}/cdn/${gameVersion}/img/item/${item?.id}.png`;
 
   const [imgSrc, setImgSrc] = useState(highQualitySrc);
 

@@ -1,5 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { GameInfoViewModel, ParsedQueryString } from "@/types/v2/model";
+import {
+  GameInfoViewModel,
+  Item,
+  ParsedQueryString,
+  Spell,
+} from "@/types/v2/model";
 import {
   fetchItemInfo,
   fetchLatestGameVersion,
@@ -22,20 +27,26 @@ export const useFetchGameInfo = ({
     queryFn: fetchLatestGameVersion,
   });
 
-  const itemInfoQuery = useQuery({
+  const itemInfoQuery = useQuery<Item[]>({
     queryKey: ["itemInfo", gameVersionQuery.data, parsedQueryString.itemIds],
     queryFn: ({ queryKey }) => {
       const [, gameVersion, itemIds] = queryKey;
-      return fetchItemInfo({ gameVersion, itemIds });
+      return fetchItemInfo({
+        gameVersion: gameVersion as string,
+        itemIds: itemIds as string[],
+      });
     },
     enabled: !!gameVersionQuery.data && !!parsedQueryString.itemIds,
   });
 
-  const spellInfoQuery = useQuery({
+  const spellInfoQuery = useQuery<Spell[]>({
     queryKey: ["spellInfo", gameVersionQuery.data, parsedQueryString.spellIds],
     queryFn: ({ queryKey }) => {
       const [, gameVersion, spellIds] = queryKey;
-      return fetchSummonerSpellInfo({ gameVersion, spellIds });
+      return fetchSummonerSpellInfo({
+        gameVersion: gameVersion as string,
+        spellIds: spellIds as number[],
+      });
     },
     enabled: !!gameVersionQuery.data && !!parsedQueryString.spellIds,
   });
@@ -61,7 +72,7 @@ export const useFetchGameInfo = ({
     enabled: !!gameVersionQuery.data && !!parsedQueryString.championName,
   });
 
-  const proPlayerImageQuery = useQuery({
+  const proPlayerImageQuery = useQuery<string[]>({
     queryKey: [
       "proPlayerImageInfo",
       parsedQueryString.playerName,
@@ -72,7 +83,10 @@ export const useFetchGameInfo = ({
 
       if (!playerName || !teamName) return [];
 
-      return fetchProPlayerList({ playerName, teamName });
+      return fetchProPlayerList({
+        playerName: playerName as string,
+        teamName: teamName as string,
+      });
     },
     enabled: !!parsedQueryString.playerName && !!parsedQueryString.teamName,
   });
@@ -137,12 +151,12 @@ export const useFetchGameInfo = ({
         details: JSON.stringify(parsedQueryString, null, 2),
       });
   }, [
+    parsedQueryString,
+    sendSlackNotification,
     gameVersionQuery.isError,
     itemInfoQuery.isError,
     spellInfoQuery.isError,
     skinInfoQuery.isError,
-    sendSlackNotification,
-    parsedQueryString,
     gameVersionQuery.error,
     itemInfoQuery.error,
     spellInfoQuery.error,
@@ -152,7 +166,7 @@ export const useFetchGameInfo = ({
   ]);
 
   return {
-    gameVersion: gameVersionQuery.data,
+    gameVersion: gameVersionQuery.data!,
     items: itemInfoQuery.data,
     spells: spellInfoQuery.data,
     skins: skinInfoQuery.data,

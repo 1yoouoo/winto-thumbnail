@@ -39,7 +39,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
     name: "HasProPlayerImage",
     weight: 50,
     check: (gameInfo: GameInfoViewModel) => {
-      return gameInfo.proPlayerImageKeyList.length > 0;
+      return (gameInfo.proPlayerImageKeyList ?? []).length > 0;
     },
   },
 
