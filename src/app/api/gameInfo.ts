@@ -114,9 +114,9 @@ export const fetchProPlayerList = async ({
   playerName: string;
 }): Promise<string[]> => {
   const playerNameLower = playerName.toLowerCase();
+  const prefix = `pro-player/${playerNameLower}`;
 
   try {
-    const prefix = `pro-player/${playerNameLower}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
@@ -129,7 +129,7 @@ export const fetchProPlayerList = async ({
   } catch (error: any) {
     sendSlackNotification({
       title: `${playerNameLower} 선수의 이미지가 없습니다. 추가해주세요.`,
-      details: error.toString(),
+      details: `${prefix} 경로에 이미지가 없습니다.`,
     });
     return [];
   }
