@@ -113,8 +113,9 @@ export const fetchProPlayerList = async ({
 }: {
   playerName: string;
 }): Promise<string[]> => {
+  const playerNameLower = playerName.toLowerCase();
+
   try {
-    const playerNameLower = playerName.toLowerCase();
     const prefix = `pro-player/${playerNameLower}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
@@ -127,10 +128,9 @@ export const fetchProPlayerList = async ({
     return filteredData;
   } catch (error: any) {
     sendSlackNotification({
-      title: "프로플레이어 이미지 가져오기 중 에러 발생",
+      title: `${playerNameLower} 선수의 이미지가 없습니다. 추가해주세요.`,
       details: error.toString(),
     });
-    console.log("error from gameInfo: ", error);
     return [];
   }
 };
