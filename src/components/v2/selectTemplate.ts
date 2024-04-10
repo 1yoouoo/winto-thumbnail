@@ -62,6 +62,7 @@ export const templates: Template[] = [
     name: "Template7",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    select: true,
   },
 
   // 기타 템플릿 추가...

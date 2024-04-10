@@ -106,13 +106,7 @@ const ProPlayerInfoImage = ({
 
           {proTeamLogoSrc && (
             <ProTeamLogo>
-              <Image
-                src={proTeamLogoSrc}
-                alt=""
-                width={400}
-                height={400}
-                quality={100}
-              />
+              <Image src={proTeamLogoSrc} alt="" width={400} height={400} />
             </ProTeamLogo>
           )}
         </ProPlayerInfo>

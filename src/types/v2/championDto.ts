@@ -7,6 +7,7 @@ export type ChampionDto = {
 };
 
 export const championDto: ChampionDto = {
+  //? Personal Color
   Aatrox: {
     name: "Aatrox",
     shortenName: "Aatrox",
@@ -15,6 +16,7 @@ export const championDto: ChampionDto = {
       secondary: "#920000",
     },
   },
+  //? Personal Color
   Ahri: {
     name: "Ahri",
     shortenName: "Ahri",
@@ -23,6 +25,7 @@ export const championDto: ChampionDto = {
       secondary: "#FFC0CB",
     },
   },
+  //? Personal Color
   Akali: {
     name: "Akali",
     shortenName: "Akali",
@@ -31,6 +34,7 @@ export const championDto: ChampionDto = {
       secondary: "#27AE60",
     },
   },
+  //? Personal Color
   Akshan: {
     name: "Akshan",
     shortenName: "Akshan",
@@ -39,6 +43,7 @@ export const championDto: ChampionDto = {
       secondary: "#2E86C1",
     },
   },
+  //? Personal Color
   Alistar: {
     name: "Alistar",
     shortenName: "Alistar",
@@ -47,6 +52,7 @@ export const championDto: ChampionDto = {
       secondary: "#7D6608",
     },
   },
+  //? Personal Color
   Amumu: {
     name: "Amumu",
     shortenName: "Amumu",
@@ -55,6 +61,7 @@ export const championDto: ChampionDto = {
       secondary: "#16A085",
     },
   },
+  //? Personal Color
   Anivia: {
     name: "Anivia",
     shortenName: "Anivia",
@@ -63,6 +70,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Annie: {
     name: "Annie",
     shortenName: "Annie",
@@ -71,6 +79,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Aphelios: {
     name: "Aphelios",
     shortenName: "Aphelios",
@@ -79,6 +88,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Ashe: {
     name: "Ashe",
     shortenName: "Ashe",
@@ -87,6 +97,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   AurelionSol: {
     name: "Aurelion Sol",
     shortenName: "Sol",
@@ -95,6 +106,7 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
+  //? Personal Color
   Azir: {
     name: "Azir",
     shortenName: "Azir",
@@ -103,6 +115,7 @@ export const championDto: ChampionDto = {
       secondary: "#F1C40F",
     },
   },
+  //? Personal Color
   Bard: {
     name: "Bard",
     shortenName: "Bard",
@@ -111,6 +124,7 @@ export const championDto: ChampionDto = {
       secondary: "#E67E22",
     },
   },
+  //? Personal Color
   Belveth: {
     name: "Bel'Veth",
     shortenName: "Bel'Veth",
@@ -119,6 +133,7 @@ export const championDto: ChampionDto = {
       secondary: "#A93226",
     },
   },
+  //? Personal Color
   Blitzcrank: {
     name: "Blitzcrank",
     shortenName: "Blitz",
@@ -127,6 +142,7 @@ export const championDto: ChampionDto = {
       secondary: "#F39C12",
     },
   },
+  //? Personal Color
   Brand: {
     name: "Brand",
     shortenName: "Brand",
@@ -135,6 +151,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   Braum: {
     name: "Braum",
     shortenName: "Braum",
@@ -143,6 +160,7 @@ export const championDto: ChampionDto = {
       secondary: "#34495E",
     },
   },
+  //? Personal Color
   Briar: {
     name: "Briar",
     shortenName: "Briar",
@@ -151,6 +169,7 @@ export const championDto: ChampionDto = {
       secondary: "#0E6655",
     },
   },
+  //? Personal Color
   Caitlyn: {
     name: "Caitlyn",
     shortenName: "Caitlyn",
@@ -159,6 +178,7 @@ export const championDto: ChampionDto = {
       secondary: "#5499C7",
     },
   },
+  //? Personal Color
   Camille: {
     name: "Camille",
     shortenName: "Camille",
@@ -167,6 +187,7 @@ export const championDto: ChampionDto = {
       secondary: "#1ABC9C",
     },
   },
+  //? Personal Color
   Cassiopeia: {
     name: "Cassiopeia",
     shortenName: "Cassi",
@@ -175,6 +196,7 @@ export const championDto: ChampionDto = {
       secondary: "#2ECC71",
     },
   },
+  //? Personal Color
   Chogath: {
     name: "Cho'Gath",
     shortenName: "Cho'Gath",
@@ -183,6 +205,7 @@ export const championDto: ChampionDto = {
       secondary: "#707B7C",
     },
   },
+  //? Personal Color
   Corki: {
     name: "Corki",
     shortenName: "Corki",
@@ -191,6 +214,7 @@ export const championDto: ChampionDto = {
       secondary: "#BA4A00",
     },
   },
+  //? Personal Color
   Darius: {
     name: "Darius",
     shortenName: "Darius",
@@ -199,6 +223,7 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
+  //? Personal Color
   Diana: {
     name: "Diana",
     shortenName: "Diana",
@@ -207,6 +232,7 @@ export const championDto: ChampionDto = {
       secondary: "#808B96",
     },
   },
+  //? Personal Color
   DrMundo: {
     name: "Mundo",
     shortenName: "Mundo",
@@ -215,6 +241,7 @@ export const championDto: ChampionDto = {
       secondary: "#28B463",
     },
   },
+  //? Personal Color
   Draven: {
     name: "Draven",
     shortenName: "Draven",
@@ -223,6 +250,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Ekko: {
     name: "Ekko",
     shortenName: "Ekko",
@@ -231,6 +259,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Elise: {
     name: "Elise",
     shortenName: "Elise",
@@ -239,6 +268,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Evelynn: {
     name: "Evelynn",
     shortenName: "Evelynn",
@@ -247,6 +277,7 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
+  //? Personal Color
   Ezreal: {
     name: "Ezreal",
     shortenName: "Ezreal",
@@ -255,6 +286,7 @@ export const championDto: ChampionDto = {
       secondary: "#F7DC6F",
     },
   },
+  //? Personal Color
   Fiddlesticks: {
     name: "Fiddlesticks",
     shortenName: "Fiddle",
@@ -263,6 +295,7 @@ export const championDto: ChampionDto = {
       secondary: "#5B2C6F",
     },
   },
+  //? Personal Color
   Fiora: {
     name: "Fiora",
     shortenName: "Fiora",
@@ -271,6 +304,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Fizz: {
     name: "Fizz",
     shortenName: "Fizz",
@@ -279,6 +313,7 @@ export const championDto: ChampionDto = {
       secondary: "#1ABC9C",
     },
   },
+  //? Personal Color
   Galio: {
     name: "Galio",
     shortenName: "Galio",
@@ -287,6 +322,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Gangplank: {
     name: "Gangplank",
     shortenName: "Gangplank",
@@ -295,6 +331,7 @@ export const championDto: ChampionDto = {
       secondary: "#E67E22",
     },
   },
+  //? Personal Color
   Garen: {
     name: "Garen",
     shortenName: "Garen",
@@ -303,6 +340,7 @@ export const championDto: ChampionDto = {
       secondary: "#1D8348",
     },
   },
+  //? Personal Color
   Gnar: {
     name: "Gnar",
     shortenName: "Gnar",
@@ -311,6 +349,7 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
+  //? Personal Color
   Gragas: {
     name: "Gragas",
     shortenName: "Gragas",
@@ -319,6 +358,7 @@ export const championDto: ChampionDto = {
       secondary: "#707B7C",
     },
   },
+  //? Personal Color
   Graves: {
     name: "Graves",
     shortenName: "Graves",
@@ -327,6 +367,7 @@ export const championDto: ChampionDto = {
       secondary: "#424949",
     },
   },
+  //? Personal Color
   Gwen: {
     name: "Gwen",
     shortenName: "Gwen",
@@ -335,6 +376,7 @@ export const championDto: ChampionDto = {
       secondary: "#85C1E9",
     },
   },
+  //? Personal Color
   Hecarim: {
     name: "Hecarim",
     shortenName: "Hecarim",
@@ -343,6 +385,7 @@ export const championDto: ChampionDto = {
       secondary: "#1B4F72",
     },
   },
+  //? Personal Color
   Heimerdinger: {
     name: "Heimerdinger",
     shortenName: "Heimer",
@@ -351,6 +394,7 @@ export const championDto: ChampionDto = {
       secondary: "#F5B041",
     },
   },
+  //? Personal Color
   Hwei: {
     name: "Hwei",
     shortenName: "Hwei",
@@ -359,6 +403,7 @@ export const championDto: ChampionDto = {
       secondary: "#9B59B6",
     },
   },
+  //? Personal Color
   Illaoi: {
     name: "Illaoi",
     shortenName: "Illaoi",
@@ -367,6 +412,7 @@ export const championDto: ChampionDto = {
       secondary: "#0E6251",
     },
   },
+  //? Personal Color
   Irelia: {
     name: "Irelia",
     shortenName: "Irelia",
@@ -375,6 +421,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Ivern: {
     name: "Ivern",
     shortenName: "Ivern",
@@ -383,6 +430,7 @@ export const championDto: ChampionDto = {
       secondary: "#2ECC71",
     },
   },
+  //? Personal Color
   Janna: {
     name: "Janna",
     shortenName: "Janna",
@@ -391,6 +439,7 @@ export const championDto: ChampionDto = {
       secondary: "#85C1E9",
     },
   },
+  //? Personal Color
   JarvanIV: {
     name: "Jarvan IV",
     shortenName: "Jarvan IV",
@@ -399,6 +448,7 @@ export const championDto: ChampionDto = {
       secondary: "#78281F",
     },
   },
+  //? Personal Color
   Jax: {
     name: "Jax",
     shortenName: "Jax",
@@ -407,6 +457,7 @@ export const championDto: ChampionDto = {
       secondary: "#6E2C00",
     },
   },
+  //? Personal Color
   Jayce: {
     name: "Jayce",
     shortenName: "Jayce",
@@ -415,6 +466,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Jhin: {
     name: "Jhin",
     shortenName: "Jhin",
@@ -423,6 +475,7 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
+  //? Personal Color
   Jinx: {
     name: "Jinx",
     shortenName: "Jinx",
@@ -431,6 +484,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   KSante: {
     name: "K'Sante",
     shortenName: "K'Sante",
@@ -439,6 +493,7 @@ export const championDto: ChampionDto = {
       secondary: "#F1C40F",
     },
   },
+  //? Personal Color
   Kaisa: {
     name: "Kai'Sa",
     shortenName: "Kai'Sa",
@@ -447,6 +502,7 @@ export const championDto: ChampionDto = {
       secondary: "#4A235A",
     },
   },
+  //? Personal Color
   Kalista: {
     name: "Kalista",
     shortenName: "Kalista",
@@ -455,6 +511,7 @@ export const championDto: ChampionDto = {
       secondary: "#0E6655",
     },
   },
+  //? Personal Color
   Karma: {
     name: "Karma",
     shortenName: "Karma",
@@ -463,6 +520,7 @@ export const championDto: ChampionDto = {
       secondary: "#FAD7A0",
     },
   },
+  //? Personal Color
   Karthus: {
     name: "Karthus",
     shortenName: "Karthus",
@@ -471,6 +529,7 @@ export const championDto: ChampionDto = {
       secondary: "#7D3C98",
     },
   },
+  //? Personal Color
   Kassadin: {
     name: "Kassadin",
     shortenName: "Kassadin",
@@ -479,6 +538,7 @@ export const championDto: ChampionDto = {
       secondary: "#5DADE2",
     },
   },
+  //? Personal Color
   Katarina: {
     name: "Katarina",
     shortenName: "Katarina",
@@ -487,6 +547,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Kayle: {
     name: "Kayle",
     shortenName: "Kayle",
@@ -495,6 +556,7 @@ export const championDto: ChampionDto = {
       secondary: "#F4D03F",
     },
   },
+  //? Personal Color
   Kayn: {
     name: "Kayn",
     shortenName: "Kayn",
@@ -503,6 +565,7 @@ export const championDto: ChampionDto = {
       secondary: "#2E4053",
     },
   },
+  //? Personal Color
   Kennen: {
     name: "Kennen",
     shortenName: "Kennen",
@@ -511,6 +574,7 @@ export const championDto: ChampionDto = {
       secondary: "#AED6F1",
     },
   },
+  //? Personal Color
   Khazix: {
     name: "Kha'Zix",
     shortenName: "Kha'Zix",
@@ -519,6 +583,7 @@ export const championDto: ChampionDto = {
       secondary: "#16A085",
     },
   },
+  //? Personal Color
   Kindred: {
     name: "Kindred",
     shortenName: "Kindred",
@@ -527,6 +592,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Kled: {
     name: "Kled",
     shortenName: "Kled",
@@ -535,6 +601,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   KogMaw: {
     name: "Kog'Maw",
     shortenName: "Kog'Maw",
@@ -543,6 +610,7 @@ export const championDto: ChampionDto = {
       secondary: "#F1C40F",
     },
   },
+  //? Personal Color
   Leblanc: {
     name: "LeBlanc",
     shortenName: "LeBlanc",
@@ -551,14 +619,16 @@ export const championDto: ChampionDto = {
       secondary: "#633974",
     },
   },
+  //? Personal Color
   LeeSin: {
     name: "Lee Sin",
     shortenName: "Lee Sin",
     color: {
-      primary: "#B03A2E",
-      secondary: "#78281F",
+      primary: "#F2613F",
+      secondary: "#9B3922",
     },
   },
+  //? Personal Color
   Leona: {
     name: "Leona",
     shortenName: "Leona",
@@ -567,6 +637,7 @@ export const championDto: ChampionDto = {
       secondary: "#F39C12",
     },
   },
+  //? Personal Color
   Lillia: {
     name: "Lillia",
     shortenName: "Lillia",
@@ -575,6 +646,7 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
+  //? Personal Color
   Lissandra: {
     name: "Lissandra",
     shortenName: "Lissandra",
@@ -583,6 +655,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Lucian: {
     name: "Lucian",
     shortenName: "Lucian",
@@ -591,6 +664,7 @@ export const championDto: ChampionDto = {
       secondary: "#433f54",
     },
   },
+  //? Personal Color
   Lulu: {
     name: "Lulu",
     shortenName: "Lulu",
@@ -599,6 +673,7 @@ export const championDto: ChampionDto = {
       secondary: "#F4D03F",
     },
   },
+  //? Personal Color
   Lux: {
     name: "Lux",
     shortenName: "Lux",
@@ -607,6 +682,7 @@ export const championDto: ChampionDto = {
       secondary: "#FDEBD0",
     },
   },
+  //? Personal Color
   Malphite: {
     name: "Malphite",
     shortenName: "Malphite",
@@ -615,6 +691,7 @@ export const championDto: ChampionDto = {
       secondary: "#515A5A",
     },
   },
+  //? Personal Color
   Malzahar: {
     name: "Malzahar",
     shortenName: "Malzahar",
@@ -623,6 +700,7 @@ export const championDto: ChampionDto = {
       secondary: "#7D3C98",
     },
   },
+  //? Personal Color
   Maokai: {
     name: "Maokai",
     shortenName: "Maokai",
@@ -631,6 +709,7 @@ export const championDto: ChampionDto = {
       secondary: "#196F3D",
     },
   },
+  //? Personal Color
   MasterYi: {
     name: "Master Yi",
     shortenName: "Master Yi",
@@ -639,6 +718,7 @@ export const championDto: ChampionDto = {
       secondary: "#16411a",
     },
   },
+  //? Personal Color
   Milio: {
     name: "Milio",
     shortenName: "Milio",
@@ -647,6 +727,7 @@ export const championDto: ChampionDto = {
       secondary: "#F7DC6F",
     },
   },
+  //? Personal Color
   MissFortune: {
     name: "Miss Fortune",
     shortenName: "Fortune",
@@ -655,6 +736,7 @@ export const championDto: ChampionDto = {
       secondary: "#CB4335",
     },
   },
+  //? Personal Color
   Mordekaiser: {
     name: "Mordekaiser",
     shortenName: "Morde",
@@ -663,6 +745,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Morgana: {
     name: "Morgana",
     shortenName: "Morgana",
@@ -671,6 +754,7 @@ export const championDto: ChampionDto = {
       secondary: "#626567",
     },
   },
+  //? Personal Color
   Naafiri: {
     name: "Naafiri",
     shortenName: "Naafiri",
@@ -679,6 +763,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Nami: {
     name: "Nami",
     shortenName: "Nami",
@@ -687,6 +772,7 @@ export const championDto: ChampionDto = {
       secondary: "#AED6F1",
     },
   },
+  //? Personal Color
   Nasus: {
     name: "Nasus",
     shortenName: "Nasus",
@@ -695,6 +781,7 @@ export const championDto: ChampionDto = {
       secondary: "#D68910",
     },
   },
+  //? Personal Color
   Nautilus: {
     name: "Nautilus",
     shortenName: "Nautilus",
@@ -703,6 +790,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Neeko: {
     name: "Neeko",
     shortenName: "Neeko",
@@ -711,6 +799,7 @@ export const championDto: ChampionDto = {
       secondary: "#2ECC71",
     },
   },
+  //? Personal Color
   Nidalee: {
     name: "Nidalee",
     shortenName: "Nidalee",
@@ -719,6 +808,7 @@ export const championDto: ChampionDto = {
       secondary: "#27AE60",
     },
   },
+  //? Personal Color
   Nilah: {
     name: "Nilah",
     shortenName: "Nilah",
@@ -727,6 +817,7 @@ export const championDto: ChampionDto = {
       secondary: "#5DADE2",
     },
   },
+  //? Personal Color
   Nocturne: {
     name: "Nocturne",
     shortenName: "Nocturne",
@@ -735,6 +826,7 @@ export const championDto: ChampionDto = {
       secondary: "#273746",
     },
   },
+  //? Personal Color
   Nunu: {
     name: "Nunu",
     shortenName: "Nunu",
@@ -743,6 +835,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Olaf: {
     name: "Olaf",
     shortenName: "Olaf",
@@ -751,6 +844,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   Orianna: {
     name: "Orianna",
     shortenName: "Orianna",
@@ -759,6 +853,7 @@ export const championDto: ChampionDto = {
       secondary: "#5D6D7E",
     },
   },
+  //? Personal Color
   Ornn: {
     name: "Ornn",
     shortenName: "Ornn",
@@ -767,6 +862,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Pantheon: {
     name: "Pantheon",
     shortenName: "Pantheon",
@@ -775,6 +871,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Poppy: {
     name: "Poppy",
     shortenName: "Poppy",
@@ -783,6 +880,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Pyke: {
     name: "Pyke",
     shortenName: "Pyke",
@@ -791,6 +889,7 @@ export const championDto: ChampionDto = {
       secondary: "#154360",
     },
   },
+  //? Personal Color
   Qiyana: {
     name: "Qiyana",
     shortenName: "Qiyana",
@@ -799,6 +898,7 @@ export const championDto: ChampionDto = {
       secondary: "#229954",
     },
   },
+  //? Personal Color
   Quinn: {
     name: "Quinn",
     shortenName: "Quinn",
@@ -807,6 +907,7 @@ export const championDto: ChampionDto = {
       secondary: "#6E2C00",
     },
   },
+  //? Personal Color
   Rakan: {
     name: "Rakan",
     shortenName: "Rakan",
@@ -815,6 +916,7 @@ export const championDto: ChampionDto = {
       secondary: "#EC7063",
     },
   },
+  //? Personal Color
   Rammus: {
     name: "Rammus",
     shortenName: "Rammus",
@@ -823,6 +925,7 @@ export const championDto: ChampionDto = {
       secondary: "#7E5109",
     },
   },
+  //? Personal Color
   RekSai: {
     name: "Rek'Sai",
     shortenName: "Rek'Sai",
@@ -831,6 +934,7 @@ export const championDto: ChampionDto = {
       secondary: "#512E5F",
     },
   },
+  //? Personal Color
   Rell: {
     name: "Rell",
     shortenName: "Rell",
@@ -839,6 +943,7 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
+  //? Personal Color
   Renata: {
     name: "Renata",
     shortenName: "Renata",
@@ -847,6 +952,7 @@ export const championDto: ChampionDto = {
       secondary: "#ABB2B9",
     },
   },
+  //? Personal Color
   Renekton: {
     name: "Renekton",
     shortenName: "Renekton",
@@ -855,6 +961,7 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
+  //? Personal Color
   Rengar: {
     name: "Rengar",
     shortenName: "Rengar",
@@ -863,6 +970,7 @@ export const championDto: ChampionDto = {
       secondary: "#229954",
     },
   },
+  //? Personal Color
   Riven: {
     name: "Riven",
     shortenName: "Riven",
@@ -871,6 +979,7 @@ export const championDto: ChampionDto = {
       secondary: "#6C3483",
     },
   },
+  //? Personal Color
   Rumble: {
     name: "Rumble",
     shortenName: "Rumble",
@@ -879,6 +988,7 @@ export const championDto: ChampionDto = {
       secondary: "#D35400",
     },
   },
+  //? Personal Color
   Ryze: {
     name: "Ryze",
     shortenName: "Ryze",
@@ -887,6 +997,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Samira: {
     name: "Samira",
     shortenName: "Samira",
@@ -895,6 +1006,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Sejuani: {
     name: "Sejuani",
     shortenName: "Sejuani",
@@ -903,6 +1015,7 @@ export const championDto: ChampionDto = {
       secondary: "#85C1E9",
     },
   },
+  //? Personal Color
   Senna: {
     name: "Senna",
     shortenName: "Senna",
@@ -911,6 +1024,7 @@ export const championDto: ChampionDto = {
       secondary: "#164e6d",
     },
   },
+  //? Personal Color
   Seraphine: {
     name: "Seraphine",
     shortenName: "Seraphine",
@@ -919,6 +1033,7 @@ export const championDto: ChampionDto = {
       secondary: "#F1948A",
     },
   },
+  //? Personal Color
   Sett: {
     name: "Sett",
     shortenName: "Sett",
@@ -927,6 +1042,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   Shaco: {
     name: "Shaco",
     shortenName: "Shaco",
@@ -935,6 +1051,7 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
+  //? Personal Color
   Shen: {
     name: "Shen",
     shortenName: "Shen",
@@ -943,6 +1060,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Shyvana: {
     name: "Shyvana",
     shortenName: "Shyvana",
@@ -951,6 +1069,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   Singed: {
     name: "Singed",
     shortenName: "Singed",
@@ -959,6 +1078,7 @@ export const championDto: ChampionDto = {
       secondary: "#229954",
     },
   },
+  //? Personal Color
   Sion: {
     name: "Sion",
     shortenName: "Sion",
@@ -967,6 +1087,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Sivir: {
     name: "Sivir",
     shortenName: "Sivir",
@@ -975,6 +1096,7 @@ export const championDto: ChampionDto = {
       secondary: "#B7950B",
     },
   },
+  //? Personal Color
   Skarner: {
     name: "Skarner",
     shortenName: "Skarner",
@@ -983,6 +1105,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Smolder: {
     name: "Smolder",
     shortenName: "Smolder",
@@ -991,6 +1114,7 @@ export const championDto: ChampionDto = {
       secondary: "#CB4335",
     },
   },
+  //? Personal Color
   Sona: {
     name: "Sona",
     shortenName: "Sona",
@@ -999,6 +1123,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Soraka: {
     name: "Soraka",
     shortenName: "Soraka",
@@ -1007,6 +1132,7 @@ export const championDto: ChampionDto = {
       secondary: "#F4D03F",
     },
   },
+  //? Personal Color
   Swain: {
     name: "Swain",
     shortenName: "Swain",
@@ -1015,6 +1141,7 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
+  //? Personal Color
   Sylas: {
     name: "Sylas",
     shortenName: "Sylas",
@@ -1023,6 +1150,7 @@ export const championDto: ChampionDto = {
       secondary: "#34495E",
     },
   },
+  //? Personal Color
   Syndra: {
     name: "Syndra",
     shortenName: "Syndra",
@@ -1031,6 +1159,7 @@ export const championDto: ChampionDto = {
       secondary: "#6C3483",
     },
   },
+  //? Personal Color
   TahmKench: {
     name: "Tahm Kench",
     shortenName: "Kench",
@@ -1039,6 +1168,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Taliyah: {
     name: "Taliyah",
     shortenName: "Taliyah",
@@ -1047,6 +1177,7 @@ export const championDto: ChampionDto = {
       secondary: "#0E6655",
     },
   },
+  //? Personal Color
   Talon: {
     name: "Talon",
     shortenName: "Talon",
@@ -1055,6 +1186,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Taric: {
     name: "Taric",
     shortenName: "Taric",
@@ -1063,6 +1195,7 @@ export const championDto: ChampionDto = {
       secondary: "#AED6F1",
     },
   },
+  //? Personal Color
   Teemo: {
     name: "Teemo",
     shortenName: "Teemo",
@@ -1071,6 +1204,7 @@ export const championDto: ChampionDto = {
       secondary: "#F1C40F",
     },
   },
+  //? Personal Color
   Thresh: {
     name: "Thresh",
     shortenName: "Thresh",
@@ -1079,6 +1213,7 @@ export const championDto: ChampionDto = {
       secondary: "#1ABC9C",
     },
   },
+  //? Personal Color
   Tristana: {
     name: "Tristana",
     shortenName: "Tristana",
@@ -1087,6 +1222,7 @@ export const championDto: ChampionDto = {
       secondary: "#5DADE2",
     },
   },
+  //? Personal Color
   Trundle: {
     name: "Trundle",
     shortenName: "Trundle",
@@ -1095,6 +1231,7 @@ export const championDto: ChampionDto = {
       secondary: "#154360",
     },
   },
+  //? Personal Color
   Tryndamere: {
     name: "Tryndamere",
     shortenName: "Trynd",
@@ -1103,6 +1240,7 @@ export const championDto: ChampionDto = {
       secondary: "#922B21",
     },
   },
+  //? Personal Color
   TwistedFate: {
     name: "Twisted Fate",
     shortenName: "Twisted",
@@ -1111,6 +1249,7 @@ export const championDto: ChampionDto = {
       secondary: "#7aa8dc",
     },
   },
+  //? Personal Color
   Twitch: {
     name: "Twitch",
     shortenName: "Twitch",
@@ -1119,6 +1258,7 @@ export const championDto: ChampionDto = {
       secondary: "#6C3483",
     },
   },
+  //? Personal Color
   Udyr: {
     name: "Udyr",
     shortenName: "Udyr",
@@ -1127,6 +1267,7 @@ export const championDto: ChampionDto = {
       secondary: "#E67E22",
     },
   },
+  //? Personal Color
   Urgot: {
     name: "Urgot",
     shortenName: "Urgot",
@@ -1135,6 +1276,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Varus: {
     name: "Varus",
     shortenName: "Varus",
@@ -1143,6 +1285,7 @@ export const championDto: ChampionDto = {
       secondary: "#16A085",
     },
   },
+  //? Personal Color
   Vayne: {
     name: "Vayne",
     shortenName: "Vayne",
@@ -1151,6 +1294,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Veigar: {
     name: "Veigar",
     shortenName: "Veigar",
@@ -1159,6 +1303,7 @@ export const championDto: ChampionDto = {
       secondary: "#9B59B6",
     },
   },
+  //? Personal Color
   Velkoz: {
     name: "Vel'Koz",
     shortenName: "Vel'Koz",
@@ -1167,6 +1312,7 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
+  //? Personal Color
   Vex: {
     name: "Vex",
     shortenName: "Vex",
@@ -1175,6 +1321,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Vi: {
     name: "Vi",
     shortenName: "Vi",
@@ -1183,6 +1330,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   Viego: {
     name: "Viego",
     shortenName: "Viego",
@@ -1191,6 +1339,7 @@ export const championDto: ChampionDto = {
       secondary: "#156f5b",
     },
   },
+  //? Personal Color
   Viktor: {
     name: "Viktor",
     shortenName: "Viktor",
@@ -1199,6 +1348,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Vladimir: {
     name: "Vladimir",
     shortenName: "Vladimir",
@@ -1207,6 +1357,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Volibear: {
     name: "Volibear",
     shortenName: "Volibear",
@@ -1215,6 +1366,7 @@ export const championDto: ChampionDto = {
       secondary: "#154360",
     },
   },
+  //? Personal Color
   Warwick: {
     name: "Warwick",
     shortenName: "Warwick",
@@ -1223,6 +1375,7 @@ export const championDto: ChampionDto = {
       secondary: "#6E2C00",
     },
   },
+  //? Personal Color
   MonkeyKing: {
     name: "Wukong",
     shortenName: "Wukong",
@@ -1231,6 +1384,7 @@ export const championDto: ChampionDto = {
       secondary: "#B7950B",
     },
   },
+  //? Personal Color
   Xayah: {
     name: "Xayah",
     shortenName: "Xayah",
@@ -1239,6 +1393,7 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
+  //? Personal Color
   Xerath: {
     name: "Xerath",
     shortenName: "Xerath",
@@ -1247,6 +1402,7 @@ export const championDto: ChampionDto = {
       secondary: "#AED6F1",
     },
   },
+  //? Personal Color
   XinZhao: {
     name: "Xin Zhao",
     shortenName: "Xin Zhao",
@@ -1255,6 +1411,7 @@ export const championDto: ChampionDto = {
       secondary: "#E74C3C",
     },
   },
+  //? Personal Color
   Yasuo: {
     name: "Yasuo",
     shortenName: "Yasuo",
@@ -1263,6 +1420,7 @@ export const championDto: ChampionDto = {
       secondary: "#2980B9",
     },
   },
+  //? Personal Color
   Yone: {
     name: "Yone",
     shortenName: "Yone",
@@ -1271,6 +1429,7 @@ export const championDto: ChampionDto = {
       secondary: "#16A085",
     },
   },
+  //? Personal Color
   Yorick: {
     name: "Yorick",
     shortenName: "Yorick",
@@ -1279,6 +1438,7 @@ export const championDto: ChampionDto = {
       secondary: "#5B2C6F",
     },
   },
+  //? Personal Color
   Yuumi: {
     name: "Yuumi",
     shortenName: "Yuumi",
@@ -1287,6 +1447,7 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
+  //? Personal Color
   Zac: {
     name: "Zac",
     shortenName: "Zac",
@@ -1295,6 +1456,7 @@ export const championDto: ChampionDto = {
       secondary: "#2ECC71",
     },
   },
+  //? Personal Color
   Zed: {
     name: "Zed",
     shortenName: "Zed",
@@ -1303,6 +1465,7 @@ export const championDto: ChampionDto = {
       secondary: "#2C3E50",
     },
   },
+  //? Personal Color
   Zeri: {
     name: "Zeri",
     shortenName: "Zeri",
@@ -1311,6 +1474,7 @@ export const championDto: ChampionDto = {
       secondary: "#2ECC71",
     },
   },
+  //? Personal Color
   Ziggs: {
     name: "Ziggs",
     shortenName: "Ziggs",
@@ -1319,6 +1483,7 @@ export const championDto: ChampionDto = {
       secondary: "#F1C40F",
     },
   },
+  //? Personal Color
   Zilean: {
     name: "Zilean",
     shortenName: "Zilean",
@@ -1327,6 +1492,7 @@ export const championDto: ChampionDto = {
       secondary: "#F4D03F",
     },
   },
+  //? Personal Color
   Zoe: {
     name: "Zoe",
     shortenName: "Zoe",
@@ -1335,6 +1501,7 @@ export const championDto: ChampionDto = {
       secondary: "#EC7063",
     },
   },
+  //? Personal Color
   Zyra: {
     name: "Zyra",
     shortenName: "Zyra",
