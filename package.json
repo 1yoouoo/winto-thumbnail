@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NEW_RELIC_APP_NAME=winto-thumbnail NEW_RELIC_LICENSE_KEY=2790a5938345acb3f11d108aaf853de0FFFFNRAL NODE_OPTIONS='-r @newrelic/next' next start",
+    "restart" : "npm run build && pm2 restart all",
     "lint": "next lint",
     "test": "echo \"hi\"",
     "ssh": "ssh -i winto-thumbnail.pem ubuntu@ec2-54-180-98-149.ap-northeast-2.compute.amazonaws.com"
