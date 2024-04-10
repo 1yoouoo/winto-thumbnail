@@ -122,15 +122,16 @@ export const fetchProPlayerList = async ({
     );
     const data = await response.json();
     const filteredData = data.filter(
-      (path: string) => !path.endsWith("/")
+      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
     ) as string[];
 
     return filteredData;
-  } catch (error: any) {
+  } catch (error) {
     sendSlackNotification({
       title: `${playerNameLower} 선수의 이미지가 없습니다. 추가해주세요.`,
       details: `${prefix} 경로에 이미지가 없습니다.`,
     });
+    console.log(`${playerNameLower} 선수의 이미지가 없습니다. 추가해주세요.`);
     return [];
   }
 };
@@ -147,7 +148,7 @@ export const fetchSkinListFromBucket = async ({
     );
     const data = await response.json();
     const filteredData = data.filter(
-      (path: string) => !path.endsWith("/")
+      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
     ) as SkinKey[];
 
     return filteredData;
@@ -158,5 +159,32 @@ export const fetchSkinListFromBucket = async ({
     });
     console.log("error from gameInfo: ", error);
     return [];
+  }
+};
+
+export const fetchProTeamLogo = async ({
+  teamName: teamName,
+}: {
+  teamName: string;
+}): Promise<string> => {
+  const teamNameUpper = teamName.toUpperCase();
+  const prefix = `pro-team/${teamNameUpper}`;
+
+  try {
+    const response = await fetch(
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+    );
+    const data = await response.json();
+    const filteredData = data.filter(
+      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
+    ) as string[];
+
+    return filteredData[0];
+  } catch (error) {
+    sendSlackNotification({
+      title: `${teamNameUpper} 팀의 이미지가 없습니다. 추가해주세요.`,
+      details: `${prefix} 경로에 이미지가 없습니다.`,
+    });
+    return "";
   }
 };

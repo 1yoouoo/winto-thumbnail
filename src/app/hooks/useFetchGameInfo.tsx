@@ -9,6 +9,7 @@ import {
   fetchItemInfo,
   fetchLatestGameVersion,
   fetchProPlayerList,
+  fetchProTeamLogo,
   fetchSkinInfo,
   fetchSkinListFromBucket,
   fetchSummonerSpellInfo,
@@ -72,21 +73,31 @@ export const useFetchGameInfo = ({
   });
 
   const proPlayerImageQuery = useQuery<string[]>({
-    queryKey: [
-      "proPlayerImageInfo",
-      parsedQueryString.playerName,
-      parsedQueryString.teamName,
-    ],
+    queryKey: ["proPlayerImageInfo", parsedQueryString.playerName],
     queryFn: ({ queryKey }) => {
-      const [, playerName, teamName] = queryKey;
+      const [, playerName] = queryKey;
 
-      if (!playerName || !teamName) return [];
+      if (!playerName) return [];
 
       return fetchProPlayerList({
         playerName: playerName as string,
       });
     },
-    enabled: !!parsedQueryString.playerName && !!parsedQueryString.teamName,
+    enabled: !!parsedQueryString.playerName,
+  });
+
+  const proTeamLogoQuery = useQuery<string>({
+    queryKey: ["proTeamLogoInfo", parsedQueryString.teamName],
+    queryFn: ({ queryKey }) => {
+      const [, teamName] = queryKey;
+
+      if (!teamName) return "";
+
+      return fetchProTeamLogo({
+        teamName: teamName as string,
+      });
+    },
+    enabled: !!parsedQueryString.teamName,
   });
 
   const optionalFields = (query: ParsedQueryString) => {
@@ -138,6 +149,13 @@ export const useFetchGameInfo = ({
         title: "프로플레이어 정보 조회 중 에러 발생",
         details: proPlayerImageQuery.error.toString(),
       });
+
+    if (proTeamLogoQuery.isError)
+      sendSlackNotification({
+        title: "프로팀 로고 조회 중 에러 발생",
+        details: proTeamLogoQuery.error.toString(),
+      });
+
     if (
       gameVersionQuery.error ||
       itemInfoQuery.error ||
@@ -160,6 +178,8 @@ export const useFetchGameInfo = ({
     skinInfoQuery.error,
     proPlayerImageQuery.isError,
     proPlayerImageQuery.error,
+    proTeamLogoQuery.isError,
+    proTeamLogoQuery.error,
   ]);
 
   return {
@@ -168,6 +188,7 @@ export const useFetchGameInfo = ({
     spells: spellInfoQuery.data,
     skins: skinInfoQuery.data,
     proPlayerImageKeyList: proPlayerImageQuery.data,
+    proTeamLogoKey: proTeamLogoQuery.data,
     optionalFields: optionalFields(parsedQueryString),
 
     isLoading:

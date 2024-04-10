@@ -15,6 +15,7 @@ const TemplateDataProcessor: React.FC<{
     spells,
     skins,
     proPlayerImageKeyList,
+    proTeamLogoKey,
     optionalFields,
     isLoading,
     isError,
@@ -32,6 +33,7 @@ const TemplateDataProcessor: React.FC<{
     spells,
     skins,
     proPlayerImageKeyList,
+    proTeamLogoKey,
     ...optionalFields,
   };
 

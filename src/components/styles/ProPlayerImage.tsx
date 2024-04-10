@@ -1,10 +1,13 @@
-import { spacesCdnFullEndpoint as spacesEndpoint } from "@/constant/constant";
+import { spacesCdnFullEndpoint as spacesCdnEndpoint } from "@/constant/constant";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   left: -180px;
   width: 720px;
   height: 100%;
@@ -12,11 +15,16 @@ const Container = styled.div`
 
 const ImageWrapper = styled.div`
   position: relative;
+`;
+
+const ProPlayerInfo = styled.div``;
+
+const ProPlayerImage = styled.div`
+  z-index: 2;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 100%;
-  height: 100%;
 
   img {
     object-fit: contain;
@@ -25,18 +33,38 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const ProPlayerImage = ({
+const ProTeamLogo = styled.div`
+  z-index: 1;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  img {
+    object-fit: contain;
+  }
+`;
+
+const ProPlayerInfoImage = ({
   proPlayerImageKeyList,
+  proTeamLogoKey,
 }: {
   proPlayerImageKeyList: string[];
+  proTeamLogoKey: string;
 }) => {
-  const anonymousUrl = `${spacesEndpoint}/pro-player/anonymous.png`;
+  const anonymousUrl = `${spacesCdnEndpoint}/pro-player/anonymous.png`;
 
-  const [imgSrc, setImgSrc] = useState("");
+  const [proPlayerimgSrc, setProPlayerImgSrc] = useState("");
+  const [proTeamLogoSrc, setProTeamLogoSrc] = useState("");
 
   useEffect(() => {
     if (!proPlayerImageKeyList || proPlayerImageKeyList.length === 0) {
-      setImgSrc(anonymousUrl);
+      setProPlayerImgSrc(anonymousUrl);
       return;
     }
 
@@ -45,21 +73,52 @@ const ProPlayerImage = ({
     );
 
     const randomSkinKey = proPlayerImageKeyList?.[randomIndex];
-    const newImgSrc = `${spacesEndpoint}/${randomSkinKey}`;
-    setImgSrc(newImgSrc);
+    const newProPlayerImgSrc = `${spacesCdnEndpoint}/${randomSkinKey}`;
+    setProPlayerImgSrc(newProPlayerImgSrc);
   }, [anonymousUrl, proPlayerImageKeyList]);
 
-  if (!imgSrc) {
+  useEffect(() => {
+    if (!proTeamLogoKey) {
+      return;
+    }
+
+    const newProTeamLogoSrc = `${spacesCdnEndpoint}/${proTeamLogoKey}`;
+    setProTeamLogoSrc(newProTeamLogoSrc);
+  }, [proTeamLogoKey]);
+
+  if (!proPlayerimgSrc) {
     return null;
   }
 
   return (
     <Container>
       <ImageWrapper>
-        <Image src={imgSrc} alt="" width={720} height={720} quality={100} />
+        <ProPlayerInfo>
+          <ProPlayerImage>
+            <Image
+              src={proPlayerimgSrc}
+              alt=""
+              width={720}
+              height={720}
+              quality={100}
+            />
+          </ProPlayerImage>
+
+          {proTeamLogoSrc && (
+            <ProTeamLogo>
+              <Image
+                src={proTeamLogoSrc}
+                alt=""
+                width={400}
+                height={400}
+                quality={100}
+              />
+            </ProTeamLogo>
+          )}
+        </ProPlayerInfo>
       </ImageWrapper>
     </Container>
   );
 };
 
-export default ProPlayerImage;
+export default ProPlayerInfoImage;

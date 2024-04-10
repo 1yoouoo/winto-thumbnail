@@ -6,7 +6,7 @@ import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
-import ProPlayerImage from "@/components/styles/ProPlayerImage";
+import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 
 const Container = styled.div`
   position: relative;
@@ -102,6 +102,7 @@ const Template6: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     items,
     gameVersion,
     proPlayerImageKeyList,
+    proTeamLogoKey,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
@@ -119,7 +120,10 @@ const Template6: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   return (
     <Container>
       <GradientBackground />
-      <ProPlayerImage proPlayerImageKeyList={proPlayerImageKeyList!} />
+      <ProPlayerInfoImage
+        proPlayerImageKeyList={proPlayerImageKeyList!}
+        proTeamLogoKey={proTeamLogoKey!}
+      />
 
       <Description>
         <GradientText

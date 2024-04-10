@@ -81,6 +81,7 @@ export interface GameInfoViewModel {
   quadraKills?: number;
   pentaKills?: number;
   proPlayerImageKeyList?: string[];
+  proTeamLogoKey?: string;
 }
 
 export interface Item {
