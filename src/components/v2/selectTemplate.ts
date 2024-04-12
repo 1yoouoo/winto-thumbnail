@@ -5,7 +5,6 @@ import {
   templatePreferredConditions,
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
-import Template1 from "@/templates/v2/Template1";
 import Template2 from "@/templates/v2/Template2";
 import Template3 from "@/templates/v2/Template3";
 import Template4 from "@/templates/v2/Template4";
@@ -21,26 +20,20 @@ type Template = {
 
 export const templates: Template[] = [
   {
-    component: Template1,
-    name: "Template4",
-    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
-    requirements: ["Over1ItemsWithGoldOver2000", "playerName", "KDA"],
-  },
-  {
     component: Template2,
-    name: "Template5",
+    name: "Template2",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over3ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
   },
   {
     component: Template3,
-    name: "Template6",
+    name: "Template3",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over2ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
   },
   {
     component: Template4,
-    name: "Template7",
+    name: "Template4",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
   },

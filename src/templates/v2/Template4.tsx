@@ -35,7 +35,7 @@ const Description = styled.span`
 const Items = styled.span`
   position: absolute;
   bottom: 40px;
-  left: 280px;
+  left: 360px;
   margin-top: 15px;
   display: flex;
   justify-content: flex-start;
@@ -85,8 +85,8 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -235px;
-  bottom: 60px;
+  left: -205px;
+  bottom: 120px;
   transform: rotate(-15deg);
 `;
 

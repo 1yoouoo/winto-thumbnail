@@ -35,7 +35,7 @@ const Description = styled.span`
 const Items = styled.span`
   position: absolute;
   bottom: 30px;
-  left: 120px;
+  left: 200px;
   margin-top: 15px;
   display: flex;
   justify-content: flex-start;
@@ -45,18 +45,18 @@ const Items = styled.span`
 
   > :nth-child(1) {
     order: 2;
-    transform: rotate(0deg) translate(0px, -30px);
+    transform: rotate(0deg) translate(0px, -50px);
     z-index: 3;
   }
 
   > :nth-child(2) {
     order: 1;
-    transform: rotate(3deg) translate(20px, 7px);
+    transform: rotate(3deg) translate(50px, 7px);
   }
 
   > :nth-child(3) {
     order: 3;
-    transform: rotate(-8deg) translate(-20px, 5px);
+    transform: rotate(-8deg) translate(-50px, 5px);
   }
 `;
 
@@ -96,9 +96,9 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -180px;
-  bottom: 100px;
-  transform: rotate(-5deg);
+  left: -220px;
+  bottom: 70px;
+  transform: rotate(-12deg);
 `;
 
 const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
@@ -189,8 +189,8 @@ const Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
             <Image
               src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
               alt="arrow"
-              width={220}
-              height={100}
+              width={250}
+              height={140}
             />
           </RedArrowWrapper>
         </KDAWrapper>

@@ -35,7 +35,7 @@ const Description = styled.span`
 const Items = styled.span`
   position: absolute;
   bottom: 40px;
-  left: 260px;
+  left: 320px;
   margin-top: 15px;
   display: flex;
   justify-content: flex-start;

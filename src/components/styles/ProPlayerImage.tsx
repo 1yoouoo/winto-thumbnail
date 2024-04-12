@@ -8,8 +8,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  left: -180px;
-  width: 720px;
+  left: -100px;
+  width: 600px;
   height: 100%;
 `;
 
@@ -17,7 +17,9 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const ProPlayerInfo = styled.div``;
+const ProPlayerInfo = styled.div`
+  position: relative;
+`;
 
 const ProPlayerImage = styled.div`
   z-index: 2;
@@ -30,20 +32,30 @@ const ProPlayerImage = styled.div`
     object-fit: contain;
     width: auto;
     height: auto;
+
+    filter: drop-shadow(1px 0 2px #9194f65d) /* 오른쪽 그림자, 밝은 색 */
+      drop-shadow(0 1px 2px #9194f65d) /* 아래쪽 그림자, 밝은 색 */
+      drop-shadow(-1px 0 2px #9194f65d) /* 왼쪽 그림자, 밝은 색 */
+      drop-shadow(0 -1px 2px #9194f65d) /* 위쪽 그림자, 밝은 색 */
+      drop-shadow(1px 0 4px #9194f629) /* 오른쪽 더 흐릿한 그림자, 어두운 색 */
+      drop-shadow(0 1px 4px #9194f629) /* 아래쪽 더 흐릿한 그림자, 어두운 색 */
+      drop-shadow(-1px 0 4px #9194f629) /* 왼쪽 더 흐릿한 그림자, 어두운 색 */
+      drop-shadow(0 -1px 4px #9194f629);
   }
 `;
 
 const ProTeamLogo = styled.div`
   z-index: 1;
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 150px;
+  height: 150px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  right: 230px;
 
   img {
     object-fit: contain;
@@ -98,19 +110,18 @@ const ProPlayerInfoImage = ({
             <Image
               src={proPlayerimgSrc}
               alt=""
-              width={720}
-              height={720}
+              width={600}
+              height={600}
               quality={100}
             />
           </ProPlayerImage>
-
-          {proTeamLogoSrc && (
-            <ProTeamLogo>
-              <Image src={proTeamLogoSrc} alt="" width={400} height={400} />
-            </ProTeamLogo>
-          )}
         </ProPlayerInfo>
       </ImageWrapper>
+      {proTeamLogoSrc && (
+        <ProTeamLogo>
+          <Image src={proTeamLogoSrc} alt="" width={150} height={150} />
+        </ProTeamLogo>
+      )}
     </Container>
   );
 };
