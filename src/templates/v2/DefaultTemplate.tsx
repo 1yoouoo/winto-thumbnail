@@ -3,6 +3,7 @@ import GradientText from "@/components/styles/GradientText";
 import React from "react";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
+import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 
 const Container = styled.div`
   position: relative;
@@ -17,7 +18,9 @@ const Container = styled.div`
   gap: 5px;
 `;
 
-const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
+const DefaultTemplate: React.FC<{ gameInfo: GameInfoViewModel }> = ({
+  gameInfo,
+}) => {
   const { championName } = gameInfo;
   const champion = championDto[championName] || {
     name: championName,
@@ -27,6 +30,11 @@ const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
       secondary: "#FFFFFF",
     },
   };
+
+  sendSlackNotification({
+    title: "🚨 기본 템플릿이 사용됐습니다.",
+    details: `문제를 확인해주세요. >> ${JSON.stringify(gameInfo, null, 2)}`,
+  });
 
   const { primary, secondary } = champion.color;
 
@@ -44,4 +52,4 @@ const Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   );
 };
 
-export default Template0;
+export default DefaultTemplate;

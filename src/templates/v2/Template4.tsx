@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { spacesCdnFullEndpoint } from "@/constant/constant";
 import Image from "next/image";
-import GradientText from "@/components/styles/GradientText";
-import React from "react";
+import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
+import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
-import { championDto } from "@/types/v2/championDto";
+import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 
 const Container = styled.div`
   position: relative;
@@ -15,195 +15,160 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: transparent;
-  padding: 10px;
-  margin-left: 50px;
   z-index: 2;
   gap: 5px;
 `;
 
 const Description = styled.span`
   position: absolute;
-  left: 40px;
-  top: 150px;
+  top: 70px;
+  left: -40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
-  transform: rotate(-5deg);
-`;
-
-const SubDescription = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: -2;
-  transform: translateY(-10px);
-
-  :nth-child(2) {
-    transform: translateY(-40px);
-  }
-`;
-
-const ChampionNameWrapper = styled.span`
-  position: absolute;
-  left: 30px;
-  top: -80px;
-  transform: rotate(-3deg);
-  z-index: -2;
-
-  img {
-    position: absolute;
-    left: -20%;
-    bottom: -30%;
-    z-index: -2;
-    width: 130%;
-    height: 180%;
-    filter: sepia(80%) saturate(3000%) hue-rotate(-30deg);
-  }
-`;
-
-const ItemKdaArrowWrapper = styled.span`
-  position: absolute;
-  display: flex;
-  gap: 20px;
-  right: 80px;
-  bottom: 50px;
-  min-width: 600px;
+  width: 100%;
+  height: 100%;
   z-index: 5;
-  gap: 60px;
+  transform: rotate(-2deg);
 `;
 
-const ItemWrapper = styled.span`
+const Items = styled.span`
+  position: absolute;
+  bottom: 40px;
+  left: 280px;
+  margin-top: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  transform: rotate(5deg);
+  gap: 20px;
+  z-index: 10;
 
-  img {
-    filter: blur(12px);
+  > :nth-child(1) {
+    transform: rotate(-5deg);
+    z-index: 3;
   }
 `;
 
-const QuestionMark = styled.span`
-  width: 30px;
-  height: 30px;
-  background-color: black;
-  box-shadow: 0 0 80px 50px black, 0 0 60px 30px rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const ItemWrapper = styled.span``;
+
+const KDAContainer = styled.span`
   position: absolute;
-  z-index: 1;
+  right: 50px;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transform: rotate(1deg);
+  z-index: 10;
 `;
 
 const KDAWrapper = styled.span`
+  z-index: 2;
+  border-radius: 50px;
+  width: 120%;
+  height: 140%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  z-index: 5;
-  align-self: flex-end;
-  transform: rotate(8deg) translateY(20px);
 `;
 
 const BoxShadow = styled.span`
-  z-index: -2;
+  z-index: -1;
   position: absolute;
   background-color: white;
-  top: 50%;
-  left: 30%;
   width: 40%;
   height: 0%;
-  box-shadow: 0 0 80px 60px black, 0 0 60px 30px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 80px 60px black, 0 0 60px 30px rgba(255, 255, 255, 0.4);
 `;
 
 const RedArrowWrapper = styled.span`
-  z-index: 5;
   position: absolute;
-  right: 230px;
-  bottom: 120px;
-  transform: scaleX(-1) rotate(0deg);
+  left: -235px;
+  bottom: 60px;
+  transform: rotate(-15deg);
 `;
 
 const Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const {
     championName,
     playerName,
-    gameVersion,
-    items,
     kills,
-    deaths,
     assists,
+    deaths,
+    items,
+    gameVersion,
+    proPlayerImageKeyList,
+    proTeamLogoKey,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
-  const getFirstItem = sorteditems[0];
+  const getTop1Items = sorteditems.slice(0, 1);
+  const champion = championDto[championName] || {
+    name: championName,
+    shortenName: "",
+    color: {
+      primary: "#FFFFFF",
+      secondary: "#FFFFFF",
+    },
+  };
 
-  const { shortenName } = championDto[championName];
+  const { primary, secondary } = champion.color;
 
   return (
-    <>
+    <Container>
       <GradientBackground />
+      <ProPlayerInfoImage
+        proPlayerImageKeyList={proPlayerImageKeyList!}
+        proTeamLogoKey={proTeamLogoKey!}
+      />
 
-      <Container>
-        <Description>
-          <GradientText
-            text={`${playerName}'s`}
-            secondarycolor="#fff267"
-            primarycolor="#ffdc14"
+      <Description>
+        <GradientText
+          text={playerName ?? "Challenger"}
+          primarycolor="white"
+          secondarycolor="#acacac"
+          fontSize="Small"
+        />
+        <GradientText
+          text={champion.shortenName}
+          primarycolor={primary}
+          secondarycolor={secondary}
+          fontSize="Small"
+        />
+      </Description>
+
+      <Items>
+        <ItemWrapper>
+          <ItemImage
+            gameVersion={gameVersion}
+            item={getTop1Items[0]}
+            width={250}
+            height={250}
+            blurred
+            boxshadow="ItemBoxShadowYellow"
           />
-          <SubDescription>
-            <GradientText
-              text="SECRET"
-              secondarycolor="#fff267"
-              primarycolor="#ffdc14"
-            />
-            <GradientText text="ITEM" fontSize="Small" />
-          </SubDescription>
+        </ItemWrapper>
+      </Items>
 
-          <ChampionNameWrapper>
-            <GradientText text={shortenName.toUpperCase()} fontSize="XSmall" />
-            <Image
-              src={`${spacesCdnFullEndpoint}/text-background/white-paint.png`}
-              alt=""
-              width={400}
-              height={400}
-            />
-          </ChampionNameWrapper>
-        </Description>
-
-        <ItemKdaArrowWrapper>
-          <KDAWrapper>
-            <GradientText
-              text={`${kills}/${deaths}/${assists}`}
-              primarycolor="white"
-              secondarycolor="#acacac"
-              fontSize="Small"
-            />
-            <BoxShadow />
-          </KDAWrapper>
-
+      <KDAContainer>
+        <KDAWrapper>
+          <GradientText
+            text={`${kills}/${deaths}/${assists}`}
+            fontSize="Small"
+          />
+          <BoxShadow />
           <RedArrowWrapper>
             <Image
               src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
               alt="arrow"
               width={250}
-              height={130}
+              height={140}
             />
           </RedArrowWrapper>
-
-          <ItemWrapper>
-            <ItemImage
-              gameVersion={gameVersion}
-              item={getFirstItem}
-              width={220}
-              height={220}
-              boxshadow="ItemBoxShadowYellow"
-            />
-            <QuestionMark>
-              <GradientText text="?" fontSize="XSmall" />
-            </QuestionMark>
-          </ItemWrapper>
-        </ItemKdaArrowWrapper>
-      </Container>
-    </>
+        </KDAWrapper>
+      </KDAContainer>
+    </Container>
   );
 };
 

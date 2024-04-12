@@ -34,29 +34,20 @@ const Description = styled.span`
 
 const Items = styled.span`
   position: absolute;
-  bottom: 30px;
-  left: 120px;
+  bottom: 40px;
+  left: 260px;
   margin-top: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 0px;
+  gap: 20px;
   z-index: 10;
 
   > :nth-child(1) {
-    order: 2;
-    transform: rotate(0deg) translate(0px, -30px);
     z-index: 3;
   }
 
   > :nth-child(2) {
-    order: 1;
-    transform: rotate(3deg) translate(20px, 7px);
-  }
-
-  > :nth-child(3) {
-    order: 3;
-    transform: rotate(-8deg) translate(-20px, 5px);
   }
 `;
 
@@ -96,12 +87,12 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -180px;
+  left: -100px;
   bottom: 100px;
-  transform: rotate(-5deg);
+  transform: rotate(-15deg);
 `;
 
-const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
+const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   const {
     championName,
     playerName,
@@ -114,7 +105,7 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     proTeamLogoKey,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
-  const getTop3Items = sorteditems.slice(0, 3);
+  const getTop2Items = sorteditems.slice(0, 2);
   const champion = championDto[championName] || {
     name: championName,
     shortenName: "",
@@ -153,25 +144,15 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
         <ItemWrapper>
           <ItemImage
             gameVersion={gameVersion}
-            item={getTop3Items[0]}
+            item={getTop2Items[0]}
             width={200}
             height={200}
-            blurred
           />
         </ItemWrapper>
         <ItemWrapper>
           <ItemImage
             gameVersion={gameVersion}
-            item={getTop3Items[1]}
-            width={200}
-            height={200}
-          />
-        </ItemWrapper>
-
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop3Items[2]}
+            item={getTop2Items[1]}
             width={200}
             height={200}
           />
@@ -189,8 +170,8 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
             <Image
               src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
               alt="arrow"
-              width={220}
-              height={100}
+              width={250}
+              height={140}
             />
           </RedArrowWrapper>
         </KDAWrapper>
@@ -199,4 +180,4 @@ const Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   );
 };
 
-export default Template5;
+export default Template3;

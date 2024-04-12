@@ -1,15 +1,15 @@
 import { GameInfoViewModel } from "@/types/v2/model";
-import Template0 from "@/templates/v2/Template0";
 import { Requirements, templateRequirements } from "./templateRequirement";
 import {
   PreferredConditions,
   templatePreferredConditions,
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
+import Template1 from "@/templates/v2/Template1";
+import Template2 from "@/templates/v2/Template2";
+import Template3 from "@/templates/v2/Template3";
 import Template4 from "@/templates/v2/Template4";
-import Template5 from "@/templates/v2/Template5";
-import Template6 from "@/templates/v2/Template6";
-import Template7 from "@/templates/v2/Template7";
+import DefaultTemplate from "@/templates/v2/DefaultTemplate";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -21,48 +21,28 @@ type Template = {
 
 export const templates: Template[] = [
   {
-    component: Template0,
-    name: "Template0",
-  },
-  // {
-  //   component: Template1,
-  //   name: "Template1",
-  //   requirements: ["Over2ItemsWithGoldOver2000"],
-  // },
-  // {
-  //   component: Template2,
-  //   name: "Template2",
-  //   requirements: ["Over2ItemsWithGoldOver2000", "KDA"],
-  // },
-  // {
-  //   component: Template3,
-  //   name: "Template3",
-  //   requirements: ["Over3ItemsWithGoldOver2000"],
-  // },
-  {
-    component: Template4,
+    component: Template1,
     name: "Template4",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "playerName", "KDA"],
   },
   {
-    component: Template5,
+    component: Template2,
     name: "Template5",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over3ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
   },
   {
-    component: Template6,
+    component: Template3,
     name: "Template6",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over2ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
   },
   {
-    component: Template7,
+    component: Template4,
     name: "Template7",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
-    select: true,
   },
 
   // 기타 템플릿 추가...
@@ -139,5 +119,5 @@ export function selectTemplate(
   }
 
   // 선택된 템플릿의 컴포넌트 반환 또는 기본값 반환
-  return selectedTemplate ? selectedTemplate.component : Template0;
+  return selectedTemplate ? selectedTemplate.component : DefaultTemplate;
 }
