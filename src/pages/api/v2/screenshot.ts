@@ -57,7 +57,14 @@ export default async function handler(
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
-    const screenshotUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
+    let tmpUrl;
+    if (transformedGameInfo.channelId) {
+      tmpUrl = `http://localhost:3000/v2/${transformedGameInfo.channelId}/screenshot?${queryString}`;
+    } else {
+      tmpUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
+    }
+
+    const screenshotUrl = tmpUrl;
     await page.goto(screenshotUrl, {
       waitUntil: "networkidle0",
       timeout: 10000,

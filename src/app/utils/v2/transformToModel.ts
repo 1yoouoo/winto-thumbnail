@@ -9,9 +9,9 @@ export function transformToModel(
 
   try {
     transformed.championName = capitalizeFirstLetter(gameInfo.championName);
-    transformed.channelId = gameInfo.channelId;
 
     // 선택적 필드는 존재하는 경우에만 추가
+    if (gameInfo.channelId) transformed.channelId = gameInfo.channelId;
     if (gameInfo.teamName) transformed.teamName = gameInfo.teamName;
     if (gameInfo.playerName) transformed.playerName = gameInfo.playerName;
     if (typeof gameInfo.kills !== "undefined")
