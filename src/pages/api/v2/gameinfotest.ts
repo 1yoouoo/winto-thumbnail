@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import puppeteer from "puppeteer";
-import { transformToModel } from "../../../../utils/v2/transformToModel";
-import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
 import { GameInfoDto } from "@/types/v2/model";
+import { transformToModel } from "@/app/utils/v2/transformToModel";
+import { convertJsonToQueryString } from "@/app/utils/v2/formatJson";
 
 type ResponseData = {
   message: string;
@@ -25,6 +25,7 @@ export default async function handler(
     const gameInfo: GameInfoDto = req.body;
     const transformedGameInfo = transformToModel(gameInfo);
     const queryString = convertJsonToQueryString(transformedGameInfo);
+    console.log(transformedGameInfo);
     const browser = await puppeteer.launch({
       headless: true,
     });

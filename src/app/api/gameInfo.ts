@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Ddragon, app_url } from "@/constant/constant";
-import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
+import { normalizeItemIds } from "../utils/v2/normalizeItemIds";
 import { Item, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
-import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
+import { sendSlackNotification } from "../utils/v2/sendSlackNotification";
 
 export const fetchLatestGameVersion = async (): Promise<string> => {
   try {

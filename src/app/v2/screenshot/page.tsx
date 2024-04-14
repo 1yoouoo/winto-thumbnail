@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { parseQueryString } from "../../../../utils/v2/formatJson";
+import { parseQueryString } from "../../utils/v2/formatJson";
 import { ParsedQueryString } from "@/types/v2/model";
 import TemplateDataProcessor from "@/components/v2/TemplateDataProcessor";
 

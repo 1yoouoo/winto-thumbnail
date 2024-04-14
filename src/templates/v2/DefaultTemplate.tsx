@@ -3,7 +3,7 @@ import GradientText from "@/components/styles/GradientText";
 import React from "react";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
-import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
+import { sendSlackNotification } from "@/app/utils/v2/sendSlackNotification";
 
 const Container = styled.div`
   position: relative;

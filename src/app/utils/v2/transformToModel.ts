@@ -9,6 +9,7 @@ export function transformToModel(
 
   try {
     transformed.championName = capitalizeFirstLetter(gameInfo.championName);
+    transformed.channelId = gameInfo.channelId;
 
     // 선택적 필드는 존재하는 경우에만 추가
     if (gameInfo.teamName) transformed.teamName = gameInfo.teamName;

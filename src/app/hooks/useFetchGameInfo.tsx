@@ -15,7 +15,7 @@ import {
   fetchSummonerSpellInfo,
 } from "../api/gameInfo";
 import { useEffect } from "react";
-import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
+import { sendSlackNotification } from "../utils/v2/sendSlackNotification";
 
 export const useFetchGameInfo = ({
   parsedQueryString,

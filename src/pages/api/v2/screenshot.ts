@@ -9,10 +9,10 @@ import {
   spacesFullEndpoint,
   spacesEndpoint,
 } from "@/constant/constant";
-import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
 import { GameInfoDto } from "@/types/v2/model";
-import { transformToModel } from "../../../../utils/v2/transformToModel";
-import { sendSlackNotification } from "../../../../utils/v2/sendSlackNotification";
+import { transformToModel } from "@/app/utils/v2/transformToModel";
+import { convertJsonToQueryString } from "@/app/utils/v2/formatJson";
+import { sendSlackNotification } from "@/app/utils/v2/sendSlackNotification";
 
 const s3Client = new S3Client({
   endpoint: spacesEndpoint!,

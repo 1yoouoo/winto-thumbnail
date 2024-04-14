@@ -4,11 +4,11 @@ import {
   PreferredConditions,
   templatePreferredConditions,
 } from "./templatePreferredConditions";
-import { printTemplate } from "../../../utils/v2/printTemplate";
 import Template2 from "@/templates/v2/Template2";
 import Template3 from "@/templates/v2/Template3";
 import Template4 from "@/templates/v2/Template4";
 import DefaultTemplate from "@/templates/v2/DefaultTemplate";
+import { printTemplate } from "@/app/utils/v2/printTemplate";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;

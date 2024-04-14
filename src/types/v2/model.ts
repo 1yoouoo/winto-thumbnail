@@ -1,5 +1,6 @@
 export type GameInfoDto = {
   championName: string; // 필수
+  channelId: string; // 필수
 } & Partial<{
   teamName: string;
   playerName: string;
