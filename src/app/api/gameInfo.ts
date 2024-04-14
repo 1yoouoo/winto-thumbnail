@@ -147,8 +147,12 @@ export const fetchSkinListFromBucket = async ({
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
     const data = await response.json();
+    const exactMatchRegex = new RegExp(`^${prefix}/[^/]+$`);
     const filteredData = data.filter(
-      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
+      (path: string) =>
+        !path.endsWith("/") &&
+        !path.endsWith(".DS_Store") &&
+        exactMatchRegex.test(path)
     ) as SkinKey[];
 
     return filteredData;
