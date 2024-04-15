@@ -19,13 +19,13 @@ const Container = styled.div`
   margin-left: 50px;
   z-index: 2;
   gap: 5px;
-`;
+`; //
 
 const Description = styled.span`
   position: absolute;
   left: 40px;
   top: 150px;
-  display: flex;
+
   flex-direction: column;
   align-items: center;
   z-index: 2;
