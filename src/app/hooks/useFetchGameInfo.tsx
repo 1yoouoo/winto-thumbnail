@@ -195,11 +195,15 @@ export const useFetchGameInfo = ({
       gameVersionQuery.isLoading ||
       itemInfoQuery.isLoading ||
       spellInfoQuery.isLoading ||
-      skinInfoQuery.isLoading,
+      skinInfoQuery.isLoading ||
+      proPlayerImageQuery.isLoading ||
+      proTeamLogoQuery.isLoading,
     isError:
       gameVersionQuery.isError ||
       itemInfoQuery.isError ||
       spellInfoQuery.isError ||
-      skinInfoQuery.isError,
+      skinInfoQuery.isError ||
+      proPlayerImageQuery.isError ||
+      proTeamLogoQuery.isError,
   };
 };

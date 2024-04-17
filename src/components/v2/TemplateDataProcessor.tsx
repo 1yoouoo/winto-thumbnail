@@ -18,13 +18,9 @@ const TemplateDataProcessor: React.FC<{
     proTeamLogoKey,
     optionalFields,
     isLoading,
-    isError,
   } = useFetchGameInfo({
     parsedQueryString,
   });
-
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error...</div>;
 
   const gameInfo = {
     championName: parsedQueryString.championName,
@@ -37,10 +33,14 @@ const TemplateDataProcessor: React.FC<{
     ...optionalFields,
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   const SelectedTemplateComponent = selectTemplate(gameInfo);
   return (
     <>
-      <Background championName={gameInfo.championName} skins={gameInfo.skins!}>
+      <Background championName={gameInfo.championName} skins={gameInfo.skins}>
         <SelectedTemplateComponent gameInfo={gameInfo} />
       </Background>
       {isDevelopment && (
