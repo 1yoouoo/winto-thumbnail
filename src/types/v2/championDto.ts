@@ -814,8 +814,8 @@ export const championDto: ChampionDto = {
     name: "Nocturne",
     shortenName: "Nocturne",
     color: {
-      primary: "#AAAAAA",
-      secondary: "#767C77",
+      primary: "#0c9dd4",
+      secondary: "#1d2e78",
     },
   },
   //? Personal Color
