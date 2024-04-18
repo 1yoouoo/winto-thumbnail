@@ -33,7 +33,7 @@ const DefaultTemplate: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   sendSlackNotification({
     title: "🚨 기본 템플릿이 사용됐습니다.",
-    details: `문제를 확인해주세요. >> ${JSON.stringify(gameInfo, null, 2)}`,
+    details: `문제를 확인해주세요.`,
   });
 
   const { primary, secondary } = champion.color;
