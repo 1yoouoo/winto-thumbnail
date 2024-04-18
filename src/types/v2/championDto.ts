@@ -79,13 +79,12 @@ export const championDto: ChampionDto = {
       secondary: "#641E16",
     },
   },
-  //? Personal Color
   Aphelios: {
     name: "Aphelios",
     shortenName: "Aphelios",
     color: {
-      primary: "#34495E",
-      secondary: "#2C3E50",
+      primary: "#9AC5F4",
+      secondary: "#0E46A3",
     },
   },
   //? Personal Color
@@ -97,13 +96,12 @@ export const championDto: ChampionDto = {
       secondary: "#3498DB",
     },
   },
-  //? Personal Color
   AurelionSol: {
     name: "Aurelion Sol",
     shortenName: "Sol",
     color: {
-      primary: "#9B59B6",
-      secondary: "#8E44AD",
+      primary: "#867AE9",
+      secondary: "#503ef8",
     },
   },
   //? Personal Color
@@ -223,13 +221,12 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
-  //? Personal Color
   Diana: {
     name: "Diana",
     shortenName: "Diana",
     color: {
-      primary: "#ABB2B9",
-      secondary: "#808B96",
+      primary: "#9ec1d9",
+      secondary: "#303e51",
     },
   },
   //? Personal Color
@@ -349,13 +346,12 @@ export const championDto: ChampionDto = {
       secondary: "#8E44AD",
     },
   },
-  //? Personal Color
   Gragas: {
     name: "Gragas",
     shortenName: "Gragas",
     color: {
-      primary: "#7F8C8D",
-      secondary: "#707B7C",
+      primary: "#ffe8a5",
+      secondary: "#FFD966",
     },
   },
   //? Personal Color
@@ -439,13 +435,12 @@ export const championDto: ChampionDto = {
       secondary: "#85C1E9",
     },
   },
-  //? Personal Color
   JarvanIV: {
     name: "Jarvan IV",
     shortenName: "Jarvan IV",
     color: {
-      primary: "#B03A2E",
-      secondary: "#78281F",
+      primary: "#FFB319",
+      secondary: "#FFAB76",
     },
   },
   //? Personal Color
@@ -583,13 +578,12 @@ export const championDto: ChampionDto = {
       secondary: "#16A085",
     },
   },
-  //? Personal Color
   Kindred: {
     name: "Kindred",
     shortenName: "Kindred",
     color: {
-      primary: "#922B21",
-      secondary: "#641E16",
+      primary: "#92B4EC",
+      secondary: "#B1BCE6",
     },
   },
   //? Personal Color
@@ -619,13 +613,12 @@ export const championDto: ChampionDto = {
       secondary: "#633974",
     },
   },
-  //? Personal Color
   LeeSin: {
     name: "Lee Sin",
     shortenName: "Lee Sin",
     color: {
       primary: "#F2613F",
-      secondary: "#9B3922",
+      secondary: "#FF6363",
     },
   },
   //? Personal Color
@@ -817,13 +810,12 @@ export const championDto: ChampionDto = {
       secondary: "#5DADE2",
     },
   },
-  //? Personal Color
   Nocturne: {
     name: "Nocturne",
     shortenName: "Nocturne",
     color: {
-      primary: "#212F3D",
-      secondary: "#273746",
+      primary: "#AAAAAA",
+      secondary: "#767C77",
     },
   },
   //? Personal Color
@@ -853,13 +845,12 @@ export const championDto: ChampionDto = {
       secondary: "#5D6D7E",
     },
   },
-  //? Personal Color
   Ornn: {
     name: "Ornn",
     shortenName: "Ornn",
     color: {
-      primary: "#922B21",
-      secondary: "#641E16",
+      primary: "#c61141",
+      secondary: "#370924",
     },
   },
   //? Personal Color
@@ -925,13 +916,12 @@ export const championDto: ChampionDto = {
       secondary: "#7E5109",
     },
   },
-  //? Personal Color
   RekSai: {
     name: "Rek'Sai",
     shortenName: "Rek'Sai",
     color: {
-      primary: "#633974",
-      secondary: "#512E5F",
+      primary: "#D09CFA",
+      secondary: "#A555EC",
     },
   },
   //? Personal Color
@@ -1141,13 +1131,12 @@ export const championDto: ChampionDto = {
       secondary: "#7B241C",
     },
   },
-  //? Personal Color
   Sylas: {
     name: "Sylas",
     shortenName: "Sylas",
     color: {
-      primary: "#5D6D7E",
-      secondary: "#34495E",
+      primary: "#B1BCE6",
+      secondary: "#92B4EC",
     },
   },
   //? Personal Color
@@ -1249,12 +1238,11 @@ export const championDto: ChampionDto = {
       secondary: "#7aa8dc",
     },
   },
-  //? Personal Color
   Twitch: {
     name: "Twitch",
     shortenName: "Twitch",
     color: {
-      primary: "#7D3C98",
+      primary: "#B980F0",
       secondary: "#6C3483",
     },
   },
