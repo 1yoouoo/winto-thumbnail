@@ -9,6 +9,7 @@ import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 
 const Container = styled.div`
+  font-family: var(--font-luckiest-guy);
   position: relative;
   display: flex;
   flex-direction: column;

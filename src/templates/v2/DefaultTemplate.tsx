@@ -6,6 +6,7 @@ import { GameInfoViewModel } from "@/types/v2/model";
 import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 
 const Container = styled.div`
+  font-family: var(--font-luckiest-guy);
   position: relative;
   display: flex;
   flex-direction: column;

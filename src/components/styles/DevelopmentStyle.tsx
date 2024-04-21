@@ -1,4 +1,3 @@
-import { fonts } from "@/style/fonts";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -20,7 +19,6 @@ const WaterMark = styled.div`
   font-size: 40px;
   color: white;
   z-index: 100;
-  font-family: ${fonts.LuckiestGuy.fontFamily};
 `;
 
 const TimeLine = styled.div`

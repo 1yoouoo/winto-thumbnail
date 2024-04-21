@@ -1,6 +1,5 @@
 import SplashImage from "@/components/styles/SplashImage";
 import { spacesCdnFullEndpoint } from "@/constant/constant";
-import { fonts } from "@/style/fonts";
 import { backgroundHighlightLength } from "@/types/v2/assets";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
@@ -19,7 +18,6 @@ const Container = styled.div<{ primary: string }>`
   background-color: ${(props) => props.primary};
   width: 1280px;
   height: 720px;
-  font-family: ${fonts.LuckiestGuy.fontFamily};
 `;
 
 const Wrapper = styled.div<{ primary: string }>`
