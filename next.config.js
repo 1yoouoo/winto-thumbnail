@@ -29,11 +29,27 @@ module.exports = {
   },
 
   images: {
-    domains: [
-      "ddragon.leagueoflegends.com",
-      "winto-thumbnail.sgp1.digitaloceanspaces.com",
-      "winto-thumbnail.sgp1.cdn.digitaloceanspaces.com",
-      "leagueofitems.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ddragon.leagueoflegends.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "winto-thumbnail.sgp1.digitaloceanspaces.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "winto-thumbnail.sgp1.cdn.digitaloceanspaces.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "leagueofitems.com",
+        pathname: "**",
+      },
     ], // 여기에 이미지 호스트 도메인 추가
   },
 };
