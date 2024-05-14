@@ -50,6 +50,7 @@ export const templates: Template[] = [
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over3ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
     locale: "ko_KR",
+    select: true,
   },
   {
     component: ko_KR_Template2,
@@ -64,7 +65,6 @@ export const templates: Template[] = [
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
     locale: "ko_KR",
-    select: true,
   },
 
   // 기타 템플릿 추가...

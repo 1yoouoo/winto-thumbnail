@@ -1,7 +1,9 @@
+import { Locale } from "./model";
+
 export type ChampionDto = {
   [key: string]: {
     name: string;
-    shortenName: string;
+    shortenName: { [K in Locale]?: string };
     color: { primary: string; secondary: string };
   };
 };
@@ -10,7 +12,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Aatrox: {
     name: "Aatrox",
-    shortenName: "Aatrox",
+    shortenName: { en_US: "Aatrox" },
     color: {
       primary: "#de2500",
       secondary: "#920000",
@@ -19,7 +21,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ahri: {
     name: "Ahri",
-    shortenName: "Ahri",
+    shortenName: { en_US: "Ahri" },
     color: {
       primary: "#EE82EE",
       secondary: "#FFC0CB",
@@ -28,7 +30,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Akali: {
     name: "Akali",
-    shortenName: "Akali",
+    shortenName: { en_US: "Akali" },
     color: {
       primary: "#2ECC71",
       secondary: "#27AE60",
@@ -37,7 +39,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Akshan: {
     name: "Akshan",
-    shortenName: "Akshan",
+    shortenName: { en_US: "Akshan" },
     color: {
       primary: "#5DADE2",
       secondary: "#2E86C1",
@@ -46,7 +48,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Alistar: {
     name: "Alistar",
-    shortenName: "Alistar",
+    shortenName: { en_US: "Alistar" },
     color: {
       primary: "#B7950B",
       secondary: "#7D6608",
@@ -55,7 +57,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Amumu: {
     name: "Amumu",
-    shortenName: "Amumu",
+    shortenName: { en_US: "Amumu" },
     color: {
       primary: "#1ABC9C",
       secondary: "#16A085",
@@ -64,7 +66,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Anivia: {
     name: "Anivia",
-    shortenName: "Anivia",
+    shortenName: { en_US: "Anivia" },
     color: {
       primary: "#5DADE2",
       secondary: "#3498DB",
@@ -73,7 +75,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Annie: {
     name: "Annie",
-    shortenName: "Annie",
+    shortenName: { en_US: "Annie" },
     color: {
       primary: "#922B21",
       secondary: "#641E16",
@@ -81,7 +83,7 @@ export const championDto: ChampionDto = {
   },
   Aphelios: {
     name: "Aphelios",
-    shortenName: "Aphelios",
+    shortenName: { en_US: "Aphelios" },
     color: {
       primary: "#9AC5F4",
       secondary: "#0E46A3",
@@ -90,7 +92,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ashe: {
     name: "Ashe",
-    shortenName: "Ashe",
+    shortenName: { en_US: "Ashe" },
     color: {
       primary: "#85C1E9",
       secondary: "#3498DB",
@@ -98,7 +100,7 @@ export const championDto: ChampionDto = {
   },
   AurelionSol: {
     name: "Aurelion Sol",
-    shortenName: "Sol",
+    shortenName: { en_US: "Sol" },
     color: {
       primary: "#867AE9",
       secondary: "#503ef8",
@@ -107,7 +109,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Azir: {
     name: "Azir",
-    shortenName: "Azir",
+    shortenName: { en_US: "Azir" },
     color: {
       primary: "#F7DC6F",
       secondary: "#F1C40F",
@@ -116,7 +118,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Bard: {
     name: "Bard",
-    shortenName: "Bard",
+    shortenName: { en_US: "Bard" },
     color: {
       primary: "#D35400",
       secondary: "#E67E22",
@@ -125,7 +127,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Belveth: {
     name: "Bel'Veth",
-    shortenName: "Bel'Veth",
+    shortenName: { en_US: "Bel'Veth" },
     color: {
       primary: "#C0392B",
       secondary: "#A93226",
@@ -134,7 +136,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Blitzcrank: {
     name: "Blitzcrank",
-    shortenName: "Blitz",
+    shortenName: { en_US: "Blitz" },
     color: {
       primary: "#F1C40F",
       secondary: "#F39C12",
@@ -143,7 +145,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Brand: {
     name: "Brand",
-    shortenName: "Brand",
+    shortenName: { en_US: "Brand" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -152,7 +154,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Braum: {
     name: "Braum",
-    shortenName: "Braum",
+    shortenName: { en_US: "Braum" },
     color: {
       primary: "#5D6D7E",
       secondary: "#34495E",
@@ -161,7 +163,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Briar: {
     name: "Briar",
-    shortenName: "Briar",
+    shortenName: { en_US: "Briar" },
     color: {
       primary: "#117A65",
       secondary: "#0E6655",
@@ -170,7 +172,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Caitlyn: {
     name: "Caitlyn",
-    shortenName: "Caitlyn",
+    shortenName: { en_US: "Caitlyn" },
     color: {
       primary: "#7FB3D5",
       secondary: "#5499C7",
@@ -179,7 +181,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Camille: {
     name: "Camille",
-    shortenName: "Camille",
+    shortenName: { en_US: "Camille" },
     color: {
       primary: "#48C9B0",
       secondary: "#1ABC9C",
@@ -188,7 +190,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Cassiopeia: {
     name: "Cassiopeia",
-    shortenName: "Cassi",
+    shortenName: { en_US: "Cassi" },
     color: {
       primary: "#58D68D",
       secondary: "#2ECC71",
@@ -197,7 +199,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Chogath: {
     name: "Cho'Gath",
-    shortenName: "Cho'Gath",
+    shortenName: { en_US: "Cho'Gath" },
     color: {
       primary: "#839192",
       secondary: "#707B7C",
@@ -206,7 +208,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Corki: {
     name: "Corki",
-    shortenName: "Corki",
+    shortenName: { en_US: "Corki" },
     color: {
       primary: "#DC7633",
       secondary: "#BA4A00",
@@ -215,7 +217,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Darius: {
     name: "Darius",
-    shortenName: "Darius",
+    shortenName: { en_US: "Darius" },
     color: {
       primary: "#641E16",
       secondary: "#7B241C",
@@ -223,7 +225,7 @@ export const championDto: ChampionDto = {
   },
   Diana: {
     name: "Diana",
-    shortenName: "Diana",
+    shortenName: { en_US: "Diana" },
     color: {
       primary: "#9ec1d9",
       secondary: "#303e51",
@@ -232,7 +234,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   DrMundo: {
     name: "Mundo",
-    shortenName: "Mundo",
+    shortenName: { en_US: "Mundo" },
     color: {
       primary: "#58D68D",
       secondary: "#28B463",
@@ -241,7 +243,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Draven: {
     name: "Draven",
-    shortenName: "Draven",
+    shortenName: { en_US: "Draven" },
     color: {
       primary: "#C0392B",
       secondary: "#922B21",
@@ -250,7 +252,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ekko: {
     name: "Ekko",
-    shortenName: "Ekko",
+    shortenName: { en_US: "Ekko" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -259,7 +261,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Elise: {
     name: "Elise",
-    shortenName: "Elise",
+    shortenName: { en_US: "Elise" },
     color: {
       primary: "#922B21",
       secondary: "#641E16",
@@ -268,7 +270,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Evelynn: {
     name: "Evelynn",
-    shortenName: "Evelynn",
+    shortenName: { en_US: "Evelynn" },
     color: {
       primary: "#9B59B6",
       secondary: "#8E44AD",
@@ -277,7 +279,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ezreal: {
     name: "Ezreal",
-    shortenName: "Ezreal",
+    shortenName: { en_US: "Ezreal" },
     color: {
       primary: "#F4D03F",
       secondary: "#F7DC6F",
@@ -286,7 +288,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Fiddlesticks: {
     name: "Fiddlesticks",
-    shortenName: "Fiddle",
+    shortenName: { en_US: "Fiddle" },
     color: {
       primary: "#6C3483",
       secondary: "#5B2C6F",
@@ -295,7 +297,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Fiora: {
     name: "Fiora",
-    shortenName: "Fiora",
+    shortenName: { en_US: "Fiora" },
     color: {
       primary: "#CB4335",
       secondary: "#922B21",
@@ -304,7 +306,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Fizz: {
     name: "Fizz",
-    shortenName: "Fizz",
+    shortenName: { en_US: "Fizz" },
     color: {
       primary: "#48C9B0",
       secondary: "#1ABC9C",
@@ -313,7 +315,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Galio: {
     name: "Galio",
-    shortenName: "Galio",
+    shortenName: { en_US: "Galio" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -322,7 +324,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Gangplank: {
     name: "Gangplank",
-    shortenName: "Gangplank",
+    shortenName: { en_US: "Gangplank" },
     color: {
       primary: "#D35400",
       secondary: "#E67E22",
@@ -331,7 +333,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Garen: {
     name: "Garen",
-    shortenName: "Garen",
+    shortenName: { en_US: "Garen" },
     color: {
       primary: "#239B56",
       secondary: "#1D8348",
@@ -340,7 +342,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Gnar: {
     name: "Gnar",
-    shortenName: "Gnar",
+    shortenName: { en_US: "Gnar" },
     color: {
       primary: "#A569BD",
       secondary: "#8E44AD",
@@ -348,7 +350,7 @@ export const championDto: ChampionDto = {
   },
   Gragas: {
     name: "Gragas",
-    shortenName: "Gragas",
+    shortenName: { en_US: "Gragas" },
     color: {
       primary: "#ffe8a5",
       secondary: "#FFD966",
@@ -357,7 +359,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Graves: {
     name: "Graves",
-    shortenName: "Graves",
+    shortenName: { en_US: "Graves" },
     color: {
       primary: "#616A6B",
       secondary: "#424949",
@@ -366,7 +368,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Gwen: {
     name: "Gwen",
-    shortenName: "Gwen",
+    shortenName: { en_US: "Gwen" },
     color: {
       primary: "#AED6F1",
       secondary: "#85C1E9",
@@ -375,7 +377,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Hecarim: {
     name: "Hecarim",
-    shortenName: "Hecarim",
+    shortenName: { en_US: "Hecarim" },
     color: {
       primary: "#2E86C1",
       secondary: "#1B4F72",
@@ -384,7 +386,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Heimerdinger: {
     name: "Heimerdinger",
-    shortenName: "Heimer",
+    shortenName: { en_US: "Heimer" },
     color: {
       primary: "#F4D03F",
       secondary: "#F5B041",
@@ -393,7 +395,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Hwei: {
     name: "Hwei",
-    shortenName: "Hwei",
+    shortenName: { en_US: "Hwei" },
     color: {
       primary: "#8E44AD",
       secondary: "#9B59B6",
@@ -402,7 +404,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Illaoi: {
     name: "Illaoi",
-    shortenName: "Illaoi",
+    shortenName: { en_US: "Illaoi" },
     color: {
       primary: "#117864",
       secondary: "#0E6251",
@@ -411,7 +413,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Irelia: {
     name: "Irelia",
-    shortenName: "Irelia",
+    shortenName: { en_US: "Irelia" },
     color: {
       primary: "#2980B9",
       secondary: "#3498DB",
@@ -420,7 +422,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ivern: {
     name: "Ivern",
-    shortenName: "Ivern",
+    shortenName: { en_US: "Ivern" },
     color: {
       primary: "#27AE60",
       secondary: "#2ECC71",
@@ -429,7 +431,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Janna: {
     name: "Janna",
-    shortenName: "Janna",
+    shortenName: { en_US: "Janna" },
     color: {
       primary: "#AED6F1",
       secondary: "#85C1E9",
@@ -437,7 +439,7 @@ export const championDto: ChampionDto = {
   },
   JarvanIV: {
     name: "Jarvan IV",
-    shortenName: "Jarvan IV",
+    shortenName: { en_US: "Jarvan IV" },
     color: {
       primary: "#FFB319",
       secondary: "#FFAB76",
@@ -446,7 +448,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Jax: {
     name: "Jax",
-    shortenName: "Jax",
+    shortenName: { en_US: "Jax" },
     color: {
       primary: "#784212",
       secondary: "#6E2C00",
@@ -455,7 +457,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Jayce: {
     name: "Jayce",
-    shortenName: "Jayce",
+    shortenName: { en_US: "Jayce" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -464,7 +466,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Jhin: {
     name: "Jhin",
-    shortenName: "Jhin",
+    shortenName: { en_US: "Jhin" },
     color: {
       primary: "#641E16",
       secondary: "#7B241C",
@@ -473,7 +475,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Jinx: {
     name: "Jinx",
-    shortenName: "Jinx",
+    shortenName: { en_US: "Jinx" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -482,7 +484,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   KSante: {
     name: "K'Sante",
-    shortenName: "K'Sante",
+    shortenName: { en_US: "K'Sante" },
     color: {
       primary: "#F39C12",
       secondary: "#F1C40F",
@@ -491,7 +493,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kaisa: {
     name: "Kai'Sa",
-    shortenName: "Kai'Sa",
+    shortenName: { en_US: "Kai'Sa" },
     color: {
       primary: "#7D3C98",
       secondary: "#4A235A",
@@ -500,7 +502,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kalista: {
     name: "Kalista",
-    shortenName: "Kalista",
+    shortenName: { en_US: "Kalista" },
     color: {
       primary: "#117A65",
       secondary: "#0E6655",
@@ -509,7 +511,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Karma: {
     name: "Karma",
-    shortenName: "Karma",
+    shortenName: { en_US: "Karma" },
     color: {
       primary: "#F7DC6F",
       secondary: "#FAD7A0",
@@ -518,7 +520,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Karthus: {
     name: "Karthus",
-    shortenName: "Karthus",
+    shortenName: { en_US: "Karthus" },
     color: {
       primary: "#5B2C6F",
       secondary: "#7D3C98",
@@ -527,7 +529,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kassadin: {
     name: "Kassadin",
-    shortenName: "Kassadin",
+    shortenName: { en_US: "Kassadin" },
     color: {
       primary: "#3498DB",
       secondary: "#5DADE2",
@@ -536,7 +538,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Katarina: {
     name: "Katarina",
-    shortenName: "Katarina",
+    shortenName: { en_US: "Katarina" },
     color: {
       primary: "#CB4335",
       secondary: "#922B21",
@@ -545,7 +547,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kayle: {
     name: "Kayle",
-    shortenName: "Kayle",
+    shortenName: { en_US: "Kayle" },
     color: {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
@@ -554,7 +556,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kayn: {
     name: "Kayn",
-    shortenName: "Kayn",
+    shortenName: { en_US: "Kayn" },
     color: {
       primary: "#34495E",
       secondary: "#2E4053",
@@ -563,7 +565,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kennen: {
     name: "Kennen",
-    shortenName: "Kennen",
+    shortenName: { en_US: "Kennen" },
     color: {
       primary: "#85C1E9",
       secondary: "#AED6F1",
@@ -572,7 +574,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Khazix: {
     name: "Kha'Zix",
-    shortenName: "Kha'Zix",
+    shortenName: { en_US: "Kha'Zix" },
     color: {
       primary: "#1ABC9C",
       secondary: "#16A085",
@@ -580,7 +582,7 @@ export const championDto: ChampionDto = {
   },
   Kindred: {
     name: "Kindred",
-    shortenName: "Kindred",
+    shortenName: { en_US: "Kindred" },
     color: {
       primary: "#92B4EC",
       secondary: "#B1BCE6",
@@ -589,7 +591,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Kled: {
     name: "Kled",
-    shortenName: "Kled",
+    shortenName: { en_US: "Kled" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -598,7 +600,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   KogMaw: {
     name: "Kog'Maw",
-    shortenName: "Kog'Maw",
+    shortenName: { en_US: "Kog'Maw" },
     color: {
       primary: "#F39C12",
       secondary: "#F1C40F",
@@ -607,7 +609,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Leblanc: {
     name: "LeBlanc",
-    shortenName: "LeBlanc",
+    shortenName: { en_US: "LeBlanc" },
     color: {
       primary: "#76448A",
       secondary: "#633974",
@@ -615,7 +617,7 @@ export const championDto: ChampionDto = {
   },
   LeeSin: {
     name: "Lee Sin",
-    shortenName: "Lee Sin",
+    shortenName: { en_US: "Lee Sin", ko_KR: "리신" },
     color: {
       primary: "#F2613F",
       secondary: "#FF6363",
@@ -624,7 +626,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Leona: {
     name: "Leona",
-    shortenName: "Leona",
+    shortenName: { en_US: "Leona" },
     color: {
       primary: "#F1C40F",
       secondary: "#F39C12",
@@ -633,7 +635,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Lillia: {
     name: "Lillia",
-    shortenName: "Lillia",
+    shortenName: { en_US: "Lillia" },
     color: {
       primary: "#9B59B6",
       secondary: "#8E44AD",
@@ -642,7 +644,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Lissandra: {
     name: "Lissandra",
-    shortenName: "Lissandra",
+    shortenName: { en_US: "Lissandra" },
     color: {
       primary: "#5DADE2",
       secondary: "#3498DB",
@@ -651,7 +653,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Lucian: {
     name: "Lucian",
-    shortenName: "Lucian",
+    shortenName: { en_US: "Lucian" },
     color: {
       primary: "#8b92b9",
       secondary: "#433f54",
@@ -660,7 +662,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Lulu: {
     name: "Lulu",
-    shortenName: "Lulu",
+    shortenName: { en_US: "Lulu" },
     color: {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
@@ -669,7 +671,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Lux: {
     name: "Lux",
-    shortenName: "Lux",
+    shortenName: { en_US: "Lux" },
     color: {
       primary: "#FAD7A0",
       secondary: "#FDEBD0",
@@ -678,7 +680,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Malphite: {
     name: "Malphite",
-    shortenName: "Malphite",
+    shortenName: { en_US: "Malphite" },
     color: {
       primary: "#626567",
       secondary: "#515A5A",
@@ -687,7 +689,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Malzahar: {
     name: "Malzahar",
-    shortenName: "Malzahar",
+    shortenName: { en_US: "Malzahar" },
     color: {
       primary: "#8E44AD",
       secondary: "#7D3C98",
@@ -696,7 +698,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Maokai: {
     name: "Maokai",
-    shortenName: "Maokai",
+    shortenName: { en_US: "Maokai" },
     color: {
       primary: "#145A32",
       secondary: "#196F3D",
@@ -705,7 +707,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   MasterYi: {
     name: "Master Yi",
-    shortenName: "Master Yi",
+    shortenName: { en_US: "Master Yi" },
     color: {
       primary: "#79e199",
       secondary: "#16411a",
@@ -714,7 +716,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Milio: {
     name: "Milio",
-    shortenName: "Milio",
+    shortenName: { en_US: "Milio" },
     color: {
       primary: "#F4D03F",
       secondary: "#F7DC6F",
@@ -723,7 +725,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   MissFortune: {
     name: "Miss Fortune",
-    shortenName: "Fortune",
+    shortenName: { en_US: "Fortune" },
     color: {
       primary: "#E74C3C",
       secondary: "#CB4335",
@@ -732,7 +734,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Mordekaiser: {
     name: "Mordekaiser",
-    shortenName: "Morde",
+    shortenName: { en_US: "Morde" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -741,7 +743,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Morgana: {
     name: "Morgana",
-    shortenName: "Morgana",
+    shortenName: { en_US: "Morgana" },
     color: {
       primary: "#797D7F",
       secondary: "#626567",
@@ -750,7 +752,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Naafiri: {
     name: "Naafiri",
-    shortenName: "Naafiri",
+    shortenName: { en_US: "Naafiri" },
     color: {
       primary: "#C0392B",
       secondary: "#922B21",
@@ -759,7 +761,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Nami: {
     name: "Nami",
-    shortenName: "Nami",
+    shortenName: { en_US: "Nami" },
     color: {
       primary: "#85C1E9",
       secondary: "#AED6F1",
@@ -768,7 +770,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Nasus: {
     name: "Nasus",
-    shortenName: "Nasus",
+    shortenName: { en_US: "Nasus" },
     color: {
       primary: "#F39C12",
       secondary: "#D68910",
@@ -777,7 +779,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Nautilus: {
     name: "Nautilus",
-    shortenName: "Nautilus",
+    shortenName: { en_US: "Nautilus" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -786,7 +788,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Neeko: {
     name: "Neeko",
-    shortenName: "Neeko",
+    shortenName: { en_US: "Neeko" },
     color: {
       primary: "#58D68D",
       secondary: "#2ECC71",
@@ -795,7 +797,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Nidalee: {
     name: "Nidalee",
-    shortenName: "Nidalee",
+    shortenName: { en_US: "Nidalee" },
     color: {
       primary: "#229954",
       secondary: "#27AE60",
@@ -804,7 +806,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Nilah: {
     name: "Nilah",
-    shortenName: "Nilah",
+    shortenName: { en_US: "Nilah" },
     color: {
       primary: "#3498DB",
       secondary: "#5DADE2",
@@ -812,7 +814,7 @@ export const championDto: ChampionDto = {
   },
   Nocturne: {
     name: "Nocturne",
-    shortenName: "Nocturne",
+    shortenName: { en_US: "Nocturne" },
     color: {
       primary: "#0c9dd4",
       secondary: "#1d2e78",
@@ -821,7 +823,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Nunu: {
     name: "Nunu",
-    shortenName: "Nunu",
+    shortenName: { en_US: "Nunu" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -830,7 +832,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Olaf: {
     name: "Olaf",
-    shortenName: "Olaf",
+    shortenName: { en_US: "Olaf" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -839,7 +841,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Orianna: {
     name: "Orianna",
-    shortenName: "Orianna",
+    shortenName: { en_US: "Orianna" },
     color: {
       primary: "#85929E",
       secondary: "#5D6D7E",
@@ -847,7 +849,7 @@ export const championDto: ChampionDto = {
   },
   Ornn: {
     name: "Ornn",
-    shortenName: "Ornn",
+    shortenName: { en_US: "Ornn" },
     color: {
       primary: "#c61141",
       secondary: "#370924",
@@ -856,7 +858,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Pantheon: {
     name: "Pantheon",
-    shortenName: "Pantheon",
+    shortenName: { en_US: "Pantheon" },
     color: {
       primary: "#7B241C",
       secondary: "#922B21",
@@ -865,7 +867,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Poppy: {
     name: "Poppy",
-    shortenName: "Poppy",
+    shortenName: { en_US: "Poppy" },
     color: {
       primary: "#5DADE2",
       secondary: "#3498DB",
@@ -874,7 +876,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Pyke: {
     name: "Pyke",
-    shortenName: "Pyke",
+    shortenName: { en_US: "Pyke" },
     color: {
       primary: "#1B4F72",
       secondary: "#154360",
@@ -883,7 +885,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Qiyana: {
     name: "Qiyana",
-    shortenName: "Qiyana",
+    shortenName: { en_US: "Qiyana" },
     color: {
       primary: "#27AE60",
       secondary: "#229954",
@@ -892,7 +894,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Quinn: {
     name: "Quinn",
-    shortenName: "Quinn",
+    shortenName: { en_US: "Quinn" },
     color: {
       primary: "#7E5109",
       secondary: "#6E2C00",
@@ -901,7 +903,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Rakan: {
     name: "Rakan",
-    shortenName: "Rakan",
+    shortenName: { en_US: "Rakan" },
     color: {
       primary: "#F1948A",
       secondary: "#EC7063",
@@ -910,7 +912,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Rammus: {
     name: "Rammus",
-    shortenName: "Rammus",
+    shortenName: { en_US: "Rammus" },
     color: {
       primary: "#9C640C",
       secondary: "#7E5109",
@@ -918,7 +920,7 @@ export const championDto: ChampionDto = {
   },
   RekSai: {
     name: "Rek'Sai",
-    shortenName: "Rek'Sai",
+    shortenName: { en_US: "Rek'Sai" },
     color: {
       primary: "#D09CFA",
       secondary: "#A555EC",
@@ -927,7 +929,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Rell: {
     name: "Rell",
-    shortenName: "Rell",
+    shortenName: { en_US: "Rell" },
     color: {
       primary: "#922B21",
       secondary: "#7B241C",
@@ -936,7 +938,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Renata: {
     name: "Renata",
-    shortenName: "Renata",
+    shortenName: { en_US: "Renata" },
     color: {
       primary: "#D5D8DC",
       secondary: "#ABB2B9",
@@ -945,7 +947,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Renekton: {
     name: "Renekton",
-    shortenName: "Renekton",
+    shortenName: { en_US: "Renekton" },
     color: {
       primary: "#922B21",
       secondary: "#7B241C",
@@ -954,7 +956,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Rengar: {
     name: "Rengar",
-    shortenName: "Rengar",
+    shortenName: { en_US: "Rengar" },
     color: {
       primary: "#27AE60",
       secondary: "#229954",
@@ -963,7 +965,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Riven: {
     name: "Riven",
-    shortenName: "Riven",
+    shortenName: { en_US: "Riven" },
     color: {
       primary: "#7D3C98",
       secondary: "#6C3483",
@@ -972,7 +974,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Rumble: {
     name: "Rumble",
-    shortenName: "Rumble",
+    shortenName: { en_US: "Rumble" },
     color: {
       primary: "#E67E22",
       secondary: "#D35400",
@@ -981,7 +983,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ryze: {
     name: "Ryze",
-    shortenName: "Ryze",
+    shortenName: { en_US: "Ryze" },
     color: {
       primary: "#5DADE2",
       secondary: "#3498DB",
@@ -990,7 +992,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Samira: {
     name: "Samira",
-    shortenName: "Samira",
+    shortenName: { en_US: "Samira" },
     color: {
       primary: "#C0392B",
       secondary: "#922B21",
@@ -999,7 +1001,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Sejuani: {
     name: "Sejuani",
-    shortenName: "Sejuani",
+    shortenName: { en_US: "Sejuani" },
     color: {
       primary: "#AED6F1",
       secondary: "#85C1E9",
@@ -1008,7 +1010,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Senna: {
     name: "Senna",
-    shortenName: "Senna",
+    shortenName: { en_US: "Senna" },
     color: {
       primary: "#a6f2f5",
       secondary: "#164e6d",
@@ -1017,7 +1019,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Seraphine: {
     name: "Seraphine",
-    shortenName: "Seraphine",
+    shortenName: { en_US: "Seraphine" },
     color: {
       primary: "#F5B7B1",
       secondary: "#F1948A",
@@ -1026,7 +1028,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Sett: {
     name: "Sett",
-    shortenName: "Sett",
+    shortenName: { en_US: "Sett" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -1035,7 +1037,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Shaco: {
     name: "Shaco",
-    shortenName: "Shaco",
+    shortenName: { en_US: "Shaco" },
     color: {
       primary: "#9B59B6",
       secondary: "#8E44AD",
@@ -1044,7 +1046,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Shen: {
     name: "Shen",
-    shortenName: "Shen",
+    shortenName: { en_US: "Shen" },
     color: {
       primary: "#3498DB",
       secondary: "#2980B9",
@@ -1053,7 +1055,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Shyvana: {
     name: "Shyvana",
-    shortenName: "Shyvana",
+    shortenName: { en_US: "Shyvana" },
     color: {
       primary: "#C0392B",
       secondary: "#922B21",
@@ -1062,7 +1064,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Singed: {
     name: "Singed",
-    shortenName: "Singed",
+    shortenName: { en_US: "Singed" },
     color: {
       primary: "#27AE60",
       secondary: "#229954",
@@ -1071,7 +1073,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Sion: {
     name: "Sion",
-    shortenName: "Sion",
+    shortenName: { en_US: "Sion" },
     color: {
       primary: "#7B241C",
       secondary: "#641E16",
@@ -1080,7 +1082,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Sivir: {
     name: "Sivir",
-    shortenName: "Sivir",
+    shortenName: { en_US: "Sivir" },
     color: {
       primary: "#D4AC0D",
       secondary: "#B7950B",
@@ -1089,7 +1091,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Skarner: {
     name: "Skarner",
-    shortenName: "Skarner",
+    shortenName: { en_US: "Skarner" },
     color: {
       primary: "#5DADE2",
       secondary: "#3498DB",
@@ -1098,7 +1100,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Smolder: {
     name: "Smolder",
-    shortenName: "Smolder",
+    shortenName: { en_US: "Smolder" },
     color: {
       primary: "#E74C3C",
       secondary: "#CB4335",
@@ -1107,7 +1109,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Sona: {
     name: "Sona",
-    shortenName: "Sona",
+    shortenName: { en_US: "Sona" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -1116,7 +1118,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Soraka: {
     name: "Soraka",
-    shortenName: "Soraka",
+    shortenName: { en_US: "Soraka" },
     color: {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
@@ -1125,7 +1127,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Swain: {
     name: "Swain",
-    shortenName: "Swain",
+    shortenName: { en_US: "Swain" },
     color: {
       primary: "#641E16",
       secondary: "#7B241C",
@@ -1133,7 +1135,7 @@ export const championDto: ChampionDto = {
   },
   Sylas: {
     name: "Sylas",
-    shortenName: "Sylas",
+    shortenName: { en_US: "Sylas" },
     color: {
       primary: "#B1BCE6",
       secondary: "#92B4EC",
@@ -1142,7 +1144,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Syndra: {
     name: "Syndra",
-    shortenName: "Syndra",
+    shortenName: { en_US: "Syndra" },
     color: {
       primary: "#7D3C98",
       secondary: "#6C3483",
@@ -1151,7 +1153,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   TahmKench: {
     name: "Tahm Kench",
-    shortenName: "Kench",
+    shortenName: { en_US: "Kench" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -1160,7 +1162,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Taliyah: {
     name: "Taliyah",
-    shortenName: "Taliyah",
+    shortenName: { en_US: "Taliyah" },
     color: {
       primary: "#117A65",
       secondary: "#0E6655",
@@ -1169,7 +1171,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Talon: {
     name: "Talon",
-    shortenName: "Talon",
+    shortenName: { en_US: "Talon" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -1178,7 +1180,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Taric: {
     name: "Taric",
-    shortenName: "Taric",
+    shortenName: { en_US: "Taric" },
     color: {
       primary: "#85C1E9",
       secondary: "#AED6F1",
@@ -1187,7 +1189,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Teemo: {
     name: "Teemo",
-    shortenName: "Teemo",
+    shortenName: { en_US: "Teemo" },
     color: {
       primary: "#F39C12",
       secondary: "#F1C40F",
@@ -1196,7 +1198,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Thresh: {
     name: "Thresh",
-    shortenName: "Thresh",
+    shortenName: { en_US: "Thresh" },
     color: {
       primary: "#16A085",
       secondary: "#1ABC9C",
@@ -1205,7 +1207,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Tristana: {
     name: "Tristana",
-    shortenName: "Tristana",
+    shortenName: { en_US: "Tristana" },
     color: {
       primary: "#3498DB",
       secondary: "#5DADE2",
@@ -1214,7 +1216,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Trundle: {
     name: "Trundle",
-    shortenName: "Trundle",
+    shortenName: { en_US: "Trundle" },
     color: {
       primary: "#1B4F72",
       secondary: "#154360",
@@ -1223,7 +1225,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Tryndamere: {
     name: "Tryndamere",
-    shortenName: "Trynd",
+    shortenName: { en_US: "Trynd" },
     color: {
       primary: "#C0392B",
       secondary: "#922B21",
@@ -1232,7 +1234,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   TwistedFate: {
     name: "Twisted Fate",
-    shortenName: "Twisted",
+    shortenName: { en_US: "Twisted" },
     color: {
       primary: "#89a4bc",
       secondary: "#7aa8dc",
@@ -1240,7 +1242,7 @@ export const championDto: ChampionDto = {
   },
   Twitch: {
     name: "Twitch",
-    shortenName: "Twitch",
+    shortenName: { en_US: "Twitch" },
     color: {
       primary: "#B980F0",
       secondary: "#6C3483",
@@ -1249,7 +1251,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Udyr: {
     name: "Udyr",
-    shortenName: "Udyr",
+    shortenName: { en_US: "Udyr" },
     color: {
       primary: "#D35400",
       secondary: "#E67E22",
@@ -1258,7 +1260,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Urgot: {
     name: "Urgot",
-    shortenName: "Urgot",
+    shortenName: { en_US: "Urgot" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -1267,7 +1269,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Varus: {
     name: "Varus",
-    shortenName: "Varus",
+    shortenName: { en_US: "Varus" },
     color: {
       primary: "#1ABC9C",
       secondary: "#16A085",
@@ -1276,7 +1278,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Vayne: {
     name: "Vayne",
-    shortenName: "Vayne",
+    shortenName: { en_US: "Vayne" },
     color: {
       primary: "#7B241C",
       secondary: "#641E16",
@@ -1285,7 +1287,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Veigar: {
     name: "Veigar",
-    shortenName: "Veigar",
+    shortenName: { en_US: "Veigar" },
     color: {
       primary: "#8E44AD",
       secondary: "#9B59B6",
@@ -1294,7 +1296,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Velkoz: {
     name: "Vel'Koz",
-    shortenName: "Vel'Koz",
+    shortenName: { en_US: "Vel'Koz" },
     color: {
       primary: "#5DADE2",
       secondary: "#3498DB",
@@ -1303,7 +1305,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Vex: {
     name: "Vex",
-    shortenName: "Vex",
+    shortenName: { en_US: "Vex" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -1312,7 +1314,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Vi: {
     name: "Vi",
-    shortenName: "Vi",
+    shortenName: { en_US: "Vi" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -1321,7 +1323,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Viego: {
     name: "Viego",
-    shortenName: "Viego",
+    shortenName: { en_US: "Viego" },
     color: {
       primary: "#1ad0ab",
       secondary: "#156f5b",
@@ -1330,7 +1332,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Viktor: {
     name: "Viktor",
-    shortenName: "Viktor",
+    shortenName: { en_US: "Viktor" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -1339,7 +1341,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Vladimir: {
     name: "Vladimir",
-    shortenName: "Vladimir",
+    shortenName: { en_US: "Vladimir" },
     color: {
       primary: "#922B21",
       secondary: "#641E16",
@@ -1348,7 +1350,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Volibear: {
     name: "Volibear",
-    shortenName: "Volibear",
+    shortenName: { en_US: "Volibear" },
     color: {
       primary: "#1B4F72",
       secondary: "#154360",
@@ -1357,7 +1359,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Warwick: {
     name: "Warwick",
-    shortenName: "Warwick",
+    shortenName: { en_US: "Warwick" },
     color: {
       primary: "#7E5109",
       secondary: "#6E2C00",
@@ -1366,7 +1368,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   MonkeyKing: {
     name: "Wukong",
-    shortenName: "Wukong",
+    shortenName: { en_US: "Wukong" },
     color: {
       primary: "#D4AC0D",
       secondary: "#B7950B",
@@ -1375,7 +1377,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Xayah: {
     name: "Xayah",
-    shortenName: "Xayah",
+    shortenName: { en_US: "Xayah" },
     color: {
       primary: "#922B21",
       secondary: "#641E16",
@@ -1384,7 +1386,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Xerath: {
     name: "Xerath",
-    shortenName: "Xerath",
+    shortenName: { en_US: "Xerath" },
     color: {
       primary: "#85C1E9",
       secondary: "#AED6F1",
@@ -1393,7 +1395,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   XinZhao: {
     name: "Xin Zhao",
-    shortenName: "Xin Zhao",
+    shortenName: { en_US: "Xin Zhao" },
     color: {
       primary: "#C0392B",
       secondary: "#E74C3C",
@@ -1402,7 +1404,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Yasuo: {
     name: "Yasuo",
-    shortenName: "Yasuo",
+    shortenName: { en_US: "Yasuo" },
     color: {
       primary: "#5499C7",
       secondary: "#2980B9",
@@ -1411,7 +1413,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Yone: {
     name: "Yone",
-    shortenName: "Yone",
+    shortenName: { en_US: "Yone" },
     color: {
       primary: "#1ABC9C",
       secondary: "#16A085",
@@ -1420,7 +1422,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Yorick: {
     name: "Yorick",
-    shortenName: "Yorick",
+    shortenName: { en_US: "Yorick" },
     color: {
       primary: "#6C3483",
       secondary: "#5B2C6F",
@@ -1429,7 +1431,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Yuumi: {
     name: "Yuumi",
-    shortenName: "Yuumi",
+    shortenName: { en_US: "Yuumi" },
     color: {
       primary: "#A569BD",
       secondary: "#8E44AD",
@@ -1438,7 +1440,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Zac: {
     name: "Zac",
-    shortenName: "Zac",
+    shortenName: { en_US: "Zac" },
     color: {
       primary: "#27AE60",
       secondary: "#2ECC71",
@@ -1447,7 +1449,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Zed: {
     name: "Zed",
-    shortenName: "Zed",
+    shortenName: { en_US: "Zed" },
     color: {
       primary: "#34495E",
       secondary: "#2C3E50",
@@ -1456,7 +1458,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Zeri: {
     name: "Zeri",
-    shortenName: "Zeri",
+    shortenName: { en_US: "Zeri" },
     color: {
       primary: "#58D68D",
       secondary: "#2ECC71",
@@ -1465,7 +1467,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Ziggs: {
     name: "Ziggs",
-    shortenName: "Ziggs",
+    shortenName: { en_US: "Ziggs" },
     color: {
       primary: "#F39C12",
       secondary: "#F1C40F",
@@ -1474,7 +1476,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Zilean: {
     name: "Zilean",
-    shortenName: "Zilean",
+    shortenName: { en_US: "Zilean" },
     color: {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
@@ -1483,7 +1485,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Zoe: {
     name: "Zoe",
-    shortenName: "Zoe",
+    shortenName: { en_US: "Zoe" },
     color: {
       primary: "#F1948A",
       secondary: "#EC7063",
@@ -1492,7 +1494,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   Zyra: {
     name: "Zyra",
-    shortenName: "Zyra",
+    shortenName: { en_US: "Zyra" },
     color: {
       primary: "#229954",
       secondary: "#27AE60",

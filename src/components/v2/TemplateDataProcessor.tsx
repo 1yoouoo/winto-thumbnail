@@ -34,8 +34,11 @@ const TemplateDataProcessor: React.FC<{
     proTeamLogoKey,
     locale: parsedQueryString.locale,
     enemyChampionName: parsedQueryString.enemyChampionName,
+    translatedChampionName: parsedQueryString.translatedChampionName,
     ...optionalFields,
   };
+
+  console.log("translatedChampionName:", translatedChampionName);
 
   if (isLoading) {
     return <div>Loading...</div>;

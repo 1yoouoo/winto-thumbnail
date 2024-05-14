@@ -119,17 +119,29 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     gameVersion,
     proPlayerImageKeyList,
     proTeamLogoKey,
+    locale,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);
   const champion = championDto[championName] || {
     name: championName,
-    shortenName: "",
+    shortenName: {},
     color: {
       primary: "#FFFFFF",
       secondary: "#FFFFFF",
     },
   };
+
+  const getLocalizedShortenName = () => {
+    if (champion.shortenName && champion.shortenName[locale ?? "en_US"]) {
+      return champion.shortenName[locale ?? "en_US"];
+    }
+    return championName;
+  };
+
+  const localizedShortenName = getLocalizedShortenName();
+
+  console.log("localizedShortenName:", localizedShortenName);
 
   const { primary, secondary } = champion.color;
 
@@ -151,7 +163,7 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
         <ChampionName>
           <GradientText
-            text={champion.shortenName}
+            text={localizedShortenName!}
             primarycolor={primary}
             secondarycolor={secondary}
             fontSize="XSmall"
