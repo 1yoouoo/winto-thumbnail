@@ -16,6 +16,8 @@ export type GameInfoDto = {
   tripleKills: number;
   quadraKills: number;
   pentaKills: number;
+  locale: Locale;
+  enemyChampionName: string;
 }>;
 
 export type ParsedQueryString = {
@@ -36,6 +38,8 @@ export type ParsedQueryString = {
   tripleKills: string;
   quadraKills: string;
   pentaKills: string;
+  locale: Locale;
+  enemyChampionName: string;
 }>;
 
 export interface GameInfoModel {
@@ -56,6 +60,8 @@ export interface GameInfoModel {
   tripleKills?: string;
   quadraKills?: string;
   pentaKills?: string;
+  locale?: Locale;
+  enemyChampionName?: string;
 }
 
 export interface GameInfoViewModel {
@@ -82,6 +88,8 @@ export interface GameInfoViewModel {
   pentaKills?: number;
   proPlayerImageKeyList?: string[];
   proTeamLogoKey?: string;
+  locale?: Locale;
+  enemyChampionName?: string;
 }
 
 export interface Item {
@@ -106,3 +114,29 @@ export interface SkinKey {
   id: string;
   key: string;
 }
+
+export type Locale =
+  | "ko_KR"
+  | "en_US"
+  | "ja_JP"
+  | "pl_PL"
+  | "fr_FR"
+  | "de_DE"
+  | "es_ES"
+  | "nl_NL"
+  | "da_DK"
+  | "sv_SE"
+  | "no_NO"
+  | "ru_RU"
+  | "hu_HU"
+  | "fi_FI"
+  | "tr_TR"
+  | "ro_RO"
+  | "pt_BR"
+  | "zh_CN"
+  | "zh_TW"
+  | "ar_SA"
+  | "sr_CS"
+  | "it_IT"
+  | "th_TH"
+  | "vi_VN";

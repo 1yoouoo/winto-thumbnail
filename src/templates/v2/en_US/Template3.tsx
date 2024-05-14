@@ -36,7 +36,7 @@ const Description = styled.span`
 const Items = styled.span`
   position: absolute;
   bottom: 40px;
-  left: 320px;
+  left: 360px;
   margin-top: 15px;
   display: flex;
   justify-content: flex-start;
@@ -45,10 +45,8 @@ const Items = styled.span`
   z-index: 10;
 
   > :nth-child(1) {
+    transform: rotate(-5deg);
     z-index: 3;
-  }
-
-  > :nth-child(2) {
   }
 `;
 
@@ -56,8 +54,8 @@ const ItemWrapper = styled.span``;
 
 const KDAContainer = styled.span`
   position: absolute;
-  right: 30px;
-  bottom: 80px;
+  right: 50px;
+  bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,12 +86,14 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -100px;
-  bottom: 100px;
+  left: -205px;
+  bottom: 120px;
   transform: rotate(-15deg);
 `;
 
-const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
+const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
+  gameInfo,
+}) => {
   const {
     championName,
     playerName,
@@ -106,7 +106,7 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
     proTeamLogoKey,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
-  const getTop2Items = sorteditems.slice(0, 2);
+  const getTop1Items = sorteditems.slice(0, 1);
   const champion = championDto[championName] || {
     name: championName,
     shortenName: "",
@@ -131,13 +131,13 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           text={playerName ?? "Challenger"}
           primarycolor="white"
           secondarycolor="#acacac"
-          fontSize="Small"
+          fontSize="XSmall"
         />
         <GradientText
           text={champion.shortenName}
           primarycolor={primary}
           secondarycolor={secondary}
-          fontSize="Small"
+          fontSize="XSmall"
         />
       </Description>
 
@@ -145,17 +145,11 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
         <ItemWrapper>
           <ItemImage
             gameVersion={gameVersion}
-            item={getTop2Items[0]}
-            width={200}
-            height={200}
-          />
-        </ItemWrapper>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop2Items[1]}
-            width={200}
-            height={200}
+            item={getTop1Items[0]}
+            width={250}
+            height={250}
+            blurred
+            boxshadow="ItemBoxShadowYellow"
           />
         </ItemWrapper>
       </Items>
@@ -181,4 +175,4 @@ const Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
   );
 };
 
-export default Template3;
+export default en_US_Template3;

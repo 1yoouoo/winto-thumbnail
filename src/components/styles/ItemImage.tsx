@@ -82,7 +82,7 @@ const ItemImage = ({ gameVersion, item, blurred, ...props }: IProps) => {
           <Image src={imgSrc} alt="item" onError={handleError} {...props} />
           {blurred && (
             <QuestionMark>
-              <GradientText text="?" fontSize="XSmall" />
+              <GradientText text="?" fontSize="XXXSmall" />
             </QuestionMark>
           )}
         </Wrapper>

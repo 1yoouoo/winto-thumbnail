@@ -22,7 +22,6 @@ const Container = styled.span<GradientTextStyleProps>`
   text-transform: ${(props) => (props.capitalize ? "uppercase" : "none")};
   font-size: ${(props) => props.calculatedFontSize}px;
   white-space: nowrap;
-  height: calc(${(props) => props.calculatedFontSize}px * 0.8);
 
   &::before {
     content: attr(data-text);
@@ -46,15 +45,27 @@ interface GradientTextProps {
   primarycolor?: string;
   secondarycolor?: string;
   capitalize?: boolean;
-  fontSize?: "Large" | "Medium" | "Small" | "XSmall";
+  fontSize?: "Large" | "Medium" | "Small" | "XSmall" | "XXSmall" | "XXXSmall";
 }
 
 const fontSizeMap = {
-  XSmall: {
+  XXXSmall: {
     x1: 4,
     y1: 90,
     x2: 10,
     y2: 70,
+  },
+  XXSmall: {
+    x1: 4,
+    y1: 120,
+    x2: 10,
+    y2: 80,
+  },
+  XSmall: {
+    x1: 4,
+    y1: 150,
+    x2: 10,
+    y2: 90,
   },
   Small: {
     x1: 4, // 4글자일 때
@@ -88,7 +99,7 @@ const GradientText = ({
     size,
   }: {
     letterCount: number;
-    size: "Large" | "Medium" | "Small" | "XSmall";
+    size: "Large" | "Medium" | "Small" | "XSmall" | "XXSmall" | "XXXSmall";
   }) {
     // fontSizeMap에서 현재 fontSize에 맞는 값을 가져옴
     const { x1, y1, x2, y2 } = fontSizeMap[size];

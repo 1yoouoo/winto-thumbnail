@@ -24,6 +24,7 @@ export default async function handler(
   try {
     const gameInfo: GameInfoDto = req.body;
     const transformedGameInfo = transformToModel(gameInfo);
+
     const queryString = convertJsonToQueryString(transformedGameInfo);
     const browser = await puppeteer.launch({
       headless: true,

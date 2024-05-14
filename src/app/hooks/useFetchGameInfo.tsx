@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   GameInfoViewModel,
   Item,
+  Locale,
   ParsedQueryString,
   Spell,
 } from "@/types/v2/model";
@@ -116,6 +117,9 @@ export const useFetchGameInfo = ({
     if (query.tripleKills) fields.tripleKills = parseInt(query.tripleKills, 10);
     if (query.quadraKills) fields.quadraKills = parseInt(query.quadraKills, 10);
     if (query.pentaKills) fields.pentaKills = parseInt(query.pentaKills, 10);
+    if (query.locale) fields.locale = query.locale as Locale;
+    if (query.enemyChampionName)
+      fields.enemyChampionName = query.enemyChampionName;
 
     return fields;
   };
@@ -160,7 +164,9 @@ export const useFetchGameInfo = ({
       gameVersionQuery.error ||
       itemInfoQuery.error ||
       spellInfoQuery.error ||
-      skinInfoQuery.error
+      skinInfoQuery.error ||
+      proPlayerImageQuery.error ||
+      proTeamLogoQuery.error
     )
       sendSlackNotification({
         title: "parsedQueryString",
@@ -198,6 +204,7 @@ export const useFetchGameInfo = ({
       skinInfoQuery.isLoading ||
       proPlayerImageQuery.isLoading ||
       proTeamLogoQuery.isLoading,
+
     isError:
       gameVersionQuery.isError ||
       itemInfoQuery.isError ||

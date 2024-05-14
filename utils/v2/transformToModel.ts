@@ -34,8 +34,13 @@ export function transformToModel(
       transformed.quadraKills = gameInfo.quadraKills.toString();
     if (typeof gameInfo.pentaKills !== "undefined")
       transformed.pentaKills = gameInfo.pentaKills.toString();
+    if (typeof gameInfo.locale !== "undefined")
+      transformed.locale = gameInfo.locale.toString();
+    if (gameInfo.enemyChampionName)
+      transformed.enemyChampionName = capitalizeFirstLetter(
+        gameInfo.enemyChampionName
+      );
 
-    // itemIds 처리
     if (gameInfo.itemIds) {
       transformed.itemIds = gameInfo.itemIds.map((id) => id.toString());
     }

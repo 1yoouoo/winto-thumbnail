@@ -23,13 +23,15 @@ const TemplateDataProcessor: React.FC<{
   });
 
   const gameInfo = {
-    championName: parsedQueryString.championName,
     gameVersion,
     items,
     spells,
     skins,
     proPlayerImageKeyList,
+    championName: parsedQueryString.championName,
     proTeamLogoKey,
+    locale: parsedQueryString.locale,
+    enemyChampionName: parsedQueryString.enemyChampionName,
     ...optionalFields,
   };
 
@@ -37,14 +39,16 @@ const TemplateDataProcessor: React.FC<{
     return <div>Loading...</div>;
   }
 
-  const SelectedTemplateComponent = selectTemplate(gameInfo);
+  const { component: SelectedTemplateComponent, name: SelectedTemplateName } =
+    selectTemplate(gameInfo);
+
   return (
     <>
       <Background championName={gameInfo.championName} skins={gameInfo.skins}>
         <SelectedTemplateComponent gameInfo={gameInfo} />
       </Background>
       {isDevelopment && (
-        <DevelopmentStyle templateName={SelectedTemplateComponent.name || ""} />
+        <DevelopmentStyle templateName={SelectedTemplateName || ""} />
       )}
     </>
   );

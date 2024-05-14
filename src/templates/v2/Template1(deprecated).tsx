@@ -159,7 +159,10 @@ const Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
           </SubDescription>
 
           <ChampionNameWrapper>
-            <GradientText text={shortenName.toUpperCase()} fontSize="XSmall" />
+            <GradientText
+              text={shortenName.toUpperCase()}
+              fontSize="XXXSmall"
+            />
             <Image
               src={`${spacesCdnFullEndpoint}/text-background/white-paint.png`}
               alt=""
@@ -198,7 +201,7 @@ const Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({ gameInfo }) => {
               boxshadow="ItemBoxShadowYellow"
             />
             <QuestionMark>
-              <GradientText text="?" fontSize="XSmall" />
+              <GradientText text="?" fontSize="XXXSmall" />
             </QuestionMark>
           </ItemWrapper>
         </ItemKdaArrowWrapper>
