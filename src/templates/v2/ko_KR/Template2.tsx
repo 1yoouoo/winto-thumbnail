@@ -88,7 +88,7 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -100px;
+  left: -230px;
   bottom: 100px;
   transform: rotate(-15deg);
 `;
@@ -179,7 +179,7 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         <KDAWrapper>
           <GradientText
             text={`${kills}/${deaths}/${assists}`}
-            fontSize="Small"
+            fontSize="XSmall"
           />
           <BoxShadow />
           <RedArrowWrapper>

@@ -97,8 +97,8 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -220px;
-  bottom: 70px;
+  left: -230px;
+  bottom: 95px;
   transform: rotate(-12deg);
 `;
 
@@ -156,15 +156,15 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         />
         <ChampionName>
           <GradientText
-            text="리신"
-            // text={champion.shortenName}
+            // text="리신"
+            text={champion.shortenName}
             primarycolor={primary}
             secondarycolor={secondary}
             fontSize="XXSmall"
           />
         </ChampionName>
       </Description>
-      {/* 
+
       <Items>
         <ItemWrapper>
           <ItemImage
@@ -198,7 +198,7 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         <KDAWrapper>
           <GradientText
             text={`${kills}/${deaths}/${assists}`}
-            fontSize="Small"
+            fontSize="XSmall"
           />
           <BoxShadow />
           <RedArrowWrapper>
@@ -210,7 +210,7 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
             />
           </RedArrowWrapper>
         </KDAWrapper>
-      </KDAContainer> */}
+      </KDAContainer>
     </Container>
   );
 };

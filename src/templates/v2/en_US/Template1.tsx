@@ -22,8 +22,8 @@ const Container = styled.div`
 
 const Description = styled.span`
   position: absolute;
-  top: 70px;
-  left: -40px;
+  top: 80px;
+  left: -10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,9 +97,13 @@ const BoxShadow = styled.span`
 
 const RedArrowWrapper = styled.span`
   position: absolute;
-  left: -220px;
+  left: -230px;
   bottom: 70px;
   transform: rotate(-12deg);
+`;
+
+const ChampionName = styled.span`
+  transform: translateY(-30px);
 `;
 
 const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
@@ -144,12 +148,15 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
           secondarycolor="#acacac"
           fontSize="XSmall"
         />
-        <GradientText
-          text={champion.shortenName}
-          primarycolor={primary}
-          secondarycolor={secondary}
-          fontSize="XSmall"
-        />
+
+        <ChampionName>
+          <GradientText
+            text={champion.shortenName}
+            primarycolor={primary}
+            secondarycolor={secondary}
+            fontSize="XSmall"
+          />
+        </ChampionName>
       </Description>
 
       <Items>
@@ -185,7 +192,7 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         <KDAWrapper>
           <GradientText
             text={`${kills}/${deaths}/${assists}`}
-            fontSize="Small"
+            fontSize="XSmall"
           />
           <BoxShadow />
           <RedArrowWrapper>
