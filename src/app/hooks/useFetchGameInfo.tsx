@@ -14,6 +14,7 @@ import {
   fetchSkinInfo,
   fetchSkinListFromBucket,
   fetchSummonerSpellInfo,
+  fetchTranslateChampionName,
 } from "../api/gameInfo";
 import { useEffect } from "react";
 import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
@@ -101,6 +102,32 @@ export const useFetchGameInfo = ({
     enabled: !!parsedQueryString.teamName,
   });
 
+  const translateChampionName = useQuery({
+    queryKey: [
+      "translateChampionName",
+      gameVersionQuery.data,
+      parsedQueryString.locale,
+    ],
+    queryFn: async ({ queryKey }) => {
+      const [, gameVersion, locale] = queryKey;
+
+      if (!gameVersion || !locale) {
+        console.error("Invalid gameVersion or locale for translation query.");
+        return "en_US";
+      }
+
+      return fetchTranslateChampionName({
+        gameVersion: gameVersion,
+        championName: parsedQueryString.championName,
+        locale: locale as Locale,
+      });
+    },
+    enabled:
+      !!gameVersionQuery.data &&
+      !!parsedQueryString.championName &&
+      !!parsedQueryString.locale,
+  });
+
   const optionalFields = (query: ParsedQueryString) => {
     const fields: Partial<GameInfoViewModel> = {};
     if (query.teamName) fields.teamName = query.teamName;
@@ -160,6 +187,12 @@ export const useFetchGameInfo = ({
         details: proTeamLogoQuery.error.toString(),
       });
 
+    if (translateChampionName.isError)
+      sendSlackNotification({
+        title: "챔피언 이름 번역 중 에러 발생",
+        details: translateChampionName.error.toString(),
+      });
+
     if (
       gameVersionQuery.error ||
       itemInfoQuery.error ||
@@ -186,6 +219,8 @@ export const useFetchGameInfo = ({
     proPlayerImageQuery.error,
     proTeamLogoQuery.isError,
     proTeamLogoQuery.error,
+    translateChampionName.isError,
+    translateChampionName.error,
   ]);
 
   return {
@@ -195,6 +230,7 @@ export const useFetchGameInfo = ({
     skins: skinInfoQuery.data,
     proPlayerImageKeyList: proPlayerImageQuery.data,
     proTeamLogoKey: proTeamLogoQuery.data,
+    translatedChampionName: translateChampionName.data,
     optionalFields: optionalFields(parsedQueryString),
 
     isLoading:
@@ -211,6 +247,7 @@ export const useFetchGameInfo = ({
       spellInfoQuery.isError ||
       skinInfoQuery.isError ||
       proPlayerImageQuery.isError ||
-      proTeamLogoQuery.isError,
+      proTeamLogoQuery.isError ||
+      translateChampionName.isError,
   };
 };

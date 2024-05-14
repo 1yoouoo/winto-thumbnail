@@ -16,6 +16,7 @@ const TemplateDataProcessor: React.FC<{
     skins,
     proPlayerImageKeyList,
     proTeamLogoKey,
+    translatedChampionName,
     optionalFields,
     isLoading,
   } = useFetchGameInfo({
@@ -29,6 +30,7 @@ const TemplateDataProcessor: React.FC<{
     skins,
     proPlayerImageKeyList,
     championName: parsedQueryString.championName,
+    translatedChampionName,
     proTeamLogoKey,
     locale: parsedQueryString.locale,
     enemyChampionName: parsedQueryString.enemyChampionName,

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Ddragon, app_url } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
-import { Item, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
+import { Item, Locale, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
 import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 
 export const fetchLatestGameVersion = async (): Promise<string> => {
@@ -190,5 +190,24 @@ export const fetchProTeamLogo = async ({
       details: `${prefix} 경로에 이미지가 없습니다.`,
     });
     return "";
+  }
+};
+
+export const fetchTranslateChampionName = async ({
+  gameVersion,
+  championName,
+  locale,
+}: {
+  gameVersion: string;
+  championName: string;
+  locale: Locale;
+}) => {
+  try {
+    const url = `${Ddragon}/cdn/${gameVersion}/data/${locale}/champion/${championName}.json`;
+    const response = await axios.get(url);
+
+    return response.data.data[championName].name;
+  } catch (error: any) {
+    console.log("error from gameInfo: ", error);
   }
 };
