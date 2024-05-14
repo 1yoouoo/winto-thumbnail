@@ -42,7 +42,7 @@ const DefaultTemplate: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   return (
     <Container>
       <GradientText
-        text={champion.shortenName}
+        text={championName}
         primarycolor={primary}
         secondarycolor={secondary}
         capitalize={true}
