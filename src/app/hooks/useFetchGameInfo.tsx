@@ -144,7 +144,6 @@ export const useFetchGameInfo = ({
     if (query.tripleKills) fields.tripleKills = parseInt(query.tripleKills, 10);
     if (query.quadraKills) fields.quadraKills = parseInt(query.quadraKills, 10);
     if (query.pentaKills) fields.pentaKills = parseInt(query.pentaKills, 10);
-    if (query.locale) fields.locale = query.locale as Locale;
     if (query.enemyChampionName)
       fields.enemyChampionName = query.enemyChampionName;
 

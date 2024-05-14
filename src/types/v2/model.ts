@@ -90,6 +90,7 @@ export interface GameInfoViewModel {
   proTeamLogoKey?: string;
   locale?: Locale;
   enemyChampionName?: string;
+  translatedChampionName?: string;
 }
 
 export interface Item {

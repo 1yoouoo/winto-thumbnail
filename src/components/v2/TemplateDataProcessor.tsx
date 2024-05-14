@@ -4,6 +4,19 @@ import Background from "@/templates/v2/Background";
 import { useFetchGameInfo } from "@/app/hooks/useFetchGameInfo";
 import DevelopmentStyle from "../styles/DevelopmentStyle";
 
+export type SupportedLocale = "en_US" | "ko_KR";
+
+const supportedLocales: SupportedLocale[] = ["en_US", "ko_KR"];
+
+function getValidLocale(locale: string | undefined): SupportedLocale {
+  if (!locale) {
+    return "en_US";
+  }
+  return supportedLocales.includes(locale as SupportedLocale)
+    ? (locale as SupportedLocale)
+    : "en_US";
+}
+
 const isDevelopment = process.env.NODE_ENV === "development";
 
 const TemplateDataProcessor: React.FC<{
@@ -23,6 +36,8 @@ const TemplateDataProcessor: React.FC<{
     parsedQueryString,
   });
 
+  const validLocale = getValidLocale(parsedQueryString.locale);
+
   const gameInfo = {
     gameVersion,
     items,
@@ -32,13 +47,9 @@ const TemplateDataProcessor: React.FC<{
     championName: parsedQueryString.championName,
     translatedChampionName,
     proTeamLogoKey,
-    locale: parsedQueryString.locale,
-    enemyChampionName: parsedQueryString.enemyChampionName,
-    translatedChampionName: parsedQueryString.translatedChampionName,
+    locale: validLocale,
     ...optionalFields,
   };
-
-  console.log("translatedChampionName:", translatedChampionName);
 
   if (isLoading) {
     return <div>Loading...</div>;

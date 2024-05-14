@@ -1234,7 +1234,7 @@ export const championDto: ChampionDto = {
   //? Personal Color
   TwistedFate: {
     name: "Twisted Fate",
-    shortenName: { en_US: "Twisted" },
+    shortenName: { en_US: "Twisted", ko_KR: "트페" },
     color: {
       primary: "#89a4bc",
       secondary: "#7aa8dc",

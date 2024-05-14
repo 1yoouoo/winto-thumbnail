@@ -126,6 +126,7 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     proPlayerImageKeyList,
     proTeamLogoKey,
     locale,
+    translatedChampionName,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);
@@ -139,15 +140,14 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   };
 
   const getLocalizedShortenName = () => {
-    if (champion.shortenName && champion.shortenName[locale ?? "en_US"]) {
-      return champion.shortenName[locale ?? "en_US"];
+    const nameByLocale = champion.shortenName[locale ?? "en_US"];
+    if (nameByLocale) {
+      return nameByLocale;
     }
-    return championName;
+    return translatedChampionName || championName;
   };
 
   const localizedShortenName = getLocalizedShortenName();
-
-  console.log("localizedShortenName:", localizedShortenName);
 
   const { primary, secondary } = champion.color;
 
