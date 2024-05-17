@@ -1,19 +1,17 @@
-import { ParsedQueryString } from "@/types/v2/model";
+import { Locale, ParsedQueryString } from "@/types/v2/model";
 import { selectTemplate } from "./selectTemplate";
 import Background from "@/templates/v2/Background";
 import { useFetchGameInfo } from "@/app/hooks/useFetchGameInfo";
 import DevelopmentStyle from "../styles/DevelopmentStyle";
 
-export type SupportedLocale = "en_US" | "ko_KR";
+const supportedLocales: Locale[] = ["en_US", "ko_KR"];
 
-const supportedLocales: SupportedLocale[] = ["en_US", "ko_KR"];
-
-function getValidLocale(locale: string | undefined): SupportedLocale {
+function getValidLocale(locale: string | undefined): Locale {
   if (!locale) {
     return "en_US";
   }
-  return supportedLocales.includes(locale as SupportedLocale)
-    ? (locale as SupportedLocale)
+  return supportedLocales.includes(locale as Locale)
+    ? (locale as Locale)
     : "en_US";
 }
 

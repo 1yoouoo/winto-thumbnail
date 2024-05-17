@@ -15,7 +15,9 @@ export const fetchLatestGameVersion = async (): Promise<string> => {
       details: error.toString(),
     });
     console.log("error from gameInfo: ", error);
-    return "14.6.1"; //! default version
+    //TODO 두 번째 버전을 따로 파일에 저장해서 에러시 두 번째 버전을 리턴하도록 수정
+    //TODO 버전 체크할 떄 두 번째 버전이 달라지면 수정하는 코드 추가
+    return "14.9.1"; //! default version
   }
 };
 
@@ -85,6 +87,7 @@ export const fetchSummonerSpellInfo = async ({
   }
 };
 
+//TODO 챔피언 정보 가져오는 함수인데 번역된 챔피언 이름도 가져올 수 있어서 통합해야함
 export const fetchSkinInfo = async ({
   gameVersion,
   championName,
