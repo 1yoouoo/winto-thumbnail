@@ -23,11 +23,9 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
-
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
-
   images: {
     remotePatterns: [
       {
@@ -37,12 +35,12 @@ module.exports = {
       },
       {
         protocol: "https",
-        hostname: "winto-thumbnail.sgp1.digitaloceanspaces.com",
+        hostname: "winto-thumbnail-v2.sgp1.digitaloceanspaces.com",
         pathname: "**",
       },
       {
         protocol: "https",
-        hostname: "winto-thumbnail.sgp1.cdn.digitaloceanspaces.com",
+        hostname: "winto-thumbnail-v2.sgp1.cdn.digitaloceanspaces.com",
         pathname: "**",
       },
       {
