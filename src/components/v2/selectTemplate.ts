@@ -9,9 +9,11 @@ import DefaultTemplate from "@/templates/v2/DefaultTemplate";
 import en_US_Template1 from "@/templates/v2/en_US/Template1";
 import en_US_Template2 from "@/templates/v2/en_US/Template2";
 import en_US_Template3 from "@/templates/v2/en_US/Template3";
+import en_US_Template4 from "@/templates/v2/en_US/Template4";
 import ko_KR_Template1 from "@/templates/v2/ko_KR/Template1";
 import ko_KR_Template2 from "@/templates/v2/ko_KR/Template2";
 import ko_KR_Template3 from "@/templates/v2/ko_KR/Template3";
+import ko_KR_Template4 from "@/templates/v2/ko_KR/Template4";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -45,6 +47,18 @@ export const templates: Template[] = [
     locale: "en_US",
   },
   {
+    component: en_US_Template4,
+    name: "Template4 (en_US)",
+    preferredConditions: ["TripleKills", "QuadraKills", "PentaKills"],
+    requirements: [
+      "Over1ItemsWithGoldOver2000",
+      "HasProPlayerImage",
+      "MultiKills",
+    ],
+    locale: "en_US",
+  },
+
+  {
     component: ko_KR_Template1,
     name: "Template1 (ko_KR)",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
@@ -63,6 +77,17 @@ export const templates: Template[] = [
     name: "Template3 (ko_KR)",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    locale: "ko_KR",
+  },
+  {
+    component: ko_KR_Template4,
+    name: "Template4 (ko_KR)",
+    preferredConditions: ["TripleKills", "QuadraKills", "PentaKills"],
+    requirements: [
+      "Over1ItemsWithGoldOver2000",
+      "HasProPlayerImage",
+      "MultiKills",
+    ],
     locale: "ko_KR",
   },
 
@@ -86,6 +111,8 @@ export function selectTemplate(gameInfo: GameInfoViewModel): {
       name: developmentTemplate.name,
     };
   }
+
+  console.log(gameInfo.tripleKills);
 
   // Step 1: 지역에 따라 템플릿 필터링
   let matchingTemplates = templates.filter((t) => t.locale === gameInfo.locale);

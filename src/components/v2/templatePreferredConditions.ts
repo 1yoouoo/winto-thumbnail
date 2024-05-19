@@ -4,7 +4,10 @@ export type PreferredConditions =
   | "NoDeath"
   | "HighKDA"
   | "PlayerName"
-  | "HasProPlayerImage";
+  | "HasProPlayerImage"
+  | "TripleKills"
+  | "QuadraKills"
+  | "PentaKills";
 
 type TemplatePreferredCondition = {
   name: PreferredConditions;
@@ -34,13 +37,31 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
     weight: 1,
     check: (gameInfo) => gameInfo.playerName !== undefined,
   },
-
   {
     name: "HasProPlayerImage",
     weight: 50,
     check: (gameInfo: GameInfoViewModel) => {
       return (gameInfo.proPlayerImageKeyList ?? []).length > 0;
     },
+  },
+  {
+    name: "TripleKills",
+    weight: 10,
+    check: (gameInfo) =>
+      Number(gameInfo.tripleKills) >= 1 &&
+      Number(gameInfo.quadraKills) < 1 &&
+      Number(gameInfo.pentaKills) < 1,
+  },
+  {
+    name: "QuadraKills",
+    weight: 40,
+    check: (gameInfo) =>
+      Number(gameInfo.quadraKills) >= 1 && Number(gameInfo.pentaKills) < 1,
+  },
+  {
+    name: "PentaKills",
+    weight: 100,
+    check: (gameInfo) => Number(gameInfo.pentaKills) >= 1,
   },
 
   // 기타 조건 추가...

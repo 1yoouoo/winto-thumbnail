@@ -13,7 +13,8 @@ export type Requirements =
   | "PlayerNameIsOverThan7"
   | "ChampionNameIsLessThan10"
   | "ChampionNameIsOverThan10"
-  | "HasProPlayerImage";
+  | "HasProPlayerImage"
+  | "MultiKills";
 
 type TemplateRequirement = {
   name: Requirements;
@@ -92,6 +93,16 @@ export const templateRequirements: TemplateRequirement[] = [
     name: "HasProPlayerImage",
     check: (gameInfo: GameInfoViewModel) => {
       return (gameInfo.proPlayerImageKeyList ?? []).length > 0;
+    },
+  },
+  {
+    name: "MultiKills",
+    check: (gameInfo) => {
+      return (
+        Number(gameInfo.tripleKills) > 0 ||
+        Number(gameInfo.quadraKills) > 0 ||
+        Number(gameInfo.pentaKills) > 0
+      );
     },
   },
   // 기타 조건 추가...
