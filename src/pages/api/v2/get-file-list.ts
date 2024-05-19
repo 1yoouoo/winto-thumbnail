@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { S3 } from "@aws-sdk/client-s3";
 import {
   spaceAccessKeyId,
+  spaceName,
   spaceRegion,
   spaceSecretAccessKey,
 } from "@/constant/constant";
@@ -25,7 +26,7 @@ export default async function handler(
 
   // S3에서 객체 목록을 조회합니다.
   const response = await s3Client.listObjects({
-    Bucket: "winto-thumbnail",
+    Bucket: `${spaceName}`,
     Prefix: prefix as string,
   });
 
