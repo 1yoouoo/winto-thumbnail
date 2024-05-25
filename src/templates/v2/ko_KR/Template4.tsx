@@ -5,6 +5,7 @@ import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
+import Background from "../Background";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -71,6 +72,7 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     championName,
     playerName,
     items,
+    skins,
     gameVersion,
     proPlayerImageKeyList,
     proTeamLogoKey,
@@ -135,52 +137,54 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const multiKillDetails = getMultiKillDetails();
 
   return (
-    <Container>
-      <GradientBackground />
-      <ProPlayerInfoImage
-        proPlayerImageKeyList={proPlayerImageKeyList!}
-        proTeamLogoKey={proTeamLogoKey!}
-      />
-
-      <Description>
-        <MultiKillText>
-          <GradientText
-            text={multiKillDetails.text}
-            primarycolor={multiKillDetails.primaryColor}
-            secondarycolor={multiKillDetails.secondaryColor}
-            fontSize="Large"
-          />
-        </MultiKillText>
-        <GradientText
-          text={playerName ?? "Challenger"}
-          primarycolor="white"
-          secondarycolor="#acacac"
-          fontSize="XSmall"
+    <Background championName={championName} skins={skins}>
+      <Container>
+        <GradientBackground />
+        <ProPlayerInfoImage
+          proPlayerImageKeyList={proPlayerImageKeyList!}
+          proTeamLogoKey={proTeamLogoKey!}
         />
 
-        <ChampionName>
+        <Description>
+          <MultiKillText>
+            <GradientText
+              text={multiKillDetails.text}
+              primarycolor={multiKillDetails.primaryColor}
+              secondarycolor={multiKillDetails.secondaryColor}
+              fontSize="Large"
+            />
+          </MultiKillText>
           <GradientText
-            text={localizedShortenName!}
-            primarycolor={primary}
-            secondarycolor={secondary}
+            text={playerName ?? "Challenger"}
+            primarycolor="white"
+            secondarycolor="#acacac"
             fontSize="XSmall"
           />
-        </ChampionName>
-      </Description>
 
-      <Items>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop1Items[0]}
-            width={250}
-            height={250}
-            blurred
-            boxshadow="ItemBoxShadowYellow"
-          />
-        </ItemWrapper>
-      </Items>
-    </Container>
+          <ChampionName>
+            <GradientText
+              text={localizedShortenName!}
+              primarycolor={primary}
+              secondarycolor={secondary}
+              fontSize="XSmall"
+            />
+          </ChampionName>
+        </Description>
+
+        <Items>
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop1Items[0]}
+              width={250}
+              height={250}
+              blurred
+              boxshadow="ItemBoxShadowYellow"
+            />
+          </ItemWrapper>
+        </Items>
+      </Container>
+    </Background>
   );
 };
 

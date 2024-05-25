@@ -7,6 +7,7 @@ import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
+import Background from "../Background";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -107,6 +108,7 @@ const en_US_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     assists,
     deaths,
     items,
+    skins,
     gameVersion,
     proPlayerImageKeyList,
     proTeamLogoKey,
@@ -137,68 +139,70 @@ const en_US_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const { primary, secondary } = champion.color;
 
   return (
-    <Container>
-      <GradientBackground />
-      <ProPlayerInfoImage
-        proPlayerImageKeyList={proPlayerImageKeyList!}
-        proTeamLogoKey={proTeamLogoKey!}
-      />
-
-      <Description>
-        <GradientText
-          text={playerName ?? "Challenger"}
-          primarycolor="white"
-          secondarycolor="#acacac"
-          fontSize="XSmall"
+    <Background championName={championName} skins={skins}>
+      <Container>
+        <GradientBackground />
+        <ProPlayerInfoImage
+          proPlayerImageKeyList={proPlayerImageKeyList!}
+          proTeamLogoKey={proTeamLogoKey!}
         />
 
-        <ChampionName>
+        <Description>
           <GradientText
-            text={localizedShortenName!}
-            primarycolor={primary}
-            secondarycolor={secondary}
+            text={playerName ?? "Challenger"}
+            primarycolor="white"
+            secondarycolor="#acacac"
             fontSize="XSmall"
           />
-        </ChampionName>
-      </Description>
 
-      <Items>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop2Items[0]}
-            width={200}
-            height={200}
-          />
-        </ItemWrapper>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop2Items[1]}
-            width={200}
-            height={200}
-          />
-        </ItemWrapper>
-      </Items>
-
-      <KDAContainer>
-        <KDAWrapper>
-          <GradientText
-            text={`${kills}/${deaths}/${assists}`}
-            fontSize="XSmall"
-          />
-          <BoxShadow />
-          <RedArrowWrapper>
-            <Image
-              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
-              alt="arrow"
-              width={250}
-              height={140}
+          <ChampionName>
+            <GradientText
+              text={localizedShortenName!}
+              primarycolor={primary}
+              secondarycolor={secondary}
+              fontSize="XSmall"
             />
-          </RedArrowWrapper>
-        </KDAWrapper>
-      </KDAContainer>
-    </Container>
+          </ChampionName>
+        </Description>
+
+        <Items>
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop2Items[0]}
+              width={200}
+              height={200}
+            />
+          </ItemWrapper>
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop2Items[1]}
+              width={200}
+              height={200}
+            />
+          </ItemWrapper>
+        </Items>
+
+        <KDAContainer>
+          <KDAWrapper>
+            <GradientText
+              text={`${kills}/${deaths}/${assists}`}
+              fontSize="XSmall"
+            />
+            <BoxShadow />
+            <RedArrowWrapper>
+              <Image
+                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
+                alt="arrow"
+                width={250}
+                height={140}
+              />
+            </RedArrowWrapper>
+          </KDAWrapper>
+        </KDAContainer>
+      </Container>
+    </Background>
   );
 };
 

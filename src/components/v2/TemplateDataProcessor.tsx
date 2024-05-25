@@ -58,9 +58,7 @@ const TemplateDataProcessor: React.FC<{
 
   return (
     <>
-      <Background championName={gameInfo.championName} skins={gameInfo.skins}>
-        <SelectedTemplateComponent gameInfo={gameInfo} />
-      </Background>
+      <SelectedTemplateComponent gameInfo={gameInfo} />
       {isDevelopment && (
         <DevelopmentStyle templateName={SelectedTemplateName || ""} />
       )}

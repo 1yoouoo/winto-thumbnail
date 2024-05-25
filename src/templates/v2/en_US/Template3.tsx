@@ -7,6 +7,7 @@ import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
+import Background from "../Background";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -120,6 +121,7 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const {
     championName,
     playerName,
+    skins,
     kills,
     assists,
     deaths,
@@ -157,72 +159,73 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const TestImage = `${spacesCdnFullEndpoint}/champion/2024-04/test/noname.png`;
 
   return (
-    <Container>
-      <GradientBackground />
-      <ProPlayerInfoImage
-        proPlayerImageKeyList={proPlayerImageKeyList!}
-        proTeamLogoKey={proTeamLogoKey!}
-      />
-
-      <ChampionImageWrapper>
-        <Image
-          src={TestImage}
-          alt=""
-          width={1800}
-          height={1800}
-          quality={100}
+    <Background championName={championName} skins={skins}>
+      <Container>
+        <GradientBackground />
+        <ProPlayerInfoImage
+          proPlayerImageKeyList={proPlayerImageKeyList!}
+          proTeamLogoKey={proTeamLogoKey!}
         />
-      </ChampionImageWrapper>
+        <ChampionImageWrapper>
+          <Image
+            src={TestImage}
+            alt=""
+            width={1800}
+            height={1800}
+            quality={100}
+          />
+        </ChampionImageWrapper>
 
-      <Description>
-        <GradientText
-          text={playerName ?? "Challenger"}
-          primarycolor="white"
-          secondarycolor="#acacac"
-          fontSize="XSmall"
-        />
-
-        <ChampionName>
+        <Description>
           <GradientText
-            text={localizedShortenName!}
-            primarycolor={primary}
-            secondarycolor={secondary}
+            text={playerName ?? "Challenger"}
+            primarycolor="white"
+            secondarycolor="#acacac"
             fontSize="XSmall"
           />
-        </ChampionName>
-      </Description>
 
-      <Items>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop1Items[0]}
-            width={250}
-            height={250}
-            blurred
-            boxshadow="ItemBoxShadowYellow"
-          />
-        </ItemWrapper>
-      </Items>
-
-      <KDAContainer>
-        <KDAWrapper>
-          <GradientText
-            text={`${kills}/${deaths}/${assists}`}
-            fontSize="XSmall"
-          />
-          <BoxShadow />
-          <RedArrowWrapper>
-            <Image
-              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
-              alt="arrow"
-              width={250}
-              height={140}
+          <ChampionName>
+            <GradientText
+              text={localizedShortenName!}
+              primarycolor={primary}
+              secondarycolor={secondary}
+              fontSize="XSmall"
             />
-          </RedArrowWrapper>
-        </KDAWrapper>
-      </KDAContainer>
-    </Container>
+          </ChampionName>
+        </Description>
+
+        <Items>
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop1Items[0]}
+              width={250}
+              height={250}
+              blurred
+              boxshadow="ItemBoxShadowYellow"
+            />
+          </ItemWrapper>
+        </Items>
+
+        <KDAContainer>
+          <KDAWrapper>
+            <GradientText
+              text={`${kills}/${deaths}/${assists}`}
+              fontSize="XSmall"
+            />
+            <BoxShadow />
+            <RedArrowWrapper>
+              <Image
+                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
+                alt="arrow"
+                width={250}
+                height={140}
+              />
+            </RedArrowWrapper>
+          </KDAWrapper>
+        </KDAContainer>
+      </Container>
+    </Background>
   );
 };
 

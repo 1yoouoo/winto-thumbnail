@@ -7,6 +7,7 @@ import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
+import Background from "../Background";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -118,6 +119,7 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const {
     championName,
     playerName,
+    skins,
     kills,
     assists,
     deaths,
@@ -152,78 +154,80 @@ const ko_KR_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const { primary, secondary } = champion.color;
 
   return (
-    <Container>
-      <GradientBackground />
-      <ProPlayerInfoImage
-        proPlayerImageKeyList={proPlayerImageKeyList!}
-        proTeamLogoKey={proTeamLogoKey!}
-      />
-
-      <Description>
-        <GradientText
-          text={playerName ?? "Challenger"}
-          primarycolor="white"
-          secondarycolor="#acacac"
-          fontSize="XSmall"
+    <Background championName={championName} skins={skins}>
+      <Container>
+        <GradientBackground />
+        <ProPlayerInfoImage
+          proPlayerImageKeyList={proPlayerImageKeyList!}
+          proTeamLogoKey={proTeamLogoKey!}
         />
-        <ChampionName>
+
+        <Description>
           <GradientText
-            // text="리신"
-            text={localizedShortenName!}
-            primarycolor={primary}
-            secondarycolor={secondary}
-            fontSize="XXSmall"
-          />
-        </ChampionName>
-      </Description>
-
-      <Items>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop3Items[0]}
-            width={200}
-            height={200}
-            blurred
-          />
-        </ItemWrapper>
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop3Items[1]}
-            width={200}
-            height={200}
-          />
-        </ItemWrapper>
-
-        <ItemWrapper>
-          <ItemImage
-            gameVersion={gameVersion}
-            item={getTop3Items[2]}
-            width={200}
-            height={200}
-          />
-        </ItemWrapper>
-      </Items>
-
-      <KDAContainer>
-        <KDAWrapper>
-          <GradientText
-            text={`${kills}/${deaths}/${assists}`}
+            text={playerName ?? "Challenger"}
+            primarycolor="white"
+            secondarycolor="#acacac"
             fontSize="XSmall"
           />
-          <BoxShadow />
-          <RedArrowWrapper>
-            <Image
-              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
-              alt="arrow"
-              width={250}
-              height={140}
+          <ChampionName>
+            <GradientText
+              // text="리신"
+              text={localizedShortenName!}
+              primarycolor={primary}
+              secondarycolor={secondary}
+              fontSize="XXSmall"
             />
-          </RedArrowWrapper>
-        </KDAWrapper>
-      </KDAContainer>
-    </Container>
+          </ChampionName>
+        </Description>
+
+        <Items>
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop3Items[0]}
+              width={200}
+              height={200}
+              blurred
+            />
+          </ItemWrapper>
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop3Items[1]}
+              width={200}
+              height={200}
+            />
+          </ItemWrapper>
+
+          <ItemWrapper>
+            <ItemImage
+              gameVersion={gameVersion}
+              item={getTop3Items[2]}
+              width={200}
+              height={200}
+            />
+          </ItemWrapper>
+        </Items>
+
+        <KDAContainer>
+          <KDAWrapper>
+            <GradientText
+              text={`${kills}/${deaths}/${assists}`}
+              fontSize="XSmall"
+            />
+            <BoxShadow />
+            <RedArrowWrapper>
+              <Image
+                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
+                alt="arrow"
+                width={250}
+                height={140}
+              />
+            </RedArrowWrapper>
+          </KDAWrapper>
+        </KDAContainer>
+      </Container>
+    </Background>
   );
 };
 
