@@ -18,6 +18,7 @@ const Container = styled.div<{ primary: string }>`
   background-color: ${(props) => props.primary};
   width: 1280px;
   height: 720px;
+  overflow: hidden;
 `;
 
 const Wrapper = styled.div<{ primary: string }>`
@@ -31,15 +32,17 @@ const Wrapper = styled.div<{ primary: string }>`
   border-radius: 40px;
   border: 12px solid ${(props) => props.primary};
   background-color: white;
-  overflow: hidden;
 `;
 
 const BackgroundHighlight = styled.div`
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   position: absolute;
-  width: 100%;
-  height: 100%;
   z-index: 0;
   opacity: 0.3;
+  object-fit: cover;
 `;
 
 const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
@@ -67,8 +70,8 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
             <Image
               src={`${spacesCdnFullEndpoint}/background/background-highlight-${highlightNumber}.png`}
               alt="background-highlight"
-              width={1280}
-              height={720}
+              width={1256.2}
+              height={696.2}
               priority
             />
           </BackgroundHighlight>

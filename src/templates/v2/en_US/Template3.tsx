@@ -11,7 +11,7 @@ import Background from "../Background";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -100,8 +100,7 @@ const ChampionImageWrapper = styled.span`
   position: absolute;
   bottom: -530px;
   right: -630px;
-  z-index: 1;
-  /* background-color: red; */
+  z-index: 5;
 
   img {
     filter: drop-shadow(1px 0 2px #0d117f5d) /* 오른쪽 그림자, 밝은 색 */
@@ -156,6 +155,7 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const { primary, secondary } = champion.color;
 
   // FIXME:https://winto-thumbnail-v2.sgp1.cdn.digitaloceanspaces.com/champion/2024-04/test/1.png
+  // const TestImage = `${spacesCdnFullEndpoint}/champion/2024-04/test/7-1.png`;
   const TestImage = `${spacesCdnFullEndpoint}/champion/2024-04/test/noname.png`;
 
   return (

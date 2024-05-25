@@ -22,11 +22,12 @@ const ProPlayerInfo = styled.div`
 `;
 
 const ProPlayerImage = styled.div`
-  z-index: 2;
+  z-index: 1;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transform: translateY(12px);
 
   img {
     object-fit: contain;

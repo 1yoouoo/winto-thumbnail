@@ -59,9 +59,9 @@ const TemplateDataProcessor: React.FC<{
   return (
     <>
       <SelectedTemplateComponent gameInfo={gameInfo} />
-      {isDevelopment && (
+      {/* {isDevelopment && (
         <DevelopmentStyle templateName={SelectedTemplateName || ""} />
-      )}
+      )} */}
     </>
   );
 };

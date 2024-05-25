@@ -6,6 +6,7 @@ const Gradient = styled.span`
   width: 50%;
   height: 100%;
   background: linear-gradient(to right, black, transparent);
+  z-index: 0;
 `;
 
 const GradientLeftBackground = () => {
