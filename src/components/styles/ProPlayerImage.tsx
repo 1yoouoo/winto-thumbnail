@@ -1,7 +1,12 @@
 import { spacesCdnFullEndpoint as spacesCdnEndpoint } from "@/constant/constant";
+import {
+  DropShadow,
+  dropShadow,
+  getRandomDropShadow,
+} from "@/style/dropShadow";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { StyleSheetManager } from "styled-components";
 
 const Container = styled.div`
   position: absolute;
@@ -21,7 +26,7 @@ const ProPlayerInfo = styled.div`
   position: relative;
 `;
 
-const ProPlayerImage = styled.div`
+const ProPlayerImage = styled.div<{ randomDropShadow: DropShadow }>`
   z-index: 1;
   position: relative;
   display: flex;
@@ -34,14 +39,7 @@ const ProPlayerImage = styled.div`
     width: auto;
     height: auto;
 
-    filter: drop-shadow(1px 0 2px #9194f65d) /* 오른쪽 그림자, 밝은 색 */
-      drop-shadow(0 1px 2px #9194f65d) /* 아래쪽 그림자, 밝은 색 */
-      drop-shadow(-1px 0 2px #9194f65d) /* 왼쪽 그림자, 밝은 색 */
-      drop-shadow(0 -1px 2px #9194f65d) /* 위쪽 그림자, 밝은 색 */
-      drop-shadow(1px 0 4px #9194f629) /* 오른쪽 더 흐릿한 그림자, 어두운 색 */
-      drop-shadow(0 1px 4px #9194f629) /* 아래쪽 더 흐릿한 그림자, 어두운 색 */
-      drop-shadow(-1px 0 4px #9194f629) /* 왼쪽 더 흐릿한 그림자, 어두운 색 */
-      drop-shadow(0 -1px 4px #9194f629);
+    ${(props) => dropShadow[props.randomDropShadow]}
   }
 `;
 
@@ -74,6 +72,7 @@ const ProPlayerInfoImage = ({
 
   const [proPlayerimgSrc, setProPlayerImgSrc] = useState("");
   const [proTeamLogoSrc, setProTeamLogoSrc] = useState("");
+  const randomDropShadow = getRandomDropShadow();
 
   useEffect(() => {
     if (!proPlayerImageKeyList || proPlayerImageKeyList.length === 0) {
@@ -104,26 +103,30 @@ const ProPlayerInfoImage = ({
   }
 
   return (
-    <Container>
-      <ImageWrapper>
-        <ProPlayerInfo>
-          <ProPlayerImage>
-            <Image
-              src={proPlayerimgSrc}
-              alt=""
-              width={600}
-              height={600}
-              quality={100}
-            />
-          </ProPlayerImage>
-        </ProPlayerInfo>
-      </ImageWrapper>
-      {proTeamLogoSrc && (
-        <ProTeamLogo>
-          <Image src={proTeamLogoSrc} alt="" width={150} height={150} />
-        </ProTeamLogo>
-      )}
-    </Container>
+    <StyleSheetManager
+      shouldForwardProp={(prop) => !["randomDropShadow"].includes(prop)}
+    >
+      <Container>
+        <ImageWrapper>
+          <ProPlayerInfo>
+            <ProPlayerImage randomDropShadow={randomDropShadow}>
+              <Image
+                src={proPlayerimgSrc}
+                alt=""
+                width={600}
+                height={600}
+                quality={100}
+              />
+            </ProPlayerImage>
+          </ProPlayerInfo>
+        </ImageWrapper>
+        {proTeamLogoSrc && (
+          <ProTeamLogo>
+            <Image src={proTeamLogoSrc} alt="" width={150} height={150} />
+          </ProTeamLogo>
+        )}
+      </Container>
+    </StyleSheetManager>
   );
 };
 
