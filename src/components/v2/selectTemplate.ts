@@ -45,7 +45,6 @@ export const templates: Template[] = [
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
     locale: "en_US",
-    select: true,
   },
   {
     component: en_US_Template4,
@@ -90,6 +89,7 @@ export const templates: Template[] = [
       "MultiKills",
     ],
     locale: "ko_KR",
+    select: true,
   },
 
   // 기타 템플릿 추가...

@@ -8,6 +8,7 @@ import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import Background from "../Background";
+import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -120,6 +121,7 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     proTeamLogoKey,
     locale,
     translatedChampionName,
+    championPortraits,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
@@ -144,14 +146,20 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const { primary, secondary } = champion.color;
 
+  const champPortrait = `${spacesCdnFullEndpoint}/${championPortraits}`;
   return (
-    <Background championName={championName} skins={skins}>
+    <Background
+      championName={championName}
+      skins={skins}
+      hasChampionPortrait={!!champPortrait}
+    >
       <Container>
         <GradientBackground />
         <ProPlayerInfoImage
           proPlayerImageKeyList={proPlayerImageKeyList!}
           proTeamLogoKey={proTeamLogoKey!}
         />
+        <ChampionPortraitWrapper src={champPortrait} />
 
         <Description>
           <GradientText

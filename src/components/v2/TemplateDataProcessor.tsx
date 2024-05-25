@@ -1,6 +1,5 @@
 import { Locale, ParsedQueryString } from "@/types/v2/model";
 import { selectTemplate } from "./selectTemplate";
-import Background from "@/templates/v2/Background";
 import { useFetchGameInfo } from "@/app/hooks/useFetchGameInfo";
 import DevelopmentStyle from "../styles/DevelopmentStyle";
 
@@ -28,6 +27,7 @@ const TemplateDataProcessor: React.FC<{
     proPlayerImageKeyList,
     proTeamLogoKey,
     translatedChampionName,
+    championPortraits,
     optionalFields,
     isLoading,
   } = useFetchGameInfo({
@@ -45,6 +45,7 @@ const TemplateDataProcessor: React.FC<{
     championName: parsedQueryString.championName,
     translatedChampionName,
     proTeamLogoKey,
+    championPortraits,
     locale: validLocale,
     ...optionalFields,
   };
@@ -59,9 +60,9 @@ const TemplateDataProcessor: React.FC<{
   return (
     <>
       <SelectedTemplateComponent gameInfo={gameInfo} />
-      {/* {isDevelopment && (
+      {isDevelopment && (
         <DevelopmentStyle templateName={SelectedTemplateName || ""} />
-      )} */}
+      )}
     </>
   );
 };

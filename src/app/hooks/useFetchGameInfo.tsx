@@ -7,6 +7,7 @@ import {
   Spell,
 } from "@/types/v2/model";
 import {
+  fetchChampionPortraitListFromBucket,
   fetchItemInfo,
   fetchLatestGameVersion,
   fetchProPlayerList,
@@ -128,6 +129,20 @@ export const useFetchGameInfo = ({
       !!parsedQueryString.locale,
   });
 
+  const championPortraitQuery = useQuery<string[]>({
+    queryKey: ["championPortrait", parsedQueryString.championName],
+    queryFn: ({ queryKey }) => {
+      const [, championName] = queryKey;
+
+      if (!championName) return [];
+
+      return fetchChampionPortraitListFromBucket({
+        championName: championName as string,
+      });
+    },
+    enabled: !!parsedQueryString.championName,
+  });
+
   const optionalFields = (query: ParsedQueryString) => {
     const fields: Partial<GameInfoViewModel> = {};
     if (query.teamName) fields.teamName = query.teamName;
@@ -192,13 +207,20 @@ export const useFetchGameInfo = ({
         details: translateChampionName.error.toString(),
       });
 
+    if (championPortraitQuery.isError)
+      sendSlackNotification({
+        title: "챔피언 포트레이트 조회 중 에러 발생",
+        details: championPortraitQuery.error.toString(),
+      });
+
     if (
       gameVersionQuery.error ||
       itemInfoQuery.error ||
       spellInfoQuery.error ||
       skinInfoQuery.error ||
       proPlayerImageQuery.error ||
-      proTeamLogoQuery.error
+      proTeamLogoQuery.error ||
+      championPortraitQuery.error
     )
       sendSlackNotification({
         title: "parsedQueryString",
@@ -220,6 +242,8 @@ export const useFetchGameInfo = ({
     proTeamLogoQuery.error,
     translateChampionName.isError,
     translateChampionName.error,
+    championPortraitQuery.isError,
+    championPortraitQuery.error,
   ]);
 
   return {
@@ -230,6 +254,7 @@ export const useFetchGameInfo = ({
     proPlayerImageKeyList: proPlayerImageQuery.data,
     proTeamLogoKey: proTeamLogoQuery.data,
     translatedChampionName: translateChampionName.data,
+    championPortraits: championPortraitQuery.data,
     optionalFields: optionalFields(parsedQueryString),
 
     isLoading:
@@ -238,7 +263,8 @@ export const useFetchGameInfo = ({
       spellInfoQuery.isLoading ||
       skinInfoQuery.isLoading ||
       proPlayerImageQuery.isLoading ||
-      proTeamLogoQuery.isLoading,
+      proTeamLogoQuery.isLoading ||
+      championPortraitQuery.isLoading,
 
     isError:
       gameVersionQuery.isError ||
@@ -247,6 +273,7 @@ export const useFetchGameInfo = ({
       skinInfoQuery.isError ||
       proPlayerImageQuery.isError ||
       proTeamLogoQuery.isError ||
-      translateChampionName.isError,
+      translateChampionName.isError ||
+      championPortraitQuery.isError,
   };
 };

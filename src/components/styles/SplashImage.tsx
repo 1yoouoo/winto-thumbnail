@@ -4,20 +4,30 @@ import { Ddragon, spacesCdnFullEndpoint } from "@/constant/constant";
 import styled from "styled-components";
 import { GameInfoViewModel } from "@/types/v2/model";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ hasChampionPortrait: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
 
   overflow: hidden;
+
+  img {
+    filter: ${({ hasChampionPortrait }) => hasChampionPortrait && "blur(5px)"};
+  }
 `;
 
 interface IProps {
   championName: string;
   skins: GameInfoViewModel["skins"];
+  hasChampionPortrait: boolean;
 }
 
-const SplashImage = ({ championName, skins, ...props }: IProps) => {
+const SplashImage = ({
+  championName,
+  skins,
+  hasChampionPortrait,
+  ...props
+}: IProps) => {
   const [imgSrc, setImgSrc] = useState("");
 
   useEffect(() => {
@@ -45,7 +55,7 @@ const SplashImage = ({ championName, skins, ...props }: IProps) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper hasChampionPortrait={hasChampionPortrait}>
       <Image
         src={imgSrc}
         alt="champion splash image"

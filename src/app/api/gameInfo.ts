@@ -169,6 +169,32 @@ export const fetchSkinListFromBucket = async ({
   }
 };
 
+export const fetchChampionPortraitListFromBucket = async ({
+  championName,
+}: {
+  championName: string;
+}): Promise<string[]> => {
+  try {
+    const prefix = `champion/2024-04/portrait/${championName}`;
+    const response = await fetch(
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+    );
+    const data = await response.json();
+    const filteredData = data.filter(
+      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
+    ) as string[];
+
+    return filteredData;
+  } catch (error: any) {
+    sendSlackNotification({
+      title: "챔피언 포트레이트 이미지 가져오기 중 에러 발생",
+      details: `${championName} 포트레이트 이미지가 없습니다. 추가해주세요.`,
+    });
+    console.log("error from gameInfo: ", error);
+    return [];
+  }
+};
+
 export const fetchProTeamLogo = async ({
   teamName: teamName,
 }: {

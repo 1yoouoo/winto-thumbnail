@@ -11,6 +11,7 @@ interface BackgroundProps {
   children: React.ReactNode;
   championName: string;
   skins: GameInfoViewModel["skins"];
+  hasChampionPortrait: boolean;
 }
 
 const Container = styled.div<{ primary: string }>`
@@ -29,9 +30,8 @@ const Wrapper = styled.div<{ primary: string }>`
   align-items: center;
   width: 1280px;
   height: 720px;
-  border-radius: 40px;
+  border-radius: 40px; //FIXME: 적용이 왜 안되지?
   border: 12px solid ${(props) => props.primary};
-  background-color: white;
 `;
 
 const BackgroundHighlight = styled.div`
@@ -65,7 +65,11 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
     >
       <Container primary={primary}>
         <Wrapper primary={primary}>
-          <SplashImage championName={props.championName} skins={props.skins!} />
+          <SplashImage
+            championName={props.championName}
+            skins={props.skins!}
+            hasChampionPortrait={!!props.hasChampionPortrait} //TODO
+          />
           <BackgroundHighlight>
             <Image
               src={`${spacesCdnFullEndpoint}/background/background-highlight-${highlightNumber}.png`}

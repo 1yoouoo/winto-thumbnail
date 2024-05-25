@@ -6,6 +6,7 @@ import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import Background from "../Background";
+import { spacesCdnFullEndpoint } from "@/constant/constant";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -75,6 +76,7 @@ const en_US_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     tripleKills,
     quadraKills,
     pentaKills,
+    championPortraits,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop1Items = sorteditems.slice(0, 1);
@@ -130,8 +132,13 @@ const en_US_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const multiKillDetails = getMultiKillDetails();
 
+  const champPortrait = `${spacesCdnFullEndpoint}/${championPortraits}`;
   return (
-    <Background championName={championName} skins={skins}>
+    <Background
+      championName={championName}
+      skins={skins}
+      hasChampionPortrait={!!champPortrait}
+    >
       <Container>
         <GradientBackground />
         <ProPlayerInfoImage

@@ -8,6 +8,7 @@ import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import Background from "../Background";
+import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -96,24 +97,6 @@ const ChampionName = styled.span`
   transform: translateY(-30px);
 `;
 
-const ChampionImageWrapper = styled.span`
-  position: absolute;
-  bottom: -530px;
-  right: -630px;
-  z-index: 5;
-
-  img {
-    filter: drop-shadow(1px 0 2px #0d117f5d) /* 오른쪽 그림자, 밝은 색 */
-      drop-shadow(0 1px 2px #0d117f5d) /* 아래쪽 그림자, 밝은 색 */
-      drop-shadow(-1px 0 2px #0d117f5d) /* 왼쪽 그림자, 밝은 색 */
-      drop-shadow(0 -1px 2px #0d117f5d) /* 위쪽 그림자, 밝은 색 */
-      drop-shadow(1px 0 4px #0d117f5d) /* 오른쪽 더 흐릿한 그림자, 어두운 색 */
-      drop-shadow(0 1px 4px #0d117f5d) /* 아래쪽 더 흐릿한 그림자, 어두운 색 */
-      drop-shadow(-1px 0 4px #0d117f5d) /* 왼쪽 더 흐릿한 그림자, 어두운 색 */
-      drop-shadow(0 -1px 4px #0d117f5d);
-  }
-`;
-
 const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   gameInfo,
 }) => {
@@ -130,6 +113,7 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     proTeamLogoKey,
     locale,
     translatedChampionName,
+    championPortraits,
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop1Items = sorteditems.slice(0, 1);
@@ -154,27 +138,21 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const { primary, secondary } = champion.color;
 
-  // FIXME:https://winto-thumbnail-v2.sgp1.cdn.digitaloceanspaces.com/champion/2024-04/test/1.png
-  // const TestImage = `${spacesCdnFullEndpoint}/champion/2024-04/test/7-1.png`;
-  const TestImage = `${spacesCdnFullEndpoint}/champion/2024-04/test/noname.png`;
+  const champPortrait = `${spacesCdnFullEndpoint}/${championPortraits}`;
 
   return (
-    <Background championName={championName} skins={skins}>
+    <Background
+      championName={championName}
+      skins={skins}
+      hasChampionPortrait={!!champPortrait}
+    >
       <Container>
         <GradientBackground />
         <ProPlayerInfoImage
           proPlayerImageKeyList={proPlayerImageKeyList!}
           proTeamLogoKey={proTeamLogoKey!}
         />
-        <ChampionImageWrapper>
-          <Image
-            src={TestImage}
-            alt=""
-            width={1800}
-            height={1800}
-            quality={100}
-          />
-        </ChampionImageWrapper>
+        <ChampionPortraitWrapper src={champPortrait} />
 
         <Description>
           <GradientText

@@ -18,6 +18,7 @@ export type GameInfoDto = {
   pentaKills: number;
   locale: Locale;
   enemyChampionName: string;
+  championPortraits: string[];
 }>;
 
 export type ParsedQueryString = {
@@ -40,6 +41,7 @@ export type ParsedQueryString = {
   pentaKills: string;
   locale: Locale;
   enemyChampionName: string;
+  championPortraits: string[];
 }>;
 
 export interface GameInfoModel {
@@ -62,6 +64,7 @@ export interface GameInfoModel {
   pentaKills?: string;
   locale?: Locale;
   enemyChampionName?: string;
+  championPortraits?: string[];
 }
 
 export interface GameInfoViewModel {
@@ -91,6 +94,7 @@ export interface GameInfoViewModel {
   locale?: Locale;
   enemyChampionName?: string;
   translatedChampionName?: string;
+  championPortraits?: string[];
 }
 
 export interface Item {

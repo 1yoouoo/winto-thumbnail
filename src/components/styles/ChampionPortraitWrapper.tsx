@@ -21,7 +21,9 @@ interface ChampionImageWrapperProps {
   src: string;
 }
 
-const ChampionImageWrapper: React.FC<ChampionImageWrapperProps> = ({ src }) => {
+const ChampionPortraitWrapper: React.FC<ChampionImageWrapperProps> = ({
+  src,
+}) => {
   const randomDropShadow = getRandomDropShadow();
 
   return (
@@ -35,4 +37,4 @@ const ChampionImageWrapper: React.FC<ChampionImageWrapperProps> = ({ src }) => {
   );
 };
 
-export default ChampionImageWrapper;
+export default ChampionPortraitWrapper;
