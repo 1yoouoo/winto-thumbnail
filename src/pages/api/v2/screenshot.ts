@@ -40,6 +40,12 @@ export default async function handler(
       message: "please use POST method",
     });
   }
+  if (!req.body) {
+    return res.status(400).json({
+      error: "Bad Request",
+      message: "request body is empty",
+    });
+  }
 
   console.log("req.body : ", req.body);
 

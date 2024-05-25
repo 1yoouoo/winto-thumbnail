@@ -95,6 +95,25 @@ const ChampionName = styled.span`
   transform: translateY(-30px);
 `;
 
+const ChampionImageWrapper = styled.span`
+  position: absolute;
+  bottom: -530px;
+  right: -630px;
+  z-index: 1;
+  /* background-color: red; */
+
+  img {
+    filter: drop-shadow(1px 0 2px #0d117f5d) /* 오른쪽 그림자, 밝은 색 */
+      drop-shadow(0 1px 2px #0d117f5d) /* 아래쪽 그림자, 밝은 색 */
+      drop-shadow(-1px 0 2px #0d117f5d) /* 왼쪽 그림자, 밝은 색 */
+      drop-shadow(0 -1px 2px #0d117f5d) /* 위쪽 그림자, 밝은 색 */
+      drop-shadow(1px 0 4px #0d117f5d) /* 오른쪽 더 흐릿한 그림자, 어두운 색 */
+      drop-shadow(0 1px 4px #0d117f5d) /* 아래쪽 더 흐릿한 그림자, 어두운 색 */
+      drop-shadow(-1px 0 4px #0d117f5d) /* 왼쪽 더 흐릿한 그림자, 어두운 색 */
+      drop-shadow(0 -1px 4px #0d117f5d);
+  }
+`;
+
 const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   gameInfo,
 }) => {
@@ -134,6 +153,9 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const { primary, secondary } = champion.color;
 
+  // FIXME:https://winto-thumbnail-v2.sgp1.cdn.digitaloceanspaces.com/champion/2024-04/test/1.png
+  const TestImage = `${spacesCdnFullEndpoint}/champion/2024-04/test/noname.png`;
+
   return (
     <Container>
       <GradientBackground />
@@ -141,6 +163,16 @@ const en_US_Template3: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         proPlayerImageKeyList={proPlayerImageKeyList!}
         proTeamLogoKey={proTeamLogoKey!}
       />
+
+      <ChampionImageWrapper>
+        <Image
+          src={TestImage}
+          alt=""
+          width={1800}
+          height={1800}
+          quality={100}
+        />
+      </ChampionImageWrapper>
 
       <Description>
         <GradientText
