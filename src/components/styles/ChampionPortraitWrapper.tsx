@@ -1,3 +1,4 @@
+import { spacesCdnFullEndpoint } from "@/constant/constant";
 import {
   DropShadow,
   dropShadow,
@@ -18,20 +19,31 @@ const Wrapper = styled.span<{ randomDropShadow: DropShadow }>`
 `;
 
 interface ChampionImageWrapperProps {
-  src: string;
+  championPortraits: string[];
 }
 
 const ChampionPortraitWrapper: React.FC<ChampionImageWrapperProps> = ({
-  src,
+  championPortraits,
 }) => {
   const randomDropShadow = getRandomDropShadow();
+
+  const randomChampPortrait =
+    championPortraits[Math.floor(Math.random() * championPortraits.length)];
+
+  const randomChampPortraitSrc = `${spacesCdnFullEndpoint}/${randomChampPortrait}`;
 
   return (
     <StyleSheetManager
       shouldForwardProp={(prop) => !["randomDropShadow"].includes(prop)}
     >
       <Wrapper randomDropShadow={randomDropShadow}>
-        <Image src={src} alt="" width={1800} height={1800} quality={100} />
+        <Image
+          src={randomChampPortraitSrc}
+          alt=""
+          width={1800}
+          height={1800}
+          quality={100}
+        />
       </Wrapper>
     </StyleSheetManager>
   );

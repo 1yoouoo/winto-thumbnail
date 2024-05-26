@@ -132,12 +132,12 @@ const en_US_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const multiKillDetails = getMultiKillDetails();
 
-  const champPortrait = `${spacesCdnFullEndpoint}/${championPortraits}`;
+  const hasChampionPortrait = championPortraits!.length > 0;
   return (
     <Background
       championName={championName}
       skins={skins}
-      hasChampionPortrait={!!champPortrait}
+      hasChampionPortrait={hasChampionPortrait}
     >
       <Container>
         <GradientBackground />

@@ -146,12 +146,12 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const { primary, secondary } = champion.color;
 
-  const champPortrait = `${spacesCdnFullEndpoint}/${championPortraits}`;
+  const hasChampionPortrait = championPortraits!.length > 0;
   return (
     <Background
       championName={championName}
       skins={skins}
-      hasChampionPortrait={!!champPortrait}
+      hasChampionPortrait={hasChampionPortrait}
     >
       <Container>
         <GradientBackground />
@@ -159,7 +159,9 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
           proPlayerImageKeyList={proPlayerImageKeyList!}
           proTeamLogoKey={proTeamLogoKey!}
         />
-        <ChampionPortraitWrapper src={champPortrait} />
+        {hasChampionPortrait && (
+          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+        )}
 
         <Description>
           <GradientText

@@ -6,7 +6,6 @@ import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import Background from "../Background";
-import { spacesCdnFullEndpoint } from "@/constant/constant";
 import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
 
 const Container = styled.div`
@@ -139,12 +138,12 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const multiKillDetails = getMultiKillDetails();
 
-  const champPortrait = `${spacesCdnFullEndpoint}/${championPortraits}`;
+  const hasChampionPortrait = championPortraits!.length > 0;
   return (
     <Background
       championName={championName}
       skins={skins}
-      hasChampionPortrait={!!champPortrait}
+      hasChampionPortrait={hasChampionPortrait}
     >
       <Container>
         <GradientBackground />
@@ -152,7 +151,9 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
           proPlayerImageKeyList={proPlayerImageKeyList!}
           proTeamLogoKey={proTeamLogoKey!}
         />
-        <ChampionPortraitWrapper src={champPortrait} />
+        {hasChampionPortrait && (
+          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+        )}
 
         <Description>
           <MultiKillText>
