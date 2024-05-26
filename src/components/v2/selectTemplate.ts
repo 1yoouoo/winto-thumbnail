@@ -56,7 +56,6 @@ export const templates: Template[] = [
       "MultiKills",
     ],
     locale: "en_US",
-    select: true,
   },
 
   {
