@@ -9,8 +9,8 @@ import styled, { StyleSheetManager } from "styled-components";
 
 const Wrapper = styled.span<{ randomDropShadow: DropShadow }>`
   position: absolute;
-  bottom: -530px;
-  right: -630px;
+  bottom: -733px;
+  right: -800px;
   z-index: 5;
 
   img {
@@ -40,8 +40,8 @@ const ChampionPortraitWrapper: React.FC<ChampionImageWrapperProps> = ({
         <Image
           src={randomChampPortraitSrc}
           alt=""
-          width={1800}
-          height={1800}
+          width={2150}
+          height={2150}
           quality={100}
         />
       </Wrapper>

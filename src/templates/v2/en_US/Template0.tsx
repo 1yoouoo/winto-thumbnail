@@ -148,7 +148,7 @@ const en_US_Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const { primary, secondary } = champion.color;
 
   const hasChampionPortrait = championPortraits!.length > 0;
-  console.log(championPortraits);
+
   return (
     <Background
       championName={championName}
