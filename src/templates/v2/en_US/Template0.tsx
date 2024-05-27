@@ -8,6 +8,7 @@ import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import Background from "../Background";
+import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -147,7 +148,7 @@ const en_US_Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const { primary, secondary } = champion.color;
 
   const hasChampionPortrait = championPortraits!.length > 0;
-
+  console.log(championPortraits);
   return (
     <Background
       championName={championName}
@@ -160,6 +161,11 @@ const en_US_Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({
           proPlayerImageKeyList={proPlayerImageKeyList!}
           proTeamLogoKey={proTeamLogoKey!}
         />
+
+        {hasChampionPortrait && (
+          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+        )}
+
         <DescriptionContainer>
           <Description>
             <GradientText
