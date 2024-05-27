@@ -66,7 +66,7 @@ export default async function handler(
     const screenshotUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
     await page.goto(screenshotUrl, {
       waitUntil: "networkidle0",
-      timeout: 10000,
+      timeout: 30000,
     });
 
     // Buffer로 스크린샷 생성
