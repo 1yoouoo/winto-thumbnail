@@ -68,15 +68,13 @@ const ProPlayerInfoImage = ({
   proPlayerImageKeyList: string[];
   proTeamLogoKey: string;
 }) => {
-  const anonymousUrl = `${spacesCdnEndpoint}/pro-player/anonymous.png`;
-
   const [proPlayerimgSrc, setProPlayerImgSrc] = useState("");
   const [proTeamLogoSrc, setProTeamLogoSrc] = useState("");
   const randomDropShadow = getRandomDropShadow();
 
   useEffect(() => {
     if (!proPlayerImageKeyList || proPlayerImageKeyList.length === 0) {
-      setProPlayerImgSrc(anonymousUrl);
+      setProPlayerImgSrc("");
       return;
     }
 
@@ -87,7 +85,7 @@ const ProPlayerInfoImage = ({
     const randomSkinKey = proPlayerImageKeyList?.[randomIndex];
     const newProPlayerImgSrc = `${spacesCdnEndpoint}/${randomSkinKey}`;
     setProPlayerImgSrc(newProPlayerImgSrc);
-  }, [anonymousUrl, proPlayerImageKeyList]);
+  }, [proPlayerImageKeyList]);
 
   useEffect(() => {
     if (!proTeamLogoKey) {

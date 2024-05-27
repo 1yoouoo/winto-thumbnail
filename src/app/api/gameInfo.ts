@@ -183,9 +183,8 @@ export const fetchChampionPortraitListFromBucket = async ({
     const filteredData = data.filter(
       (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
     ) as string[];
-
     return filteredData;
-  } catch (error: any) {
+  } catch (error) {
     sendSlackNotification({
       title: "챔피언 포트레이트 이미지 가져오기 중 에러 발생",
       details: `${championName} 포트레이트 이미지가 없습니다. 추가해주세요.`,

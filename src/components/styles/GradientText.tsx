@@ -20,7 +20,8 @@ const Container = styled.span<GradientTextStyleProps>`
     props.primarycolor && props.secondarycolor ? "transparent" : "white"};
   padding: 10px 0;
   text-transform: ${(props) => (props.capitalize ? "uppercase" : "none")};
-  font-size: ${(props) => props.calculatedFontSize}px;
+  font-size: ${(props) =>
+    props.fixedFontSize ? props.fixedFontSize : props.calculatedFontSize}px;
   white-space: nowrap;
 
   &::before {
@@ -38,6 +39,7 @@ interface GradientTextStyleProps {
   capitalize?: boolean;
   fontSize?: string;
   calculatedFontSize: number;
+  fixedFontSize?: number;
 }
 
 interface GradientTextProps {
@@ -46,6 +48,7 @@ interface GradientTextProps {
   secondarycolor?: string;
   capitalize?: boolean;
   fontSize?: "Large" | "Medium" | "Small" | "XSmall" | "XXSmall" | "XXXSmall";
+  fixedFontSize?: number;
 }
 
 const fontSizeMap = {
@@ -93,6 +96,7 @@ const GradientText = ({
   secondarycolor,
   capitalize,
   fontSize = "Medium",
+  fixedFontSize,
 }: GradientTextProps) => {
   function calculateDynamicFontSize({
     letterCount,
@@ -113,10 +117,12 @@ const GradientText = ({
     return dynamicFontSize;
   }
 
-  const calculatedFontSize = calculateDynamicFontSize({
-    letterCount: text.length,
-    size: fontSize,
-  });
+  const calculatedFontSize =
+    fixedFontSize ??
+    calculateDynamicFontSize({
+      letterCount: text.length,
+      size: fontSize,
+    });
 
   return (
     <StyleSheetManager
@@ -127,6 +133,7 @@ const GradientText = ({
           "primarycolor",
           "secondarycolor",
           "calculatedFontSize",
+          "fixedFontSize",
         ].includes(prop)
       }
     >
@@ -136,6 +143,7 @@ const GradientText = ({
         secondarycolor={secondarycolor}
         capitalize={capitalize}
         calculatedFontSize={calculatedFontSize}
+        fixedFontSize={fixedFontSize}
       >
         {text}
       </Container>

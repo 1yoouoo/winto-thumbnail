@@ -5,7 +5,6 @@ import {
   templatePreferredConditions,
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
-import DefaultTemplate from "@/templates/v2/DefaultTemplate";
 import en_US_Template1 from "@/templates/v2/en_US/Template1";
 import en_US_Template2 from "@/templates/v2/en_US/Template2";
 import en_US_Template3 from "@/templates/v2/en_US/Template3";
@@ -14,6 +13,9 @@ import ko_KR_Template1 from "@/templates/v2/ko_KR/Template1";
 import ko_KR_Template2 from "@/templates/v2/ko_KR/Template2";
 import ko_KR_Template3 from "@/templates/v2/ko_KR/Template3";
 import ko_KR_Template4 from "@/templates/v2/ko_KR/Template4";
+import ko_KR_Template0 from "@/templates/v2/ko_KR/Template0";
+import en_US_Template0 from "@/templates/v2/en_US/Template0";
+import DefaultTemplate from "@/templates/v2/DefaultTemplate";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -112,8 +114,6 @@ export function selectTemplate(gameInfo: GameInfoViewModel): {
     };
   }
 
-  console.log(gameInfo.tripleKills);
-
   // Step 1: 지역에 따라 템플릿 필터링
   let matchingTemplates = templates.filter((t) => t.locale === gameInfo.locale);
 
@@ -130,10 +130,9 @@ export function selectTemplate(gameInfo: GameInfoViewModel): {
         ?.check(gameInfo)
     )
   );
-
   // Step 3: preferredConditions에 해당하는 조건을 만족할 때마다 가중치를 반영하여 점수 부여
   const scoredTemplates = filteredTemplates.map((template) => {
-    let score = 1; // 기본 점수 1점 부여
+    let score = 0; // 기본 점수 1점 부여
     score += (template.preferredConditions ?? []).reduce(
       (acc, prefCondition) => {
         const condition = templatePreferredConditions.find(
@@ -176,8 +175,23 @@ export function selectTemplate(gameInfo: GameInfoViewModel): {
     printTemplate({ weightedTemplates, gameInfo });
 
   // 선택된 템플릿의 컴포넌트 반환 또는 기본값 반환
+  let defaultTemplate;
+  switch (gameInfo.locale) {
+    case "ko_KR":
+      defaultTemplate = ko_KR_Template0;
+      break;
+
+    case "en_US":
+      defaultTemplate = en_US_Template0;
+      break;
+
+    default:
+      defaultTemplate = DefaultTemplate;
+      break;
+  }
+
   return {
-    component: selectedTemplate ? selectedTemplate.component : DefaultTemplate,
+    component: selectedTemplate ? selectedTemplate.component : defaultTemplate,
     name: selectedTemplate?.name ?? "DefaultTemplate",
   };
 }

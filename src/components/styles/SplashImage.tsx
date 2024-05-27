@@ -12,7 +12,7 @@ const Wrapper = styled.div<{ hasChampionPortrait: boolean }>`
   overflow: hidden;
 
   img {
-    filter: ${({ hasChampionPortrait }) => hasChampionPortrait && "blur(5px)"};
+    filter: ${({ hasChampionPortrait }) => hasChampionPortrait && "blur(10px)"};
   }
 `;
 

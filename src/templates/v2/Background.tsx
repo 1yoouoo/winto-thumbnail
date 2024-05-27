@@ -54,6 +54,7 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
       secondary: "#FFFFFF",
     },
   };
+
   const { primary } = champion.color;
 
   const highlightNumber =
