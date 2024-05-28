@@ -99,10 +99,11 @@ export const templates: Template[] = [
     preferredConditions: ["PlayerName"],
     requirements: ["Over0ItemsWithGoldOver2000", "HasProPlayerImage"],
     locale: "ko_KR",
+    select: true,
   },
   {
     component: ko_KR_Template5,
-    name: "Template4 (ko_KR)",
+    name: "Template5 (ko_KR)",
     preferredConditions: ["TripleKills", "QuadraKills", "PentaKills"],
     requirements: [
       "Over1ItemsWithGoldOver2000",

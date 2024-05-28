@@ -31,7 +31,7 @@ const Description = styled.span`
   align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 10;
   transform: rotate(-2deg);
 `;
 
@@ -180,7 +180,7 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
               text={localizedShortenName!}
               primarycolor={primary}
               secondarycolor={secondary}
-              fontSize="XXSmall"
+              fontSize="XSmall"
             />
           </ChampionName>
         </Description>

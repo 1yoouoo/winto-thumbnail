@@ -31,7 +31,7 @@ const Description = styled.span`
   align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 10;
   transform: rotate(-2deg);
 `;
 

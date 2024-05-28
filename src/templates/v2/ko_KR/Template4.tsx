@@ -28,7 +28,7 @@ const Description = styled.span`
   align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 10;
   transform: rotate(-2deg);
 `;
 
@@ -83,7 +83,7 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const hasChampionPortrait = championPortraits!.length > 0;
 
-  const EmphasisTextList = ["역대급", "압도적인", "전설적인", "세최폼"];
+  const EmphasisTextList = ["역대급", "압도적인", "피지컬", "세최폼"];
 
   const getRandomEmphasisText = () => {
     return EmphasisTextList[
@@ -128,7 +128,7 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
               text={localizedShortenName!}
               primarycolor={primary}
               secondarycolor={secondary}
-              fontSize="XSmall"
+              fontSize="XXSmall"
             />
           </ChampionName>
         </Description>
