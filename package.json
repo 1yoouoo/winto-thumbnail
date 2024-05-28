@@ -10,7 +10,7 @@
     "lint": "next lint",
     "test": "echo \"hi\"",
     "ssh": "ssh -i winto-thumbnail.pem ubuntu@ec2-54-180-98-149.ap-northeast-2.compute.amazonaws.com",
-    "deploy": "npm run build && tar -czf build.tar.gz .next/ && scp -o StrictHostKeyChecking=no build.tar.gz root@146.190.47.191:/root/winto-thumbnail"
+    "deploy": "npm run build && tar -czf build.tar.gz .next/ && scp -o StrictHostKeyChecking=no build.tar.gz root@146.190.47.191:/root/winto-thumbnail && ssh root@146.190.47.191 'bash /root/winto-thumbnail/deploy.sh'"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.540.0",
