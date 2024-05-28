@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
-import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
@@ -10,7 +9,7 @@ import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -23,7 +22,7 @@ const Container = styled.div`
 const Description = styled.span`
   position: absolute;
   top: 70px;
-  left: 0px;
+  left: -40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,27 +32,8 @@ const Description = styled.span`
   transform: rotate(-2deg);
 `;
 
-const Items = styled.span`
-  position: absolute;
-  bottom: 60px;
-  right: 40px;
-  margin-top: 15px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-  z-index: 10;
-
-  > :nth-child(1) {
-    transform: rotate(5deg);
-    z-index: 2;
-  }
-`;
-
-const ItemWrapper = styled.span``;
-
 const ChampionName = styled.span`
-  transform: translateY(-30px);
+  transform: translateY(-50px);
   font-family: "WAGURITTF";
   @font-face {
     font-family: "WAGURITTF";
@@ -62,8 +42,9 @@ const ChampionName = styled.span`
   }
 `;
 
-const MultiKillText = styled.span`
-  transform: translateY(10px);
+const EmphasisWrapper = styled.div`
+  transform: translateY(-30px);
+  font-family: "WAGURITTF";
 `;
 
 const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
@@ -72,20 +53,13 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   const {
     championName,
     playerName,
-    items,
     skins,
-    gameVersion,
     proPlayerImageKeyList,
     proTeamLogoKey,
     locale,
     translatedChampionName,
-    tripleKills,
-    quadraKills,
-    pentaKills,
     championPortraits,
   } = gameInfo;
-  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
-  const getTop1Items = sorteditems.slice(0, 1);
   const champion = championDto[championName] || {
     name: championName,
     shortenName: {},
@@ -107,38 +81,16 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const { primary, secondary } = champion.color;
 
-  const getMultiKillDetails = () => {
-    if (pentaKills ?? 0 > 0) {
-      return {
-        text: "PENTA KILL!",
-        primaryColor: "#FF204E",
-        secondaryColor: "#F11A7B",
-      };
-    }
-    if (quadraKills ?? 0 > 0) {
-      return {
-        text: "QUADRA KILL!",
-        primaryColor: "#FFDA78",
-        secondaryColor: "#FF7F3E",
-      };
-    }
-    if (tripleKills ?? 0 > 0) {
-      return {
-        text: "TRIPLE KILL!",
-        primaryColor: "#C77CFF",
-        secondaryColor: "#6B42F5",
-      };
-    }
-    return {
-      text: "",
-      primaryColor: "#FFFFFF", // Default colors if no multi-kills
-      secondaryColor: "#FFFFFF",
-    };
+  const hasChampionPortrait = championPortraits!.length > 0;
+
+  const EmphasisTextList = ["역대급", "압도적인", "전설적인", "세최폼"];
+
+  const getRandomEmphasisText = () => {
+    return EmphasisTextList[
+      Math.floor(Math.random() * EmphasisTextList.length)
+    ];
   };
 
-  const multiKillDetails = getMultiKillDetails();
-
-  const hasChampionPortrait = championPortraits!.length > 0;
   return (
     <Background
       championName={championName}
@@ -156,20 +108,20 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         )}
 
         <Description>
-          <MultiKillText>
-            <GradientText
-              text={multiKillDetails.text}
-              primarycolor={multiKillDetails.primaryColor}
-              secondarycolor={multiKillDetails.secondaryColor}
-              fontSize="Large"
-            />
-          </MultiKillText>
           <GradientText
             text={playerName ?? "Challenger"}
             primarycolor="white"
             secondarycolor="#acacac"
             fontSize="XSmall"
           />
+          <EmphasisWrapper>
+            <GradientText
+              text={getRandomEmphasisText()}
+              primarycolor="#FFDB5C"
+              secondarycolor="#F97300"
+              fontSize="XSmall"
+            />
+          </EmphasisWrapper>
 
           <ChampionName>
             <GradientText
@@ -180,19 +132,6 @@ const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
             />
           </ChampionName>
         </Description>
-
-        <Items>
-          <ItemWrapper>
-            <ItemImage
-              gameVersion={gameVersion}
-              item={getTop1Items[0]}
-              width={250}
-              height={250}
-              blurred
-              boxshadow="ItemBoxShadowYellow"
-            />
-          </ItemWrapper>
-        </Items>
       </Container>
     </Background>
   );

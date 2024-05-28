@@ -1,6 +1,7 @@
 import { GameInfoViewModel, Item } from "@/types/v2/model";
 
 export type Requirements =
+  | "Over0ItemsWithGoldOver2000"
   | "Over1ItemsWithGoldOver2000"
   | "Over2ItemsWithGoldOver2000"
   | "Over3ItemsWithGoldOver2000"
@@ -23,6 +24,10 @@ type TemplateRequirement = {
 };
 
 export const templateRequirements: TemplateRequirement[] = [
+  {
+    name: "Over0ItemsWithGoldOver2000",
+    check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 0,
+  },
   {
     name: "Over1ItemsWithGoldOver2000",
     check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 1,
