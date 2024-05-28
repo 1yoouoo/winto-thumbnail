@@ -1,0 +1,58 @@
+name: Build and Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+    - name: Archive build files
+      run: tar -czf build.tar.gz .next/
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: build.tar.gz
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: build-artifact
+        path: build.tar.gz
+
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.REMOTE_PRIVATE_KEY }}
+        known_hosts: ${{ secrets.REMOTE_IP }}
+
+    - name: Copy files to EC2
+      run: |
+        scp -o StrictHostKeyChecking=no build.tar.gz ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_IP }}:/root/winto-thumbnail
+
+    - name: Deploy to EC2
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_IP }} << 'EOF'
+          cd /root/winto-thumbnail
+          tar -xzf build.tar.gz
+          pm2 restart all
+        EOF
