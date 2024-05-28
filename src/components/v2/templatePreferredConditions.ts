@@ -19,12 +19,12 @@ type TemplatePreferredCondition = {
 export const templatePreferredConditions: TemplatePreferredCondition[] = [
   {
     name: "NoDeath",
-    weight: 20,
+    weight: 200,
     check: (gameInfo) => Number(gameInfo.deaths) === 0,
   },
   {
     name: "HighKDA",
-    weight: 5,
+    weight: 50,
     check: (gameInfo) => {
       const kda =
         (Number(gameInfo.kills) + Number(gameInfo.assists)) /
@@ -39,7 +39,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "HasProPlayerImage",
-    weight: 50,
+    weight: 500,
     check: (gameInfo: GameInfoViewModel) => {
       return (gameInfo.proPlayerImageKeyList ?? []).length > 0;
     },
@@ -54,13 +54,13 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "QuadraKills",
-    weight: 40,
+    weight: 400,
     check: (gameInfo) =>
       Number(gameInfo.quadraKills) >= 1 && Number(gameInfo.pentaKills) < 1,
   },
   {
     name: "PentaKills",
-    weight: 100,
+    weight: 1000,
     check: (gameInfo) => Number(gameInfo.pentaKills) >= 1,
   },
 

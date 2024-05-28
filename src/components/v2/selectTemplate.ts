@@ -56,8 +56,8 @@ export const templates: Template[] = [
   {
     component: en_US_Template4,
     name: "Template4 (en_US)",
-    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
-    requirements: ["Over0ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    preferredConditions: ["PlayerName"],
+    requirements: ["Over0ItemsWithGoldOver2000", "HasProPlayerImage"],
     locale: "en_US",
   },
   {
@@ -96,8 +96,8 @@ export const templates: Template[] = [
   {
     component: ko_KR_Template4,
     name: "Template4 (ko_KR)",
-    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
-    requirements: ["Over0ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    preferredConditions: ["PlayerName"],
+    requirements: ["Over0ItemsWithGoldOver2000", "HasProPlayerImage"],
     locale: "ko_KR",
   },
   {
