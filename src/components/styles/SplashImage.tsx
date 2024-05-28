@@ -13,6 +13,7 @@ const Wrapper = styled.div<{ hasChampionPortrait: boolean }>`
 
   img {
     filter: ${({ hasChampionPortrait }) => hasChampionPortrait && "blur(10px)"};
+    opacity: 0.8;
   }
 `;
 
