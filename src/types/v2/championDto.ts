@@ -3,6 +3,7 @@ import { Locale } from "./model";
 export type ChampionDto = {
   [key: string]: {
     name: string;
+    // eslint-disable-next-line no-unused-vars
     shortenName: { [K in Locale]?: string };
     color: { primary: string; secondary: string };
   };

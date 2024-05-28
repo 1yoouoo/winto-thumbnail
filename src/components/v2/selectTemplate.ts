@@ -99,7 +99,6 @@ export const templates: Template[] = [
     preferredConditions: ["PlayerName"],
     requirements: ["Over0ItemsWithGoldOver2000", "HasProPlayerImage"],
     locale: "ko_KR",
-    select: true,
   },
   {
     component: ko_KR_Template5,
