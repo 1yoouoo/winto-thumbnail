@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import styled, { StyleSheetManager } from "styled-components";
 
 const Container = styled.div`
-  z-index: 101;
+  z-index: 10;
   position: absolute;
   display: flex;
   flex-direction: column;

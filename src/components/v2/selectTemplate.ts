@@ -62,7 +62,7 @@ export const templates: Template[] = [
   },
   {
     component: en_US_Template5,
-    name: "Template4 (en_US)",
+    name: "Template5 (en_US)",
     preferredConditions: ["TripleKills", "QuadraKills", "PentaKills"],
     requirements: [
       "Over1ItemsWithGoldOver2000",
