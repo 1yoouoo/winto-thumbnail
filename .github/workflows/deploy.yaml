@@ -38,7 +38,13 @@ jobs:
       with:
         name: build-artifact
         path: build.tar.gz
-
+        
+    - name: Display SSH Credentials
+      run: |
+        echo ${{ secrets.REMOTE_PRIVATE_KEY }}
+        echo "Remote User: ${{ secrets.REMOTE_USER }}"
+        echo "Remote IP: ${{ secrets.REMOTE_IP }}"
+      
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
