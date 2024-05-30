@@ -54,12 +54,12 @@ const Items = styled.span`
 
   > :nth-child(2) {
     order: 1;
-    transform: rotate(3deg) translate(50px, 7px);
+    transform: rotate(6deg) translate(80px, 7px);
   }
 
   > :nth-child(3) {
     order: 3;
-    transform: rotate(-8deg) translate(-50px, 5px);
+    transform: rotate(-8deg) translate(-50px, 12px);
   }
 `;
 

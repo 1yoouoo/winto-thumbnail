@@ -145,7 +145,7 @@ export const fetchSkinListFromBucket = async ({
   championName: string;
 }): Promise<SkinKey[]> => {
   try {
-    const prefix = `champion/2024-04/right/${championName}`;
+    const prefix = `champion/right/${championName}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
@@ -175,7 +175,7 @@ export const fetchChampionPortraitListFromBucket = async ({
   championName: string;
 }): Promise<string[]> => {
   try {
-    const prefix = `champion/2024-04/portrait/${championName}`;
+    const prefix = `champion/portrait/${championName}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
