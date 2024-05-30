@@ -47,7 +47,7 @@ export const fetchItemInfo = async ({
       title: "아이템 정보 가져오기 중 에러 발생",
       details: error.toString(),
     });
-    console.log("error from gameInfo: ", error);
+    console.log(`${itemIds} 이 없습니다. 추가해주세요.`);
     return [];
   }
 };
@@ -82,7 +82,7 @@ export const fetchSummonerSpellInfo = async ({
       title: "스펠 정보 가져오기 중 에러 발생",
       details: error.toString(),
     });
-    console.log("error from gameInfo: ", error);
+    console.log(`${spellIds} 스펠 정보가 없습니다. 추가해주세요.`);
     return [];
   }
 };
@@ -106,7 +106,7 @@ export const fetchSkinInfo = async ({
       title: "스킨 정보 가져오기 중 에러 발생",
       details: error.toString(),
     });
-    console.log("error from gameInfo: ", error);
+    console.log(`${championName} 스킨 정보가 없습니다. 추가해주세요.`);
     return [];
   }
 };
@@ -144,8 +144,9 @@ export const fetchSkinListFromBucket = async ({
 }: {
   championName: string;
 }): Promise<SkinKey[]> => {
+  const championNameLower = championName.toLowerCase();
   try {
-    const prefix = `champion/right/${championName}`;
+    const prefix = `champion/right/${championNameLower}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
@@ -164,7 +165,7 @@ export const fetchSkinListFromBucket = async ({
       title: "스킨 이미지 가져오기 중 에러 발생",
       details: error.toString(),
     });
-    console.log("error from gameInfo: ", error);
+    console.log(`${championNameLower} 스킨 이미지가 없습니다. 추가해주세요.`);
     return [];
   }
 };
@@ -174,8 +175,9 @@ export const fetchChampionPortraitListFromBucket = async ({
 }: {
   championName: string;
 }): Promise<string[]> => {
+  const championNameLower = championName.toLowerCase();
   try {
-    const prefix = `champion/portrait/${championName}`;
+    const prefix = `champion/portrait/${championNameLower}`;
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}`
     );
@@ -187,9 +189,11 @@ export const fetchChampionPortraitListFromBucket = async ({
   } catch (error) {
     sendSlackNotification({
       title: "챔피언 포트레이트 이미지 가져오기 중 에러 발생",
-      details: `${championName} 포트레이트 이미지가 없습니다. 추가해주세요.`,
+      details: `${championNameLower} 포트레이트 이미지가 없습니다. 추가해주세요.`,
     });
-    console.log("error from gameInfo: ", error);
+    console.log(
+      `${championNameLower} 포트레이트 이미지가 없습니다. 추가해주세요.`
+    );
     return [];
   }
 };
@@ -217,6 +221,7 @@ export const fetchProTeamLogo = async ({
       title: `${teamNameUpper} 팀의 이미지가 없습니다. 추가해주세요.`,
       details: `${prefix} 경로에 이미지가 없습니다.`,
     });
+    console.log(`${teamNameUpper} 팀의 이미지가 없습니다. 추가해주세요.`);
     return "";
   }
 };
@@ -236,6 +241,6 @@ export const fetchTranslateChampionName = async ({
 
     return response.data.data[championName].name;
   } catch (error: any) {
-    console.log("error from gameInfo: ", error);
+    console.log(`${championName} 챔피언 이름 정보가 없습니다. 추가해주세요.`);
   }
 };
