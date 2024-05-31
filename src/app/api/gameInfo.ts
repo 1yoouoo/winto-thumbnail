@@ -3,6 +3,7 @@ import { Ddragon, app_url } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
 import { Item, Locale, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
 import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
+import { championDto } from "@/types/v2/championDto";
 
 export const fetchLatestGameVersion = async (): Promise<string> => {
   try {
@@ -95,8 +96,9 @@ export const fetchSkinInfo = async ({
   gameVersion: string;
   championName: string;
 }): Promise<SkinInfo[]> => {
+  const ChampionNameApiKey = championDto[championName].apiKey;
   try {
-    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/champion/${championName}.json`;
+    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/champion/${ChampionNameApiKey}.json`;
     const response = await axios.get(url);
     const skinData = response.data.data[`${championName}`].skins as SkinInfo[];
 
@@ -235,8 +237,9 @@ export const fetchTranslateChampionName = async ({
   championName: string;
   locale: Locale;
 }) => {
+  const ChampionNameApiKey = championDto[championName].apiKey;
   try {
-    const url = `${Ddragon}/cdn/${gameVersion}/data/${locale}/champion/${championName}.json`;
+    const url = `${Ddragon}/cdn/${gameVersion}/data/${locale}/champion/${ChampionNameApiKey}.json`;
     const response = await axios.get(url);
 
     return response.data.data[championName].name;

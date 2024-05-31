@@ -6,6 +6,7 @@ export type ChampionDto = {
     // eslint-disable-next-line no-unused-vars
     shortenName: { [K in Locale]?: string };
     color: { primary: string; secondary: string };
+    apiKey: string;
   };
 };
 
@@ -18,6 +19,7 @@ export const championDto: ChampionDto = {
       primary: "#de2500",
       secondary: "#920000",
     },
+    apiKey: "Aatrox",
   },
   //? Personal Color
   Ahri: {
@@ -27,6 +29,7 @@ export const championDto: ChampionDto = {
       primary: "#EE82EE",
       secondary: "#FFC0CB",
     },
+    apiKey: "Ahri",
   },
   //? Personal Color
   Akali: {
@@ -36,6 +39,7 @@ export const championDto: ChampionDto = {
       primary: "#2ECC71",
       secondary: "#27AE60",
     },
+    apiKey: "Akali",
   },
   //? Personal Color
   Akshan: {
@@ -45,6 +49,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#2E86C1",
     },
+    apiKey: "Akshan",
   },
   //? Personal Color
   Alistar: {
@@ -54,6 +59,7 @@ export const championDto: ChampionDto = {
       primary: "#B7950B",
       secondary: "#7D6608",
     },
+    apiKey: "Alistar",
   },
   //? Personal Color
   Amumu: {
@@ -63,6 +69,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    apiKey: "Amumu",
   },
   //? Personal Color
   Anivia: {
@@ -72,6 +79,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    apiKey: "Anivia",
   },
   //? Personal Color
   Annie: {
@@ -81,6 +89,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    apiKey: "Annie",
   },
   Aphelios: {
     name: "Aphelios",
@@ -89,6 +98,7 @@ export const championDto: ChampionDto = {
       primary: "#9AC5F4",
       secondary: "#0E46A3",
     },
+    apiKey: "Aphelios",
   },
   //? Personal Color
   Ashe: {
@@ -98,6 +108,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#3498DB",
     },
+    apiKey: "Ashe",
   },
   AurelionSol: {
     name: "Aurelion Sol",
@@ -106,6 +117,7 @@ export const championDto: ChampionDto = {
       primary: "#867AE9",
       secondary: "#503ef8",
     },
+    apiKey: "Aurelion Sol",
   },
   //? Personal Color
   Azir: {
@@ -115,6 +127,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F1C40F",
     },
+    apiKey: "Azir",
   },
   //? Personal Color
   Bard: {
@@ -124,6 +137,7 @@ export const championDto: ChampionDto = {
       primary: "#D35400",
       secondary: "#E67E22",
     },
+    apiKey: "Bard",
   },
   //? Personal Color
   Belveth: {
@@ -133,6 +147,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#A93226",
     },
+    apiKey: "Bel'Veth",
   },
   //? Personal Color
   Blitzcrank: {
@@ -142,6 +157,7 @@ export const championDto: ChampionDto = {
       primary: "#F1C40F",
       secondary: "#F39C12",
     },
+    apiKey: "Blitzcrank",
   },
   //? Personal Color
   Brand: {
@@ -151,6 +167,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Brand",
   },
   //? Personal Color
   Braum: {
@@ -160,6 +177,7 @@ export const championDto: ChampionDto = {
       primary: "#5D6D7E",
       secondary: "#34495E",
     },
+    apiKey: "Braum",
   },
   //? Personal Color
   Briar: {
@@ -169,6 +187,7 @@ export const championDto: ChampionDto = {
       primary: "#117A65",
       secondary: "#0E6655",
     },
+    apiKey: "Briar",
   },
   //? Personal Color
   Caitlyn: {
@@ -178,6 +197,7 @@ export const championDto: ChampionDto = {
       primary: "#7FB3D5",
       secondary: "#5499C7",
     },
+    apiKey: "Caitlyn",
   },
   //? Personal Color
   Camille: {
@@ -187,6 +207,7 @@ export const championDto: ChampionDto = {
       primary: "#48C9B0",
       secondary: "#1ABC9C",
     },
+    apiKey: "Camille",
   },
   //? Personal Color
   Cassiopeia: {
@@ -196,6 +217,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#2ECC71",
     },
+    apiKey: "Cassiopeia",
   },
   //? Personal Color
   Chogath: {
@@ -205,6 +227,7 @@ export const championDto: ChampionDto = {
       primary: "#839192",
       secondary: "#707B7C",
     },
+    apiKey: "Cho'Gath",
   },
   //? Personal Color
   Corki: {
@@ -214,6 +237,7 @@ export const championDto: ChampionDto = {
       primary: "#DC7633",
       secondary: "#BA4A00",
     },
+    apiKey: "Corki",
   },
   //? Personal Color
   Darius: {
@@ -223,6 +247,7 @@ export const championDto: ChampionDto = {
       primary: "#641E16",
       secondary: "#7B241C",
     },
+    apiKey: "Darius",
   },
   Diana: {
     name: "Diana",
@@ -231,6 +256,7 @@ export const championDto: ChampionDto = {
       primary: "#9ec1d9",
       secondary: "#303e51",
     },
+    apiKey: "Diana",
   },
   //? Personal Color
   DrMundo: {
@@ -240,6 +266,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#28B463",
     },
+    apiKey: "Mundo",
   },
   //? Personal Color
   Draven: {
@@ -249,6 +276,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    apiKey: "Draven",
   },
   //? Personal Color
   Ekko: {
@@ -258,6 +286,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Ekko",
   },
   //? Personal Color
   Elise: {
@@ -267,6 +296,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    apiKey: "Elise",
   },
   //? Personal Color
   Evelynn: {
@@ -276,6 +306,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    apiKey: "Evelynn",
   },
   //? Personal Color
   Ezreal: {
@@ -285,15 +316,17 @@ export const championDto: ChampionDto = {
       primary: "#F4D03F",
       secondary: "#F7DC6F",
     },
+    apiKey: "Ezreal",
   },
   //? Personal Color
-  Fiddlesticks: {
-    name: "Fiddlesticks",
+  FiddleSticks: {
+    name: "FiddleSticks",
     shortenName: { en_US: "Fiddle" },
     color: {
       primary: "#6C3483",
       secondary: "#5B2C6F",
     },
+    apiKey: "Fiddlesticks", //! 예외
   },
   //? Personal Color
   Fiora: {
@@ -303,6 +336,7 @@ export const championDto: ChampionDto = {
       primary: "#CB4335",
       secondary: "#922B21",
     },
+    apiKey: "Fiora",
   },
   //? Personal Color
   Fizz: {
@@ -312,6 +346,7 @@ export const championDto: ChampionDto = {
       primary: "#48C9B0",
       secondary: "#1ABC9C",
     },
+    apiKey: "Fizz",
   },
   //? Personal Color
   Galio: {
@@ -321,6 +356,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Galio",
   },
   //? Personal Color
   Gangplank: {
@@ -330,6 +366,7 @@ export const championDto: ChampionDto = {
       primary: "#D35400",
       secondary: "#E67E22",
     },
+    apiKey: "Gangplank",
   },
   //? Personal Color
   Garen: {
@@ -339,6 +376,7 @@ export const championDto: ChampionDto = {
       primary: "#239B56",
       secondary: "#1D8348",
     },
+    apiKey: "Garen",
   },
   //? Personal Color
   Gnar: {
@@ -348,6 +386,7 @@ export const championDto: ChampionDto = {
       primary: "#A569BD",
       secondary: "#8E44AD",
     },
+    apiKey: "Gnar",
   },
   Gragas: {
     name: "Gragas",
@@ -356,6 +395,7 @@ export const championDto: ChampionDto = {
       primary: "#ffe8a5",
       secondary: "#FFD966",
     },
+    apiKey: "Gragas",
   },
   //? Personal Color
   Graves: {
@@ -365,6 +405,7 @@ export const championDto: ChampionDto = {
       primary: "#616A6B",
       secondary: "#424949",
     },
+    apiKey: "Graves",
   },
   //? Personal Color
   Gwen: {
@@ -374,6 +415,7 @@ export const championDto: ChampionDto = {
       primary: "#AED6F1",
       secondary: "#85C1E9",
     },
+    apiKey: "Gwen",
   },
   //? Personal Color
   Hecarim: {
@@ -383,6 +425,7 @@ export const championDto: ChampionDto = {
       primary: "#2E86C1",
       secondary: "#1B4F72",
     },
+    apiKey: "Hecarim",
   },
   //? Personal Color
   Heimerdinger: {
@@ -392,6 +435,7 @@ export const championDto: ChampionDto = {
       primary: "#F4D03F",
       secondary: "#F5B041",
     },
+    apiKey: "Heimerdinger",
   },
   //? Personal Color
   Hwei: {
@@ -401,6 +445,7 @@ export const championDto: ChampionDto = {
       primary: "#8E44AD",
       secondary: "#9B59B6",
     },
+    apiKey: "Hwei",
   },
   //? Personal Color
   Illaoi: {
@@ -410,6 +455,7 @@ export const championDto: ChampionDto = {
       primary: "#117864",
       secondary: "#0E6251",
     },
+    apiKey: "Illaoi",
   },
   //? Personal Color
   Irelia: {
@@ -419,6 +465,7 @@ export const championDto: ChampionDto = {
       primary: "#2980B9",
       secondary: "#3498DB",
     },
+    apiKey: "Irelia",
   },
   //? Personal Color
   Ivern: {
@@ -428,6 +475,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#2ECC71",
     },
+    apiKey: "Ivern",
   },
   //? Personal Color
   Janna: {
@@ -437,6 +485,7 @@ export const championDto: ChampionDto = {
       primary: "#AED6F1",
       secondary: "#85C1E9",
     },
+    apiKey: "Janna",
   },
   JarvanIV: {
     name: "Jarvan IV",
@@ -445,6 +494,7 @@ export const championDto: ChampionDto = {
       primary: "#FFB319",
       secondary: "#FFAB76",
     },
+    apiKey: "Jarvan IV",
   },
   //? Personal Color
   Jax: {
@@ -454,6 +504,7 @@ export const championDto: ChampionDto = {
       primary: "#784212",
       secondary: "#6E2C00",
     },
+    apiKey: "Jax",
   },
   //? Personal Color
   Jayce: {
@@ -463,6 +514,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Jayce",
   },
   //? Personal Color
   Jhin: {
@@ -472,6 +524,7 @@ export const championDto: ChampionDto = {
       primary: "#641E16",
       secondary: "#7B241C",
     },
+    apiKey: "Jhin",
   },
   //? Personal Color
   Jinx: {
@@ -481,6 +534,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Jinx",
   },
   //? Personal Color
   KSante: {
@@ -490,6 +544,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    apiKey: "K'Sante",
   },
   //? Personal Color
   Kaisa: {
@@ -499,6 +554,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#4A235A",
     },
+    apiKey: "Kai'Sa",
   },
   //? Personal Color
   Kalista: {
@@ -508,6 +564,7 @@ export const championDto: ChampionDto = {
       primary: "#117A65",
       secondary: "#0E6655",
     },
+    apiKey: "Kalista",
   },
   //? Personal Color
   Karma: {
@@ -517,6 +574,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#FAD7A0",
     },
+    apiKey: "Karma",
   },
   //? Personal Color
   Karthus: {
@@ -526,6 +584,7 @@ export const championDto: ChampionDto = {
       primary: "#5B2C6F",
       secondary: "#7D3C98",
     },
+    apiKey: "Karthus",
   },
   //? Personal Color
   Kassadin: {
@@ -535,6 +594,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#5DADE2",
     },
+    apiKey: "Kassadin",
   },
   //? Personal Color
   Katarina: {
@@ -544,6 +604,7 @@ export const championDto: ChampionDto = {
       primary: "#CB4335",
       secondary: "#922B21",
     },
+    apiKey: "Katarina",
   },
   //? Personal Color
   Kayle: {
@@ -553,6 +614,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    apiKey: "Kayle",
   },
   //? Personal Color
   Kayn: {
@@ -562,6 +624,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2E4053",
     },
+    apiKey: "Kayn",
   },
   //? Personal Color
   Kennen: {
@@ -571,6 +634,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    apiKey: "Kennen",
   },
   //? Personal Color
   Khazix: {
@@ -580,6 +644,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    apiKey: "Kha'Zix",
   },
   Kindred: {
     name: "Kindred",
@@ -588,6 +653,7 @@ export const championDto: ChampionDto = {
       primary: "#92B4EC",
       secondary: "#B1BCE6",
     },
+    apiKey: "Kindred",
   },
   //? Personal Color
   Kled: {
@@ -597,6 +663,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Kled",
   },
   //? Personal Color
   KogMaw: {
@@ -606,6 +673,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    apiKey: "Kog'Maw",
   },
   //? Personal Color
   Leblanc: {
@@ -615,6 +683,7 @@ export const championDto: ChampionDto = {
       primary: "#76448A",
       secondary: "#633974",
     },
+    apiKey: "LeBlanc",
   },
   LeeSin: {
     name: "Lee Sin",
@@ -623,6 +692,7 @@ export const championDto: ChampionDto = {
       primary: "#F2613F",
       secondary: "#FF6363",
     },
+    apiKey: "Lee Sin",
   },
   //? Personal Color
   Leona: {
@@ -632,6 +702,7 @@ export const championDto: ChampionDto = {
       primary: "#F1C40F",
       secondary: "#F39C12",
     },
+    apiKey: "Leona",
   },
   //? Personal Color
   Lillia: {
@@ -641,6 +712,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    apiKey: "Lillia",
   },
   //? Personal Color
   Lissandra: {
@@ -650,6 +722,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    apiKey: "Lissandra",
   },
   //? Personal Color
   Lucian: {
@@ -659,6 +732,7 @@ export const championDto: ChampionDto = {
       primary: "#8b92b9",
       secondary: "#433f54",
     },
+    apiKey: "Lucian",
   },
   //? Personal Color
   Lulu: {
@@ -668,6 +742,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    apiKey: "Lulu",
   },
   //? Personal Color
   Lux: {
@@ -677,6 +752,7 @@ export const championDto: ChampionDto = {
       primary: "#FAD7A0",
       secondary: "#FDEBD0",
     },
+    apiKey: "Lux",
   },
   //? Personal Color
   Malphite: {
@@ -686,6 +762,7 @@ export const championDto: ChampionDto = {
       primary: "#626567",
       secondary: "#515A5A",
     },
+    apiKey: "Malphite",
   },
   //? Personal Color
   Malzahar: {
@@ -695,6 +772,7 @@ export const championDto: ChampionDto = {
       primary: "#8E44AD",
       secondary: "#7D3C98",
     },
+    apiKey: "Malzahar",
   },
   //? Personal Color
   Maokai: {
@@ -704,6 +782,7 @@ export const championDto: ChampionDto = {
       primary: "#145A32",
       secondary: "#196F3D",
     },
+    apiKey: "Maokai",
   },
   //? Personal Color
   MasterYi: {
@@ -713,6 +792,7 @@ export const championDto: ChampionDto = {
       primary: "#79e199",
       secondary: "#16411a",
     },
+    apiKey: "Master Yi",
   },
   //? Personal Color
   Milio: {
@@ -722,6 +802,7 @@ export const championDto: ChampionDto = {
       primary: "#F4D03F",
       secondary: "#F7DC6F",
     },
+    apiKey: "Milio",
   },
   //? Personal Color
   MissFortune: {
@@ -731,6 +812,7 @@ export const championDto: ChampionDto = {
       primary: "#E74C3C",
       secondary: "#CB4335",
     },
+    apiKey: "Miss Fortune",
   },
   //? Personal Color
   Mordekaiser: {
@@ -740,6 +822,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Mordekaiser",
   },
   //? Personal Color
   Morgana: {
@@ -749,6 +832,7 @@ export const championDto: ChampionDto = {
       primary: "#797D7F",
       secondary: "#626567",
     },
+    apiKey: "Morgana",
   },
   //? Personal Color
   Naafiri: {
@@ -758,6 +842,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    apiKey: "Naafiri",
   },
   //? Personal Color
   Nami: {
@@ -767,6 +852,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    apiKey: "Nami",
   },
   //? Personal Color
   Nasus: {
@@ -776,6 +862,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#D68910",
     },
+    apiKey: "Nasus",
   },
   //? Personal Color
   Nautilus: {
@@ -785,6 +872,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Nautilus",
   },
   //? Personal Color
   Neeko: {
@@ -794,6 +882,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#2ECC71",
     },
+    apiKey: "Neeko",
   },
   //? Personal Color
   Nidalee: {
@@ -803,6 +892,7 @@ export const championDto: ChampionDto = {
       primary: "#229954",
       secondary: "#27AE60",
     },
+    apiKey: "Nidalee",
   },
   //? Personal Color
   Nilah: {
@@ -812,6 +902,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#5DADE2",
     },
+    apiKey: "Nilah",
   },
   Nocturne: {
     name: "Nocturne",
@@ -820,6 +911,7 @@ export const championDto: ChampionDto = {
       primary: "#0c9dd4",
       secondary: "#1d2e78",
     },
+    apiKey: "Nocturne",
   },
   //? Personal Color
   Nunu: {
@@ -829,6 +921,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Nunu",
   },
   //? Personal Color
   Olaf: {
@@ -838,6 +931,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Olaf",
   },
   //? Personal Color
   Orianna: {
@@ -847,6 +941,7 @@ export const championDto: ChampionDto = {
       primary: "#85929E",
       secondary: "#5D6D7E",
     },
+    apiKey: "Orianna",
   },
   Ornn: {
     name: "Ornn",
@@ -855,6 +950,7 @@ export const championDto: ChampionDto = {
       primary: "#c61141",
       secondary: "#370924",
     },
+    apiKey: "Ornn",
   },
   //? Personal Color
   Pantheon: {
@@ -864,6 +960,7 @@ export const championDto: ChampionDto = {
       primary: "#7B241C",
       secondary: "#922B21",
     },
+    apiKey: "Pantheon",
   },
   //? Personal Color
   Poppy: {
@@ -873,6 +970,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    apiKey: "Poppy",
   },
   //? Personal Color
   Pyke: {
@@ -882,6 +980,7 @@ export const championDto: ChampionDto = {
       primary: "#1B4F72",
       secondary: "#154360",
     },
+    apiKey: "Pyke",
   },
   //? Personal Color
   Qiyana: {
@@ -891,6 +990,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#229954",
     },
+    apiKey: "Qiyana",
   },
   //? Personal Color
   Quinn: {
@@ -900,6 +1000,7 @@ export const championDto: ChampionDto = {
       primary: "#7E5109",
       secondary: "#6E2C00",
     },
+    apiKey: "Quinn",
   },
   //? Personal Color
   Rakan: {
@@ -909,6 +1010,7 @@ export const championDto: ChampionDto = {
       primary: "#F1948A",
       secondary: "#EC7063",
     },
+    apiKey: "Rakan",
   },
   //? Personal Color
   Rammus: {
@@ -918,6 +1020,7 @@ export const championDto: ChampionDto = {
       primary: "#9C640C",
       secondary: "#7E5109",
     },
+    apiKey: "Rammus",
   },
   RekSai: {
     name: "Rek'Sai",
@@ -926,6 +1029,7 @@ export const championDto: ChampionDto = {
       primary: "#D09CFA",
       secondary: "#A555EC",
     },
+    apiKey: "Rek'Sai",
   },
   //? Personal Color
   Rell: {
@@ -935,6 +1039,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#7B241C",
     },
+    apiKey: "Rell",
   },
   //? Personal Color
   Renata: {
@@ -944,6 +1049,7 @@ export const championDto: ChampionDto = {
       primary: "#D5D8DC",
       secondary: "#ABB2B9",
     },
+    apiKey: "Renata",
   },
   //? Personal Color
   Renekton: {
@@ -953,6 +1059,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#7B241C",
     },
+    apiKey: "Renekton",
   },
   //? Personal Color
   Rengar: {
@@ -962,6 +1069,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#229954",
     },
+    apiKey: "Rengar",
   },
   //? Personal Color
   Riven: {
@@ -971,6 +1079,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#6C3483",
     },
+    apiKey: "Riven",
   },
   //? Personal Color
   Rumble: {
@@ -980,6 +1089,7 @@ export const championDto: ChampionDto = {
       primary: "#E67E22",
       secondary: "#D35400",
     },
+    apiKey: "Rumble",
   },
   //? Personal Color
   Ryze: {
@@ -989,6 +1099,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    apiKey: "Ryze",
   },
   //? Personal Color
   Samira: {
@@ -998,6 +1109,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    apiKey: "Samira",
   },
   //? Personal Color
   Sejuani: {
@@ -1007,6 +1119,7 @@ export const championDto: ChampionDto = {
       primary: "#AED6F1",
       secondary: "#85C1E9",
     },
+    apiKey: "Sejuani",
   },
   //? Personal Color
   Senna: {
@@ -1016,6 +1129,7 @@ export const championDto: ChampionDto = {
       primary: "#a6f2f5",
       secondary: "#164e6d",
     },
+    apiKey: "Senna",
   },
   //? Personal Color
   Seraphine: {
@@ -1025,6 +1139,7 @@ export const championDto: ChampionDto = {
       primary: "#F5B7B1",
       secondary: "#F1948A",
     },
+    apiKey: "Seraphine",
   },
   //? Personal Color
   Sett: {
@@ -1034,6 +1149,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Sett",
   },
   //? Personal Color
   Shaco: {
@@ -1043,6 +1159,7 @@ export const championDto: ChampionDto = {
       primary: "#9B59B6",
       secondary: "#8E44AD",
     },
+    apiKey: "Shaco",
   },
   //? Personal Color
   Shen: {
@@ -1052,6 +1169,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#2980B9",
     },
+    apiKey: "Shen",
   },
   //? Personal Color
   Shyvana: {
@@ -1061,6 +1179,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    apiKey: "Shyvana",
   },
   //? Personal Color
   Singed: {
@@ -1070,6 +1189,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#229954",
     },
+    apiKey: "Singed",
   },
   //? Personal Color
   Sion: {
@@ -1079,6 +1199,7 @@ export const championDto: ChampionDto = {
       primary: "#7B241C",
       secondary: "#641E16",
     },
+    apiKey: "Sion",
   },
   //? Personal Color
   Sivir: {
@@ -1088,6 +1209,7 @@ export const championDto: ChampionDto = {
       primary: "#D4AC0D",
       secondary: "#B7950B",
     },
+    apiKey: "Sivir",
   },
   //? Personal Color
   Skarner: {
@@ -1097,6 +1219,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    apiKey: "Skarner",
   },
   //? Personal Color
   Smolder: {
@@ -1106,6 +1229,7 @@ export const championDto: ChampionDto = {
       primary: "#E74C3C",
       secondary: "#CB4335",
     },
+    apiKey: "Smolder",
   },
   //? Personal Color
   Sona: {
@@ -1115,6 +1239,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Sona",
   },
   //? Personal Color
   Soraka: {
@@ -1124,6 +1249,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    apiKey: "Soraka",
   },
   //? Personal Color
   Swain: {
@@ -1133,6 +1259,7 @@ export const championDto: ChampionDto = {
       primary: "#641E16",
       secondary: "#7B241C",
     },
+    apiKey: "Swain",
   },
   Sylas: {
     name: "Sylas",
@@ -1141,6 +1268,7 @@ export const championDto: ChampionDto = {
       primary: "#B1BCE6",
       secondary: "#92B4EC",
     },
+    apiKey: "Sylas",
   },
   //? Personal Color
   Syndra: {
@@ -1150,6 +1278,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#6C3483",
     },
+    apiKey: "Syndra",
   },
   //? Personal Color
   TahmKench: {
@@ -1159,6 +1288,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Tahm Kench",
   },
   //? Personal Color
   Taliyah: {
@@ -1168,6 +1298,7 @@ export const championDto: ChampionDto = {
       primary: "#117A65",
       secondary: "#0E6655",
     },
+    apiKey: "Taliyah",
   },
   //? Personal Color
   Talon: {
@@ -1177,6 +1308,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Talon",
   },
   //? Personal Color
   Taric: {
@@ -1186,6 +1318,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    apiKey: "Taric",
   },
   //? Personal Color
   Teemo: {
@@ -1195,6 +1328,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    apiKey: "Teemo",
   },
   //? Personal Color
   Thresh: {
@@ -1204,6 +1338,7 @@ export const championDto: ChampionDto = {
       primary: "#16A085",
       secondary: "#1ABC9C",
     },
+    apiKey: "Thresh",
   },
   //? Personal Color
   Tristana: {
@@ -1213,6 +1348,7 @@ export const championDto: ChampionDto = {
       primary: "#3498DB",
       secondary: "#5DADE2",
     },
+    apiKey: "Tristana",
   },
   //? Personal Color
   Trundle: {
@@ -1222,6 +1358,7 @@ export const championDto: ChampionDto = {
       primary: "#1B4F72",
       secondary: "#154360",
     },
+    apiKey: "Trundle",
   },
   //? Personal Color
   Tryndamere: {
@@ -1231,6 +1368,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#922B21",
     },
+    apiKey: "Tryndamere",
   },
   //? Personal Color
   TwistedFate: {
@@ -1240,6 +1378,7 @@ export const championDto: ChampionDto = {
       primary: "#89a4bc",
       secondary: "#7aa8dc",
     },
+    apiKey: "Twisted Fate",
   },
   Twitch: {
     name: "Twitch",
@@ -1248,6 +1387,7 @@ export const championDto: ChampionDto = {
       primary: "#B980F0",
       secondary: "#6C3483",
     },
+    apiKey: "Twitch",
   },
   //? Personal Color
   Udyr: {
@@ -1257,6 +1397,7 @@ export const championDto: ChampionDto = {
       primary: "#D35400",
       secondary: "#E67E22",
     },
+    apiKey: "Udyr",
   },
   //? Personal Color
   Urgot: {
@@ -1266,6 +1407,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Urgot",
   },
   //? Personal Color
   Varus: {
@@ -1275,6 +1417,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    apiKey: "Varus",
   },
   //? Personal Color
   Vayne: {
@@ -1284,6 +1427,7 @@ export const championDto: ChampionDto = {
       primary: "#7B241C",
       secondary: "#641E16",
     },
+    apiKey: "Vayne",
   },
   //? Personal Color
   Veigar: {
@@ -1293,6 +1437,7 @@ export const championDto: ChampionDto = {
       primary: "#8E44AD",
       secondary: "#9B59B6",
     },
+    apiKey: "Veigar",
   },
   //? Personal Color
   Velkoz: {
@@ -1302,6 +1447,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
+    apiKey: "Vel'Koz",
   },
   //? Personal Color
   Vex: {
@@ -1311,6 +1457,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Vex",
   },
   //? Personal Color
   Vi: {
@@ -1320,6 +1467,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Vi",
   },
   //? Personal Color
   Viego: {
@@ -1329,6 +1477,7 @@ export const championDto: ChampionDto = {
       primary: "#1ad0ab",
       secondary: "#156f5b",
     },
+    apiKey: "Viego",
   },
   //? Personal Color
   Viktor: {
@@ -1338,6 +1487,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Viktor",
   },
   //? Personal Color
   Vladimir: {
@@ -1347,6 +1497,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    apiKey: "Vladimir",
   },
   //? Personal Color
   Volibear: {
@@ -1356,6 +1507,7 @@ export const championDto: ChampionDto = {
       primary: "#1B4F72",
       secondary: "#154360",
     },
+    apiKey: "Volibear",
   },
   //? Personal Color
   Warwick: {
@@ -1365,6 +1517,7 @@ export const championDto: ChampionDto = {
       primary: "#7E5109",
       secondary: "#6E2C00",
     },
+    apiKey: "Warwick",
   },
   //? Personal Color
   MonkeyKing: {
@@ -1374,6 +1527,7 @@ export const championDto: ChampionDto = {
       primary: "#D4AC0D",
       secondary: "#B7950B",
     },
+    apiKey: "Wukong",
   },
   //? Personal Color
   Xayah: {
@@ -1383,6 +1537,7 @@ export const championDto: ChampionDto = {
       primary: "#922B21",
       secondary: "#641E16",
     },
+    apiKey: "Xayah",
   },
   //? Personal Color
   Xerath: {
@@ -1392,6 +1547,7 @@ export const championDto: ChampionDto = {
       primary: "#85C1E9",
       secondary: "#AED6F1",
     },
+    apiKey: "Xerath",
   },
   //? Personal Color
   XinZhao: {
@@ -1401,6 +1557,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
+    apiKey: "Xin Zhao",
   },
   //? Personal Color
   Yasuo: {
@@ -1410,6 +1567,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
+    apiKey: "Yasuo",
   },
   //? Personal Color
   Yone: {
@@ -1419,6 +1577,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
+    apiKey: "Yone",
   },
   //? Personal Color
   Yorick: {
@@ -1428,6 +1587,7 @@ export const championDto: ChampionDto = {
       primary: "#6C3483",
       secondary: "#5B2C6F",
     },
+    apiKey: "Yorick",
   },
   //? Personal Color
   Yuumi: {
@@ -1437,6 +1597,7 @@ export const championDto: ChampionDto = {
       primary: "#A569BD",
       secondary: "#8E44AD",
     },
+    apiKey: "Yuumi",
   },
   //? Personal Color
   Zac: {
@@ -1446,6 +1607,7 @@ export const championDto: ChampionDto = {
       primary: "#27AE60",
       secondary: "#2ECC71",
     },
+    apiKey: "Zac",
   },
   //? Personal Color
   Zed: {
@@ -1455,6 +1617,7 @@ export const championDto: ChampionDto = {
       primary: "#34495E",
       secondary: "#2C3E50",
     },
+    apiKey: "Zed",
   },
   //? Personal Color
   Zeri: {
@@ -1464,6 +1627,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#2ECC71",
     },
+    apiKey: "Zeri",
   },
   //? Personal Color
   Ziggs: {
@@ -1473,6 +1637,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
+    apiKey: "Ziggs",
   },
   //? Personal Color
   Zilean: {
@@ -1482,6 +1647,7 @@ export const championDto: ChampionDto = {
       primary: "#F7DC6F",
       secondary: "#F4D03F",
     },
+    apiKey: "Zilean",
   },
   //? Personal Color
   Zoe: {
@@ -1491,6 +1657,7 @@ export const championDto: ChampionDto = {
       primary: "#F1948A",
       secondary: "#EC7063",
     },
+    apiKey: "Zoe",
   },
   //? Personal Color
   Zyra: {
@@ -1500,5 +1667,6 @@ export const championDto: ChampionDto = {
       primary: "#229954",
       secondary: "#27AE60",
     },
+    apiKey: "Zyra",
   },
 };
