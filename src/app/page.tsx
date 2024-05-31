@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>hello from nextjs !11</div>;
+  return <div>api key 추가</div>;
 }
