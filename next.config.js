@@ -35,12 +35,12 @@ module.exports = {
       },
       {
         protocol: "https",
-        hostname: "winto-thumbnail-v2.sgp1.digitaloceanspaces.com",
+        hostname: "winto-thumbnail-v3.sgp1.digitaloceanspaces.com",
         pathname: "**",
       },
       {
         protocol: "https",
-        hostname: "winto-thumbnail-v2.sgp1.cdn.digitaloceanspaces.com",
+        hostname: "winto-thumbnail-v3.sgp1.cdn.digitaloceanspaces.com",
         pathname: "**",
       },
       {
