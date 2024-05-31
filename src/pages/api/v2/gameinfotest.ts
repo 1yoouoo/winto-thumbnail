@@ -27,7 +27,17 @@ export default async function handler(
 
     const queryString = convertJsonToQueryString(transformedGameInfo);
     const browser = await puppeteer.launch({
+      executablePath:
+        process.env.NODE_ENV === "production"
+          ? process.env.CHROMIUM_PATH
+          : undefined,
       headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--proxy-server='direct://'",
+        "--proxy-bypass-list=*",
+      ],
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
