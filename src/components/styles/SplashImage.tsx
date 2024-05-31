@@ -57,14 +57,15 @@ const SplashImage = ({
 
   return (
     <Wrapper hasChampionPortrait={hasChampionPortrait}>
-      <Image
+      {/* <Image
         src={imgSrc}
         alt="champion splash image"
         width={1280}
         height={720}
         priority
         {...props}
-      />
+      /> */}
+      <img src={imgSrc} alt="champion splash image" width={1280} height={720} />
     </Wrapper>
   );
 };

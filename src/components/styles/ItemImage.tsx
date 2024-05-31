@@ -79,7 +79,8 @@ const ItemImage = ({ gameVersion, item, blurred, ...props }: IProps) => {
     >
       <Container {...props}>
         <Wrapper {...props} blurred={blurred}>
-          <Image src={imgSrc} alt="item" onError={handleError} {...props} />
+          {/* <Image src={imgSrc} alt="item" onError={handleError} {...props} /> */}
+          <img src={imgSrc} alt="item" onError={handleError} {...props} />
           {blurred && (
             <QuestionMark>
               <GradientText text="?" fontSize="XXXSmall" />

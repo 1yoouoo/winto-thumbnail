@@ -38,13 +38,14 @@ const ChampionPortraitWrapper: React.FC<ChampionImageWrapperProps> = ({
       shouldForwardProp={(prop) => !["randomDropShadow"].includes(prop)}
     >
       <Wrapper randomDropShadow={randomDropShadow}>
-        <Image
+        {/* <Image
           src={randomChampPortraitSrc}
           alt=""
           width={1280}
           height={720}
           quality={100}
-        />
+        /> */}
+        <img src={randomChampPortraitSrc} width={1280} height={720} />
       </Wrapper>
     </StyleSheetManager>
   );

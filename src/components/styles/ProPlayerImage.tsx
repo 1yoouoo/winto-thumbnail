@@ -109,19 +109,21 @@ const ProPlayerInfoImage = ({
         <ImageWrapper>
           <ProPlayerInfo>
             <ProPlayerImage randomDropShadow={randomDropShadow}>
-              <Image
+              {/* <Image
                 src={proPlayerimgSrc}
                 alt=""
                 width={600}
                 height={600}
                 quality={100}
-              />
+              /> */}
+              <img src={proPlayerimgSrc} alt="" width={600} height={600} />
             </ProPlayerImage>
           </ProPlayerInfo>
         </ImageWrapper>
         {proTeamLogoSrc && (
           <ProTeamLogo>
-            <Image src={proTeamLogoSrc} alt="" width={150} height={150} />
+            {/* <Image src={proTeamLogoSrc} alt="" width={150} height={150} /> */}
+            <img src={proTeamLogoSrc} alt="" width={150} height={150} />
           </ProTeamLogo>
         )}
       </Container>

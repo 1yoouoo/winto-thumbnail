@@ -72,12 +72,18 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
             hasChampionPortrait={!!props.hasChampionPortrait} //TODO
           />
           <BackgroundHighlight>
-            <Image
+            {/* <Image
               src={`${spacesCdnFullEndpoint}/background/background-highlight-${highlightNumber}.png`}
               alt="background-highlight"
               width={1256.2}
               height={696.2}
               priority
+            /> */}
+            <img
+              src={`${spacesCdnFullEndpoint}/background/background-highlight-${highlightNumber}.png`}
+              alt="background-highlight"
+              width={1256.2}
+              height={696.2}
             />
           </BackgroundHighlight>
           {children}
