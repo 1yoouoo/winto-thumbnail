@@ -8,6 +8,7 @@ import {
   spaceName,
   spacesFullEndpoint,
   spacesEndpoint,
+  app_url,
 } from "@/constant/constant";
 import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
 import { GameInfoDto } from "@/types/v2/model";
@@ -68,7 +69,7 @@ export default async function handler(
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
-    const screenshotUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
+    const screenshotUrl = `${app_url}/v2/screenshot?${queryString}`;
     await page.goto(screenshotUrl, {
       waitUntil: "networkidle0",
       timeout: 30000,

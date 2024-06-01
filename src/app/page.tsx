@@ -1,3 +1,5 @@
+import { app_url } from "@/constant/constant";
+
 export default function Page() {
-  return <div>api key 추가</div>;
+  return <div>{app_url}</div>;
 }

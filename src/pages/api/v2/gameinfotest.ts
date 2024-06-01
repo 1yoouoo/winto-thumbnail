@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import puppeteer from "puppeteer";
 import { transformToModel } from "../../../../utils/v2/transformToModel";
 import { convertJsonToQueryString } from "../../../../utils/v2/formatJson";
 import { GameInfoDto } from "@/types/v2/model";
+import { app_url } from "@/constant/constant";
 
 type ResponseData = {
   message: string;
@@ -26,30 +26,11 @@ export default async function handler(
     const transformedGameInfo = transformToModel(gameInfo);
 
     const queryString = convertJsonToQueryString(transformedGameInfo);
-    const browser = await puppeteer.launch({
-      executablePath:
-        process.env.NODE_ENV === "production"
-          ? process.env.CHROMIUM_PATH
-          : undefined,
-      headless: true,
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--proxy-server='direct://'",
-        "--proxy-bypass-list=*",
-      ],
-    });
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 720 });
-    const screenshotUrl = `http://localhost:3000/v2/screenshot?${queryString}`;
-    await page.goto(screenshotUrl, { waitUntil: "networkidle0" });
 
     res.status(200).json({
       message: "success",
-      url: screenshotUrl,
+      url: `${app_url}/v2/screenshot?${queryString}`,
     });
-
-    await browser.close();
   } catch (error: any) {
     console.error("error from game-info-test: ", error);
   }
