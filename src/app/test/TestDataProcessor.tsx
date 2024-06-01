@@ -1,14 +1,14 @@
+import { ParsedQueryString } from "@/types/v2/model";
+import { useFetchGameInfo } from "@/app/hooks/useFetchGameInfo";
 import styled from "styled-components";
 import { spacesCdnFullEndpoint } from "@/constant/constant";
-import Image from "next/image";
 import { championDto } from "@/types/v2/championDto";
-import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
 import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
-import Background from "../Background";
 import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
+import Background from "@/templates/v2/Background";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -108,28 +108,30 @@ const ChampionName = styled.span`
   transform: translateY(-30px);
 `;
 
-const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
-  gameInfo,
-}) => {
+const TestDataProcessor: React.FC<{
+  parsedQueryString: ParsedQueryString;
+}> = ({ parsedQueryString }) => {
   const {
-    championName,
-    playerName,
-    skins,
-    kills,
-    assists,
-    deaths,
-    items,
     gameVersion,
+    items,
+    skins,
     proPlayerImageKeyList,
     proTeamLogoKey,
-    locale,
     translatedChampionName,
     championPortraits,
-  } = gameInfo;
+    isLoading,
+  } = useFetchGameInfo({
+    parsedQueryString,
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop3Items = sorteditems.slice(0, 3);
-  const champion = championDto[championName] || {
-    name: championName,
+  const champion = championDto[parsedQueryString.championName] || {
+    name: parsedQueryString.championName,
     shortenName: {},
     color: {
       primary: "#FFFFFF",
@@ -137,13 +139,13 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     },
   };
 
-  //FIXME: 반복되는 코드 중복 제거
   const getLocalizedShortenName = () => {
-    const nameByLocale = champion.shortenName[locale ?? "en_US"];
+    const nameByLocale =
+      champion.shortenName[parsedQueryString.locale ?? "en_US"];
     if (nameByLocale) {
       return nameByLocale;
     }
-    return translatedChampionName || championName;
+    return translatedChampionName || parsedQueryString.championName;
   };
 
   const localizedShortenName = getLocalizedShortenName();
@@ -154,7 +156,7 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   return (
     <Background
-      championName={championName}
+      championName={parsedQueryString.championName}
       skins={skins}
       hasChampionPortrait={hasChampionPortrait}
     >
@@ -170,7 +172,7 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
         <Description>
           <GradientText
-            text={playerName ?? "Challenger"}
+            text={parsedQueryString.playerName ?? "Challenger"}
             primarycolor="white"
             secondarycolor="#acacac"
             fontSize="XSmall"
@@ -218,17 +220,17 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         <KDAContainer>
           <KDAWrapper>
             <GradientText
-              text={`${kills}/${deaths}/${assists}`}
+              text={`${parsedQueryString.kills}/${parsedQueryString.deaths}/${parsedQueryString.assists}`}
               fontSize="XSmall"
             />
             <BoxShadow />
             <RedArrowWrapper>
               {/* <Image
-                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
-                alt="arrow"
-                width={250}
-                height={140}
-              /> */}
+              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
+              alt="arrow"
+              width={250}
+              height={140}
+            /> */}
               <img
                 src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
                 alt="arrow"
@@ -243,4 +245,4 @@ const en_US_Template1: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   );
 };
 
-export default en_US_Template1;
+export default TestDataProcessor;

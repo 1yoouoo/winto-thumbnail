@@ -7,15 +7,8 @@ module.exports = {
         destination: "/v2/screenshot",
       },
       {
-        // 기존 경로 설정 유지
-        source: "/screenshot/:path*",
-        destination: "/screenshot",
-        has: [
-          {
-            type: "host",
-            value: "(?!^$)",
-          },
-        ],
+        source: "/v2/test/:path*",
+        destination: "/v2/test",
       },
     ];
   },
