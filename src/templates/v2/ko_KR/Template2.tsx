@@ -208,17 +208,12 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
             />
             <BoxShadow />
             <RedArrowWrapper>
-              {/* <Image
+              <Image
                 src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
                 alt="arrow"
                 width={250}
                 height={140}
-              /> */}
-              <img
-                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
-                alt="arrow"
-                width={250}
-                height={140}
+                unoptimized
               />
             </RedArrowWrapper>
           </KDAWrapper>

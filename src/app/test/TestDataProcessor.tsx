@@ -9,6 +9,7 @@ import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
 import Background from "@/templates/v2/Background";
+import Image from "next/image";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -225,18 +226,25 @@ const TestDataProcessor: React.FC<{
             />
             <BoxShadow />
             <RedArrowWrapper>
-              {/* <Image
-              src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
-              alt="arrow"
-              width={250}
-              height={140}
-            /> */}
-              <img
+              <Image
                 src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
                 alt="arrow"
                 width={250}
                 height={140}
               />
+              <Image
+                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
+                alt="arrow"
+                width={250}
+                height={140}
+                unoptimized
+              />
+              {/* <img
+                src={`${spacesCdnFullEndpoint}/arrow/red-arrow-1.png`}
+                alt="arrow"
+                width={250}
+                height={140}
+              /> */}
             </RedArrowWrapper>
           </KDAWrapper>
         </KDAContainer>
