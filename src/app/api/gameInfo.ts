@@ -182,7 +182,7 @@ export const fetchProPlayerList = async ({
 
   try {
     const response = await fetch(
-      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
     );
     const data = await response.json();
     const filteredData = data.filter(
@@ -209,7 +209,7 @@ export const fetchSkinListFromBucket = async ({
   try {
     const prefix = `champion/right/${championNameLower}`;
     const response = await fetch(
-      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
     );
     const data = await response.json();
     const exactMatchRegex = new RegExp(`^${prefix}/[^/]+$`);
@@ -240,7 +240,7 @@ export const fetchChampionPortraitListFromBucket = async ({
   try {
     const prefix = `champion/portrait/${championNameLower}`;
     const response = await fetch(
-      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
     );
     const data = await response.json();
     const filteredData = data.filter(
@@ -269,7 +269,7 @@ export const fetchProTeamLogo = async ({
 
   try {
     const response = await fetch(
-      `${app_url}/api/v2/get-file-list?prefix=${prefix}`
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
     );
     const data = await response.json();
     const filteredData = data.filter(
