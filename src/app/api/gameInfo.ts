@@ -177,8 +177,10 @@ export const fetchProPlayerList = async ({
 }: {
   playerName: string;
 }): Promise<string[]> => {
-  const playerNameLower = playerName.toLowerCase();
+  const playerNameLower = playerName.toLowerCase().replace(/\s+/g, "%20");
   const prefix = `pro-player/${playerNameLower}`;
+
+  console.log(prefix);
 
   try {
     const response = await fetch(
