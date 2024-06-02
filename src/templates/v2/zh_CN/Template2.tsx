@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { spacesCdnFullEndpoint } from "@/constant/constant";
 import Image from "next/image";
-import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 import ItemImage from "@/components/styles/ItemImage";
 import GradientText from "@/components/styles/GradientText";
@@ -9,6 +8,7 @@ import GradientBackground from "@/components/styles/GradientLeftBackground";
 import ProPlayerInfoImage from "@/components/styles/ProPlayerImage";
 import Background from "../Background";
 import ChampionPortraitWrapper from "@/components/styles/ChampionPortraitWrapper";
+import { getLocalizedShortenName } from "../../../../utils/v2/getLocalizedShortenName";
 
 const Container = styled.div`
   font-family: var(--font-luckiest-guy);
@@ -120,26 +120,12 @@ const zh_CN_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
   } = gameInfo;
   const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
-  const champion = championDto[championName] || {
-    name: championName,
-    shortenName: {},
-    color: {
-      primary: "#FFFFFF",
-      secondary: "#FFFFFF",
-    },
-  };
 
-  const getLocalizedShortenName = () => {
-    const nameByLocale = champion.shortenName[locale ?? "en_US"];
-    if (nameByLocale) {
-      return nameByLocale;
-    }
-    return translatedChampionName || championName;
-  };
-
-  const localizedShortenName = getLocalizedShortenName();
-
-  const { primary, secondary } = champion.color;
+  const { nameByLocale, primary, secondary } = getLocalizedShortenName(
+    championName,
+    locale,
+    translatedChampionName
+  );
 
   const hasChampionPortrait = championPortraits!.length > 0;
   return (
@@ -168,7 +154,7 @@ const zh_CN_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
           <ChampionName>
             <GradientText
-              text={localizedShortenName!}
+              text={nameByLocale}
               primarycolor={primary}
               secondarycolor={secondary}
               fontSize="XXSmall"

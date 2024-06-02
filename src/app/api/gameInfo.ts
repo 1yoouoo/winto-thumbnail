@@ -180,8 +180,6 @@ export const fetchProPlayerList = async ({
   const playerNameLower = playerName.toLowerCase().replace(/\s+/g, "%20");
   const prefix = `pro-player/${playerNameLower}`;
 
-  console.log(prefix);
-
   try {
     const response = await fetch(
       `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
@@ -297,12 +295,13 @@ export const fetchTranslateChampionName = async ({
   gameVersion: GameVersion;
   championName: string;
   locale: Locale;
-}) => {
+}): Promise<string> => {
   const ChampionNameApiKey = championDto[championName].apiKey;
   const { primaryUrl, fallbackUrl } = createUrls(
     gameVersion,
     `data/${locale}/champion/${ChampionNameApiKey}.json`
   );
+
   try {
     const response = await fetchWithFallback(primaryUrl, fallbackUrl);
 
@@ -311,5 +310,6 @@ export const fetchTranslateChampionName = async ({
     console.log(
       `${ChampionNameApiKey} 챔피언 이름 정보가 없습니다. 추가해주세요.`
     );
+    return championName;
   }
 };
