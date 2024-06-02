@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  width: 1280px;
-  height: 720px;
-  background-color: transparent;
-  z-index: 100;
-`;
+// const Wrapper = styled.div`
+//   position: absolute;
+//   top: 0;
+//   width: 1280px;
+//   height: 720px;
+//   background-color: transparent;
+//   z-index: 100;
+// `;
 
 const WaterMark = styled.div`
   position: absolute;
@@ -21,53 +21,53 @@ const WaterMark = styled.div`
   z-index: 100;
 `;
 
-const TimeLine = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000000e2;
-  border-radius: 8px;
-  margin: 10px;
-  right: 0;
-  bottom: 0;
-`;
+// const TimeLine = styled.div`
+//   position: absolute;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: #000000e2;
+//   border-radius: 8px;
+//   margin: 10px;
+//   right: 0;
+//   bottom: 0;
+// `;
 
-const TimeLineText = styled.span`
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 2.3rem;
-  color: white;
-  padding: 6px 10px;
-  letter-spacing: 2px;
-`;
+// const TimeLineText = styled.span`
+//   font-family: Roboto, Arial, sans-serif;
+//   font-size: 2.3rem;
+//   color: white;
+//   padding: 6px 10px;
+//   letter-spacing: 2px;
+// `;
 
-//  유튜브 얼마나 시청했는지 나오는 상태 바
-const WatchedBar = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 10px;
-  z-index: 1000;
-`;
+// //  유튜브 얼마나 시청했는지 나오는 상태 바
+// const WatchedBar = styled.div`
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 10px;
+//   z-index: 1000;
+// `;
 
-const TotalBar = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 10px;
-  background-color: #717171;
-`;
+// const TotalBar = styled.div`
+//   position: absolute;
+//   width: 100%;
+//   height: 10px;
+//   background-color: #717171;
+// `;
 
-const CurrentBar = styled.div`
-  position: absolute;
-  width: 30%;
-  height: 10px;
-  background-color: red;
-`;
+// const CurrentBar = styled.div`
+//   position: absolute;
+//   width: 30%;
+//   height: 10px;
+//   background-color: red;
+// `;
 
 const DevelopmentStyle = ({ templateName }: { templateName: string }) => {
   return (
     <>
-      <Wrapper>
+      {/* <Wrapper>
         <TimeLine>
           <TimeLineText>
             {new Date()
@@ -80,7 +80,7 @@ const DevelopmentStyle = ({ templateName }: { templateName: string }) => {
             <CurrentBar />
           </TotalBar>
         </WatchedBar>
-      </Wrapper>
+      </Wrapper> */}
       <WaterMark>{`${templateName}`}</WaterMark>
     </>
   );

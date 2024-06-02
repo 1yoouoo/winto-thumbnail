@@ -34,7 +34,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "PlayerName",
-    weight: 1,
+    weight: 10,
     check: (gameInfo) => gameInfo.playerName !== undefined,
   },
   {
@@ -46,7 +46,7 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
   },
   {
     name: "TripleKills",
-    weight: 10,
+    weight: 5,
     check: (gameInfo) =>
       Number(gameInfo.tripleKills) >= 1 &&
       Number(gameInfo.quadraKills) < 1 &&

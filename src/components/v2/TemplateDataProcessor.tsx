@@ -1,7 +1,19 @@
 import { Locale, ParsedQueryString } from "@/types/v2/model";
 import { selectTemplate } from "./selectTemplate";
 import { useFetchGameInfo } from "@/app/hooks/useFetchGameInfo";
-import DevelopmentStyle from "../styles/DevelopmentStyle";
+import styled from "styled-components";
+
+const WaterMark = styled.div`
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  height: 80px;
+  bottom: -100px;
+  right: 40%;
+  font-size: 40px;
+  color: white;
+  z-index: 100;
+`;
 
 const supportedLocales: Locale[] = ["en_US", "ko_KR"];
 
@@ -13,8 +25,6 @@ function getValidLocale(locale: string | undefined): Locale {
     ? (locale as Locale)
     : "en_US";
 }
-
-const isDevelopment = process.env.NODE_ENV === "development";
 
 const TemplateDataProcessor: React.FC<{
   parsedQueryString: ParsedQueryString;
@@ -60,9 +70,8 @@ const TemplateDataProcessor: React.FC<{
   return (
     <>
       <SelectedTemplateComponent gameInfo={gameInfo} />
-      {isDevelopment && (
-        <DevelopmentStyle templateName={SelectedTemplateName || ""} />
-      )}
+      {/* <DevelopmentStyle templateName={SelectedTemplateName || ""} /> */}
+      <WaterMark>{`${SelectedTemplateName}`}</WaterMark>
     </>
   );
 };

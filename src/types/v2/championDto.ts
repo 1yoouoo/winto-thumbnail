@@ -117,7 +117,7 @@ export const championDto: ChampionDto = {
       primary: "#867AE9",
       secondary: "#503ef8",
     },
-    apiKey: "Aurelion Sol",
+    apiKey: "AurelionSol",
   },
   //? Personal Color
   Azir: {
@@ -147,7 +147,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#A93226",
     },
-    apiKey: "Bel'Veth",
+    apiKey: "Belveth",
   },
   //? Personal Color
   Blitzcrank: {
@@ -227,7 +227,7 @@ export const championDto: ChampionDto = {
       primary: "#839192",
       secondary: "#707B7C",
     },
-    apiKey: "Cho'Gath",
+    apiKey: "Chogath",
   },
   //? Personal Color
   Corki: {
@@ -266,7 +266,7 @@ export const championDto: ChampionDto = {
       primary: "#58D68D",
       secondary: "#28B463",
     },
-    apiKey: "Mundo",
+    apiKey: "DrMundo",
   },
   //? Personal Color
   Draven: {
@@ -494,7 +494,7 @@ export const championDto: ChampionDto = {
       primary: "#FFB319",
       secondary: "#FFAB76",
     },
-    apiKey: "Jarvan IV",
+    apiKey: "JarvanIV",
   },
   //? Personal Color
   Jax: {
@@ -544,7 +544,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
-    apiKey: "K'Sante",
+    apiKey: "KSante",
   },
   //? Personal Color
   Kaisa: {
@@ -554,7 +554,7 @@ export const championDto: ChampionDto = {
       primary: "#7D3C98",
       secondary: "#4A235A",
     },
-    apiKey: "Kai'Sa",
+    apiKey: "Kaisa",
   },
   //? Personal Color
   Kalista: {
@@ -644,7 +644,7 @@ export const championDto: ChampionDto = {
       primary: "#1ABC9C",
       secondary: "#16A085",
     },
-    apiKey: "Kha'Zix",
+    apiKey: "Khazix",
   },
   Kindred: {
     name: "Kindred",
@@ -673,7 +673,7 @@ export const championDto: ChampionDto = {
       primary: "#F39C12",
       secondary: "#F1C40F",
     },
-    apiKey: "Kog'Maw",
+    apiKey: "KogMaw",
   },
   //? Personal Color
   Leblanc: {
@@ -683,7 +683,7 @@ export const championDto: ChampionDto = {
       primary: "#76448A",
       secondary: "#633974",
     },
-    apiKey: "LeBlanc",
+    apiKey: "Leblanc",
   },
   LeeSin: {
     name: "Lee Sin",
@@ -692,7 +692,7 @@ export const championDto: ChampionDto = {
       primary: "#F2613F",
       secondary: "#FF6363",
     },
-    apiKey: "Lee Sin",
+    apiKey: "LeeSin",
   },
   //? Personal Color
   Leona: {
@@ -792,7 +792,7 @@ export const championDto: ChampionDto = {
       primary: "#79e199",
       secondary: "#16411a",
     },
-    apiKey: "Master Yi",
+    apiKey: "MasterYi",
   },
   //? Personal Color
   Milio: {
@@ -812,7 +812,7 @@ export const championDto: ChampionDto = {
       primary: "#E74C3C",
       secondary: "#CB4335",
     },
-    apiKey: "Miss Fortune",
+    apiKey: "MissFortune",
   },
   //? Personal Color
   Mordekaiser: {
@@ -1029,7 +1029,7 @@ export const championDto: ChampionDto = {
       primary: "#D09CFA",
       secondary: "#A555EC",
     },
-    apiKey: "Rek'Sai",
+    apiKey: "RekSai",
   },
   //? Personal Color
   Rell: {
@@ -1288,7 +1288,7 @@ export const championDto: ChampionDto = {
       primary: "#5499C7",
       secondary: "#2980B9",
     },
-    apiKey: "Tahm Kench",
+    apiKey: "TahmKench",
   },
   //? Personal Color
   Taliyah: {
@@ -1378,7 +1378,7 @@ export const championDto: ChampionDto = {
       primary: "#89a4bc",
       secondary: "#7aa8dc",
     },
-    apiKey: "Twisted Fate",
+    apiKey: "TwistedFate",
   },
   Twitch: {
     name: "Twitch",
@@ -1447,7 +1447,7 @@ export const championDto: ChampionDto = {
       primary: "#5DADE2",
       secondary: "#3498DB",
     },
-    apiKey: "Vel'Koz",
+    apiKey: "Velkoz",
   },
   //? Personal Color
   Vex: {
@@ -1527,7 +1527,7 @@ export const championDto: ChampionDto = {
       primary: "#D4AC0D",
       secondary: "#B7950B",
     },
-    apiKey: "Wukong",
+    apiKey: "MonkeyKing",
   },
   //? Personal Color
   Xayah: {
@@ -1557,7 +1557,7 @@ export const championDto: ChampionDto = {
       primary: "#C0392B",
       secondary: "#E74C3C",
     },
-    apiKey: "Xin Zhao",
+    apiKey: "XinZhao",
   },
   //? Personal Color
   Yasuo: {
