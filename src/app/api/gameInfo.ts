@@ -217,7 +217,7 @@ export const fetchProTeamLogo = async ({
       (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
     ) as string[];
 
-    return filteredData[0];
+    return encodeURIComponent(filteredData[0]);
   } catch (error) {
     sendSlackNotification({
       title: `${teamNameUpper} 팀의 이미지가 없습니다. 추가해주세요.`,

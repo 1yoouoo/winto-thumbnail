@@ -128,6 +128,7 @@ const ProPlayerInfoImage = ({
               width={150}
               height={150}
               unoptimized
+              onError={(e) => (e.currentTarget.style.display = "none")}
             />
           </ProTeamLogo>
         )}
