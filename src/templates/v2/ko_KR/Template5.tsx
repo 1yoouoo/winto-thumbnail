@@ -54,12 +54,7 @@ const ItemWrapper = styled.span``;
 
 const ChampionName = styled.span`
   transform: translateY(-30px);
-  font-family: "WAGURITTF";
-  @font-face {
-    font-family: "WAGURITTF";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2")
-      format("woff2");
-  }
+  font-family: var(--font-waguri-ttf);
 `;
 
 const MultiKillText = styled.span`

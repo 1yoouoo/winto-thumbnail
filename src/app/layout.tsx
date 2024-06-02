@@ -11,13 +11,27 @@ const LuckiestGuy = localFont({
   variable: "--font-luckiest-guy",
 });
 
+const AlimamaFangYuanTiVF = localFont({
+  src: "./fonts/AlimamaFangYuanTiVF.ttf",
+  display: "swap",
+  variable: "--font-alimama-fang-yuan-ti-vf",
+});
+
+const WAGURITTF = localFont({
+  src: "./fonts/WAGURITTF.woff2",
+  display: "swap",
+  variable: "--font-waguri-ttf",
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html className={LuckiestGuy.variable}>
+    <html
+      className={`${LuckiestGuy.variable} ${AlimamaFangYuanTiVF.variable} ${WAGURITTF.variable}`}
+    >
       <StyledComponentsRegistry>
         <GlobalStyle />
         <body>

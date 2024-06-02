@@ -34,17 +34,12 @@ const Description = styled.span`
 
 const ChampionName = styled.span`
   transform: translateY(-50px);
-  font-family: "WAGURITTF";
-  @font-face {
-    font-family: "WAGURITTF";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2")
-      format("woff2");
-  }
+  font-family: var(--font-waguri-ttf);
 `;
 
 const EmphasisWrapper = styled.div`
   transform: translateY(-30px);
-  font-family: "WAGURITTF";
+  font-family: var(--font-waguri-ttf);
 `;
 
 const ko_KR_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({

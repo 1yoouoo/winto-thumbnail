@@ -21,6 +21,7 @@ import ko_KR_Template4 from "@/templates/v2/ko_KR/Template4";
 import ko_KR_Template5 from "@/templates/v2/ko_KR/Template5";
 
 import DefaultTemplate from "@/templates/v2/DefaultTemplate";
+import zh_CN_Template0 from "@/templates/v2/zh_CN/Template0";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -110,6 +111,15 @@ export const templates: Template[] = [
       "MultiKills",
     ],
     locale: "ko_KR",
+  },
+
+  {
+    component: zh_CN_Template0,
+    name: "Template1 (ko_KR)",
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+    requirements: ["Over3ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    locale: "zh_CN",
+    // select: true,
   },
 
   // 기타 템플릿 추가...
@@ -202,6 +212,10 @@ export function selectTemplate(gameInfo: GameInfoViewModel): {
 
     case "en_US":
       defaultTemplate = en_US_Template0;
+      break;
+
+    case "zh_CN":
+      defaultTemplate = zh_CN_Template0;
       break;
 
     default:
