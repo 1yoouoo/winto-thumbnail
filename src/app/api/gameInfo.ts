@@ -158,7 +158,8 @@ export const fetchSkinInfo = async ({
   try {
     const response = await fetchWithFallback(primaryUrl, fallbackUrl);
 
-    const skinData = response.data.data[`${championName}`].skins as SkinInfo[];
+    const skinData = response.data.data[`${ChampionNameApiKey}`]
+      .skins as SkinInfo[];
 
     return skinData;
   } catch (error: any) {
@@ -166,7 +167,7 @@ export const fetchSkinInfo = async ({
       title: "스킨 정보 가져오기 중 에러 발생",
       details: error.toString(),
     });
-    console.log(`${championName} 스킨 정보가 없습니다. 추가해주세요.`);
+    console.log(`${ChampionNameApiKey} 스킨 정보가 없습니다. 추가해주세요.`);
     return [];
   }
 };
@@ -303,8 +304,10 @@ export const fetchTranslateChampionName = async ({
   try {
     const response = await fetchWithFallback(primaryUrl, fallbackUrl);
 
-    return response.data.data[championName].name;
+    return response.data.data[ChampionNameApiKey].name;
   } catch (error: any) {
-    console.log(`${championName} 챔피언 이름 정보가 없습니다. 추가해주세요.`);
+    console.log(
+      `${ChampionNameApiKey} 챔피언 이름 정보가 없습니다. 추가해주세요.`
+    );
   }
 };
