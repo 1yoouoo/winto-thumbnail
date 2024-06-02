@@ -121,7 +121,7 @@ const ko_KR_Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     championPortraits,
   } = gameInfo;
 
-  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
+  const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop1Items = sorteditems.slice(0, 1);
 
   const { nameByLocale, primary, secondary } = getLocalizedShortenName(
@@ -130,7 +130,7 @@ const ko_KR_Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     translatedChampionName
   );
 
-  const hasChampionPortrait = championPortraits!.length > 0;
+  const hasChampionPortrait = championPortraits.length > 0;
 
   return (
     <Background
@@ -142,7 +142,7 @@ const ko_KR_Template0: React.FC<{ gameInfo: GameInfoViewModel }> = ({
         <GradientBackground />
 
         {hasChampionPortrait && (
-          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+          <ChampionPortraitWrapper championPortraits={championPortraits} />
         )}
 
         <DescriptionContainer>

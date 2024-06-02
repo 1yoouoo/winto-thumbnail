@@ -15,16 +15,6 @@ import { GameInfoDto } from "@/types/v2/model";
 import { transformToModel } from "../../../../utils/v2/transformToModel";
 import { sendSlackNotification } from "../../../../utils/v2/sendSlackNotification";
 
-const s3Client = new S3Client({
-  endpoint: spacesEndpoint!,
-  forcePathStyle: false,
-  region: spaceRegion!,
-  credentials: {
-    accessKeyId: spaceAccessKeyId!,
-    secretAccessKey: spaceSecretAccessKey!,
-  },
-});
-
 type ResponseData = {
   message: string;
   screenshotUrl?: string;
@@ -81,6 +71,23 @@ export default async function handler(
       quality: 100,
     });
     await browser.close();
+
+    if (!spaceAccessKeyId || !spaceSecretAccessKey) {
+      return res.status(500).json({
+        error: "Missing S3 credentials",
+        message: "S3 credentials are required to upload the screenshot",
+      });
+    }
+
+    const s3Client = new S3Client({
+      endpoint: spacesEndpoint,
+      forcePathStyle: false,
+      region: spaceRegion,
+      credentials: {
+        accessKeyId: spaceAccessKeyId,
+        secretAccessKey: spaceSecretAccessKey,
+      },
+    });
 
     // S3에 스크린샷 업로드
     const screenshotKey = `${spaceName}/${Date.now()}_screenshot.jpeg`;

@@ -62,7 +62,7 @@ const zh_CN_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     translatedChampionName
   );
 
-  const hasChampionPortrait = championPortraits!.length > 0;
+  const hasChampionPortrait = championPortraits.length > 0;
 
   const EmphasisTextList = ["绝佳", "压倒性", "体能", "最强"];
 
@@ -81,11 +81,11 @@ const zh_CN_Template4: React.FC<{ gameInfo: GameInfoViewModel }> = ({
       <Container>
         <GradientBackground />
         <ProPlayerInfoImage
-          proPlayerImageKeyList={proPlayerImageKeyList!}
-          proTeamLogoKey={proTeamLogoKey!}
+          proPlayerImageKeyList={proPlayerImageKeyList}
+          proTeamLogoKey={proTeamLogoKey}
         />
         {hasChampionPortrait && (
-          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+          <ChampionPortraitWrapper championPortraits={championPortraits} />
         )}
 
         <Description>

@@ -3,7 +3,7 @@ import { GameInfoViewModel } from "@/types/v2/model";
 export type PreferredConditions =
   | "NoDeath"
   | "HighKDA"
-  | "PlayerName"
+  | "10_point"
   | "HasProPlayerImage"
   | "TripleKills"
   | "QuadraKills"
@@ -33,9 +33,9 @@ export const templatePreferredConditions: TemplatePreferredCondition[] = [
     },
   },
   {
-    name: "PlayerName",
+    name: "10_point",
     weight: 10,
-    check: (gameInfo) => gameInfo.playerName !== undefined,
+    check: () => true,
   },
   {
     name: "HasProPlayerImage",

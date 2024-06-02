@@ -8,8 +8,6 @@ export type Requirements =
   | "Over4ItemsWithGoldOver2000"
   | "Over5ItemsWithGoldOver2000"
   | "Over6ItemsWithGoldOver2000"
-  | "playerName"
-  | "KDA"
   | "PlayerNameIsLessThan7"
   | "PlayerNameIsOverThan7"
   | "ChampionNameIsLessThan10"
@@ -52,47 +50,22 @@ export const templateRequirements: TemplateRequirement[] = [
     name: "Over6ItemsWithGoldOver2000",
     check: (gameInfo) => countItemsWithGoldOver2000(gameInfo.items) >= 6,
   },
-  {
-    name: "playerName",
-    check: (gameInfo) => gameInfo.playerName !== undefined,
-  },
-  {
-    name: "KDA",
-    check: (gameInfo) => {
-      return (
-        gameInfo.kills !== undefined &&
-        gameInfo.deaths !== undefined &&
-        gameInfo.assists !== undefined
-      );
-    },
-  },
+
   {
     name: "PlayerNameIsLessThan7",
-    check: (gameInfo) =>
-      gameInfo.playerName !== undefined
-        ? gameInfo.playerName.length <= 7
-        : false,
+    check: (gameInfo) => gameInfo.playerName.length <= 7,
   },
   {
     name: "PlayerNameIsOverThan7",
-    check: (gameInfo) =>
-      gameInfo.playerName !== undefined
-        ? gameInfo.playerName.length > 7
-        : false,
+    check: (gameInfo) => gameInfo.playerName.length > 7,
   },
   {
     name: "ChampionNameIsLessThan10",
-    check: (gameInfo) =>
-      gameInfo.championName !== undefined
-        ? gameInfo.championName.length <= 10
-        : false,
+    check: (gameInfo) => gameInfo.championName.length <= 10,
   },
   {
     name: "ChampionNameIsOverThan10",
-    check: (gameInfo) =>
-      gameInfo.championName !== undefined
-        ? gameInfo.championName.length > 10
-        : false,
+    check: (gameInfo) => gameInfo.championName.length > 10,
   },
   {
     name: "HasProPlayerImage",

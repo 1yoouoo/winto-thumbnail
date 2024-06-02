@@ -118,7 +118,7 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     translatedChampionName,
     championPortraits,
   } = gameInfo;
-  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
+  const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop2Items = sorteditems.slice(0, 2);
 
   const { nameByLocale, primary, secondary } = getLocalizedShortenName(
@@ -127,7 +127,7 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     translatedChampionName
   );
 
-  const hasChampionPortrait = championPortraits!.length > 0;
+  const hasChampionPortrait = championPortraits.length > 0;
   return (
     <Background
       championName={championName}
@@ -137,11 +137,11 @@ const ko_KR_Template2: React.FC<{ gameInfo: GameInfoViewModel }> = ({
       <Container>
         <GradientBackground />
         <ProPlayerInfoImage
-          proPlayerImageKeyList={proPlayerImageKeyList!}
-          proTeamLogoKey={proTeamLogoKey!}
+          proPlayerImageKeyList={proPlayerImageKeyList}
+          proTeamLogoKey={proTeamLogoKey}
         />
         {hasChampionPortrait && (
-          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+          <ChampionPortraitWrapper championPortraits={championPortraits} />
         )}
 
         <Description>

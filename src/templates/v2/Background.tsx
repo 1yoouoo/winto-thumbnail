@@ -1,6 +1,5 @@
 import SplashImage from "@/components/styles/SplashImage";
 import { spacesCdnFullEndpoint } from "@/constant/constant";
-import { backgroundHighlightLength } from "@/types/v2/assets";
 import { championDto } from "@/types/v2/championDto";
 import { GameInfoViewModel } from "@/types/v2/model";
 import Image from "next/image";
@@ -57,8 +56,7 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
 
   const { primary } = champion.color;
 
-  const highlightNumber =
-    Math.floor(Math.random() * backgroundHighlightLength) + 1;
+  const highlightNumber = Math.floor(Math.random() * 2) + 1;
 
   return (
     <StyleSheetManager
@@ -68,7 +66,7 @@ const Background: React.FC<BackgroundProps> = ({ children, ...props }) => {
         <Wrapper primary={primary}>
           <SplashImage
             championName={props.championName}
-            skins={props.skins!}
+            skins={props.skins}
             hasChampionPortrait={!!props.hasChampionPortrait} //TODO
           />
           <BackgroundHighlight>

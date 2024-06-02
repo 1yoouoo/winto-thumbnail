@@ -4,7 +4,12 @@ import fetch from "node-fetch";
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
     const message = req.body; // req.body를 직접 사용
-    const webhookUrl: string = slackWebhookUrl!;
+
+    if (!slackWebhookUrl) {
+      return res.status(500).json({ error: "Missing Slack webhook URL" });
+    }
+
+    const webhookUrl: string = slackWebhookUrl;
 
     try {
       const response = await fetch(webhookUrl, {

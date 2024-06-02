@@ -79,7 +79,7 @@ const ko_KR_Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({
     pentaKills,
     championPortraits,
   } = gameInfo;
-  const sorteditems = items!.sort((a, b) => b.totalGold - a.totalGold);
+  const sorteditems = items.sort((a, b) => b.totalGold - a.totalGold);
   const getTop1Items = sorteditems.slice(0, 1);
 
   const { nameByLocale, primary, secondary } = getLocalizedShortenName(
@@ -119,7 +119,7 @@ const ko_KR_Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({
 
   const multiKillDetails = getMultiKillDetails();
 
-  const hasChampionPortrait = championPortraits!.length > 0;
+  const hasChampionPortrait = championPortraits.length > 0;
   return (
     <Background
       championName={championName}
@@ -129,11 +129,11 @@ const ko_KR_Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({
       <Container>
         <GradientBackground />
         <ProPlayerInfoImage
-          proPlayerImageKeyList={proPlayerImageKeyList!}
-          proTeamLogoKey={proTeamLogoKey!}
+          proPlayerImageKeyList={proPlayerImageKeyList}
+          proTeamLogoKey={proTeamLogoKey}
         />
         {hasChampionPortrait && (
-          <ChampionPortraitWrapper championPortraits={championPortraits!} />
+          <ChampionPortraitWrapper championPortraits={championPortraits} />
         )}
 
         <Description>

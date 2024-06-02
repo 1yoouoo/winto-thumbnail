@@ -1,31 +1,27 @@
 import { championDto } from "@/types/v2/championDto";
-import { Locale } from "aws-sdk/clients/inspector";
+import { Locale } from "@/types/v2/model";
 
 export const getLocalizedShortenName = (
   championName: string,
   locale: Locale,
   translatedChampionName: string
 ) => {
-  const defaultColor = {
-    primary: "#FFFFFF",
-    secondary: "#FFFFFF",
-  };
-
   const champion = championDto[championName] || {
     name: championName,
     shortenName: {},
-    color: defaultColor,
+    color: {
+      primary: "#FFFFFF",
+      secondary: "#FFFFFF",
+    },
   };
 
-  const { primary, secondary } = champion.color;
-
-  const nameByLocale =
-    champion.shortenName[locale as keyof typeof champion.shortenName] ||
-    "en_US";
+  const nameByLocale = champion.shortenName[locale ?? "en_US"];
+  const localizedShortenName =
+    nameByLocale || translatedChampionName || championName;
 
   return {
-    nameByLocale: nameByLocale || translatedChampionName,
-    primary,
-    secondary,
+    nameByLocale: localizedShortenName,
+    primary: champion.color.primary,
+    secondary: champion.color.secondary,
   };
 };

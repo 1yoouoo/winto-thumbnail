@@ -10,7 +10,7 @@ export function convertJsonToQueryString(
     if (value !== "") {
       if (Array.isArray(value)) {
         value.forEach((v) => {
-          if (v !== undefined && v !== "") {
+          if (v !== "") {
             parts.push(`${key}=${encodeURIComponent(String(v))}`);
           }
         });
