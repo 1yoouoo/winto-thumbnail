@@ -1,6 +1,5 @@
 export type GameInfoDto = {
-  championName: string; // 필수
-} & Partial<{
+  championName: string;
   teamName: string;
   playerName: string;
   kills: number;
@@ -18,12 +17,10 @@ export type GameInfoDto = {
   pentaKills: number;
   locale: Locale;
   enemyChampionName: string;
-  championPortraits: string[];
-}>;
+};
 
 export type ParsedQueryString = {
-  championName: string; // 필수
-} & Partial<{
+  championName: string;
   teamName: string;
   playerName: string;
   kills: string;
@@ -41,60 +38,36 @@ export type ParsedQueryString = {
   pentaKills: string;
   locale: Locale;
   enemyChampionName: string;
-  championPortraits: string[];
-}>;
-
-export interface GameInfoModel {
-  championName: string;
-  gameVersion: GameVersion;
-  teamName?: string;
-  playerName?: string;
-  kills?: string;
-  deaths?: string;
-  assists?: string;
-  itemIds?: string[];
-  teamPosition?: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
-  primaryPerk?: string;
-  subPerk?: string;
-  spellIds?: string[];
-  firstBloodKill?: string;
-  doubleKills?: string;
-  tripleKills?: string;
-  quadraKills?: string;
-  pentaKills?: string;
-  locale?: Locale;
-  enemyChampionName?: string;
-  championPortraits?: string[];
-}
+};
 
 export interface GameInfoViewModel {
   championName: string;
   gameVersion: GameVersion;
-  teamName?: string;
-  playerName?: string;
-  kills?: number;
-  deaths?: number;
-  assists?: number;
-  items?: Item[];
-  teamPosition?: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
-  primaryPerk?: number;
-  subPerk?: number;
-  spells?: Spell[];
-  skins?: {
-    info: SkinInfo[];
-    keys: SkinKey[];
+  teamName: string;
+  playerName: string;
+  kills: number;
+  deaths: number;
+  assists: number;
+  items: Item[] | [];
+  teamPosition: "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
+  primaryPerk: number;
+  subPerk: number;
+  spells: Spell[] | [];
+  skins: {
+    info: SkinInfo[] | [];
+    keys: SkinKey[] | [];
   };
-  firstBloodKill?: boolean;
-  doubleKills?: number;
-  tripleKills?: number;
-  quadraKills?: number;
-  pentaKills?: number;
-  proPlayerImageKeyList?: string[];
-  proTeamLogoKey?: string;
-  locale?: Locale;
-  enemyChampionName?: string;
-  translatedChampionName?: string;
-  championPortraits?: string[];
+  firstBloodKill: boolean;
+  doubleKills: number;
+  tripleKills: number;
+  quadraKills: number;
+  pentaKills: number;
+  proPlayerImageKeyList: string[] | [];
+  proTeamLogoKey: string | "";
+  locale: Locale;
+  enemyChampionName: string;
+  translatedChampionName: string;
+  championPortraits: string[] | [];
 }
 
 export interface Item {
@@ -126,8 +99,10 @@ export interface GameVersion {
 }
 
 export type Locale =
-  | "ko_KR"
-  | "en_US"
+  | "ko_KR" // 한국어
+  | "en_US" // 영어
+  | "zh_CN" // 중국어
+  | "vi_VN"
   | "ja_JP"
   | "pl_PL"
   | "fr_FR"
@@ -143,10 +118,8 @@ export type Locale =
   | "tr_TR"
   | "ro_RO"
   | "pt_BR"
-  | "zh_CN"
   | "zh_TW"
   | "ar_SA"
   | "sr_CS"
   | "it_IT"
-  | "th_TH"
-  | "vi_VN";
+  | "th_TH";

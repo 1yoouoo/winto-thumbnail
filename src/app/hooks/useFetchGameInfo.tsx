@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import {
+  GameInfoDto,
   GameInfoViewModel,
   GameVersion,
   Item,
@@ -63,13 +64,17 @@ export const useFetchGameInfo = ({
     ],
     queryFn: async ({ queryKey }) => {
       const [, gameVersion, championName] = queryKey;
-      const info = await fetchSkinInfo({
-        gameVersion: gameVersion as GameVersion,
-        championName: championName as string,
-      });
-      const keys = await fetchSkinListFromBucket({
-        championName: championName as string,
-      });
+
+      const info =
+        (await fetchSkinInfo({
+          gameVersion: gameVersion as GameVersion,
+          championName: championName as string,
+        })) || [];
+
+      const keys =
+        (await fetchSkinListFromBucket({
+          championName: championName as string,
+        })) || [];
 
       return { info, keys };
     },
@@ -145,23 +150,25 @@ export const useFetchGameInfo = ({
   });
 
   const optionalFields = (query: ParsedQueryString) => {
-    const fields: Partial<GameInfoViewModel> = {};
-    if (query.teamName) fields.teamName = query.teamName;
-    if (query.playerName) fields.playerName = query.playerName;
-    if (query.kills) fields.kills = parseInt(query.kills, 10);
-    if (query.deaths) fields.deaths = parseInt(query.deaths, 10);
-    if (query.assists) fields.assists = parseInt(query.assists, 10);
-    if (query.teamPosition) fields.teamPosition = query.teamPosition;
-    if (query.primaryPerk) fields.primaryPerk = parseInt(query.primaryPerk, 10);
-    if (query.subPerk) fields.subPerk = parseInt(query.subPerk, 10);
-    if (query.firstBloodKill)
-      fields.firstBloodKill = query.firstBloodKill === "true";
-    if (query.doubleKills) fields.doubleKills = parseInt(query.doubleKills, 10);
-    if (query.tripleKills) fields.tripleKills = parseInt(query.tripleKills, 10);
-    if (query.quadraKills) fields.quadraKills = parseInt(query.quadraKills, 10);
-    if (query.pentaKills) fields.pentaKills = parseInt(query.pentaKills, 10);
-    if (query.enemyChampionName)
-      fields.enemyChampionName = query.enemyChampionName;
+    const fields: Omit<
+      GameInfoDto,
+      "gameVersion" | "championName" | "itemIds" | "spellIds" | "locale"
+    > = {
+      teamName: query.teamName,
+      playerName: query.playerName,
+      kills: parseInt(query.kills, 10),
+      deaths: parseInt(query.deaths, 10),
+      assists: parseInt(query.assists, 10),
+      teamPosition: query.teamPosition,
+      primaryPerk: parseInt(query.primaryPerk, 10),
+      subPerk: parseInt(query.subPerk, 10),
+      firstBloodKill: query.firstBloodKill === "true",
+      doubleKills: parseInt(query.doubleKills, 10),
+      tripleKills: parseInt(query.tripleKills, 10),
+      quadraKills: parseInt(query.quadraKills, 10),
+      pentaKills: parseInt(query.pentaKills, 10),
+      enemyChampionName: query.enemyChampionName,
+    };
 
     return fields;
   };
@@ -248,14 +255,18 @@ export const useFetchGameInfo = ({
   ]);
 
   return {
-    gameVersion: gameVersionQuery.data!,
-    items: itemInfoQuery.data,
-    spells: spellInfoQuery.data,
-    skins: skinInfoQuery.data,
-    proPlayerImageKeyList: proPlayerImageQuery.data,
-    proTeamLogoKey: proTeamLogoQuery.data,
-    translatedChampionName: translateChampionName.data,
-    championPortraits: championPortraitQuery.data,
+    gameVersion: gameVersionQuery.data as GameInfoViewModel["gameVersion"],
+    items: itemInfoQuery.data as GameInfoViewModel["items"],
+    spells: spellInfoQuery.data as GameInfoViewModel["spells"],
+    skins: skinInfoQuery.data as GameInfoViewModel["skins"],
+    proPlayerImageKeyList:
+      proPlayerImageQuery.data as GameInfoViewModel["proPlayerImageKeyList"],
+    proTeamLogoKey:
+      proTeamLogoQuery.data as GameInfoViewModel["proTeamLogoKey"],
+    translatedChampionName:
+      translateChampionName.data as GameInfoViewModel["translatedChampionName"],
+    championPortraits:
+      championPortraitQuery.data as GameInfoViewModel["championPortraits"],
     optionalFields: optionalFields(parsedQueryString),
 
     isLoading:

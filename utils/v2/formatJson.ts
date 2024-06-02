@@ -1,13 +1,13 @@
 import { GameInfoDto } from "@/types/v2/model";
 
 export function convertJsonToQueryString(
-  gameInfo: Record<string, string | string[] | undefined>
+  gameInfo: Record<string, string | string[]>
 ): string {
   const parts: string[] = [];
 
   (Object.keys(gameInfo) as (keyof GameInfoDto)[]).forEach((key) => {
     const value = gameInfo[key];
-    if (value !== undefined && value !== "") {
+    if (value !== "") {
       if (Array.isArray(value)) {
         value.forEach((v) => {
           if (v !== undefined && v !== "") {

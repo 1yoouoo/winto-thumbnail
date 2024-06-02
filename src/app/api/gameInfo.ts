@@ -53,6 +53,7 @@ export const fetchLatestGameVersion = async (): Promise<GameVersion> => {
   try {
     const url = `${Ddragon}/api/versions.json`;
     const response = await axios.get(url);
+
     return {
       latestVersion: response.data[0],
       prevVersion: response.data[1],
@@ -63,6 +64,7 @@ export const fetchLatestGameVersion = async (): Promise<GameVersion> => {
       details: error.toString(),
     });
     console.log("error from gameInfo: ", error);
+
     return {
       latestVersion: "14.9.1",
       prevVersion: "14.9.1",
@@ -231,34 +233,6 @@ export const fetchSkinListFromBucket = async ({
   }
 };
 
-export const fetchChampionPortraitListFromBucket = async ({
-  championName,
-}: {
-  championName: string;
-}): Promise<string[]> => {
-  const championNameLower = championName.toLowerCase();
-  try {
-    const prefix = `champion/portrait/${championNameLower}`;
-    const response = await fetch(
-      `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
-    );
-    const data = await response.json();
-    const filteredData = data.filter(
-      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
-    ) as string[];
-    return filteredData;
-  } catch (error) {
-    sendSlackNotification({
-      title: "챔피언 포트레이트 이미지 가져오기 중 에러 발생",
-      details: `${championNameLower} 포트레이트 이미지가 없습니다. 추가해주세요.`,
-    });
-    console.log(
-      `${championNameLower} 포트레이트 이미지가 없습니다. 추가해주세요.`
-    );
-    return [];
-  }
-};
-
 export const fetchProTeamLogo = async ({
   teamName: teamName,
 }: {
@@ -311,5 +285,33 @@ export const fetchTranslateChampionName = async ({
       `${ChampionNameApiKey} 챔피언 이름 정보가 없습니다. 추가해주세요.`
     );
     return championName;
+  }
+};
+
+export const fetchChampionPortraitListFromBucket = async ({
+  championName,
+}: {
+  championName: string;
+}): Promise<string[]> => {
+  const championNameLower = championName.toLowerCase();
+  try {
+    const prefix = `champion/portrait/${championNameLower}`;
+    const response = await fetch(
+      `${app_url}/api/v2/get-file-list?prefix=${prefix}/`
+    );
+    const data = await response.json();
+    const filteredData = data.filter(
+      (path: string) => !path.endsWith("/") && !path.endsWith(".DS_Store")
+    ) as string[];
+    return filteredData;
+  } catch (error) {
+    sendSlackNotification({
+      title: "챔피언 포트레이트 이미지 가져오기 중 에러 발생",
+      details: `${championNameLower} 포트레이트 이미지가 없습니다. 추가해주세요.`,
+    });
+    console.log(
+      `${championNameLower} 포트레이트 이미지가 없습니다. 추가해주세요.`
+    );
+    return [];
   }
 };
