@@ -1,24 +1,72 @@
 import axios from "axios";
 import { Ddragon, app_url } from "@/constant/constant";
 import { normalizeItemIds } from "../../../utils/v2/normalizeItemIds";
-import { Item, Locale, SkinInfo, SkinKey, Spell } from "@/types/v2/model";
+import {
+  GameVersion,
+  Item,
+  Locale,
+  SkinInfo,
+  SkinKey,
+  Spell,
+} from "@/types/v2/model";
 import { sendSlackNotification } from "../../../utils/v2/sendSlackNotification";
 import { championDto } from "@/types/v2/championDto";
 
-export const fetchLatestGameVersion = async (): Promise<string> => {
+const fetchWithFallback = async (primaryUrl: string, fallbackUrl: string) => {
+  try {
+    const response = await axios.get(primaryUrl);
+    return response;
+  } catch (primaryError: any) {
+    console.log(`Primary URL failed: ${primaryUrl}, Error: ${primaryError}`);
+    try {
+      const fallbackResponse = await axios.get(fallbackUrl);
+      return fallbackResponse;
+    } catch (fallbackError: any) {
+      console.log(
+        `Fallback URL failed: ${fallbackUrl}, Error: ${fallbackError}`
+      );
+      sendSlackNotification({
+        title: "API 요청 중 에러 발생",
+        details: `Primary Error: ${primaryError.toString()}, Fallback Error: ${fallbackError.toString()}`,
+      });
+      throw fallbackError;
+    }
+  }
+};
+
+const createUrls = (
+  gameVersion: GameVersion,
+  endpointTemplate: string,
+  params: Record<string, string> = {}
+): { primaryUrl: string; fallbackUrl: string } => {
+  const endpoint = endpointTemplate.replace(
+    /\{(\w+)\}/g,
+    (_, key) => params[key]
+  );
+  return {
+    primaryUrl: `${Ddragon}/cdn/${gameVersion.latestVersion}/${endpoint}`,
+    fallbackUrl: `${Ddragon}/cdn/${gameVersion.prevVersion}/${endpoint}`,
+  };
+};
+
+export const fetchLatestGameVersion = async (): Promise<GameVersion> => {
   try {
     const url = `${Ddragon}/api/versions.json`;
     const response = await axios.get(url);
-    return response.data[0];
+    return {
+      latestVersion: response.data[0],
+      prevVersion: response.data[1],
+    };
   } catch (error: any) {
     sendSlackNotification({
       title: "게임 버전 가져오기 중 에러 발생",
       details: error.toString(),
     });
     console.log("error from gameInfo: ", error);
-    //TODO 두 번째 버전을 따로 파일에 저장해서 에러시 두 번째 버전을 리턴하도록 수정
-    //TODO 버전 체크할 떄 두 번째 버전이 달라지면 수정하는 코드 추가
-    return "14.9.1"; //! default version
+    return {
+      latestVersion: "14.9.1",
+      prevVersion: "14.9.1",
+    }; //! default version
   }
 };
 
@@ -26,20 +74,23 @@ export const fetchItemInfo = async ({
   gameVersion,
   itemIds,
 }: {
-  gameVersion: string;
+  gameVersion: GameVersion;
   itemIds: string[];
 }): Promise<Item[]> => {
+  const { primaryUrl, fallbackUrl } = createUrls(
+    gameVersion,
+    "data/en_US/item.json"
+  );
+
   try {
-    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/item.json`;
-    const response = await axios.get(url);
-    const itemData = response.data.data;
+    const itemData = await fetchWithFallback(primaryUrl, fallbackUrl);
     const normalizedItemIds = normalizeItemIds(itemIds);
 
     const Items: Item[] =
       normalizedItemIds.map((id) => ({
         id: parseInt(id, 10),
-        totalGold: itemData[id]?.gold?.total ?? 0,
-        name: itemData[id]?.name ?? "Unknown",
+        totalGold: itemData.data.data[id]?.gold?.total ?? 0,
+        name: itemData.data.data[id]?.name ?? "Unknown",
       })) || [];
 
     return Items;
@@ -57,20 +108,22 @@ export const fetchSummonerSpellInfo = async ({
   gameVersion,
   spellIds,
 }: {
-  gameVersion: string;
+  gameVersion: GameVersion;
   spellIds: number[];
 }): Promise<Spell[]> => {
   try {
-    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/summoner.json`;
-    const response = await axios.get(url);
-    const spellsData = response.data.data;
+    const { primaryUrl, fallbackUrl } = createUrls(
+      gameVersion,
+      "data/en_US/summoner.json"
+    );
+    const spellsData = await fetchWithFallback(primaryUrl, fallbackUrl);
 
     const spells: Spell[] =
       spellIds?.map((id) => {
-        const spellKey = Object.keys(spellsData).find(
-          (key) => spellsData[key].key == String(id)
+        const spellKey = Object.keys(spellsData.data.data).find(
+          (key) => spellsData.data.data[key].key == String(id)
         );
-        const spell = spellsData[spellKey!];
+        const spell = spellsData.data.data[spellKey!];
         return {
           id: parseInt(spell.key),
           name: spell.id,
@@ -93,13 +146,18 @@ export const fetchSkinInfo = async ({
   gameVersion,
   championName,
 }: {
-  gameVersion: string;
+  gameVersion: GameVersion;
   championName: string;
 }): Promise<SkinInfo[]> => {
   const ChampionNameApiKey = championDto[championName].apiKey;
+  const { primaryUrl, fallbackUrl } = createUrls(
+    gameVersion,
+    `data/en_US/champion/${ChampionNameApiKey}.json`
+  );
+
   try {
-    const url = `${Ddragon}/cdn/${gameVersion}/data/en_US/champion/${ChampionNameApiKey}.json`;
-    const response = await axios.get(url);
+    const response = await fetchWithFallback(primaryUrl, fallbackUrl);
+
     const skinData = response.data.data[`${championName}`].skins as SkinInfo[];
 
     return skinData;
@@ -233,14 +291,17 @@ export const fetchTranslateChampionName = async ({
   championName,
   locale,
 }: {
-  gameVersion: string;
+  gameVersion: GameVersion;
   championName: string;
   locale: Locale;
 }) => {
   const ChampionNameApiKey = championDto[championName].apiKey;
+  const { primaryUrl, fallbackUrl } = createUrls(
+    gameVersion,
+    `data/${locale}/champion/${ChampionNameApiKey}.json`
+  );
   try {
-    const url = `${Ddragon}/cdn/${gameVersion}/data/${locale}/champion/${ChampionNameApiKey}.json`;
-    const response = await axios.get(url);
+    const response = await fetchWithFallback(primaryUrl, fallbackUrl);
 
     return response.data.data[championName].name;
   } catch (error: any) {

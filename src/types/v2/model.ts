@@ -46,7 +46,7 @@ export type ParsedQueryString = {
 
 export interface GameInfoModel {
   championName: string;
-  gameVersion: string;
+  gameVersion: GameVersion;
   teamName?: string;
   playerName?: string;
   kills?: string;
@@ -69,7 +69,7 @@ export interface GameInfoModel {
 
 export interface GameInfoViewModel {
   championName: string;
-  gameVersion: string;
+  gameVersion: GameVersion;
   teamName?: string;
   playerName?: string;
   kills?: number;
@@ -118,6 +118,11 @@ export interface SkinInfo {
 export interface SkinKey {
   id: string;
   key: string;
+}
+
+export interface GameVersion {
+  latestVersion: string;
+  prevVersion: string;
 }
 
 export type Locale =

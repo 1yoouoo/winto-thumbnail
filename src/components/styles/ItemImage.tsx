@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Ddragon, leagueOfItems } from "@/constant/constant";
-import { Item } from "@/types/v2/model";
+import { GameVersion, Item } from "@/types/v2/model";
 import styled, { StyleSheetManager } from "styled-components";
 import shadows from "@/style/shadows";
 import GradientText from "./GradientText";
@@ -50,7 +50,7 @@ const QuestionMark = styled.span`
 `;
 
 interface IProps {
-  gameVersion: string;
+  gameVersion: GameVersion;
   item: Item;
   width: number;
   height: number;

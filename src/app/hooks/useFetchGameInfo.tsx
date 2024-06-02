@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   GameInfoViewModel,
+  GameVersion,
   Item,
   Locale,
   ParsedQueryString,
@@ -35,7 +36,7 @@ export const useFetchGameInfo = ({
     queryFn: ({ queryKey }) => {
       const [, gameVersion, itemIds] = queryKey;
       return fetchItemInfo({
-        gameVersion: gameVersion as string,
+        gameVersion: gameVersion as GameVersion,
         itemIds: itemIds as string[],
       });
     },
@@ -47,7 +48,7 @@ export const useFetchGameInfo = ({
     queryFn: ({ queryKey }) => {
       const [, gameVersion, spellIds] = queryKey;
       return fetchSummonerSpellInfo({
-        gameVersion: gameVersion as string,
+        gameVersion: gameVersion as GameVersion,
         spellIds: spellIds as number[],
       });
     },
@@ -63,7 +64,7 @@ export const useFetchGameInfo = ({
     queryFn: async ({ queryKey }) => {
       const [, gameVersion, championName] = queryKey;
       const info = await fetchSkinInfo({
-        gameVersion: gameVersion as string,
+        gameVersion: gameVersion as GameVersion,
         championName: championName as string,
       });
       const keys = await fetchSkinListFromBucket({
@@ -118,7 +119,7 @@ export const useFetchGameInfo = ({
       }
 
       return fetchTranslateChampionName({
-        gameVersion: gameVersion,
+        gameVersion: gameVersion as GameVersion,
         championName: parsedQueryString.championName,
         locale: locale as Locale,
       });
