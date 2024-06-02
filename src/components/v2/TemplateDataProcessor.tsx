@@ -15,7 +15,7 @@ const WaterMark = styled.div`
   z-index: 100;
 `;
 
-const supportedLocales: Locale[] = ["en_US", "ko_KR"];
+const supportedLocales: Locale[] = ["en_US", "ko_KR", "zh_CN"];
 
 function getValidLocale(locale: string | undefined): Locale {
   if (!locale) {

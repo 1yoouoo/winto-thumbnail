@@ -6,6 +6,8 @@ import {
 } from "./templatePreferredConditions";
 import { printTemplate } from "../../../utils/v2/printTemplate";
 
+import DefaultTemplate from "@/templates/v2/DefaultTemplate";
+
 import en_US_Template0 from "@/templates/v2/en_US/Template0";
 import en_US_Template1 from "@/templates/v2/en_US/Template1";
 import en_US_Template2 from "@/templates/v2/en_US/Template2";
@@ -20,8 +22,12 @@ import ko_KR_Template3 from "@/templates/v2/ko_KR/Template3";
 import ko_KR_Template4 from "@/templates/v2/ko_KR/Template4";
 import ko_KR_Template5 from "@/templates/v2/ko_KR/Template5";
 
-import DefaultTemplate from "@/templates/v2/DefaultTemplate";
 import zh_CN_Template0 from "@/templates/v2/zh_CN/Template0";
+import zh_CN_Template1 from "@/templates/v2/zh_CN/Template1";
+import zh_CN_Template2 from "@/templates/v2/zh_CN/Template2";
+import zh_CN_Template3 from "@/templates/v2/zh_CN/Template3";
+import zh_CN_Template4 from "@/templates/v2/zh_CN/Template4";
+import zh_CN_Template5 from "@/templates/v2/zh_CN/Template5";
 
 type Template = {
   component: React.FC<{ gameInfo: GameInfoViewModel }>;
@@ -114,12 +120,44 @@ export const templates: Template[] = [
   },
 
   {
-    component: zh_CN_Template0,
-    name: "Template1 (ko_KR)",
+    component: zh_CN_Template1,
+    name: "Template1 (zh_CN)",
     preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
     requirements: ["Over3ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
     locale: "zh_CN",
-    // select: true,
+  },
+  {
+    component: zh_CN_Template2,
+    name: "Template2 (zh_CN)",
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+    requirements: ["Over2ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    locale: "zh_CN",
+  },
+  {
+    component: zh_CN_Template3,
+    name: "Template3 (zh_CN)",
+    preferredConditions: ["NoDeath", "HighKDA", "PlayerName"],
+    requirements: ["Over1ItemsWithGoldOver2000", "KDA", "HasProPlayerImage"],
+    locale: "zh_CN",
+  },
+  {
+    component: zh_CN_Template4,
+    name: "Template4 (zh_CN)",
+    preferredConditions: ["PlayerName"],
+    requirements: ["Over0ItemsWithGoldOver2000", "HasProPlayerImage"],
+    locale: "zh_CN",
+    select: true,
+  },
+  {
+    component: zh_CN_Template5,
+    name: "Template5 (zh_CN)",
+    preferredConditions: ["TripleKills", "QuadraKills", "PentaKills"],
+    requirements: [
+      "Over1ItemsWithGoldOver2000",
+      "HasProPlayerImage",
+      "MultiKills",
+    ],
+    locale: "zh_CN",
   },
 
   // 기타 템플릿 추가...

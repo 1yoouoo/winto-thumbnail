@@ -162,7 +162,7 @@ const en_US_Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({
               text={localizedShortenName!}
               primarycolor={primary}
               secondarycolor={secondary}
-              fontSize="XSmall"
+              fontSize="XXSmall"
             />
           </ChampionName>
 

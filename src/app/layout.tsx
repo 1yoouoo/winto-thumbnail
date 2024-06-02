@@ -11,16 +11,16 @@ const LuckiestGuy = localFont({
   variable: "--font-luckiest-guy",
 });
 
-const AlimamaFangYuanTiVF = localFont({
-  src: "./fonts/AlimamaFangYuanTiVF.ttf",
-  display: "swap",
-  variable: "--font-alimama-fang-yuan-ti-vf",
-});
-
 const WAGURITTF = localFont({
   src: "./fonts/WAGURITTF.woff2",
   display: "swap",
   variable: "--font-waguri-ttf",
+});
+
+const JingNanJun = localFont({
+  src: "./fonts/JingNanJun.ttf",
+  display: "swap",
+  variable: "--font-jing-nan-jun",
 });
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${LuckiestGuy.variable} ${AlimamaFangYuanTiVF.variable} ${WAGURITTF.variable}`}
+      className={`${LuckiestGuy.variable} ${WAGURITTF.variable} ${JingNanJun.variable}`}
     >
       <StyledComponentsRegistry>
         <GlobalStyle />

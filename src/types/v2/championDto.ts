@@ -551,8 +551,8 @@ export const championDto: ChampionDto = {
     name: "Kai'Sa",
     shortenName: { en_US: "Kai'Sa" },
     color: {
-      primary: "#7D3C98",
-      secondary: "#4A235A",
+      primary: "#AF47D2",
+      secondary: "#5C2FC2",
     },
     apiKey: "Kaisa",
   },

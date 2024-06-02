@@ -171,7 +171,7 @@ const ko_KR_Template5: React.FC<{ gameInfo: GameInfoViewModel }> = ({
               text={localizedShortenName!}
               primarycolor={primary}
               secondarycolor={secondary}
-              fontSize="XSmall"
+              fontSize="XXSmall"
             />
           </ChampionName>
         </Description>
