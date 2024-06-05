@@ -45,6 +45,7 @@ const ChampionPortraitWrapper: React.FC<ChampionImageWrapperProps> = ({
           height={720}
           quality={100}
           unoptimized
+          priority
         />
       </Wrapper>
     </StyleSheetManager>

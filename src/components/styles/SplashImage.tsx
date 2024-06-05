@@ -4,7 +4,9 @@ import { Ddragon, spacesCdnFullEndpoint } from "@/constant/constant";
 import styled from "styled-components";
 import { GameInfoViewModel } from "@/types/v2/model";
 
-const Wrapper = styled.div<{ hasChampionPortrait: boolean }>`
+const Wrapper = styled.div.withConfig({
+  shouldForwardProp: (prop) => !["hasChampionPortrait"].includes(prop),
+})<{ hasChampionPortrait: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
