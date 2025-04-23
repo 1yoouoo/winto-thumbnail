@@ -11,42 +11,42 @@
 > [!NOTE]
 > 해당 서비스는 이 흐름중 **6. 썸네일 자동 생성** 에 대한 서비스입니다.
 
-1. **실시간 매치 감지 (Match Tracking Service)**
+1. **실시간 매치 감지**
 
    - Riot API 및 OP.GG 웹 크롤링을 통해 등록된 프로 게이머 및 챌린저 티어 플레이어의 실시간 매치 상태 모니터링
 
-2. **경기 성과 분석 (Performance Analytics Engine)**
+2. **경기 성과 분석**
 
    - 매치 데이터 분석을 통한 KDA, CS, 골드 획득량 등 주요 지표 자동 계산
    - 높은 시청가치가 있는 게임 자동 선별 (멀티킬, 특별한 플레이 등)
 
-3. **자동 리플레이 녹화 (Replay Capture System)**
+3. **자동 리플레이 녹화**
 
    - League of Legends 클라이언트 제어를 위한 Native API 연동
    - 게임 리플레이 자동 로드 및 지정된 영역/플레이어 중심 영상 녹화
 
-4. **메타데이터 및 컨텐츠 생성 (Content Generation Service)**
+4. **메타데이터 및 컨텐츠 생성**
 
    - 게임 데이터 크롤링을 통한 매치별 메타데이터 (챔피언, 룬, 아이템 빌드 등) 자동 추출
    - 다국어 대응 타이틀 및 설명 텍스트 자동 생성 (각 채널별 타겟 언어에 맞춤)
 
-5. **YouTube 업로드 준비 (Upload Preparation Service)**
+5. **YouTube 업로드 준비**
 
    - 영상 처리 완료 후 YouTube Data API와 연동하여 업로드 준비
    - OAuth 2.0 기반 채널별 인증 관리 및 토큰 갱신
 
-6. **썸네일 자동 생성 (winto-thumbnail Service)**
+6. **썸네일 자동 생성**
 
    - 게임 메타데이터와 성과 지표를 활용한 맞춤형 썸네일 디자인 자동 생성
    - React 기반 컴포넌트 렌더링 시스템으로 다양한 썸네일 템플릿 지원
    - 유튜브 중복 썸네일로 인한 노출 감소를 방지하기 위해 썸네일 생성 시 랜덤 패턴 적용
 
-7. **썸네일 스크린샷 캡처 (Puppeteer Rendering Service)**
+7. **썸네일 스크린샷 캡처**
 
    - Headless Chrome과 Puppeteer를 활용한 고품질 썸네일 스크린샷 자동 캡처
    - DigitalOcean Spaces Object Storage에 썸네일 저장
 
-8. **YouTube 업로드 (YouTube Integration Service)**
+8. **YouTube 업로드**
    - YouTube Data API v3 연동을 통한 완전 자동화된 영상 및 썸네일 업로드
 
 ## 자동 배포된 채널 목록
